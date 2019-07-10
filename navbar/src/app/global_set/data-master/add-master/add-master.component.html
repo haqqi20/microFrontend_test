@@ -1,0 +1,62 @@
+<router-outlet></router-outlet>
+<!--<div class="ui-g">-->
+    <p-messages [(value)]="messages"></p-messages>
+<!--</div>-->
+<div class="ui-g">
+    <!-- button -->
+    <div class="ui-grid-row ui-g-12" style="background-color: white; ">
+        <div class="ui-grid-row ui-g-12 topbarsticky" >
+            <div class="ui-g-12" style="float:right">
+                <td style="padding-right: 5px; float: right;">
+                    <button pButton type="submit" icon="pi pi-save" class="ui-button-success" label="Save "
+                             style="font-size:13px" (click)="addlookupmaster(); showSuccess();" routerLink="/master" ></button>
+                </td>
+                <td style="padding-right: 5px; float: right;">
+                    <button pButton type="submit" icon="pi pi-plus" label="Save & New" class="ui-button-warning"
+                            style="font-size:13px" (click)="addlookupmaster(); showSuccess(); reset()" (ngSubmit)="onSubmit($event)" routerLink="/addmaster"></button>
+                </td>
+                <td style="padding-right: 5px; float: right;">
+                    <button pButton icon="pi pi-times" class="secondary-btn" label="Cancel"
+                            style="font-size:13px" routerLink="/master"></button>
+                </td>
+            </div>
+        </div>
+        <!-- end button -->
+        <!--<br><br><br>-->
+        <div class="" style="margin-top: 70px">
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-6" style="margin-left:10px; margin-right:30%">
+                    <h4>Add Lookup master</h4>
+                </div>
+                <!--<div class="ui-g-12 ui-md-1 ui-md-offset-4">-->
+                    <!--<button pButton type="button" class=""-->
+                            <!--label="Add" style="font-size:13px">-->
+                    <!--</button>-->
+                <!--</div>-->
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g" style="margin-left: 10px">
+                    <div class="ui-g-12 ui-md-12">
+                        <div class="ui-g ui-grid-row">
+                            <div class="ui-g">
+                                <div class="ui-g-12 ui-md-4 ui-lg-6" style="margin-right: 2px">Group Name</div>
+                                <div class="ui-g-12 ui-md-4 ui-lg-4">
+                                    <input type="text" placeholder="Enter Group name" [(ngModel)]="lookupMasterList.groupValue" pInputText>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-g ui-grid-row">
+                            <div class="ui-g">
+                                <div class="ui-g-12 ui-md-4 ui-lg-6">Lookup Name</div>
+                                <div class="ui-g-12 ui-md-4 ui-lg-4">
+                                    <input type="text" placeholder="Enter Lookup name" [(ngModel)]="lookupMasterList.lookupName" pInputText>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

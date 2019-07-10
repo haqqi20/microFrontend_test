@@ -1,0 +1,8 @@
+.field-garis input[type=text], select {
+    border: none;
+    border-bottom: 2px solid darkgrey;
+    background-color: inherit;
+    display: block;
+    width: 100%;
+    margin: none;
+}

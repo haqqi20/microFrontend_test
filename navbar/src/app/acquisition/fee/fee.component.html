@@ -1,0 +1,3 @@
+<app-fee-message></app-fee-message>
+<router-outlet #outlet="outlet"></router-outlet>
+<app-fee-list *ngIf="outlet.isActivated === false"></app-fee-list>

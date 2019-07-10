@@ -1,0 +1,238 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body {
+    font-family: Roboto, Arial, sans-serif;
+    margin: 0;
+}
+
+//@import '~primeicons/primeicons.css';
+//@import '~primeng/resources/themes/nova-light/theme.css';
+//@import '~primeng/resources/primeng.min.css';
+body .ui-breadcrumb {
+    background-color: #ffffff;
+}
+
+// checkbox
+body .ui-chkbox .ui-chkbox-box {
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    margin-top: -4px;
+    -moz-transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+    -o-transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+    -webkit-transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+    transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+h2 {
+    font-weight: normal;
+}
+
+hr {
+    color: #d9d9d9;
+    border-width: .5px;
+}
+
+// paginator position right
+.ui-paginator {
+    text-align: right !important;
+}
+
+// autocomplete
+.ui-fluid .ui-autocomplete.ui-autocomplete-dd .ui-autocomplete-input, .ui-fluid .ui-autocomplete.ui-autocomplete-dd .ui-autocomplete-multiple-container {
+    width: calc(100% - 30px);
+}
+
+.ui-fluid .ui-autocomplete .ui-autocomplete-dropdown.ui-button {
+    width: 30px;
+    height: 2.3em;
+}
+
+// sticky topbar
+.topbarsticky {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 60px;
+    height: 60px;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 4px 6px -6px #222;
+    -moz-box-shadow: 0 4px 6px -6px #222;
+    box-shadow: 0 4px 6px -6px #222;
+    float: right;
+    z-index: 3;
+}
+
+// message
+.topmessage {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 120px;
+    background-color: #ffffff;
+    z-index: 5;
+}
+
+.card {
+    margin-bottom: 6px;
+}
+
+.card h1 {
+    font-size: 24px;
+    font-weight: normal;
+    /* margin: 24px 0; */
+}
+.card h2 {
+    font-size: 20px;
+    font-weight: normal;
+    /* margin: 24px 0; */
+}
+
+//.basic-container {
+//    padding: 30px;
+//}
+
+//.version-info {
+//    font-size: 12px;
+//    float: right;
+//}
+
+.ng-template-header {
+    background: #ffffff;
+    color: #292B2C;
+    border: 1px solid #ffffff;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.switch.switch-small > .switch-pane > span {
+    font-size: 12px; }
+
+fieldset {
+    display: block;
+    margin-inline-start: 1px;
+    margin-inline-end: 1px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #c2ceca;
+    border-image: initial;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+btnRight {
+    float: right;
+    width: 8em;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+// form login
+.login-container{
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+// .login-form-1{
+//   padding: 5%;
+//   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+// }
+.login-form-1 h3{
+  text-align: center;
+  color: #333;
+}
+.login-form-2{
+  //padding: 5%;
+  background: #ffffff;
+  //box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-2 h3{
+  //text-align: center;
+  color: #000000;
+  padding-left: 50px;
+}
+.login-container form{
+  padding: 10%;
+  padding-top: 5%;
+}
+.btnSubmit
+{
+  width: 50%;
+  border-radius: 1rem;
+  padding: 1.5%;
+  border: none;
+  cursor: pointer;
+}
+.login-form-1 .btnSubmit{
+  font-weight: 600;
+  color: #fff;
+  background-color: #0062cc;
+}
+.login-form-2 .btnSubmit{
+  font-weight: 600;
+  color: #0062cc;
+  background-color: #fff;
+}
+.login-form-2 .ForgetPwd{
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+.login-form-1 .ForgetPwd{
+  color: #0062cc;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+
+//padding class ui
+.ui-md-6-custom, .ui-md-12-custom {
+  padding: .1em;
+}
+
+.ui-md-6-form{
+  padding-right: 5%
+}
+
+.card .ui-g-12 .ui-g-nopad .form-field{
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.new-pad {
+  padding-top: .8em;
+}
+
+.topbarbutton{
+  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-left: 6px;
+  width: 8em;
+}
+
+
+.tooltipp{
+  position:relative;
+  float:right;
+  top: -30px;
+
+}
+.tooltipp > .tooltipp-inner {background-color: #eec60d; padding:5px 15px; color: rgb(0, 0, 0); font-weight:bold; font-size:13px;}
+section{
+  margin:100px auto;
+  height:1000px;
+}
+.progress{
+  border-radius:0;
+  overflow:visible;
+}

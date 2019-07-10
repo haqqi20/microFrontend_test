@@ -1,0 +1,362 @@
+<router-outlet #outlet="outlet"></router-outlet>
+<div *ngIf="outlet.isActivated === false" class="ui-fluid">
+  <p-messages [(value)]="messages"></p-messages>
+  <div class="ui-g">
+    <div class="ui-grid-row ui-g-12" style="background-color: white;">
+      <div class="ui-g-12">
+        <td style="padding-left:5px; float: left;">
+          <h1>Disbursement</h1>
+        </td>
+      </div>
+    </div>
+
+    <div class="card ui-g-12 ui-lg-12 ui-md-12">
+      <div class="ui-g-12 ui-lg-12 ui-md-12">
+        <div style="padding-left: 5px; padding-right:5px;">
+          <p-tabView [activeIndex]="index">
+            <p-tabPanel class="po" header="Generate PO" leftIcon="fas fa-clipboard-check">
+              <div class="ui-g-12" style="padding-left: 3%; padding-right: 3%">
+                <h3>Generate PO</h3>
+                <p-table #dt1 [columns]="cols1" [value]="apps1" [paginator]="true" [rows]="10" [pageLinks]="3"
+                  [rowsPerPageOptions]="[10,25,50]">
+                  <ng-template pTemplate="caption">
+                    <div class="ui-g">
+                      <div class="ui-g-12 ui-lg-6 ui-md-6">
+                        <div class="ui-inputgroup">
+                          <input type="search" pInputText placeholder="Type keyword search here..."
+                            [(ngModel)]="searchQuery1" (keyup.enter)="dt1.filterGlobal(searchQuery1, 'contains')">
+                          <button pButton class="ui-button-info" label="Search"
+                            (click)="dt1.filterGlobal(searchQuery1, 'contains')" style="width: 8em"></button>
+                        </div>
+                      </div>
+                      <div class="ui-g-12 ui-lg-6 ui-md-6">
+
+                      </div>
+                    </div>
+                  </ng-template>
+
+                  <ng-template pTemplate="header" let-columns>
+                    <tr>
+                      <th style="width: 6%">
+                        No
+                      </th>
+                      <th *ngFor="let col of columns" [ngSwitch]="col.field" [pSortableColumn]="col.field">
+                        <!-- [ngStyle]="{'width': col.width}"> -->
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+                          ariaLabelDesc="Activate to sort in descending order"
+                          ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                      </th>
+                      <th style="width: 9%">
+                        Action
+                      </th>
+                    </tr>
+                  </ng-template>
+
+                  <ng-template pTemplate="body" let-app let-rowIndex="rowIndex">
+                    <tr>
+                      <td style="text-align: center">
+                        {{rowIndex + 1}}
+                      </td>
+                      <td>
+                        {{app['dealerId']}}
+                      </td>
+                      <td>
+                        {{app['dealerName']}}
+                      </td>
+                      <td>
+                        {{app['dealerAddress']}}
+                      </td>
+                      <td style="text-align: center">
+                        <span class="fa fa-pencil-square-o" style="font-size: 1.2em; cursor: pointer;"
+                          (click)="onItem1(app.dealerId)"></span>
+                      </td>
+                    </tr>
+                  </ng-template>
+
+                  <ng-template pTemplate="summary">
+                    <h4>This company has listed {{apps1.length}} application(s)</h4>
+                  </ng-template>
+                </p-table>
+              </div>
+            </p-tabPanel>
+
+            <p-tabPanel class="po-list" header="PO List" leftIcon="fas fa-receipt">
+              <div class="ui-g-12" style="padding-left: 3%; padding-right: 3%">
+                <h3>Purchase Order List</h3>
+                <p-table #dt2 [columns]="cols2" [value]="apps2" [paginator]="true" [rows]="10" [pageLinks]="3"
+                  [rowsPerPageOptions]="[10,25,50]">
+                  <ng-template pTemplate="caption">
+                    <div class="ui-g">
+                      <div class="ui-g-12 ui-lg-6 ui-md-6">
+                        <div class="ui-inputgroup">
+                          <input type="search" pInputText placeholder="Type keyword search here..."
+                            [(ngModel)]="searchQuery2" (keyup.enter)="dt2.filterGlobal(searchQuery2, 'contains')">
+                          <button pButton class="ui-button-info" label="Search"
+                            (click)="dt2.filterGlobal(searchQuery2, 'contains')" style="width: 8em"></button>
+                        </div>
+                      </div>
+                      <div class="ui-g-12 ui-lg-6 ui-md-6">
+
+                      </div>
+                    </div>
+                  </ng-template>
+
+                  <ng-template pTemplate="header" let-columns>
+                    <tr>
+                      <th style="width: 6%">
+                        No
+                      </th>
+                      <th *ngFor="let col of columns" [ngSwitch]="col.field" [pSortableColumn]="col.field">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+                          ariaLabelDesc="Activate to sort in descending order"
+                          ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                      </th>
+                      <th style="width: 9%">
+                        Action
+                      </th>
+                    </tr>
+                  </ng-template>
+
+                  <ng-template pTemplate="body" let-app let-rowIndex="rowIndex">
+                    <tr>
+                      <td style="text-align: center">
+                        {{rowIndex + 1}}
+                      </td>
+                      <td>
+                        {{app['dealerId']}}
+                      </td>
+                      <td>
+                        {{app['dealerName']}}
+                      </td>
+                      <td>
+                        {{app['dealerAddress']}}
+                      </td>
+                      <td>
+                        {{app['poNumber']}}
+                      </td>
+                      <td>
+                        {{app['poDate']}}
+                      </td>
+                      <td style="text-align: center">
+                        <span class="fa fa-search" style="font-size: 1.2em; cursor: pointer"
+                          (click)="onItem2(app.dealerId)"></span>
+                      </td>
+                    </tr>
+                  </ng-template>
+
+                  <ng-template pTemplate="summary">
+                    <h4>This company has listed {{apps2.length}} application(s)</h4>
+                  </ng-template>
+                </p-table>
+              </div>
+            </p-tabPanel>
+
+            <p-tabPanel class="invoice" header="Entry Invoice Dealer" leftIcon="fas fa-file-invoice-dollar">
+              <div class="ui-g-12 ui-lg-6 ui-md-6">
+                <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+                  <div class="ui-g-12">
+                    <h3>Search By</h3>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                      Dealer ID
+                    </div>
+                    <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                      <input pInputText [(ngModel)]="dealerId" type="text" placeholder="Input dealer id">
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                      Dealer Name
+                    </div>
+                    <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                      <input pInputText [(ngModel)]="dealerName" type="text" placeholder="Input dealer name">
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                      Dealer Address
+                    </div>
+                    <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                      <input pInputText [(ngModel)]="dealerAddress" type="text" placeholder="Input dealer address">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12" style="padding-left: 3%; padding-right: 3%">
+                <td style="float: right">
+                  <button pButton class="ui-button-info" label="Search" (click)="onSearchPO()"
+                    style="width: 8em"></button>
+                </td>
+              </div>
+
+              <div class="ui-g-12" style="padding-left: 3%; padding-right: 3%">
+                <hr>
+              </div>
+
+              <div class="ui-g-12" style="padding-left: 3%; padding-right: 3%">
+                <h3>Purchase Order List</h3>
+                <p-table #dt3 [columns]="cols3" [value]="apps3" [paginator]="true" [rows]="10" [pageLinks]="3"
+                  [rowsPerPageOptions]="[10,25,50]">
+                  <ng-template pTemplate="caption">
+                    <div class="ui-g">
+                      <div class="ui-g-12 ui-lg-6 ui-md-6">
+                        <div class="ui-inputgroup">
+                          <input type="search" pInputText placeholder="Type keyword search here..."
+                            [(ngModel)]="searchQuery3">
+                          <button pButton class="ui-button-info" label="Search"
+                            (click)="dt3.filterGlobal(searchQuery3, 'contains')" style="width: 8em"></button>
+                        </div>
+                      </div>
+                      <div class="ui-g-12 ui-lg-6 ui-md-6">
+
+                      </div>
+                    </div>
+                  </ng-template>
+
+                  <ng-template pTemplate="header" let-columns>
+                    <tr>
+                      <th style="width: 5%">
+                        No
+                      </th>
+                      <th *ngFor="let col of columns" [ngSwitch]="col.field" [pSortableColumn]="col.field">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+                          ariaLabelDesc="Activate to sort in descending order"
+                          ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                      </th>
+                      <th style="width: 9%">
+                        Action
+                      </th>
+                    </tr>
+                  </ng-template>
+
+                  <ng-template pTemplate="body" let-app let-rowIndex="rowIndex">
+                    <tr [pEditableRow]="app">
+                      <td style="text-align: center">
+                        {{rowIndex + 1}}
+                      </td>
+                      <td>
+                        {{app['poNumber']}}
+                      </td>
+                      <td>
+                        {{app['poDate']}}
+                      </td>
+                      <td>
+                        {{app['totalPrice'] | currency:'IDR':'symbol-narrow':'1.2-2':'id-ID'}}
+                      </td>
+                      <td>
+                        {{app['invoiceNumber']}}
+                      </td>
+                      <td>
+                        {{app['invoiceDate']}}
+                      </td>
+                      <td>
+                        {{app['invoiceAmount'] | currency:'IDR':'symbol-narrow':'1.2-2':'id-ID'}}
+                      </td>
+                      <td style="text-align: center">
+                        <span class="fa fa-pencil-square-o" style="font-size: 1.2em; cursor: pointer;"
+                          (click)="onItem3(app.dealerId)"></span>
+                      </td>
+                    </tr>
+                  </ng-template>
+
+                  <ng-template pTemplate="summary">
+                    <h4>This company has listed {{apps3.length}} application(s)</h4>
+                  </ng-template>
+                </p-table>
+              </div>
+            </p-tabPanel>
+
+            <p-tabPanel class="disbursement" header="Disbursement" leftIcon="fas fa-hand-holding-usd">
+              <div class="ui-g-12" style="padding-left: 3%; padding-right: 3%">
+                <h3>Disbursement List</h3>
+                <p-table #dt4 [columns]="cols4" [value]="apps4" [paginator]="true" [rows]="10" [pageLinks]="3"
+                  [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['poNumber','dealer']">
+                  <ng-template pTemplate="caption">
+                    <div class="ui-g">
+                      <div class="ui-g-12 ui-lg-6 ui-md-6">
+                        <div class="ui-inputgroup">
+                          <input type="search" pInputText placeholder="Type keyword search here..."
+                            [(ngModel)]="searchQuery4" (keyup.enter)="dt4.filterGlobal(searchQuery4, 'contains')">
+                          <button pButton class="ui-button-info" label="Search"
+                            (click)="dt4.filterGlobal(searchQuery4, 'contains')" style="width: 8em"></button>
+                        </div>
+                      </div>
+                      <div class="ui-g-12 ui-lg-6 ui-md-6">
+
+                      </div>
+                    </div>
+                  </ng-template>
+
+                  <ng-template pTemplate="header" let-columns>
+                    <tr>
+                      <th style="width: 5%">
+                        No
+                      </th>
+                      <th *ngFor="let col of columns" [ngSwitch]="col.field" [pSortableColumn]="col.field">
+                        <!-- [ngStyle]="{'width': col.width}"> -->
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+                          ariaLabelDesc="Activate to sort in descending order"
+                          ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                      </th>
+                      <th style="width: 9%">
+                        Dishbursh
+                      </th>
+                      <th style="width: 9%">
+                        Action
+                      </th>
+                    </tr>
+                  </ng-template>
+
+                  <ng-template pTemplate="body" let-app let-rowIndex="rowIndex">
+                    <tr>
+                      <td style="text-align: center">
+                        {{rowIndex + 1}}
+                      </td>
+                      <td>
+                        {{app['poNumber']}}
+                      </td>
+                      <td>
+                        {{app['totalPrice'] | currency:'IDR':'symbol-narrow':'1.2-2':'id-ID'}}
+                      </td>
+                      <td>
+                        {{app['invoiceNumber']}}
+                      </td>
+                      <td>
+                        {{app['invoiceAmount'] | currency:'IDR':'symbol-narrow':'1.2-2':'id-ID'}}
+                      </td>
+                      <td>
+                        {{app['dealerId']}}
+                      </td>
+                      <td>
+                        {{app['dealerName']}}
+                      </td>
+                      <td style="text-align: center">
+                        <p-checkbox binary="true" [(ngModel)]="checkDisb"></p-checkbox>
+                      </td>
+                      <td style="text-align: center">
+                        <span *ngIf="checkDisb" class="fa fa-search" style="font-size: 1.2em; cursor: pointer;"
+                          (click)="onItem4(app['dealerId'])"></span>
+                        <span *ngIf="!checkDisb" class="fa fa-search"
+                          style="font-size: 1.2em; pointer-events: none; cursor: not-allowed;"></span>
+                      </td>
+                    </tr>
+                  </ng-template>
+
+                  <ng-template pTemplate="summary">
+                    <h4>This company has listed {{apps4.length}} application(s)</h4>
+                  </ng-template>
+                </p-table>
+              </div>
+            </p-tabPanel>
+          </p-tabView>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

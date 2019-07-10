@@ -1,0 +1,19 @@
+:host /deep/ .material-icons {
+    font-family: 'Material Icons' !important;
+}
+
+.dot-active {
+    height: 15px;
+    width: 15px;
+    background-color: #54f317;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-inprogress {
+    height: 15px;
+    width: 15px;
+    background-color: #f3830d;
+    border-radius: 50%;
+    display: inline-block;
+}

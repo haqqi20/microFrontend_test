@@ -1,0 +1,78 @@
+<div class="ui-g">
+    <div class="ui-grid-row ui-g-12" style="background-color: white;">
+        <div class="ui-g-12">
+            <div style="padding-left: 5px; padding-right:5px;">
+                <h1>Users</h1>
+            </div>
+        </div>
+    </div>
+    <div class="card ui-g-12">
+        <div class="ui-g-12">
+            <div style="padding-left: 5px; padding-right:5px;">
+                <p-table #dt [columns]="cols" [value]="employees" [paginator]="true" [rows]="rows" [pageLinks]="3" 
+                    [rowsPerPageOptions]="rowsOptions">
+                    <ng-template pTemplate="caption">
+                        <div class="ui-g">
+                            <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                <input type="text" pInputText placeholder="Search" style="width:auto; float: left;"
+                                    (input)="dt.filterGlobal($event.target.value, 'contains')">
+                            </div>
+                            <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                <button pButton style="float:right; width: 75px" type="button" label="Add" (click)="showAdd()"></button>
+                            </div>
+                        </div>
+                    </ng-template>
+                    
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                            <th style="width: 6%">
+                                No
+                            </th>
+                            <th *ngFor="let col of columns" [ngSwitch]="col.field" [pSortableColumn]="col.field" [ngStyle]="{'width': col.width}">
+                                {{col.header}}
+                                <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                            </th>
+                            <th style="width: 9%">
+                                Action
+                            </th>
+                        </tr>
+                    </ng-template>
+
+                    <ng-template pTemplate="body" let-employee let-rowIndex="rowIndex">
+                        <tr>
+                            <td style="text-align: center">
+                                {{rowIndex + 1}}
+                            </td>
+                            <td>
+                                {{employee['fullName']}}
+                            </td>
+                            <td>
+                                {{employee['email']}}
+                            </td>
+                            <td>
+                                <span pButton *ngFor="let role of employee['role']" style="font-size: 10px; border-radius: 15px; margin-right: 5pt"
+                                label="{{role['roleName']}}" class="ui-button-info"></span>
+                            </td>
+                            <td style="text-align: center">
+                                <span pButton style="font-size: 10px; border-radius: 15px;" label="{{employee.status}}" [ngClass]="{
+                                    'ui-button-success': employee.status==='Active',
+                                    'ui-button-danger': employee.status==='Inactive',
+                                    'ui-button-warning': employee.status==='Pending',
+                                    'ui-button-secondary': employee.status==='Disabled',
+                                    'ui-button-primary': employee.status==='Locked'
+                                }"></span>
+                            </td>
+                            <td style="text-align: center">
+                                <span class="fa fa-pencil-square-o" style="font-size: 1.2em; cursor: pointer;" (click)="onItemClick(employee.employeeId)"></span>
+                            </td>
+                        </tr>
+                    </ng-template>
+
+                    <ng-template pTemplate="summary">
+                        <h4>This company has listed {{employees?.length}} employee(s)</h4>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div> 
+    </div>
+</div>

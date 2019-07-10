@@ -1,0 +1,474 @@
+{
+    "data": [
+        {
+            "productName": "Kredit Special Kartini",
+            "applicationDate": "16-Mar-2019",
+            "applicationNumber": "102-117-552",
+            "surveyStatus": "Approved",
+            "customerId": "675509180919900015",
+            "fullName": "Anita Auderlic",
+            "address": "Jl Telaga Baru No. 68",
+            "zipCode": "10998",
+            "objectCategory": "C-Passanger",
+            "financingObject": "Suzuki Ignis",
+            "financingValue": "Rp. 157.000.000",
+            "officeCode": "BJ0007",
+            "officeName": "PT Budi Jaya cab. Jakarta Selatan",
+            "surveyPic": "Kurnia Wijaya",
+            "surveyType": "Reguler",
+            "surveyor": "Dadang Faturahman",
+            "assinDate": "21-Mar-2019",
+            "surveyDate": "22-Mar-2019",
+            "endDate": "22-Mar-2019",
+            "approvalStatus": "Approved",
+            "npk": "120007769887",
+            "phone": "089567789898",
+            "applicatonId": "102-117-552",
+            "destinationaddress": "Jl Telaga Baru No. 68",
+            "village": "Cipedak",
+            "district": "Jagakarsa",
+            "city": "Jakarta Selatan",
+            "province": "DKI Jakarta",
+            "surveyDecisionBySurveyor": "Approved",
+            "surveyorNotes": "Berdasarkan hasil Survey yang telah dilakukan, data yang telah dimasukan oleh debitur adalah benar dan sesuai",
+            "surveyDecisionByPic": "Approved",
+            "picSurveyorNotes": "Hasil survey yang didapatkan sesuai",
+            "templetQuestion": [
+                {
+                    "question": "Apa saja sumber pemasukkan nasabah ?",
+                    "result": "Gaji bulanan dan gaji pasangan"
+                },
+                {
+                    "question": "Berapa jumlah total pemasukan selama satu bulan ?",
+                    "result": "Rp. 34.000.000"
+                },
+                {
+                    "question": "Berapa jumlah pengeluaran rutin selama satu bulan ?",
+                    "result": "Rp. 4.000.000"
+                },
+                {
+                    "question": "Apakah ada kredit lain yang belum lunas ?",
+                    "result": "Tidak"
+                }
+            ],
+            "scoringDecision": "Survey",
+            "loanScoring": "64",
+            "scoringDecisionDate": "20-Mar-2019",
+            "finalDecision": "Approve",
+            "secisionMarker": "Aliya Rinjani",
+            "loanOfficerNotes": "Berdasarkan hasil scoring, survey dan analisis kredit, cutsomer ini berhak mendapatkan kredit sebesar yang diajukan",
+            "decisionDate": "22-Mar-2019",
+            "approvalDate": "24-Mar-2019",
+            "customerName": "Anita Auderlic",
+            "customerType": "Personal",
+            "object": "Suzuki Ignis",
+            "officeId": "BJ0007",
+            "status": "Approved",
+            "termOfPayment": "36",
+            "installmentType": "Arrear",
+            "installmentPeriod": "1",
+            "collectionPayment": "Cashier",
+            "totalProductPrice": "Rp. 157.000.000",
+            "grossDownPayment": "Rp. 47.100.000",
+            "netDownPayment": "Rp. 44.100.000",
+            "tableParameter": [
+                {
+                    "parameter": "Loan Purpose",
+                    "requested": "Kredit Mobil",
+                    "approved": "Kredit Mobil"
+                },
+                {
+                    "parameter": "Loan Amount",
+                    "requested": "Rp. 157.000.000",
+                    "approved": "Rp. 157.000.000"
+                },
+                {
+                    "parameter": "Loan Term",
+                    "requested": "36 Months",
+                    "approved": "36 Months"
+                },
+                {
+                    "parameter": "Annual Interst",
+                    "requested": "10%",
+                    "approved": "10%"
+                },
+                {
+                    "parameter": "Number of Repayment",
+                    "requested": "36",
+                    "approved": "36"
+                },
+                {
+                    "parameter": "Principle Monthly Repayments",
+                    "requested": "Rp. 3.134.722",
+                    "approved": "Rp. 3.134.722"
+                },
+                {
+                    "parameter": "Interest Monthly Repayments",
+                    "requested": "Rp. 940.416",
+                    "approved": "Rp. 940.416"
+                },
+                {
+                    "parameter": "Total Monthly Repayments",
+                    "requested": "Rp. 4.075.138",
+                    "approved": "Rp. 4.075.138"
+                },
+                {
+                    "parameter": "Last Repayment Monthly",
+                    "requested": "Rp. 4.075.138",
+                    "approved": "Rp. 4.075.138"
+                }
+            ],
+            "adminFee": "Rp. 1.000.000",
+            "provisionFee": "Rp. 1.500.000",
+            "othersFee": "Rp. 475.000",
+            "stampFee": "Rp. 25.000",
+            "businessUnit": "New Car",
+            "dealer": "PT Suzuki Indomobil Motor",
+            "brand": "Suzuki",
+            "type": "Ignis",
+            "model": "GL MT",
+            "manufacturingDate": "2018",
+            "chassisNumber": "",
+            "engineNumber": "",
+            "colour": "White",
+            "ownershipCeritifcateNumber": "Anita Auderlic",
+            "price": "Rp. 157.000.000",
+            "insuranceType": "All Risk",
+            "collateralType": "Automotive",
+            "brandCollateral": "Yamaha",
+            "typeCollateral": "Mio",
+            "modelCollateral": "MT",
+            "manufacturingDateCollateral": "2018",
+            "chassisNumberCollateral": "",
+            "machineNumber": "",
+            "colourCollateral": "Red",
+            "salutation": "Mrs",
+            "aliasName": "Anita",
+            "identityNumber": "675509180919900015",
+            "birthPlace": "Bandung",
+            "birthDate": "18-Sep-1990",
+            "motherName": "Suci Septriasah",
+            "phoneNumber": "085647781818",
+            "email": "anitaauderlic@gmail.com",
+            "gender": "Female",
+            "religion": "Catholic",
+            "maritialStatus": "Married",
+            "occupation": "Secretary",
+            "companyName": "PT Telaga Putuh Abadi",
+            "lenghtOfWork": "16",
+            "employmentStatus": "Permanent",
+            "startDate": "01-Dec-2017",
+            "endDateWork": "",
+            "stillWork": true,
+            "addressType": "Collection",
+            "vilage": "Cipedak",
+            "salutationFamily": "Mr",
+            "fullNameFamily": "Andreas Auderlic",
+            "aliasNameFamily": "Andreas",
+            "identityNumberFamily": "366490181119850005",
+            "birthPlaceFamily": "Bandung",
+            "birthDateFamily": "18-Nov-1985",
+            "phoneNumberFamily": "085634438012",
+            "emailFamily": "andreasauderlic@gmail.com",
+            "genderFamily": "Male",
+            "incomeType": "Spouse Income",
+            "monthlyIncome": "Rp. 34.000.000",
+            "educationType": "Diploma",
+            "InstituteName": "Akademi Sekretari dan Manajemen Don Bosco",
+            "major": "Jurusan Administrasi Perkantoran",
+            "startDateEducation": "01-Jul-2010",
+            "endDateEducation": "30-Jun-2013",
+            "document": [
+                {
+                    "documentType": "Identity Document",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "ID1200088.jpg"
+                },
+                {
+                    "documentType": "Back Statment Book",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "BS1200028.jpg"
+                },
+                {
+                    "documentType": "Credit Card Bill",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "CC1200098.jpg"
+                },
+                {
+                    "documentType": "Family Card Document",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "KK1200168.jpg"
+                }
+            ],
+            "approvalFlow": [
+                {
+                    "story": "Application Entry",
+                    "date": "16-Mar-2019"
+                },
+                {
+                    "story": "Scoring Aplication",
+                    "date": "20-Mar-2019"
+                },
+                {
+                    "story": "Assign Survey",
+                    "date": "21-Mar-2019"
+                },
+                {
+                    "story": "Survey By Dadang Faturahman",
+                    "date": "22-Mar-2019"
+                },
+                {
+                    "story": "Application Survey",
+                    "date": "22-Mar-2019"
+                },
+                {
+                    "story": "Survey Approve By Kurnia Wijaya",
+                    "date": "22-Mar-2019"
+                },
+                {
+                    "story": "Application Approved",
+                    "date": "24-Mar-2019"
+                }
+            ]
+        },
+        {
+            "productName": "Kredit Sahabat Muda",
+            "applicationDate": "16-Jun-2019",
+            "applicationNumber": "113-424-552",
+            "surveyStatus": "Approved",
+            "customerId": "671123110819900004",
+            "customerName": "Robert Alagri",
+            "address": "Jl Cipedak 3 No. 68",
+            "zipCode": "10998",
+            "objectCategory": "C-Passanger",
+            "financingObject": "Suzuki Splash",
+            "financingValue": "Rp. 151.000.000",
+            "officeId": "BJ0025",
+            "officeName": "PT Budi Jaya cab. Bekasi",
+            "surveyPic": "Kurnia Wijaya",
+            "surveyType": "Reguler",
+            "surveyor": "Sukma Indriyanti",
+            "assinDate": "21-Jun-2019",
+            "surveyDate": "22-Jun-2019",
+            "endDate": "22-Jun-2019",
+            "approvalStatus": "Approved",
+            "npk": "1200034887382",
+            "phone": "089567789888",
+            "applicatonId": "113-424-552",
+            "fullName": "Robert Alagri",
+            "phoneNumber": "089536071223",
+            "destinationaddress": "Jl Cipedak 3 No. 68",
+            "village": "Cipedak",
+            "district": "Jagakarsa",
+            "city": "Jakarta Selatan",
+            "province": "DKI Jakarta",
+            "surveyDecisionBySurveyor": "Approved",
+            "surveyorNotes": "Berdasarkan hasil Survey yang telah dilakukan, data yang telah dimasukan oleh debitur adalah benar dan sesuai",
+            "surveyDecisionByPic": "Approved",
+            "picSurveyorNotes": "Hasil survey sesuai",
+            "templetQuestion": [
+                {
+                    "question": "Apa saja sumber pemasukkan nasabah ?",
+                    "result": "Gaji bulanan"
+                },
+                {
+                    "question": "Berapa jumlah total pemasukan selama satu bulan ?",
+                    "result": "Rp. 20.000.000"
+                },
+                {
+                    "question": "Berapa jumlah pengeluaran rutin selama satu bulan ?",
+                    "result": "Rp. 4.000.000"
+                },
+                {
+                    "question": "Apakah ada kredit lain yang belum lunas ?",
+                    "result": "Tidak"
+                }
+            ],
+            "scoringDecision": "Survey",
+            "loanScoring": "71",
+            "scoringDecisionDate": "21-Jun-2019",
+            "finalDecision": "Approve",
+            "secisionMarker": "Kunto Mawardianto",
+            "loanOfficerNotes": "Berdasarkan hasil scoring, survey dan analisis kredit, cutsomer ini berhak mendapatkan kredit sebesar yang diajukan",
+            "decisionDate": "23-Jun-2019",
+            "approvalDate": "24-Jun-2019",
+            "object": "Suzuki Splash",
+            "Status": "Approved",
+            "customerType": "Personal",
+            "status": "Approved",
+            "termOfPayment": "36",
+            "installmentType": "Arrear",
+            "installmentPeriod": "1",
+            "collectionPayment": "Cashier",
+            "totalProductPrice": "Rp. 151.000.000",
+            "grossDownPayment": "Rp. 45.300.000",
+            "netDownPayment": "Rp. 42.300.000",
+            "tableParameter": [
+                {
+                    "parameter": "Loan Purpose",
+                    "requested": "Kredit Mobil",
+                    "approved": "Kredit Mobil"
+                },
+                {
+                    "parameter": "Loan Amount",
+                    "requested": "Rp. 151.000.000",
+                    "approved": "Rp. 151.000.000"
+                },
+                {
+                    "parameter": "Loan Term",
+                    "requested": "36 Months",
+                    "approved": "36 Months"
+                },
+                {
+                    "parameter": "Annual Interst",
+                    "requested": "10%",
+                    "approved": "10%"
+                },
+                {
+                    "parameter": "Number of Repayment",
+                    "requested": "36",
+                    "approved": "36"
+                },
+                {
+                    "parameter": "Principle Monthly Repayments",
+                    "requested": "Rp. 3.018.055",
+                    "approved": "Rp. 3.018.055"
+                },
+                {
+                    "parameter": "Interest Monthly Repayments",
+                    "requested": "Rp. 905.416",
+                    "approved": "Rp. 905.416"
+                },
+                {
+                    "parameter": "Total Monthly Repayments",
+                    "requested": "Rp. 3.923.472",
+                    "approved": "Rp. 3.923.472"
+                },
+                {
+                    "parameter": "Last Repayment Monthly",
+                    "requested": "Rp. 3.923.472",
+                    "approved": "Rp. 3.923.472"
+                }
+            ],
+            "adminFee": "Rp. 1.000.000",
+            "provisionFee": "Rp. 1.500.000",
+            "othersFee": "Rp. 475.000",
+            "stampFee": "Rp. 25.000",
+            "businessUnit": "New Car",
+            "dealer": "PT Suzuki Indomobil Motor",
+            "brand": "Suzuki",
+            "type": "Splash",
+            "model": "AT",
+            "manufacturingDate": "2018",
+            "chassisNumber": "",
+            "engineNumber": "",
+            "colour": "White",
+            "ownershipCeritifcateNumber": "Robert Alagri",
+            "price": "Rp. 151.000.000",
+            "insuranceType": "All Risk",
+            "collateralType": "Automotive",
+            "brandCollateral": "Yamaha",
+            "typeCollateral": "Mio",
+            "modelCollateral": "MT",
+            "manufacturingDateCollateral": "",
+            "chassisNumberCollateral": "",
+            "machineNumber": "",
+            "colourCollateral": "Red",
+            "salutation": "Mr",
+            "aliasName": "Robert",
+            "identityNumber": "671123110819900004",
+            "birthPlace": "Sumedang",
+            "birthDate": "11-Aug-1990",
+            "motherName": "Riri Astriyani",
+            "email": "robert_alagri@gmail.com",
+            "gender": "Male",
+            "religion": "Catholic",
+            "maritialStatus": "Married",
+            "occupation": "Auditor",
+            "companyName": "PT Riset Indonesia",
+            "lenghtOfWork": "21",
+            "employmentStatus": "Permanent",
+            "startDate": "01-Oct-2017",
+            "endDateWork": "",
+            "stillWork": true,
+            "addressType": "Collection",
+            "vilage": "Cipedak",
+            "salutationFamily": "Mr",
+            "fullNameFamily": "Andreas Alagri",
+            "aliasNameFamily": "Andreas",
+            "identityNumberFamily": "36611221119900005",
+            "birthPlaceFamily": "Bandung",
+            "birthDateFamily": "22-Nov-1987",
+            "phoneNumberFamily": "085611229880",
+            "emailFamily": "andreasalagri@gmail.com",
+            "genderFamily": "Male",
+            "incomeType": "Individual Income",
+            "monthlyIncome": "Rp. 20.000.000",
+            "educationType": "Beachelor",
+            "InstituteName": "Ekonomi",
+            "major": "Universitas Negri Jakarta",
+            "startDateEducation": "01-Jul-2013",
+            "endDateEducation": "30-Jun-2017",
+            "document": [
+                {
+                    "documentType": "Identity Document",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "ID1200081.jpg"
+                },
+                {
+                    "documentType": "Back Statment Book",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "BS1200234.jpg"
+                },
+                {
+                    "documentType": "Credit Card Bill",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "CC1200099.jpg"
+                },
+                {
+                    "documentType": "Family Card Document",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "KK1200163.jpg"
+                }
+            ],
+            "approvalFlow": [
+                {
+                    "story": "Application Entry",
+                    "date": "16-Jun-2019"
+                },
+                {
+                    "story": "Scoring Aplication",
+                    "date": "21-Jun-2019"
+                },
+                {
+                    "story": "Assign Survey",
+                    "date": "21-Jun-2019"
+                },
+                {
+                    "story": "Survey By Sukma Indriyanti",
+                    "date": "22-Jun-2019"
+                },
+                {
+                    "story": "Application Survey",
+                    "date": "22-Jun-2019"
+                },
+                {
+                    "story": "Survey Approve By Kurnia Wijaya",
+                    "date": "22-Jun-2019"
+                },
+                {
+                    "story": "Application Approved",
+                    "date": "24-Jun-2019"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,103 @@
+﻿<div class="topbar clearfix">
+  <div class="topbar-left">
+    <!--<ngx-avatar class="topbar-logo" [initialsSize]="2" src={{imageUrl}}
+        name={{imageUrl}} value="C" [round]="false"></ngx-avatar>-->
+    <img [src]="imageUrl ? imageUrl : ''" class="topbar-logo"/>
+  </div>
+  <div class="topbar-right">
+    <a id="menu-button" href="#" (click)="app.onMenuButtonClick($event)"
+       [ngClass]="{'menu-button-rotate': app.rotateMenuButton}">
+      <i class="fa fa-angle-left"></i>
+    </a>
+
+    <a id="topbar-menu-button" href="#" (click)="app.onTopbarMenuButtonClick($event)">
+      <i class="fa fa-bars"></i>
+    </a>
+
+    <ul class="topbar-items fadeInDown" [ngClass]="{'topbar-items-visible': app.topbarMenuActive}">
+      <li #profile class="profile-item" *ngIf="app.profileMode==='top'||app.isHorizontal()"
+          [ngClass]="{'active-top-menu':app.activeTopbarItem === profile}">
+
+        <!--<a href="#" (click)="app.onTopbarItemClick($event,profile)">-->
+          <!--&lt;!&ndash;<ngx-avatar class="profile-image" [initialsSize]="2" src={{profileImage}}&ndash;&gt;-->
+                      <!--&lt;!&ndash;name={{profileImage}} value="P" size="35"></ngx-avatar>&ndash;&gt;-->
+          <!--<img class="profile-image" src="assets/layout/images/avatar.png" />-->
+          <!--&lt;!&ndash;<img class="profile-image" src="assets/layout/images/avatar.png"/>&ndash;&gt;-->
+          <!--<span class="topbar-item-name">{{currentUser.firstName}}</span>-->
+          <!--&lt;!&ndash;<span class="topbar-item-role">{{employee.workPosition}}</span>&ndash;&gt;-->
+          <!--<span class="topbar-item-role">Marketing</span>-->
+        <!--</a>-->
+        <a href="#" (click)="app.onTopbarItemClick($event,profile)">
+          <!--<img class="profile-image" src="assets/layout/images/avatar.png" />-->
+          <ngx-avatar class="profile-image" [initialsSize]="2" src={{profileImage}}
+          name={{profileImage}} value="P" size="35"></ngx-avatar>
+          <span class="topbar-item-name">{{currentUser.firstName}}</span>
+          <span *ngFor="let user of users" class="topbar-item-role">{{user.role}}</span>
+        </a>
+
+        <ul class="layout-menu fadeInDown">
+          <li role="menuitem">
+            <a routerLink="/profile" (click)="app.onTopbarSubItemClick($event)">
+              <i class="fa fa-fw fa-user"></i>
+              <span>My profile</span>
+            </a>
+          </li>
+          <li role="menuitem">
+            <a routerLink="/change/password" (click)="app.onTopbarSubItemClick($event)">
+              <i class="fa fa-fw fa-key"></i>
+              <span>Change password</span>
+            </a>
+          </li>
+          <li role="menuitem">
+            <a href="#" (click)="logout()">
+              <i class="fa fa-fw fa-sign-out"></i>
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+
+      <li #menuitems [ngClass]="{'active-top-menu':app.activeTopbarItem === menuitems}">
+        <a href="#" (click)="app.onTopbarItemClick($event,menuitems)">
+          <i class="topbar-icon fa fa-fw fa-th-large"></i>
+        </a>
+        <ul class="layout-menu fadeInDown">
+          <li role="menuitem">
+            <a routerLink="/acquisition" (click)="app.onTopbarSubItemClick($event)">
+              <i class="fab fa-fw fa-acquisitions-incorporated"></i>
+              <span>Acquisition</span>
+            </a>
+          </li>
+
+          <li role="menuitem">
+            <a routerLink="/accountmanagement" (click)="app.onTopbarSubItemClick($event)">
+              <i class="fas fa-fw fa-address-card"></i>
+              <span>Account Management</span>
+            </a>
+          </li>
+          <li role="menuitem">
+            <a routerLink="/collection" (click)="app.onTopbarSubItemClick($event)">
+              <i class="fas fa-fw fa-archive"></i>
+              <span>Collection</span>
+            </a>
+          </li>
+          <li role="menuitem">
+            <a routerLink="/globalsetting" (click)="app.onTopbarSubItemClick($event)">
+              <i class="fas fa-fw fa-cogs"></i>
+              <span>Global Setting</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li #search class="search-item" [ngClass]="{'active-top-menu':app.activeTopbarItem === search}"
+          (click)="app.onTopbarItemClick($event,search)">
+        <div class="topbar-search">
+          <input type="text" placeholder="Search"/>
+          <i class="fa fa-search"></i>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

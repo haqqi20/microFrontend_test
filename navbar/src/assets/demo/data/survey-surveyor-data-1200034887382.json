@@ -1,0 +1,46 @@
+{
+    "data": [
+        {
+            "officeName": "PT Budi Jaya cab. Bekasi",
+            "officeCode": "BJ0025",
+            "fullName": "Sukma Indriyanti",
+            "npk": "1200034887382",
+            "emailAddress": "sukmaindriyanti@gmail.com",
+            "phoneNumber": "089567789888",
+            "startDate": "01-Nov-2015",
+            "endDate": "Still Work",
+            "jobPosition": "employee",
+            "directSupervisor": "Kurnia Wijaya",
+            "limitSurveyPerDay": "2",
+            "limitSurveyPerMonth": "40",
+            "productType": "Sahabat Muda",
+            "remark": "",
+            "location": [
+                {
+                    "zipCode": "17144",
+                    "village": "Kayuringin Jaya",
+                    "district": "Bekasi Selatan",
+                    "city": "Bekasi",
+                    "province": "Jawa Barat"
+                },
+                {
+                    "zipCode": "17242",
+                    "village": "Pekayon Jaya",
+                    "district": "Bekasi Selatan",
+                    "city": "Bekasi",
+                    "province": "Jawa Barat"
+                },
+                {
+                    "zipCode": "17112",
+                    "village": "Marga Jaya",
+                    "district": "Bekasi Selatan",
+                    "city": "Bekasi",
+                    "province": "Jawa Barat"
+                }
+            ],
+            "isActive": true,
+            "isUnlock": true,
+            "ResetPassword": false
+        }
+    ]
+}

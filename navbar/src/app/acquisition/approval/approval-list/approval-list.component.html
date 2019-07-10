@@ -1,0 +1,250 @@
+<router-outlet #outlet="outlet"></router-outlet>
+<div *ngIf="outlet.isActivated === false" class="ui-fluid">
+  <div class="ui-g">
+    <div class="ui-g-12 topbarsticky">
+      <div class="ui-g-12" style="padding-left: 12px; padding-top: 6px">
+        <h1 style="margin-top: 6px; margin-bottom: 6px">Approval List</h1>
+      </div>
+    </div>
+
+    <div class="ui-g-12 card">
+      <div class="ui-g-12 ui-g-nopad" style="text-align: left; font-weight: normal">
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <div class="ui-g-12 ui-g-nopad">What are you looking for?</div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <input pInputText type="search" [(ngModel)]="searchQuery" placeholder="Input customer name"
+                (keyup.enter)="dta.filterGlobal(searchQuery, 'contains')">
+            </div>
+          </div>
+          <div class="ui-g-2">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-8 ui-g-nopad">Status</div>
+              <div class="ui-g-4 ui-g-nopad" style="text-align: right">
+                <p-checkbox binary="true" label="All" [(ngModel)]="checkAllStatus"
+                  (onChange)="selectedStatus=null; dta.filter(selectedStatus, 'approvalStatus', 'equals')">
+                </p-checkbox>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <p-autoComplete [suggestions]="filteredStatuss" (completeMethod)="filterStatuss($event)"
+                placeholder="Choose status" [minLength]="1" [dropdown]="true" [(ngModel)]="selectedStatus"
+                (onSelect)="checkAllStatus=false; dta.filter($event, 'approvalStatus', 'equals')">
+              </p-autoComplete>
+            </div>
+          </div>
+          <div class="ui-g-2">
+            <div class="ui-g-12 ui-g-nopad">
+              Survey Type
+            </div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <p-multiSelect [options]="surveyTypes" defaultLabel="All Survey Type" maxSelectedLabels="1"
+                (onChange)="onSurveyTypeSelected($event.value)" [(ngModel)]="selectedSurveyTypes"></p-multiSelect>
+            </div>
+          </div>
+          <div class="ui-g-2">
+            <div class="ui-g-12 ui-g-nopad">
+              &nbsp;
+            </div>
+            <div class="ui-g-12 ui-g-nopad new-pad" style="text-align: right">
+              <button pButton class="ui-button-info" style="width: 8em" label="Search"
+                (click)="dta.filterGlobal(searchQuery, 'contains')"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-g-nopad" style="text-align: left">
+        <div class="ui-g">
+          <div class="ui-g-12">
+            <hr>
+          </div>
+          <div class="ui-g-6" style="cursor: pointer" (click)="showSearch=!showSearch">
+            <b>Advanced Search</b>
+          </div>
+          <div class="ui-g-6" style="text-align: right; cursor: pointer" (click)="showSearch=!showSearch">
+            <span class="pi pi-fw pi-chevron-left" *ngIf="!showSearch"></span>
+            <span class="pi pi-fw pi-chevron-down" *ngIf="showSearch"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-g-nopad" style="text-align: left" *ngIf="showSearch">
+        <div class="ui-g">
+          <div class="ui-g-2">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-8 ui-g-nopad">Product Name</div>
+              <div class="ui-g-4 ui-g-nopad" style="text-align: right">
+                <p-checkbox binary="true" label="All" [(ngModel)]="checkAllProduct"
+                  (onChange)="selectedProductName=null;dta.filter(selectedProductName, 'productName', 'equals')">
+                </p-checkbox>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <p-autoComplete [suggestions]="filteredProductNames" (completeMethod)="filterProductNames($event)"
+                placeholder="Choose product name" [minLength]="1" [dropdown]="true" [(ngModel)]="selectedProductName"
+                (onSelect)="checkAllProduct=false; dta.filter($event, 'productName', 'equals')">
+              </p-autoComplete>
+            </div>
+          </div>
+          <div class="ui-g-4">
+            <div class="ui-g-8 ui-g-nopad">Date Type</div>
+            <div class="ui-g-4 ui-g-nopad" style="text-align: right">
+              <p-checkbox binary="true" label="All Date" [(ngModel)]="checkAllDate"
+                (onChange)="selectedDate=null;dta.filter(selectedDate, selectedDateType.value, 'equals')">
+              </p-checkbox>
+            </div>
+            <div class="ui-g-6 ui-g-nopad new-pad" style="padding-right: 1em">
+              <p-autoComplete [suggestions]="filteredDateTypes" (completeMethod)="filterDateTypes($event)" field="label"
+                placeholder="Choose date type" [minLength]="1" [dropdown]="true" [(ngModel)]="selectedDateType">
+                <ng-template let-item pTemplate="item">
+                  {{item.label}}
+                </ng-template>
+              </p-autoComplete>
+            </div>
+            <div class="ui-g-6 ui-g-nopad new-pad">
+              <p-calendar [(ngModel)]="selectedDate" dateFormat="dd-M-yy" dataType="string" placeholder="Input date"
+                (onInput)="checkAllDate=false;dta.filter(selectedDate, selectedDateType.value, 'equals')"
+                (onSelect)="checkAllDate=false;dta.filter(selectedDate, selectedDateType.value, 'equals')"></p-calendar>
+            </div>
+          </div>
+          <div class="ui-g-2">
+            <div class="ui-g-12 ui-g-nopad">
+              Surveyor
+            </div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <p-multiSelect [options]="surveyors" defaultLabel="All Surveyor" maxSelectedLabels="1"
+                (onChange)="onSurveyorSelected($event.value)" [(ngModel)]="selectedSurveyors"></p-multiSelect>
+            </div>
+          </div>
+          <div class="ui-g-2">
+            <div class="ui-g-12 ui-g-nopad">
+              Surveyor PIC
+            </div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <p-multiSelect [options]="pics" defaultLabel="All Surveyor PIC" maxSelectedLabels="1"
+                (onChange)="onPicSelected($event.value)" [(ngModel)]="selectedPics"></p-multiSelect>
+            </div>
+          </div>
+          <div class="ui-g-2">
+
+          </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-12">
+            <span style="color: blue; cursor: pointer" (click)="clearFilters()">Clear Filters</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g-12">
+        <hr>
+      </div>
+    </div>
+
+    <div class="ui-g-12 card">
+      <div class="ui-g-12">
+        <p-table #dta [value]="apps" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[10,25,50]"
+          [globalFilterFields]="['fullName']">
+          <ng-template pTemplate="body" let-app let-rowIndex="rowIndex">
+            <tr style="border: 1px solid #d9d9d9">
+              <div class="ui-g ui-fluid">
+                <div class="ui-g-12 ui-lg-2 ui-md-2">
+                  <div class="ui-g">
+                    <div class="ui-g-12"
+                      style="text-align: center; background-color:thistle; border-radius: 25px; width: 8em; margin-left: 25px">
+                      <span>#{{rowIndex + 1}}</span>
+                    </div>
+                    <div class="ui-g-12">
+                      Application Date: {{app.applicationDate}}
+                    </div>
+                    <div class="ui-g-12">
+                      Application Number: {{app.applicationNumber}}
+                    </div>
+                    <div class="ui-g-12">
+                      Survey Status: {{app.surveyStatus}}
+                    </div>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-lg-2 ui-md-2">
+                  <div class="ui-g">
+                    <div class="ui-g-12">
+                      Customer ID: {{app.customerId}}
+                    </div>
+                    <div class="ui-g-12">
+                      Customer Name: {{app.fullName}}
+                    </div>
+                    <div class="ui-g-12">
+                      Address: {{app.address}}
+                    </div>
+                    <div class="ui-g-12">
+                      Zipcode: {{app.zipCode}}
+                    </div>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-lg-3 ui-md-3">
+                  <div class="ui-g">
+                    <div class="ui-g-12">
+                      Financing Object: {{app.financingObject}}
+                    </div>
+                    <div class="ui-g-12">
+                      Product Name: {{app.productName}}
+                    </div>
+                    <div class="ui-g-12">
+                      Office Id: {{app.officeId}}
+                    </div>
+                    <div class="ui-g-12">
+                      Office Name: {{app.officeName}}
+                    </div>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-lg-3 ui-md-3">
+                  <div class="ui-g">
+                    <div class="ui-g-12">
+                      Surveyor PIC: {{app.surveyPic}}
+                    </div>
+                    <div class="ui-g-12">
+                      Surveyor: {{app.surveyor}}
+                    </div>
+                    <div class="ui-g-12">
+                      Survey Type: {{app.surveyType}}
+                    </div>
+                    <div class="ui-g-12">
+                      Assign Date: {{app.assinDate}}
+                    </div>
+                    <div class="ui-g-12">
+                      Survey Date: {{app.surveyDate}}
+                    </div>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-lg-2 ui-md-2">
+                  <div class="ui-g" style="text-align: center">
+                    <div class="ui-g-12">
+                      <div class="ui-g-12" style="text-align: center; background-color: 	#f7e819"
+                        *ngIf="app.approvalStatus === 'On Progress'">
+                        {{app.approvalStatus}}
+                      </div>
+                      <div class="ui-g-12" style="text-align: center; background-color: 	#a6fda3"
+                        *ngIf="app.approvalStatus === 'Approved'">
+                        {{app.approvalStatus}}
+                      </div>
+                      <div class="ui-g-12" style="text-align: center; background-color: 	#ff7b1a"
+                        *ngIf="app.approvalStatus === 'Rejected'">
+                        {{app.approvalStatus}}
+                      </div>
+                    </div>
+                    <div class="ui-g-12" style="text-align: center; margin-top: 15px;">
+                      <span class="fa fa-search" routerLink="detail" style="font-size: 1.2em; cursor: pointer;"
+                        (click)="approvalDetail(app.applicationNumber)"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </tr>
+          </ng-template>
+        </p-table>
+
+      </div>
+    </div>
+  </div>
+</div>

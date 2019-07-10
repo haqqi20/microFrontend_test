@@ -1,0 +1,58 @@
+<router-outlet></router-outlet>
+<div class="ui-g">
+  <div class="ui-g-12 topbarsticky">
+    <div class="ui-g-12" style="float:right">
+      <td style="padding-left:5px; float: left; position: absolute; top: 0px">
+        <h1>Business Unit Details</h1>
+      </td>
+      <td style="padding-left:5px; float: right">
+        <button pButton *ngIf="!show" type="button" icon="pi pi-cog" label="Edit" class="ui-button-warning"
+          (click)="toggleDisabled(); show=!show" style="font-size:13px"></button>
+      </td>
+      <td style="padding-left:5px; float: right">
+        <button pButton *ngIf="show" type="button" icon="pi pi-save" class="ui-button-success" label="Save"
+          (click)="toggleDisabled(); updateBusu(); show=!show; showSuccess()" style="font-size:13px">
+        </button>
+      </td>
+      <td style=" padding-left:5px; float: right">
+        <button pButton *ngIf="show" type="button" icon="pi pi-times" class="ui-button-secondary" label="Cancel"
+          (click)="toggleDisabled(); show=!show" style="font-size:13px">
+        </button>
+      </td>
+    </div>
+  </div>
+  <div class="ui-grid-row ui-g-12"
+    style="float: right; position: sticky; position: -webkit-sticky; top: 60px; background-color: white">
+    <div class="card ui-g-12 ui-md-12">
+      <h2>Business Unit</h2>
+    </div>
+    <!-- </div> -->
+    <div class="ui-g-2">
+      Name
+    </div>
+    <div class="ui-g-10 ui-md-10">
+      <input class="ui-lg-3" pInputText [(ngModel)]="businessUnit.name" maxlength="20" placeholder="Business unit name" type="text" [disabled]="disabled">
+    </div>
+    <br>
+    <div class="ui-g-2">
+      Type
+    </div>
+    <div class="ui-g-10 ui-md-10">
+      <input class="ui-lg-3" pInputText [(ngModel)]="businessUnit.businessunitType" maxlength="1" placeholder="Business unit type" type="text" [disabled]="disabled">
+    </div>
+    <br>
+    <div class="ui-g-2">
+      Status
+    </div>
+    <div class="ui-g-10 ui-md-10">
+      <input class="ui-lg-3" pInputText [(ngModel)]="businessUnit.status" maxlength="50" placeholder="Business unit status" type="text" [disabled]="disabled">
+    </div>
+    <div class="ui-g-2">
+      Is Active
+    </div>
+    <div class="ui-g-10 ui-md-10">
+      <p-inputSwitch [(ngModel)]="checked" [disabled]="disabled"></p-inputSwitch>
+      <br><br>
+    </div>
+  </div>
+</div>

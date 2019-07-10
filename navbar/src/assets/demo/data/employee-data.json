@@ -1,0 +1,48 @@
+{
+    "data": [
+        {
+            "officeName": "Internasional Finance Corporate",
+            "officeCode": "IF0007",
+            "fullName": "Bayu Ananta",
+            "npk": "1394883010220120005",
+            "emailAddress": "bayuananta0809@gmail.com",
+            "phoneNumber": "089336121284",
+            "startDate": "01-Feb-2012",
+            "endDate": "Still Work",
+            "jobPosition": "surveyor"
+        },
+        {
+            "officeName": "PT Sintesa Reforma",
+            "officeCode": "SR0102",
+            "fullName": "Rizki Ilham",
+            "npk": "1305055121220120011",
+            "emailAddress": "rizki.ilham@gmail.com",
+            "phoneNumber": "082298735652",
+            "startDate": "12-Dec-2012",
+            "endDate": "Still Work",
+            "jobPosition": "surveyor"
+        },
+        {
+            "officeName": "Internasional Finance Corporate",
+            "officeCode": "IF0007",
+            "fullName": "Fajar Renoto",
+            "npk": "1394852220420100012",
+            "emailAddress": "retno_fajar@gmail.com",
+            "phoneNumber": "085642668136",
+            "startDate": "22-Apr-2010",
+            "endDate": "Still Work",
+            "jobPosition": "supervisor"
+        },
+        {
+            "officeName": "PT Sintesa Reforma",
+            "officeCode": "SR0102",
+            "fullName": "Budi Susanto",
+            "npk": "1305052150120090008",
+            "emailAddress": "budisus020489@gmail.com",
+            "phoneNumber": "081244939901",
+            "startDate": "15-Jan-2009",
+            "endDate": "Still Work",
+            "jobPosition": "supervisor"
+        }
+    ]
+}

@@ -1,0 +1,464 @@
+{
+    "data": [
+        {
+            "productCode": "312-221-242",
+            "productName": "Kredit Sahabat Muda",
+            "productType": "Kredit Mobil Baru",
+            "description": "Suku bunga flat dan fix selama waktu tenor. Selama masa peminjaman, jumlah angsuran tidak akan berbubah di waktu tertentu.",
+            "startDate": "01-Jan-2019",
+            "endDate": "01-Sep-2019",
+            "priority": "1",
+            "isActive": true,
+            "parameter": [
+                {
+                    "minAmount": "100000000",
+                    "maxAmount": "200000000",
+                    "minTenor": "12",
+                    "maxTenor": "36",
+                    "interestRate": "10",
+                    "isActive": true
+                },
+                {
+                    "minAmount": "200000001",
+                    "maxAmount": "300000000",
+                    "minTenor": "12",
+                    "maxTenor": "36",
+                    "interestRate": "10",
+                    "isActive": true
+                },
+                {
+                    "minAmount": "300000001",
+                    "maxAmount": "500000000",
+                    "minTenor": "12",
+                    "maxTenor": "36",
+                    "interestRate": "9",
+                    "isActive": true
+                }
+            ],
+            "feeCategoryName": "Fee Basic Kredit Mobil Baru",
+            "feeDescription": "Fee standar untuk kredit mobil baru",
+            "isActiveFee": true,
+            "fee": [
+                {
+                    "typeName": "Fee Adminitration",
+                    "chargingBasis": "One Time",
+                    "parameterType": "Fixed Amount",
+                    "value": "Rp. 1.000.000"
+                },
+                {
+                    "typeName": "Fee Provision",
+                    "chargingBasis": "One Time",
+                    "parameterType": "Fixed Amount",
+                    "value": "Rp. 1.500.000"
+                },
+                {
+                    "typeName": "Fee Lain-lain",
+                    "chargingBasis": "One Time",
+                    "parameterType": "Fixed Amount",
+                    "value": "Rp. 475.000"
+                },
+                {
+                    "typeName": "Fee Stamp",
+                    "chargingBasis": "One Time",
+                    "parameterType": "Fixed Amount",
+                    "value": "Rp. 25.000"
+                }
+            ],
+            "knockCategoryName": "Knockout Basic Kredit Mobil Baru",
+            "knockDescription": "Knockout standar untuk kredit mobil baru",
+            "isActiveKnock": true,
+            "knock": [
+                {
+                    "attributeCriteria": "Status of Debtor",
+                    "oprator": "equals",
+                    "value": "WNA",
+                    "nextStepTrue": "2",
+                    "nextStepFalse": "99",
+                    "priority": "1"
+                },
+                {
+                    "attributeCriteria": "Occupation",
+                    "oprator": "equals",
+                    "value": "Karyawan Tetap",
+                    "nextStepTrue": "3",
+                    "nextStepFalse": "99",
+                    "priority": "2"
+                },
+                {
+                    "attributeCriteria": "Age",
+                    "oprator": "more than",
+                    "value": "18",
+                    "nextStepTrue": "4",
+                    "nextStepFalse": "99",
+                    "priority": "3"
+                },
+                {
+                    "attributeCriteria": "Age",
+                    "oprator": "less than",
+                    "value": "64",
+                    "nextStepTrue": "5",
+                    "nextStepFalse": "99",
+                    "priority": "4"
+                },
+                {
+                    "attributeCriteria": "Payment Model",
+                    "oprator": "equals",
+                    "value": "Autodebet",
+                    "nextStepTrue": "6",
+                    "nextStepFalse": "99",
+                    "priority": "5"
+                }
+            ],
+            "documentCategoryName": "Document Basic Kredit Mobil Baru",
+            "documentDescription": "Document standar untuk kredit mobil baru",
+            "isActiveDocument": true,
+            "document": [
+                {
+                    "type": "Identity Document",
+                    "description": "Identity document  debitur",
+                    "isMandatory": true
+                },
+                {
+                    "type": "Family Card Document",
+                    "description": "Family Card Document debitur",
+                    "isMandatory": true
+                },
+                {
+                    "type": "Back Statment Book",
+                    "description": "Back Statment Book",
+                    "isMandatory": true
+                },
+                {
+                    "type": "Credit Card Bill",
+                    "description": "Credit Card Bill Debitur",
+                    "isMandatory": false
+                }
+            ]
+        },
+        {
+            "productCode": "324-321-897",
+            "productName": "Kredit Mobil Spesial Kartini",
+            "productType": "Kredit Mobil Baru",
+            "description": "Suku bunga flat dan fix selama waktu tenor. Selama masa peminjaman, jumlah angsuran tidak akan berbubah di waktu tertentu.",
+            "startDate": "21-Jan-2019",
+            "endDate": "21-Jul-2019",
+            "priority": "2",
+            "isActive": true,
+            "parameter": [
+                {
+                    "minAmount": "100000000",
+                    "maxAmount": "200000000",
+                    "minTenor": "12",
+                    "maxTenor": "36",
+                    "interestRate": "10",
+                    "isActive": true
+                },
+                {
+                    "minAmount": "200000001",
+                    "maxAmount": "300000000",
+                    "minTenor": "12",
+                    "maxTenor": "36",
+                    "interestRate": "10",
+                    "isActive": true
+                },
+                {
+                    "minAmount": "300000001",
+                    "maxAmount": "500000000",
+                    "minTenor": "12",
+                    "maxTenor": "36",
+                    "interestRate": "9",
+                    "isActive": true
+                }
+            ],
+            "feeCategoryName": "Fee Basic Kredit Mobil Baru",
+            "feeDescription": "Fee standar untuk kredit mobil baru",
+            "isActiveFee": true,
+            "fee": [
+                {
+                    "typeName": "Fee Adminitration",
+                    "chargingBasis": "One Time",
+                    "parameterType": "Fixed Amount",
+                    "value": "Rp. 1.000.000"
+                },
+                {
+                    "typeName": "Fee Provision",
+                    "chargingBasis": "One Time",
+                    "parameterType": "Fixed Amount",
+                    "value": "Rp. 1.500.000"
+                },
+                {
+                    "typeName": "Fee Lain-lain",
+                    "chargingBasis": "One Time",
+                    "parameterType": "Fixed Amount",
+                    "value": "Rp. 475.000"
+                },
+                {
+                    "typeName": "Fee Stamp",
+                    "chargingBasis": "One Time",
+                    "parameterType": "Fixed Amount",
+                    "value": "Rp. 25.000"
+                }
+            ],
+            "knockCategoryName": "Knockout Kredit Mobil Baru",
+            "knockDescription": "Knockout kredit mobil baru",
+            "isActiveKnock": true,
+            "knock": [
+                {
+                    "attributeCriteria": "Status of Debtor",
+                    "oprator": "equals",
+                    "value": "WNA",
+                    "nextStepTrue": "2",
+                    "nextStepFalse": "99",
+                    "priority": "1"
+                },
+                {
+                    "attributeCriteria": "Occupation",
+                    "oprator": "equals",
+                    "value": "Karyawan Tetap",
+                    "nextStepTrue": "3",
+                    "nextStepFalse": "99",
+                    "priority": "2"
+                },
+                {
+                    "attributeCriteria": "Age",
+                    "oprator": "more than",
+                    "value": "18",
+                    "nextStepTrue": "4",
+                    "nextStepFalse": "99",
+                    "priority": "3"
+                },
+                {
+                    "attributeCriteria": "Age",
+                    "oprator": "less than",
+                    "value": "64",
+                    "nextStepTrue": "5",
+                    "nextStepFalse": "99",
+                    "priority": "4"
+                },
+                {
+                    "attributeCriteria": "Payment Model",
+                    "oprator": "equals",
+                    "value": "Autodebet",
+                    "nextStepTrue": "6",
+                    "nextStepFalse": "99",
+                    "priority": "5"
+                },
+                {
+                    "attributeCriteria": "Minimum Length of Work",
+                    "oprator": "less than",
+                    "value": "2 Years",
+                    "nextStepTrue": "7",
+                    "nextStepFalse": "99",
+                    "priority": "6"
+                },
+                {
+                    "attributeCriteria": "Location",
+                    "oprator": "equals",
+                    "value": "Jabodetabek",
+                    "nextStepTrue": "8",
+                    "nextStepFalse": "99",
+                    "priority": "7"
+                }
+            ],
+            "documentCategoryName": "Document Basic Kredit Mobil Baru",
+            "documentDescription": "Document standar untuk kredit mobil baru",
+            "isActiveDocument": true,
+            "document": [
+                {
+                    "type": "Identity Document",
+                    "description": "Identity document  debitur",
+                    "isMandatory": true
+                },
+                {
+                    "type": "Family Card Document",
+                    "description": "Family Card Document debitur",
+                    "isMandatory": true
+                },
+                {
+                    "type": "Back Statment Book",
+                    "description": "Back Statment Book",
+                    "isMandatory": true
+                },
+                {
+                    "type": "Credit Card Bill",
+                    "description": "Credit Card Bill Debitur",
+                    "isMandatory": false
+                }
+            ]
+        }
+    ],
+    "dataFee": [
+        {
+            "feeCategoryName": "Fee Basic Kredit Mobil Baru",
+            "feeDescription": "Fee standar untuk kredit mobil baru",
+            "isActiveFee": true,
+            "fee": [
+                {
+                    "typeName": "Fee Adminitration",
+                    "chargingBasis": "One Time",
+                    "parameterType": "Fixed Amount",
+                    "value": "Rp. 1.000.000"
+                },
+                {
+                    "typeName": "Fee Provision",
+                    "chargingBasis": "One Time",
+                    "parameterType": "Fixed Amount",
+                    "value": "Rp. 1.500.000"
+                },
+                {
+                    "typeName": "Fee Lain-lain",
+                    "chargingBasis": "One Time",
+                    "parameterType": "Fixed Amount",
+                    "value": "Rp. 475.000"
+                },
+                {
+                    "typeName": "Fee Stamp",
+                    "chargingBasis": "One Time",
+                    "parameterType": "Fixed Amount",
+                    "value": "Rp. 25.000"
+                }
+            ]
+        }
+    ],
+    "dataKnockout": [
+        {
+            "knockCategoryName": "Knockout Kredit Mobil Baru",
+            "knockDescription": "Knockout kredit mobil baru",
+            "isActiveKnock": true,
+            "knock": [
+                {
+                    "attributeCriteria": "Status of Debtor",
+                    "oprator": "equals",
+                    "value": "WNA",
+                    "nextStepTrue": "2",
+                    "nextStepFalse": "99",
+                    "priority": "1"
+                },
+                {
+                    "attributeCriteria": "Occupation",
+                    "oprator": "equals",
+                    "value": "Karyawan Tetap",
+                    "nextStepTrue": "3",
+                    "nextStepFalse": "99",
+                    "priority": "2"
+                },
+                {
+                    "attributeCriteria": "Age",
+                    "oprator": "more than",
+                    "value": "18",
+                    "nextStepTrue": "4",
+                    "nextStepFalse": "99",
+                    "priority": "3"
+                },
+                {
+                    "attributeCriteria": "Age",
+                    "oprator": "less than",
+                    "value": "64",
+                    "nextStepTrue": "5",
+                    "nextStepFalse": "99",
+                    "priority": "4"
+                },
+                {
+                    "attributeCriteria": "Payment Model",
+                    "oprator": "equals",
+                    "value": "Autodebet",
+                    "nextStepTrue": "6",
+                    "nextStepFalse": "99",
+                    "priority": "5"
+                },
+                {
+                    "attributeCriteria": "Minimum Length of Work",
+                    "oprator": "less than",
+                    "value": "2 Years",
+                    "nextStepTrue": "7",
+                    "nextStepFalse": "99",
+                    "priority": "6"
+                },
+                {
+                    "attributeCriteria": "Location",
+                    "oprator": "equals",
+                    "value": "Jabodetabek",
+                    "nextStepTrue": "8",
+                    "nextStepFalse": "99",
+                    "priority": "7"
+                }
+            ]
+        },
+        {
+            "knockCategoryName": "Knockout Basic Kredit Mobil Baru",
+            "knockDescription": "Knockout standar untuk kredit mobil baru",
+            "isActiveKnock": true,
+            "knock": [
+                {
+                    "attributeCriteria": "Status of Debtor",
+                    "oprator": "equals",
+                    "value": "WNA",
+                    "nextStepTrue": "2",
+                    "nextStepFalse": "99",
+                    "priority": "1"
+                },
+                {
+                    "attributeCriteria": "Occupation",
+                    "oprator": "equals",
+                    "value": "Karyawan Tetap",
+                    "nextStepTrue": "3",
+                    "nextStepFalse": "99",
+                    "priority": "2"
+                },
+                {
+                    "attributeCriteria": "Age",
+                    "oprator": "more than",
+                    "value": "18",
+                    "nextStepTrue": "4",
+                    "nextStepFalse": "99",
+                    "priority": "3"
+                },
+                {
+                    "attributeCriteria": "Age",
+                    "oprator": "less than",
+                    "value": "64",
+                    "nextStepTrue": "5",
+                    "nextStepFalse": "99",
+                    "priority": "4"
+                },
+                {
+                    "attributeCriteria": "Payment Model",
+                    "oprator": "equals",
+                    "value": "Autodebet",
+                    "nextStepTrue": "6",
+                    "nextStepFalse": "99",
+                    "priority": "5"
+                }
+            ]
+        }
+    ],
+    "dataDocument": [
+        {
+            "documentCategoryName": "Document Basic Kredit Mobil Baru",
+            "documentDescription": "Document standar untuk kredit mobil baru",
+            "isActiveDocument": true,
+            "document": [
+                {
+                    "type": "Identity Document",
+                    "description": "Identity document  debitur",
+                    "isMandatory": true
+                },
+                {
+                    "type": "Family Card Document",
+                    "description": "Family Card Document debitur",
+                    "isMandatory": true
+                },
+                {
+                    "type": "Back Statment Book",
+                    "description": "Back Statment Book",
+                    "isMandatory": true
+                },
+                {
+                    "type": "Credit Card Bill",
+                    "description": "Credit Card Bill Debitur",
+                    "isMandatory": false
+                }
+            ]
+        }
+    ]
+}

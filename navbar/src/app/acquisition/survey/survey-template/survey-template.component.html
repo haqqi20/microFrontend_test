@@ -1,0 +1,101 @@
+<router-outlet #outlet="outlet"></router-outlet>
+<div *ngIf="outlet.isActivated === false" class="ui-g">
+  <div class="ui-g-12 topbarsticky">
+    <div class="ui-g-12 ui-md-6 ui-lg-6">
+      <h1 style="margin-top: 6px; margin-bottom: 6px">Template</h1>
+    </div>
+    <div class="ui-g-12 ui-md-6 ui-lg-6 ui-rtl" dir="rtl">
+      <button pButton class="topbarbutton" label="Create" routerLink="create"></button>
+    </div>
+  </div>
+
+  <div class="ui-g-12 ui-fluid card">
+    <div class="ui-g-12 ui-g-nopad">
+      <div class="ui-g-6">
+        <div class="ui-g-12 ui-g-nopad">What are you looking for?</div>
+        <div class="ui-g-12 ui-g-nopad new-pad">
+          <input pInputText type="search" [(ngModel)]="searchQuery" placeholder="Input template name"
+            (keyup.enter)="dta.filterGlobal(searchQuery, 'contains')">
+        </div>
+      </div>
+      <div class="ui-g-2">
+        <div class="ui-g-8 ui-g-nopad">Product Type</div>
+        <div class="ui-g-4 ui-g-nopad" style="text-align: right">
+          <p-checkbox binary="true" label="All" [(ngModel)]="checkAllTemplate"
+            (onChange)="searchProduct=null; dta.filter(searchProduct, 'productType', 'equals')">
+          </p-checkbox>
+        </div>
+        <div class="ui-g-12 ui-g-nopad new-pad">
+          <p-autoComplete [size]="20" placeholder="Choose product type" [dropdown]="true" [(ngModel)]="searchProduct"
+            [suggestions]="filteredProduct" (completeMethod)="filterProductType($event)"
+            (onSelect)="checkAllTemplate=false;dta.filter(searchProduct, 'productType', 'equals')"></p-autoComplete>
+        </div>
+      </div>
+      <div class="ui-g-2">
+        <div class="ui-g-12 ui-g-nopad">
+          Active
+        </div>
+        <div class="ui-g-12 ui-g-nopad new-pad">
+          <p-dropdown [options]="status" (onChange)="dta.filter($event.value, 'isActive', 'equals')"></p-dropdown>
+        </div>
+      </div>
+      <div class="ui-g-2">
+        <div class="ui-g-12 ui-g-nopad">
+          &nbsp;
+        </div>
+        <div class="ui-g-12 ui-g-nopad new-pad" style="text-align: right">
+          <button pButton class="ui-button-info" style="width: 8em" label="Search"
+            (click)="dta.filterGlobal(searchQuery, 'contains')"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui-g-12 card" (click)="updateVisibility()">
+    <div class="ui-g-12">
+      <p-table #dta [columns]="cols" [value]="templateData" [paginator]="true" [rows]="15"
+        [globalFilterFields]="['templeteName']">
+        <!-- <ng-template pTemplate="caption">
+            <div style="text-align: right">
+              <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+              <input type="text" pInputText size="50" placeholder="Global Filter"
+                (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+            </div>
+          </ng-template> -->
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th style="width: 7%">no</th>
+            <th *ngFor="let col of columns" [ngSwitch]="col.field" [pSortableColumn]="col.field">
+              {{col.header}}
+              <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+            <th style="width: 10%">
+              Action
+            </th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+          <tr>
+            <td style="text-align: center">
+              {{rowIndex + 1}}
+            </td>
+            <td>
+              {{rowData['templeteName']}}
+            </td>
+            <td>
+              {{rowData['productType']}}
+            </td>
+            <td style="text-align: center">
+              {{rowData['isActive'] ? 'yes' : 'no'}}
+            </td>
+            <td style="text-align: center">
+              <span class="fa fa-search" routerLink="detail/{{rowData['templateId']}}"
+                style="font-size: 1.2em; cursor: pointer;"></span>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

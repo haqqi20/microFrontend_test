@@ -1,0 +1,22 @@
+{
+    "data": [
+        {
+            "officeName": "PT Budi Jaya",
+            "officeCode": "BJ0001",
+            "fullName": "Robbi Anas",
+            "npk": "0018896812",
+            "emailAddress": "robbianas@gmail.com",
+            "phoneNumber": "085643341212",
+            "startDate": "01-Oct-2014",
+            "endDate": "30-Jan-2018",
+            "jobPosition": "Supervisor",
+            "directSupervisor": "Jauar Arda",
+            "limitSurveyPerDay": "3",
+            "productType": "Special Kartini",
+            "remark": "",
+            "isActive": true,
+            "isUnlock": true,
+            "ResetPassword": false
+        }
+    ]
+}

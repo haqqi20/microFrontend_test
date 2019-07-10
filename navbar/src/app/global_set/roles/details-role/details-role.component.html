@@ -1,0 +1,119 @@
+<p-messages [(value)]="msgs"></p-messages>
+<div class="ui-g">
+    <div class="ui-grid-row ui-g-12 topbarsticky">
+        <div class="ui-g-12" style="float:right">
+            <td style="padding-left:5px; float: left; position: absolute; top: 0px">
+                <h1>Role Details</h1>
+            </td>
+            <td style="padding-left:5px; float: right; padding-top: 5px">
+                <button pButton *ngIf="!show" type="button" label="Edit" class="ui-button-warning"
+                        (click)="toggleDisabled()" (click)="show=!show" style="font-size: 14px; width: 100px"></button>
+            </td>
+            <td style="padding-left:5px; float: right; padding-top: 5px" *ngIf="show">
+                <button pButton type="button" class="ui-button-success" style="font-size: 14px" label="Save"
+                        (click)="updateRole(); show=!show; toggleDisabled()" onclick="this.disabled=true">
+                </button>
+            </td>
+            <td style=" padding-left:5px; float: right; padding-top: 5px" *ngIf="show">
+                <button pButton type="button" class="ui-button-secondary" label="Cancel" style="font-size: 14px"
+                        (click)="toggleDisabled(); show=!show" onclick="this.disabled=true">
+                </button>
+            </td>
+        </div>
+    </div>
+
+    <div class="ui-grid-row ui-g-12" style="background-color: white;">
+        <div class="ui-g-12 ui-md-12">
+            <div class="ui-g-12" style="padding-left: 3.4%; padding-right: 3.4%">
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-3" style="margin-left:10px; margin-right:30%">
+                        <h2>Role Information</h2>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-lg-12 ui-md-12">
+                    <div class="ui-g-12 ui-lg-10 ui-md-10">
+                        <div [formGroup]="roleForm">
+                            <div class="ui-g-12 ui-g-nopad">
+                                <div class="ui-g-2 ui-lg-2 ui-md-2">
+                                    Role Name
+                                </div>
+                                <div class="ui-g-5 ui-lg-5 ui-md-5">
+                                    <input pInputText class="ui-lg-12 ui-md-12" placeholder="Enter role name"
+                                           type="text" formControlName="roleName">
+                                </div>
+                            </div>
+                            <div class="ui-g-12 ui-g-nopad"
+                                 *ngIf="!roleForm.controls['roleName'].valid && roleForm.controls['roleName'].dirty">
+                                <div class="ui-g-2 ui-lg-2 ui-md-2"></div>
+                                <div class="ui-g-5 ui-lg-5 ui-md-5">
+                                    <p-message severity="error"
+                                               [text]="roleForm.controls['roleName'].errors['required'] ? 'Role Name is Required' : ''">
+                                    </p-message>
+                                </div>
+                            </div>
+                            <div class="ui-g-12 ui-g-nopad">
+                                <div class="ui-g-2 ui-lg-2 ui-md-2">
+                                    Description
+                                </div>
+                                <div class="ui-g-5 ui-lg-5 ui-md-5">
+                                    <textarea type="text" placeholder="Enter description about the role"
+                                              class="ui-lg-12 ui-md-12" autoResize="autoResize"
+                                              formControlName="description"
+                                              pInputTextarea></textarea>
+                                </div>
+                            </div>
+                            <div class="ui-g-12 ui-g-nopad"
+                                 *ngIf="!roleForm.controls['description'].valid && roleForm.controls['description'].dirty">
+                                <div class="ui-g-2 ui-lg-2 ui-md-2"></div>
+                                <div class="ui-g-5 ui-lg-5 ui-md-5">
+                                    <p-message severity="error"
+                                               [text]="roleForm.controls['description'].errors['required'] ? 'Description is Required' : ''">
+                                    </p-message>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <hr>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-12" style="padding-left: 3.4%; padding-right: 3.4%">
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-3" style="margin-left:10px; margin-right:30%">
+                            <h2>Permissions</h2>
+                        </div>
+                    </div>
+
+                    <div class="ui-g-12 ui-md-12">
+                        <div *ngFor="let menu of menus; let i = index">
+                            <p-accordion [multiple]="true">
+                                <p-accordionTab header="{{menu.menu}}" leftIcon="pi pi-inbox" style="position:initial">
+                                    <div *ngFor="let child of menu.children; let j = index">
+                                        <label class="ui-g-12 ui-md-2" style="font-size:13px">
+                                            {{child.menu}}
+                                        </label>
+                                        <p-dropdown [options]="child.scope" [(ngModel)]="selected[i][j]"
+                                                    [disabled]="disabled">
+                                            <ng-template let-item pTemplate="selectedItem">
+                                                <span
+                                                    style="vertical-align:middle; margin-left: .5em">{{item.label}}</span>
+                                            </ng-template>
+                                        </p-dropdown>
+
+                                        <br><br>
+                                        <hr>
+                                        <br>
+                                    </div>
+                                </p-accordionTab>
+                            </p-accordion>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

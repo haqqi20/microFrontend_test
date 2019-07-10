@@ -1,0 +1,369 @@
+<!--<p-messages [(value)]="messages"></p-messages>-->
+<!--<app-office-message></app-office-message>-->
+<div class="ui-fluid">
+    <div class="ui-g">
+        <div class="ui-grid-row ui-g-12 topbarsticky">
+            <div class="ui-g-12" style="float:right">
+                <td style="padding-left:5px; float: left; position: absolute; top: 0px">
+                    <h1>Office Information</h1>
+                </td>
+                <td style=" padding-left:5px; float: right; padding-top: 5px">
+                    <button pButton *ngIf="!show" type="button" label="Edit"
+                            class="ui-button-warning" (click)="toggleDisabled(); show=!show"
+                            style="font-size:14px; width: 100px" [disabled]="!disabled"></button>
+                </td>
+                <td style="padding-left:5px; float: right; padding-top: 5px">
+                    <button pButton *ngIf="show" type="button" class="ui-button-success" label="Save"
+                            (click)="updateOffice(); toggleDisabled(); show=!show"
+                            style="font-size:14px" [disabled]="!ofcForm.valid">
+                    </button>
+                </td>
+                <td style="padding-left:5px; float: right; padding-top: 5px">
+                    <button pButton *ngIf="show" type="button" class="ui-button-secondary" label="Cancel"
+                            (click)="toggleDisabled(); cancel(); show=!show" style="font-size:14px">
+                    </button>
+                </td>
+            </div>
+        </div>
+        <div class="card ui-lg-12 ui-md-12">
+            <div class="ui-g-12 ui-lg-12 ui-md-12">
+                <div>
+                    <div>
+                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                            <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+                                <div class="ui-g-12">
+                                    <h2>Office Detail</h2>
+                                </div>
+                                <!--  -->
+                                <div [formGroup]="ofcForm">
+                                    <div>
+                                        <div class="ui-g-12 ui-g-nopad">
+                                            <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                                Office Name
+                                                <span style="color:red" *ngIf="show" >*</span>
+                                            </div>
+                                            <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                                <input type="text" placeholder="Office name"
+                                                       pInputText
+                                                       formControlName="name">
+                                            </div>
+                                        </div>
+                                        <div class="ui-g-12 ui-g-nopad" *ngIf="!ofcForm.controls['name'].valid && (ofcForm.controls['name'].dirty || ofcForm.controls['name'].touched)">
+                                            <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                            <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                                <p-message severity="error" [text]="ofcForm.controls['name'].errors['required'] ? 'Office Name is required' : ''"></p-message>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                            Office Type
+                                            <span style="color:red" *ngIf="show">*</span>
+                                        </div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <p-dropdown  [options]="officeTypes"
+                                                         placeholder="Type of office" [(ngModel)]="selectedOfficeType"
+                                                         optionLabel="label" formControlName="officeType">
+                                            </p-dropdown>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad" *ngIf="!ofcForm.controls['officeType'].valid && (ofcForm.controls['officeType'].dirty || ofcForm.controls['officeType'].touched)">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <p-message severity="error" [text]="ofcForm.controls['officeType'].errors['required'] ? 'Office Type is required' : ''"></p-message>
+                                        </div>
+                                    </div>
+
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                            Address
+                                            <span style="color:red" *ngIf="show">*</span>
+                                        </div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <textarea type="text"
+                                                  placeholder="Parent Office address"
+                                                  formControlName="address"
+                                                  autoResize="autoResize"
+                                                  pInputTextarea></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad" *ngIf="!ofcForm.controls['address'].valid &&
+                                     (ofcForm.controls['address'].dirty || ofcForm.controls['address'].touched)">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <p-message severity="error" [text]="ofcForm.controls['address'].errors['required'] ? 'Address Is Required' : ''"></p-message>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                            Location
+                                        </div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <p-autoComplete formControlName="location" [suggestions]="filteredLocations"
+                                                            (completeMethod)="filterLocations($event)" field="location"
+                                                            placeholder="Search location" [minLength]="3" (onSelect)="onSelectLocation()">
+                                            </p-autoComplete>
+                                        </div>
+                                    </div>
+
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        </div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8  ui-g-nopad">
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                <input type="text" placeholder="Village"
+                                                       formControlName="village" pInputText>
+
+                                            </div>
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                <input type="text" placeholder="District"
+                                                       formControlName="district" pInputText>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad" *ngIf="!ofcForm.controls['village'].valid &&
+                                    (ofcForm.controls['village'].dirty || ofcForm.controls['village'].touched )
+                                    || !ofcForm.controls['district'].valid && (ofcForm.controls['district'].touched)">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        </div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8  ui-g-nopad">
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6" *ngIf="!ofcForm.controls['village'].valid &&
+                                             (ofcForm.controls['village'].dirty || ofcForm.controls['village'].touched)">
+                                                <p-message severity="error" [text]="ofcForm.controls['village'].errors['required'] ? 'village Is Required' : ''"></p-message>
+
+                                            </div>
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6" *ngIf="!ofcForm.controls['district'].valid &&
+                                            (ofcForm.controls['district'].dirty || ofcForm.controls['district'].touched)" style="text-align: right">
+                                                <p-message severity="error" [text]="ofcForm.controls['district'].errors['required'] ? 'District Is Required' : ''"></p-message>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        </div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8  ui-g-nopad">
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                <input type="text" placeholder="City"
+                                                       formControlName="city" pInputText>
+                                            </div>
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                <input type="text" placeholder="Province"
+                                                       formControlName="state" pInputText>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad" *ngIf="!ofcForm.controls['city'].valid &&
+                                    (ofcForm.controls['city'].dirty || ofcForm.controls['city'].touched) || !ofcForm.controls['state'].valid &&
+                                    (ofcForm.controls['state'].touched)">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        </div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8  ui-g-nopad">
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6" *ngIf="!ofcForm.controls['city'].valid && (ofcForm.controls['city'].dirty || ofcForm.controls['city'].touched)">
+                                                <p-message severity="error" [text]="ofcForm.controls['city'].errors['required'] ? 'City Is Required' : ''"></p-message>
+
+                                            </div>
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6" *ngIf="!ofcForm.controls['state'].valid && (ofcForm.controls['state'].dirty || ofcForm.controls['state'].touched)" style="text-align: right">
+                                                <p-message severity="error" [text]="ofcForm.controls['state'].errors['required'] ? 'State Is Required' : ''"></p-message>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                            Zipcode
+                                            <span style="color:red" *ngIf="show">*</span>
+                                        </div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <input type="text" placeholder="Zipcode"
+                                                   formControlName="zipcode" pInputText pKeyFilter="num">
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad" *ngIf="!ofcForm.controls['zipcode'].valid && (ofcForm.controls['zipcode'].dirty || ofcForm.controls['zipcode'].touched)">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <p-message severity="error" [text]="ofcForm.controls['zipcode'].errors['required'] ? 'Zipcode is required' : ofcForm.controls['zipcode'].errors['pattern'] ? 'zipcode is wrong' : ''"></p-message>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div  >
+                            <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+                                    <div class="ui-g-12">
+                                        <h2>Parent Information</h2>
+                                    </div>
+                                    <div [formGroup]="ofcForm">
+                                        <div class="ui-g-12 ui-g-nopad">
+                                            <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                                Parent Information
+                                                <!--<span style="color:red">*</span>-->
+                                            </div>
+                                            <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                                <p-dropdown  [options]="officeHeads" (onChange)="getOfficeById()"
+                                                             [(ngModel)]="selectedOfficeHead" optionLabel="label"
+                                                             placeholder="No Office Head" class="hiden-strip-dropdown readonly-custom" formControlName="officeHeadId"></p-dropdown>
+                                                <!--<input type="text" placeholder="Type of office"-->
+                                                <!--[(ngModel)]="selectedOfficeHead.label" [disabled]="true" pInputText>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                            Office Type
+                                        </div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <input type="text" placeholder="Type of office"
+                                                   [(ngModel)]="officeData.officeType"  pInputText disabled>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                            Address
+                                        </div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                    <textarea type="text" placeholder="Parent Office address"
+                                              [(ngModel)]="officeData.address"  autoResize="autoResize"
+                                              pInputTextarea disabled></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8 ui-g-nopad">
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                <input type="text" placeholder="Village"
+                                                       [(ngModel)]="officeData.village" pInputText disabled>
+                                            </div>
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                <input type="text" placeholder="District"
+                                                       [(ngModel)]="officeData.district" pInputText disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8 ui-g-nopad">
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                <input type="text" placeholder="City" [(ngModel)]="officeData.city"
+                                                       pInputText disabled>
+                                            </div>
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                <input type="text" placeholder="Province" [(ngModel)]="officeData.state"
+                                                       pInputText disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                            Zipcode
+                                        </div>
+                                        <div class="ui-g-8 ui-lg-4 ui-md-4">
+                                            <input type="text" placeholder="Zipcode"
+                                                   [(ngModel)]="officeData.zipcode" pInputText disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui-g-12" style="padding: 2px">
+            <div class="card card-w-title" style="overflow: auto">
+                <h1>Office Structures</h1>
+                <div style="width:100%; overflow:auto">
+                    <p-organizationChart [value]="data" selectionMode="single" [(selection)]="selectedNode"
+                                         (onNodeSelect)="onNodeSelect($event)" styleClass="company">
+                        <ng-template let-node pTemplate="office">
+                            <div *ngIf="uuid === node.officeId; else basic">
+                                <div class="node-header-selected ui-corner-top">{{node.label}}</div>
+                                <div class="node-content-selected">
+                                    <div>Type: {{node.officeType}}</div>
+                                    <div>Zip Code: {{node.zipcode}}</div>
+                                </div>
+                            </div>
+                            <ng-template #basic>
+                                <div class="node-header ui-corner-top">{{node.label}}</div>
+                                <div class="node-content">
+                                    <div>Type: {{node.officeType}}</div>
+                                    <div>Zip Code: {{node.zipcode}}</div>
+                                </div>
+                            </ng-template>
+                        </ng-template>
+                    </p-organizationChart>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div>
+                <h2>Data Employee</h2>
+            </div>
+            <p-table #dt [columns]="cols" [value]="employee" [paginator]="true" [rows]="10" [pageLinks]="3"
+                     [rowsPerPageOptions]="[10,20,25]">
+                <ng-template pTemplate="caption">
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-3">
+                            <input type="text" pInputText size="20" placeholder="Search"
+                                   (input)="dt.filterGlobal($event.target.value, 'contains')"
+                                   style="width:auto; float: left;">
+                            <!--<i class="fa fa-search" style="margin:8px 4px 4px 4px; float: left"></i>-->
+                        </div>
+                    </div>
+                </ng-template>
+
+                <ng-template pTemplate="colgroup" let-columns>
+                    <colgroup>
+                        <col *ngFor="let col of columns" [style.width]="col.width">
+                    </colgroup>
+                </ng-template>
+
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th style="width: 7%">
+                            <label>No</label>
+                        </th>
+                        <th *ngFor="let col of columns" [ngSwitch]="col.field" [pSortableColumn]="col.field">
+                            {{col.header}}
+                            <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+                                        ariaLabelDesc="Activate to sort in descending order"
+                                        ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-employee let-rowIndex="rowIndex">
+                    <tr>
+                        <td style="text-align: center; width: 20px">
+                            {{rowIndex + 1}}
+                        </td>
+                        <td>
+                            {{employee["employeeNo"]}}
+
+                        </td>
+                        <td>
+                            {{employee["fullName"]}}
+                        </td>
+                        <td>
+                            {{employee["workPosition"]}}
+                        </td>
+                        <td>
+                            {{employee["employmentStatus"]}}
+                        </td>
+                        <td>
+                            {{employee["employeeType"]}}
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="summary">
+                    <h4>This company has listed {{employee?.length}} employee(s)</h4>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+
+</div>

@@ -1,2 +1,43 @@
-<navbar-primary-nav></navbar-primary-nav>
-<router-outlet></router-outlet>
+<div class="layout-main">
+  <alert></alert>
+  <router-outlet #outlet="outlet"></router-outlet>
+
+  <!--</div>-->
+  <div class="layout-wrapper" (click)="onLayoutClick()" [ngClass]="{'menu-layout-static': !isOverlay(),
+                'menu-layout-overlay': isOverlay(),
+                'layout-menu-overlay-active': overlayMenuActive,
+                'menu-layout-horizontal': isHorizontal(),
+                'menu-layout-slim': isSlim(),
+                'layout-menu-static-inactive': staticMenuDesktopInactive,
+                'layout-menu-static-active': staticMenuMobileActive}">
+
+    <app-topbar *ngIf="currentUser"></app-topbar>
+
+    <ngx-spinner bdColor="rgba(51,51,51,0.9)" size="medium" color="#fff" type="pacman">
+      <p style="font-size: 20px; color: white">Loading...</p>
+    </ngx-spinner>
+
+
+    <div class="layout-menu-container" [ngClass]="{'layout-menu-dark':darkMenu}" (click)="onMenuClick($event)"
+      *ngIf="currentUser">
+      <p-scrollPanel #layoutMenuScroller [style]="{height: '100%' }">
+        <div class="menu-scroll-content">
+          <app-inline-profile *ngIf="profileMode=='inline'&&!isHorizontal()"></app-inline-profile>
+          <app-menu [reset]="resetMenu"></app-menu>
+        </div>
+      </p-scrollPanel>
+    </div>
+
+    <div class="layout-main">
+      <p-breadcrumb [model]="breadcrumbs" *ngIf="currentUser" [home]="home"></p-breadcrumb><br />
+      <alert *ngIf="currentUser"></alert>
+      <router-outlet #outlet="outlet"></router-outlet>
+
+    </div>
+
+    <div class="layout-mask" *ngIf="currentUser"></div>
+
+    <app-footer *ngIf="currentUser"></app-footer>
+    <!--<app-login></app-login>-->
+
+  </div>

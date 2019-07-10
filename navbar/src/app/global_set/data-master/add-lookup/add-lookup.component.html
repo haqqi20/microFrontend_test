@@ -1,0 +1,68 @@
+<router-outlet></router-outlet>
+<!--<div class="ui-g">-->
+<p-messages [(value)]="messages"></p-messages>
+<!--</div>-->
+<div class="ui-g">
+    <!-- button -->
+    <div class="ui-grid-row ui-g-12" style="background-color: white; ">
+        <div class="ui-grid-row ui-g-12 topbarsticky" >
+            <div class="ui-g-12" style="float:right">
+                <td style="padding-left:5px; float: left; position: absolute; top: 0px">
+                    <h1>Add Lookup Detail</h1>
+                </td>
+                <td style="padding-right: 5px; float: right;">
+                    <button pButton type="submit" icon="pi pi-save" class="ui-button-success" label="Save "
+                            style="font-size:13px" (click)="addLookupDetail();" routerLink="/globalsetting/lookup/detail/{{lookupHeadId}}" ></button>
+                </td>
+                <td style="padding-right: 5px; float: right;">
+                    <button pButton type="submit" icon="pi pi-plus" label="Save & New" class="ui-button-warning"
+                            style="font-size:13px" (click)="addLookupDetail(); reset()"></button>
+                </td>
+                <td style="padding-right: 5px; float: right;">
+                    <button pButton icon="pi pi-times" class="secondary-btn" label="Cancel"
+                            style="font-size:13px" routerLink="/globalsetting/lookup/detail/{{lookupHeadId}}"></button>
+                </td>
+            </div>
+        </div>
+        <!-- end button -->
+        <!--<br><br><br>-->
+        <div class="card">
+            <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-nopad">
+                    <div class="ui-g-12 ui-md-6">
+                        <div class="ui-g form-group">
+                            <div class="ui-g-3 ui-md-3">
+                                Group Name
+                            </div>
+                            <div class="ui-g-9 ui-md-9">
+                                <input class="ui-lg-8 ui-md-7" type="text" [(ngModel)]="lookup.groupValue" pInputText disabled>
+                            </div>
+                            <div class="ui-g-3 ui-md-3">
+                                Lookup Name
+                            </div>
+                            <div class="ui-g-9 ui-md-9">
+                                <input class="ui-lg-8 ui-md-7" type="text" [(ngModel)]="lookup.lookupName" pInputText>
+                            </div>
+                            <!--<div class="ui-g-3 ui-md-3">-->
+                                <!--Lookup Key-->
+                                <!--<span style="color:red">*</span>-->
+                            <!--</div>-->
+                            <!--<div class="ui-g-9 ui-md-9">-->
+                                <!--<input class="ui-lg-8 ui-md-7" type="text" placeholder="Enter lookup key"-->
+                                       <!--[(ngModel)]="lookupDetail.lookupKey" pInputText>-->
+                            <!--</div>-->
+                            <!--<div class="ui-g-3 ui-md-3">-->
+                                <!--Description-->
+                                <!--<span style="color:red">*</span>-->
+                            <!--</div>-->
+                            <!--<div class="ui-g-9 ui-md-9">-->
+                                <!--<input class="ui-lg-8 ui-md-7" type="text" placeholder="Enter description"-->
+                                       <!--[(ngModel)]="lookupDetail.lookupValue" pInputText>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

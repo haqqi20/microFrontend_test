@@ -1,0 +1,2136 @@
+<div class="ui-fluid">
+  <div class="ui-g">
+    <div class="ui-grid-row ui-g-12 topbarsticky">
+      <div class="ui-g-12">
+        <div style="padding-left:5px; position: absolute; top: 0px">
+          <h1>Create </h1>
+        </div>
+        <div style="padding-left:5px; position: absolute; left: 175px; padding-top: 13px">
+          <!--<span class="badge badge-warning">In Progress</span>-->
+        </div>
+        <td style="padding-left:5px; float: right; padding-top: 5px; padding-right: 5px"
+            *ngIf="stepper.selectedIndex!==5; else noSummary">
+          <button pButton type="submit" class="ui-button-success" label="Save" style="width: 8em"
+                  (click)="addApp(step1.value, true)"></button>
+        </td>
+        <ng-template #noSummary>
+          <td style="padding-left:5px; float: right; padding-top: 5px; padding-right: 5px">
+            <button pButton type="submit" class="ui-button-success" label="Save" style="width: 8em"
+                    (click)="save()"></button>
+          </td>
+        </ng-template>
+        <td style="padding-left:5px; float: right; padding-top: 5px">
+          <button pButton class="ui-button-secondary" label="Cancel" style="width: 8em"></button>
+        </td>
+      </div>
+
+    </div>
+    <div class="card ui-lg-12 ui-md-12">
+      <mat-horizontal-stepper (selectionChange)="onChange($event)" #stepper="matHorizontalStepper"
+                              labelPosition="bottom">
+        <mat-step [stepControl]="step1">
+          <ng-template matStepLabel>Personal Information</ng-template>
+          <div class="ui-g">
+            <h2>Personal Information</h2>
+          </div>
+
+          <form [formGroup]="step1" (ngSubmit)="onNextStep1()">
+            <label>
+              <!--{{ step1 ?.value | json }}-->
+
+            </label>
+            <div class="ui-g-12 ui-lg-6 ui-md-6-form">
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Salutation Type
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <p-autoComplete [suggestions]="filteredSalutation"
+                                  (completeMethod)="filterSalutation($event)" [minLength]="1"
+                                  placeholder="Salutation Type" [dropdown]="true" formControlName="salutation">
+                    <ng-template let-aplication pTemplate="item">
+                      <div class="ui-helper-clearfix">
+                        <div style="font-size:12px;float:left">{{aplication}}</div>
+                      </div>
+                    </ng-template>
+                  </p-autoComplete>
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad"
+                   *ngIf="!step1.controls['salutation'].valid
+                                                && (step1.controls['salutation'].dirty
+                                                || step1.controls['salutation'].touched || step1.controls['salutation'].submitted)">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <p-message severity="error"
+                             [text]="step1.controls ['salutation'].errors['required'] ? ' salutation  Is Required' : ''">
+                  </p-message>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Full Name
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <input pInputText type="text" placeholder="full Name"
+                         formControlName="fullName">
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad"
+                   *ngIf="!step1.controls['fullName'].valid
+                                                && (step1.controls['fullName'].dirty
+                                                || step1.controls['fullName'].touched || step1.controls['fullName'].submitted)">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <p-message severity="error"
+                             [text]="step1.controls ['fullName'].errors['required'] ? ' full Name Is Required' : ''">
+                  </p-message>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Alias Name
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <input pInputText type="text" placeholder="Alias Name"
+                         formControlName="aliasName">
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad"
+                   *ngIf="!step1.controls['aliasName'].valid
+                                                && (step1.controls['aliasName'].dirty
+                                                || step1.controls['aliasName'].touched || step1.controls['aliasName'].submitted)">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <p-message severity="error"
+                             [text]="step1.controls ['aliasName'].errors['required'] ? ' Alias Name Is Required' : ''">
+                  </p-message>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Identity Number
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <input pInputText type="text" placeholder="Identity Number"
+                         formControlName="identityNumber">
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad"
+                   *ngIf="!step1.controls['identityNumber'].valid
+                                                && (step1.controls['identityNumber'].dirty
+                                                || step1.controls['identityNumber'].touched || step1.controls['identityNumber'].submitted)">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <p-message severity="error"
+                             [text]="step1.controls ['identityNumber'].errors['required'] ? ' Identity Number Is Required' : ''">
+                  </p-message>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Brith Place
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <input pInputText type="text" placeholder="Birth Place"
+                         formControlName="birthPlace">
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad"
+                   *ngIf="!step1.controls['birthPlace'].valid
+                                                && (step1.controls['birthPlace'].dirty
+                                                || step1.controls['birthPlace'].touched || step1.controls['birthPlace'].submitted)">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <p-message severity="error"
+                             [text]="step1.controls ['birthPlace'].errors['required'] ? ' Birth Place Is Required' : ''">
+                  </p-message>
+                </div>
+              </div>
+
+
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Brith Date
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <p-calendar placeholder="Brith Date" appendTo="body" [monthNavigator]="true"
+                              formControlName="birthDate" [yearNavigator]="true" yearRange="1930:2030"
+                              dateFormat="dd-M-yy"></p-calendar>
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad"
+                   *ngIf="!step1.controls['birthDate'].valid
+                                                && (step1.controls['birthDate'].dirty
+                                                || step1.controls['birthDate'].touched || step1.controls['birthDate'].submitted)">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <p-message severity="error"
+                             [text]="step1.controls ['birthDate'].errors['required'] ? ' Birth Date Is Required' : ''">
+                  </p-message>
+                </div>
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-lg-6 ui-md-6-form">
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Mother Name
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <input pInputText type="text" placeholder="Mother Name"
+                         formControlName="motherName">
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad"
+                   *ngIf="(step1.controls['motherName'].submitted || step1.controls['motherName'].touched
+                   || step1.controls['motherName'].dirty) && !step1.controls['motherName'].valid">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <p-message severity="error"
+                             [text]="step1.controls ['motherName'].errors['required'] ? ' Mother Name Is Required' : ''">
+                  </p-message>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Phone Number
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <input pInputText type="text" placeholder="Phone Number"
+                         formControlName="phoneNumber">
+
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad"
+                   *ngIf="!step1.controls['phoneNumber'].valid
+                                                && (step1.controls['phoneNumber'].dirty
+                                                || step1.controls['phoneNumber'].touched || step1.controls['phoneNumber'].submitted)">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <p-message severity="error"
+                             [text]="step1.controls ['phoneNumber'].errors['required'] ? ' Phone Number Is Required' : ''">
+                  </p-message>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Email
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <input pInputText type="text" placeholder="Email Info "
+                         formControlName="email">
+
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad"
+                   *ngIf="!step1.controls['email'].valid
+                                                && (step1.controls['email'].dirty
+                                                || step1.controls['email'].touched || step1.controls['email'].submitted)">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <p-message severity="error"
+                             [text]="step1.controls ['email'].errors['required'] ? ' Email Info Is Required' : ''">
+                  </p-message>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Gender
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+
+                  <p-autoComplete [suggestions]="filteredGender"
+                                  (completeMethod)="filterGender($event)" [minLength]="1"
+                                  placeholder="Choose Gender"  [dropdown]="true" formControlName="gender">
+                    <ng-template let-aplication pTemplate="item">
+                      <div class="ui-helper-clearfix">
+                        <div style="font-size:12px;float:left">{{aplication}}</div>
+                      </div>
+                    </ng-template>
+                  </p-autoComplete>
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad"
+                   *ngIf="!step1.controls['gender'].valid
+                                                && (step1.controls['gender'].dirty
+                                                || step1.controls['gender'].touched || step1.controls['gender'].submitted)">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <p-message severity="error"
+                             [text]="step1.controls ['gender'].errors['required'] ? ' Gender Info  Is Required' : ''">
+                  </p-message>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Religion
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+
+                  <p-autoComplete [suggestions]="filteredReligion"
+                                  (completeMethod)="filterReligion($event)" [minLength]="1"
+                                  placeholder="Choose Religion"  [dropdown]="true" formControlName="religion">
+                    <ng-template let-aplication pTemplate="item">
+                      <div class="ui-helper-clearfix">
+                        <div style="font-size:12px;float:left">{{aplication}}</div>
+                      </div>
+                    </ng-template>
+                  </p-autoComplete>
+
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad"
+                   *ngIf="!step1.controls['religion'].valid
+                                                && (step1.controls['religion'].dirty
+                                                || step1.controls['religion'].touched || step1.controls['religion'].submitted)">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <p-message severity="error"
+                             [text]="step1.controls ['religion'].errors['required'] ? ' Religion Info  Is Required' : ''">
+                  </p-message>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Marital Status
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+
+                  <p-autoComplete [suggestions]="filteredMarital"
+                                  (completeMethod)="filterMaritalSt1($event)" [minLength]="1"
+                                  placeholder="Marital Status"  [dropdown]="true" formControlName="maritialStatus">
+                    <ng-template let-aplication pTemplate="item">
+                      <div class="ui-helper-clearfix">
+                        <div style="font-size:12px;float:left">{{aplication}}</div>
+                      </div>
+                    </ng-template>
+                  </p-autoComplete>
+
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad"
+                   *ngIf="!step1.controls['maritialStatus'].valid
+                                                && (step1.controls['maritialStatus'].dirty
+                                                || step1.controls['maritialStatus'].touched || step1.controls['maritialStatus'].submitted)">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <p-message severity="error"
+                             [text]="step1.controls ['maritialStatus'].errors['required'] ? ' Maritial Status Is Required' : ''">
+                  </p-message>
+                </div>
+              </div>
+            </div>
+
+            <!--Working Information-->
+            <div class="ui-g ui-g-12">
+              <div class="ui-g-12 ui-lg-6 ui-md-6-form">
+                <div class="ui-g">
+                  <h2>Working Information</h2>
+                </div>
+
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Occupation
+                    <span style="color:red">*</span>
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+
+                    <p-autoComplete [suggestions]="filteredOccu"
+                                    (completeMethod)="filterOccupation($event)" [minLength]="1"
+                                    placeholder="Choose Occupation"  [dropdown]="true" formControlName="occupation">
+                      <ng-template let-aplication pTemplate="item">
+                        <div class="ui-helper-clearfix">
+                          <div style="font-size:12px;float:left">{{aplication}}</div>
+                        </div>
+                      </ng-template>
+                    </p-autoComplete>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad"
+                     *ngIf="!step1.controls['occupation'].valid
+                                                && (step1.controls['occupation'].dirty
+                                                || step1.controls['occupation'].touched || step1.controls['occupation'].submitted)">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-message severity="error"
+                               [text]="step1.controls ['occupation'].errors['required'] ? ' occupation Is Required' : ''">
+                    </p-message>
+                  </div>
+                </div>
+
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Company Name
+                    <span style="color:red">*</span>
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <input pInputText type="text" placeholder="Company Name"
+                           formControlName="companyName">
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad"
+                     *ngIf="!step1.controls['companyName'].valid
+                                                && (step1.controls['companyName'].dirty
+                                                || step1.controls['companyName'].touched || step1.controls['companyName'].submitted)">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-message severity="error"
+                               [text]="step1.controls ['companyName'].errors['required'] ? ' Company Name Is Required' : ''">
+                    </p-message>
+                  </div>
+                </div>
+
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Lenght Of Work
+                    <!--<span style="color:red">*</span>-->
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <div class="ui-inputgroup">
+                      <input type="text" pInputText placeholder="lenght Of Work" formControlName="lenghtOfWork">
+                      <span class="ui-inputgroup-addon">Months</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Employee Status
+                    <span style="color:red">*</span>
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <input pInputText type="text" placeholder="Employee Status"
+                           formControlName="employmentStatus">
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad"
+                     *ngIf="!step1.controls['employmentStatus'].valid
+                                                && (step1.controls['employmentStatus'].dirty
+                                                || step1.controls['employmentStatus'].touched || step1.controls['employmentStatus'].submitted)">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-message severity="error"
+                               [text]="step1.controls ['employmentStatus'].errors['required'] ? 'Employment Status Is Required' : ''">
+                    </p-message>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Start Date
+                    <span style="color:red">*</span>
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-calendar placeholder="Start Date" appendTo="body" [monthNavigator]="true"
+                                formControlName="startDate" [yearNavigator]="true" yearRange="1930:2030"
+                                dateFormat="dd-M-yy"></p-calendar>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad"
+                     *ngIf="!step1.controls['startDate'].valid
+                                                && (step1.controls['startDate'].dirty
+                                                || step1.controls['startDate'].touched || step1.controls['startDate'].submitted)">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-message severity="error"
+                               [text]="step1.controls ['startDate'].errors['required'] ? 'startDate Is Required' : ''">
+                    </p-message>
+                  </div>
+                </div>
+
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    End Date
+                    <span style="color:red">*</span>
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-calendar placeholder="End Date" appendTo="body" [monthNavigator]="true"
+                                formControlName="endDate" [yearNavigator]="true" yearRange="1930:2030"
+                                dateFormat="dd-M-yy"></p-calendar>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div [formGroup]="cloneAddDinamic">
+              <div formArrayName="addresStep1">
+                <div *ngFor="let add1 of cloneAddDinamic.controls.addresStep1.controls; let i=index">
+                  <div [formGroupName]="i">
+                    <div class="ui-g ui-g-12">
+                      <div class="ui-g-12 ui-lg-6 ui-md-6-form">
+                        <div class="ui-g">
+                          <h2>Address Information</h2>
+                        </div>
+                        <div class="ui-g-12 ui-g-nopad">
+                          <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                            Address Type
+                          </div>
+                          <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                            <p-autoComplete [suggestions]="filteredAddressType"
+                                            (completeMethod)="filterAddressType($event)" [minLength]="1" placeholder="Address Type"
+                                            [dropdown]="true" formControlName="addressType">
+                              <ng-template let-aplication pTemplate="item">
+                                <div class="ui-helper-clearfix">
+                                  <div style="font-size:12px;float:left">{{aplication}}</div>
+                                </div>
+                              </ng-template>
+                            </p-autoComplete>
+
+
+                          </div>
+                        </div>
+
+                        <div class="ui-g-12 ui-g-nopad">
+                          <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                            Address
+                          </div>
+                          <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                            <textarea type="text" placeholder="Address" style="resize:none " pInputTextarea
+                                      formControlName="address"></textarea>
+                          </div>
+                        </div>
+
+                        <div class="ui-g-12 ui-g-nopad">
+                          <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                            Location
+                          </div>
+                          <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                            <p-autoComplete formControlName="location" [suggestions]="filteredLocations"
+                                            (completeMethod)="filterLocations($event)" field="location" placeholder="Search location"
+                                            [minLength]="3" (onSelect)="onSelectLocation(i)">
+                            </p-autoComplete>
+
+                          </div>
+                        </div>
+                        <div class="ui-g-12 ui-g-nopad">
+                          <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                          <div class="ui-g-8 ui-lg-8 ui-md-8 form-field ui-g-nopad">
+                            <div class="ui-g-12 ui-lg-6 ui-md-6 form-field">
+                              <input type="text" placeholder="Village" formControlName="village" pInputText>
+                            </div>
+                            <div class="ui-g-12 ui-lg-6 ui-md-6 form-field">
+                              <input type="text" placeholder="District" formControlName="district" pInputText>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="ui-g-12 ui-g-nopad">
+                          <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                          <div class="ui-g-8 ui-lg-8 ui-md-8 form-field ui-g-nopad">
+                            <div class="ui-g-12 ui-lg-6 ui-md-6 form-field">
+                              <input type="text" placeholder="City" pInputText formControlName="city">
+                            </div>
+                            <div class="ui-g-12 ui-lg-6 ui-md-6 form-field">
+                              <input type="text" placeholder="Province" pInputText formControlName="state">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="ui-g-12 ui-g-nopad">
+                          <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                            Zipcode
+                          </div>
+                          <div class="ui-g-8 ui-lg-4 ui-md-4 form-field">
+                            <input type="text" placeholder="Zipcode" pInputText formControlName="zipcode">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ui-g-12">
+                      <td style="padding-left:5px; padding-top: 5px; float: right">
+                        <button type="button" *ngIf="cloneAddDinamic.controls.addresStep1.controls.length > 1"
+                                style="width: 5.5em; height: 2.5em" (click)="removeAddress1(i)" class="ui-button-danger"
+                                pButton>
+                          <i class="fa fa-trash" aria-hidden="true" style="margin-top: 10px"></i>
+                        </button>
+                      </td>
+                    </div>
+                    <div class="ui-g-12">
+                      <mat-divider></mat-divider>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="ui-g-12">
+                  <td style="padding-left:5px; padding-top: 5px; float: left">
+                    <button pButton type="button" icon="pi pi-plus" label="Address" class="ui-button-success"
+                            style="margin-right: .25em; width: 8em" (click)="addAddres1()"></button>
+
+                  </td>
+                </div>
+
+              </div>
+              <div formArrayName="units">
+                <div *ngFor="let unit of cloneAddDinamic.controls.units.controls; let i=index">
+                  <div class="ui-g ui-g-12" [formGroupName]="i">
+                    <div class="ui-g-12 ui-lg-6 ui-md-6-form">
+                      <div class="ui-g">
+                        <h2>Family Information</h2>
+                      </div>
+
+                      <div class="ui-g-12 ui-g-nopad">
+                        <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                          Salutation
+                          <span style="color:red">*</span>
+                        </div>
+                        <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                          <p-autoComplete [suggestions]="filteredSalutation"
+                                          (completeMethod)="filterSalutation($event)" [minLength]="1"
+                                          placeholder="Choose Salutation"  [dropdown]="true" formControlName="salutationFamily">
+                            <ng-template let-aplication pTemplate="item">
+                              <div class="ui-helper-clearfix">
+                                <div style="font-size:12px;float:left">{{aplication}}</div>
+                              </div>
+                            </ng-template>
+                          </p-autoComplete>
+
+                        </div>
+                        <div class="ui-g-12 ui-g-nopad"
+                             *ngIf="!unit.controls['salutationFamily'].valid
+                                                && (unit.controls['salutationFamily'].dirty
+                                                || unit.controls['salutationFamily'].touched || unit.controls['salutationFamily'].submitted)">
+                          <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                          <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                            <p-message severity="error"
+                                       [text]="unit.controls ['salutationFamily'].errors['required'] ? ' salutation Is Required' : ''">
+                            </p-message>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="ui-g-12 ui-g-nopad">
+                        <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                          Full Name
+                          <span style="color:red">*</span>
+                        </div>
+                        <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                          <input pInputText type="text" placeholder="Full Name"
+                                 formControlName="fullNameFamily">
+                        </div>
+                        <div class="ui-g-12 ui-g-nopad"
+                             *ngIf="!unit.controls['fullNameFamily'].valid
+                      && (unit.controls['fullNameFamily'].dirty
+                      || unit.controls['fullNameFamily'].touched || unit.controls['fullNameFamily'].submitted)">
+                          <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                          <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                            <p-message severity="error"
+                                       [text]="unit.controls ['fullNameFamily'].errors['required'] ? ' Full Name Is Required' : ''">
+                            </p-message>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="ui-g-12 ui-g-nopad">
+                        <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                          Alias Name
+                          <span style="color:red">*</span>
+                        </div>
+                        <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                          <input pInputText type="text" placeholder="Alias Name"
+                                 formControlName="aliasNameFamily">
+                        </div>
+                        <div class="ui-g-12 ui-g-nopad"
+                             *ngIf="!unit.controls['aliasNameFamily'].valid
+                      && (unit.controls['aliasNameFamily'].dirty
+                      || unit.controls['aliasNameFamily'].touched || unit.controls['aliasNameFamily'].submitted)">
+                          <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                          <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                            <p-message severity="error"
+                                       [text]="unit.controls ['aliasNameFamily'].errors['required'] ? ' Alias Name Is Required' : ''">
+                            </p-message>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="ui-g-12 ui-g-nopad">
+                        <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                          Birth Date
+                          <span style="color:red">*</span>
+                        </div>
+                        <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                          <p-calendar placeholder="Birth Date" appendTo="body" [monthNavigator]="true"
+                                      formControlName="birthDateFamily" [yearNavigator]="true" yearRange="1930:2030"
+                                      dateFormat="dd-M-yy"></p-calendar>
+                        </div>
+                      </div>
+
+                      <div class="ui-g-12 ui-g-nopad">
+                        <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                          Identity Number
+                          <span style="color:red">*</span>
+                        </div>
+                        <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                          <input pInputText type="text" placeholder="Identity Number"
+                                 formControlName="identityNumberFamily">
+                        </div>
+                        <div class="ui-g-12 ui-g-nopad"
+                             *ngIf="!unit.controls['identityNumberFamily'].valid
+                      && (unit.controls['identityNumberFamily'].dirty
+                      || unit.controls['identityNumberFamily'].touched || unit.controls['identityNumberFamily'].submitted)">
+                          <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                          <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                            <p-message severity="error"
+                                       [text]="unit.controls ['identityNumberFamily'].errors['required'] ? ' Identity NumberIs Required' : ''">
+                            </p-message>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ui-g-12 ui-g-nopad">
+                        <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                          Birth Place
+                          <span style="color:red">*</span>
+                        </div>
+                        <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                          <input pInputText type="text" placeholder="Birth Place"
+                                 formControlName="birthPlaceFamily">
+                        </div>
+                        <div class="ui-g-12 ui-g-nopad"
+                             *ngIf="!unit.controls['birthPlaceFamily'].valid
+                      && (unit.controls['birthPlaceFamily'].dirty
+                      || unit.controls['birthPlaceFamily'].touched || unit.controls['birthPlaceFamily'].submitted)">
+                          <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                          <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                            <p-message severity="error"
+                                       [text]="unit.controls ['birthPlaceFamily'].errors['required'] ? ' Birth Place Is Required' : ''">
+                            </p-message>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="ui-g-12 ui-g-nopad">
+                        <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                          Phone Number
+                          <span style="color:red">*</span>
+                        </div>
+                        <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                          <input pInputText type="text" placeholder="Phone Number"
+                                 formControlName="phoneNumberFamily">
+                        </div>
+                      </div>
+
+                      <div class="ui-g-12 ui-g-nopad">
+                        <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                          Email
+                          <span style="color:red">*</span>
+                        </div>
+                        <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                          <input pInputText type="email" placeholder="Email"
+                                 formControlName="emailFamily">
+                        </div>
+                      </div>
+                      <div class="ui-g-12 ui-g-nopad"
+                           *ngIf="!unit.controls['emailFamily'].valid
+                      && (unit.controls['emailFamily'].dirty
+                      || unit.controls['emailFamily'].touched || unit.controls['emailFamily'].submitted)">
+                        <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                        <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                          <p-message severity="error"
+                                     [text]="unit.controls ['emailFamily'].errors['required'] ? ' Email Is Required' : ''">
+                          </p-message>
+                        </div>
+                      </div>
+
+                      <div class="ui-g-12 ui-g-nopad">
+                        <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                          Gender
+                        </div>
+                        <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                          <p-autoComplete [suggestions]="filteredGender"
+                                          (completeMethod)="filterGender($event)" [minLength]="1"
+                                          placeholder="Choose Gender"  [dropdown]="true" formControlName="genderFamily">
+                            <ng-template let-aplication pTemplate="item">
+                              <div class="ui-helper-clearfix">
+                                <div style="font-size:12px;float:left">{{aplication}}</div>
+                              </div>
+                            </ng-template>
+                          </p-autoComplete>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="ui-g-12">
+                      <td style="padding-left:5px; padding-top: 5px; float: right">
+                        <button type="button" *ngIf="cloneAddDinamic.controls.units.controls.length > 1" style="width: 5.5em; height: 2.5em" (click)="removeUnit(i)"
+                                class="ui-button-danger"  pButton>
+                          <i class="fa fa-trash" aria-hidden="true" style="margin-top: 10px"></i>
+                        </button>
+                      </td>
+                    </div>
+                    <div class="ui-g-12">
+                      <mat-divider></mat-divider>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="ui-g-12">
+                  <td style="padding-left:5px; padding-top: 5px; float: left">
+                    <button pButton type="button" icon="pi pi-plus" label="Family"
+                            class="ui-button-success" style="margin-right: .25em; width: 8em"  (click)="addUnit()"></button>
+
+                  </td>
+                </div>
+              </div>
+
+              <div formArrayName="incomes">
+                <div *ngFor="let income of cloneAddDinamic.controls.incomes.controls; let i=index">
+                  <div class="ui-g ui-g-12" [formGroupName]="i">
+                    <div class="ui-g-12 ui-lg-6 ui-md-6-form">
+                      <div class="ui-g">
+                        <h2>Income Information</h2>
+                      </div>
+
+                      <div class="ui-g-12 ui-g-nopad">
+                        <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                          Income Type
+                          <span style="color:red">*</span>
+                        </div>
+                        <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                          <p-autoComplete [suggestions]="filteredIncome"
+                                          (completeMethod)="filterIncome($event)" [minLength]="1"
+                                          placeholder="Choose Salutation"  [dropdown]="true" formControlName="incomeType">
+                            <ng-template let-aplication pTemplate="item">
+                              <div class="ui-helper-clearfix">
+                                <div style="font-size:12px;float:left">{{aplication}}</div>
+                              </div>
+                            </ng-template>
+                          </p-autoComplete>
+                        </div>
+                      </div>
+                      <div class="ui-g-12 ui-g-nopad"
+                           *ngIf="!income.controls['incomeType'].valid && (income.controls['incomeType'].dirty
+                            || income.controls['incomeType'].touched || income.controls['incomeType'].submitted)">
+                        <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                        <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                          <p-message severity="error"
+                                     [text]="income.controls ['incomeType'].errors['required'] ? ' Income Type Is Required' : ''">
+                          </p-message>
+                        </div>
+                      </div>
+
+                      <div class="ui-g-12 ui-g-nopad">
+                        <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                          Mothly Income
+                          <span style="color:red">*</span>
+                        </div>
+                        <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                          <input pInputText type="text" placeholder="Input  salutation"
+                                 formControlName="monthlyIncome">
+                        </div>
+                        <div class="ui-g-12 ui-g-nopad"
+                             *ngIf="!income.controls['monthlyIncome'].valid
+                                                && (income.controls['monthlyIncome'].dirty
+                                                || income.controls['monthlyIncome'].touched || income.controls['monthlyIncome'].submitted)">
+                          <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                          <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                            <p-message severity="error"
+                                       [text]="income.controls ['monthlyIncome'].errors['required'] ? ' Monthly Income Is Required' : ''">
+                            </p-message>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="ui-g-12">
+                      <td style="padding-left:5px; padding-top: 5px; float: right">
+                        <button type="button" *ngIf="cloneAddDinamic.controls.incomes.controls.length > 1" style="width: 5.5em; height: 2.5em" (click)="removeIncomes(i)"
+                                class="ui-button-danger"  pButton>
+                          <i class="fa fa-trash" aria-hidden="true" style="margin-top: 10px"></i>
+                        </button>
+                      </td>
+                    </div>
+                    <div class="ui-g-12">
+                      <mat-divider></mat-divider>
+                    </div>
+
+                  </div>
+                  <br>
+
+                </div>
+                <div class="ui-g-12">
+                  <td style="padding-left:5px; padding-top: 5px; float: left">
+                    <button pButton type="button" icon="pi pi-plus" label="Income"
+                            class="ui-button-success" style="margin-right: .25em; width: 8em"  (click)="addIncomes()"></button>
+
+                  </td>
+                </div>
+              </div>
+
+              <div formArrayName="edus">
+                <div *ngFor="let eduss of cloneAddDinamic.controls.edus.controls; let i=index">
+                  <div class="ui-g ui-g-12" [formGroupName]="i">
+                    <div class="ui-g-12 ui-lg-6 ui-md-6-form">
+                      <div class="ui-g">
+                        <h2>Education Information</h2>
+                      </div>
+
+                      <div class="ui-g-12 ui-g-nopad">
+                        <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                          Education Type
+                          <span style="color:red">*</span>
+                        </div>
+                        <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                          <p-autoComplete [suggestions]="filteredEdu"
+                                          (completeMethod)="filterEdu($event)" [minLength]="1"
+                                          placeholder="Choose Education"  [dropdown]="true" formControlName="educationType">
+                            <ng-template let-aplication pTemplate="item">
+                              <div class="ui-helper-clearfix">
+                                <div style="font-size:12px;float:left">{{aplication}}</div>
+                              </div>
+                            </ng-template>
+                          </p-autoComplete>
+                        </div>
+
+                        <div class="ui-g-12 ui-g-nopad"
+                             *ngIf="!eduss.controls['educationType'].valid
+                                                && (eduss.controls['educationType'].dirty
+                                                || eduss.controls['educationType'].touched || eduss.controls['educationType'].submitted)">
+                          <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                          <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                            <p-message severity="error"
+                                       [text]="eduss.controls ['educationType'].errors['required'] ? ' Education Is Required' : ''">
+                            </p-message>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="ui-g-12 ui-g-nopad">
+                        <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                          Institue Name
+                          <span style="color:red">*</span>
+                        </div>
+                        <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                          <input pInputText type="text" placeholder="Institue Name"
+                                 formControlName="instituteName">
+                        </div>
+                        <div class="ui-g-12 ui-g-nopad"
+                             *ngIf="!eduss.controls['instituteName'].valid
+                      && (eduss.controls['instituteName'].dirty
+                      || eduss.controls['instituteName'].touched || eduss.controls['instituteName'].submitted)">
+                          <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                          <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                            <p-message severity="error"
+                                       [text]="eduss.controls ['instituteName'].errors['required'] ? ' Institute Name Is Required' : ''">
+                            </p-message>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ui-g-12 ui-g-nopad">
+                        <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                          Major
+                          <span style="color:red">*</span>
+                        </div>
+                        <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                          <input pInputText type="text" placeholder="Major"
+                                 formControlName="major">
+                        </div>
+                        <div class="ui-g-12 ui-g-nopad"
+                             *ngIf="!eduss.controls['major'].valid
+                      && (eduss.controls['major'].dirty
+                      || eduss.controls['major'].touched || eduss.controls['major'].submitted)">
+                          <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                          <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                            <p-message severity="error"
+                                       [text]="eduss.controls ['major'].errors['required'] ? ' Major Is Required' : ''">
+                            </p-message>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ui-g-12 ui-g-nopad">
+                        <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                          Start Education
+                          <span style="color:red">*</span>
+                        </div>
+                        <div class="ui-g-12 ui-lg-8 ui-md-8 form-field">
+                          <p-calendar placeholder="Start Date" appendTo="body" [monthNavigator]="true"
+                                      formControlName="startDateEducation" [yearNavigator]="true" yearRange="1930:2030"
+                                      dateFormat="dd-M-yy">
+                          </p-calendar>
+                        </div>
+
+                        <div class="ui-g-12 ui-g-nopad"
+                             *ngIf="!eduss.controls['startDateEducation'].valid
+                      && (eduss.controls['startDateEducation'].dirty
+                      || eduss.controls['startDateEducation'].touched || eduss.controls['startDateEducation'].submitted)">
+                          <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                          <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                            <p-message severity="error"
+                                       [text]="eduss.controls ['startDateEducation'].errors['required'] ? ' start Date Education Is Required' : ''">
+                            </p-message>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="ui-g-12 ui-g-nopad">
+                        <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                          End Education
+                          <span style="color:red">*</span>
+                        </div>
+                        <div class="ui-g-12 ui-lg-8 ui-md-8 form-field">
+                          <p-calendar placeholder="End Date" appendTo="body" [monthNavigator]="true"
+                                      formControlName="endDateEducation" [yearNavigator]="true" yearRange="1930:2030"
+                                      dateFormat="dd-M-yy">
+                          </p-calendar>
+                        </div>
+
+                        <div class="ui-g-12 ui-g-nopad"
+                             *ngIf="!eduss.controls['endDateEducation'].valid
+                      && (eduss.controls['endDateEducation'].dirty
+                      || eduss.controls['endDateEducation'].touched || eduss.controls['endDateEducation'].submitted)">
+                          <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                          <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                            <p-message severity="error"
+                                       [text]="eduss.controls ['endDateEducation'].errors['required'] ? ' End Date Education Is Required' : ''">
+                            </p-message>
+                          </div>
+                        </div>
+                      </div>
+
+
+
+                    </div>
+
+                    <div class="ui-g-12">
+                      <td style="padding-left:5px; padding-top: 5px; float: right">
+                        <button type="button" *ngIf="cloneAddDinamic.controls.edus.controls.length > 1"
+                                style="width: 5.5em; height: 2.5em" (click)="removeEdu(i)"
+                                class="ui-button-danger" pButton>
+                          <i class="fa fa-trash" aria-hidden="true" style="margin-top: 10px"></i>
+                        </button>
+                      </td>
+                    </div>
+                    <div class="ui-g-12">
+                      <mat-divider></mat-divider>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="ui-g-12">
+                  <td style="padding-left:5px; padding-top: 5px; float: left">
+                    <button pButton type="button" icon="pi pi-plus" label="Education"
+                            class="ui-button-success" style="margin-right: .25em; width: 8em"  (click)="addEdu()"></button>
+                  </td>
+                </div>
+              </div>
+
+
+
+            </div>
+          </form>
+
+          <form [formGroup]="step1" (ngSubmit)="onNextStep1()">
+            <div class="ui-g-12">
+              <td style="padding-left:5px; padding-top: 5px; float: right">
+                <button pButton type="submit" label="Next" class="ui-button-primary" style="width: 8em"
+                        matStepperNext></button>
+              </td>
+            </div>
+          </form>
+        </mat-step>
+
+        <!--step 2-->
+        <mat-step>
+          <ng-template matStepLabel> Object Insurance & Information</ng-template>
+          <div class="ui-g">
+            <h2> Object Information</h2>
+          </div>
+          <form [formGroup]="step2" (ngSubmit)="onNextStep2()">
+            <div class="ui-g-12 ui-lg-6 ui-md-6-form">
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Product Name
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <p-autoComplete [suggestions]="filteredProductName"
+                                  (completeMethod)="filtereProductName($event)" [minLength]="1"
+                                  placeholder="Product Name" [dropdown]="true" formControlName="productName">
+                    <ng-template let-aplication pTemplate="item">
+                      <div class="ui-helper-clearfix">
+                        <div style="font-size:12px;float:left">{{aplication}}</div>
+                      </div>
+                    </ng-template>
+                  </p-autoComplete>
+
+                </div>
+                <div class="ui-g-12 ui-g-nopad"
+                     *ngIf="!step2.controls['productName'].valid
+                                                && (step2.controls['productName'].dirty
+                                                || step2.controls['productName'].touched || step2.controls['productName'].submitted)">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-message severity="error"
+                               [text]="step2.controls ['productName'].errors['required'] ? ' Product Name Is Required' : ''">
+                    </p-message>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad" *ngIf="step2.get('productName').value">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Object Category
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <p-autoComplete [suggestions]="filteredObjectCategory"
+                                  (completeMethod)="filterObjectCategory($event)" [minLength]="1"
+                                  placeholder="Object Category" [dropdown]="true" formControlName="objectCategory">
+                    <ng-template let-aplication pTemplate="item">
+                      <div class="ui-helper-clearfix">
+                        <div style="font-size:12px;float:left">{{aplication}}</div>
+                      </div>
+                    </ng-template>
+                  </p-autoComplete>
+
+                </div>
+                <div class="ui-g-12 ui-g-nopad"
+                     *ngIf="!step2.controls['objectCategory'].valid
+                                                && (step2.controls['objectCategory'].dirty
+                                                || step2.controls['objectCategory'].touched || step2.controls['objectCategory'].submitted)">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-message severity="error"
+                               [text]="step2.controls ['objectCategory'].errors['required'] ? ' Object Category Is Required' : ''">
+                    </p-message>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui-g ui-g-12" *ngIf="step2.get('objectCategory').value">
+              <div class="ui-g-12 ui-lg-6 ui-md-6-form">
+                <div class="ui-g">
+                  <h2>Automotive</h2>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Dealer
+                    <!--<span style="color:red">*</span>-->
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-autoComplete [suggestions]="filteredDealer"
+                                    (completeMethod)="filterDealer($event)" [minLength]="1"
+                                    placeholder="Dealer" [dropdown]="true" formControlName="dealer">
+                      <ng-template let-aplication pTemplate="item">
+                        <div class="ui-helper-clearfix">
+                          <div style="font-size:12px;float:left">{{aplication}}</div>
+                        </div>
+                      </ng-template>
+                    </p-autoComplete>
+
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad"
+                       *ngIf="!step2.controls['dealer'].valid
+                                                && (step2.controls['dealer'].dirty
+                                                || step2.controls['dealer'].touched || step2.controls['dealer'].submitted)">
+                    <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                    <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                      <p-message severity="error"
+                                 [text]="step2.controls ['dealer'].errors['required'] ? ' Dealer Is Required' : ''">
+                      </p-message>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Brand
+                    <!--<span style="color:red">*</span>-->
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-autoComplete [suggestions]="filteredBrand"
+                                    (completeMethod)="filterBrand($event)" [minLength]="1"
+                                    placeholder="Choose Brand" [dropdown]="true" formControlName="brand">
+                      <ng-template let-aplication pTemplate="item">
+                        <div class="ui-helper-clearfix">
+                          <div style="font-size:12px;float:left">{{aplication}}</div>
+                        </div>
+                      </ng-template>
+                    </p-autoComplete>
+                  </div>
+                </div>
+
+                <div class="ui-g-12 ui-g-nopad"
+                     *ngIf="!step2.controls['brand'].valid
+                                                && (step2.controls['brand'].dirty
+                                                || step2.controls['brand'].touched || step2.controls['brand'].submitted)">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-message severity="error"
+                               [text]="step2.controls ['brand'].errors['required'] ? ' Brand Is Required' : ''">
+                    </p-message>
+                  </div>
+                </div>
+
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Model
+                    <!--<span style="color:red">*</span>-->
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <input pInputText type="text" formcontrolname="model" placeholder="Model" />
+                    <!--<p-autoComplete [suggestions]="filteredModel"-->
+                    <!--(completeMethod)="filterModel($event)" [minLength]="1"-->
+                    <!--placeholder="Model" [dropdown]="true" formControlName="model">-->
+                    <!--<ng-template let-aplication pTemplate="item">-->
+                    <!--<div class="ui-helper-clearfix">-->
+                    <!--<div style="font-size:12px;float:left">{{aplication}}</div>-->
+                    <!--</div>-->
+                    <!--</ng-template>-->
+                    <!--</p-autoComplete>-->
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad"
+                     *ngIf="!step2.controls['model'].valid
+                                                && (step2.controls['model'].dirty
+                                                || step2.controls['model'].touched || step2.controls['model'].submitted)">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-message severity="error"
+                               [text]="step2.controls ['model'].errors['required'] ? ' Model Is Required' : ''">
+                    </p-message>
+                  </div>
+                </div>
+
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Type
+                    <!--<span style="color:red">*</span>-->
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <input pInputText type="text" placeholder="Type"
+                           formControlName="type">
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad"
+                       *ngIf="!step2.controls['type'].valid
+                                                && (step2.controls['type'].dirty
+                                                || step2.controls['type'].touched || step2.controls['type'].submitted)">
+                    <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                    <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                      <p-message severity="error"
+                                 [text]="step2.controls ['type'].errors['required'] ? ' Type Is Required' : ''">
+                      </p-message>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Manufacturing Date
+                    <!--<span style="color:red">*</span>-->
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <!--<p-calendar placeholder="Manufacturing Date" appendTo="body" [monthNavigator]="true"-->
+                                <!--formControlName="manufacturingDate" [yearNavigator]="true" yearRange="1930:2030"-->
+                                <!--dateFormat="dd-M-yy">-->
+                    <!--</p-calendar>-->
+                    <input pInputText formcontrolname="manufacturingDate" type="text" placeholder="Manufacturing Date" />
+
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad"
+                     *ngIf="!step2.controls['manufacturingDate'].valid
+                                                && (step2.controls['manufacturingDate'].dirty
+                                                || step2.controls['manufacturingDate'].touched || step2.controls['manufacturingDate'].submitted)">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-message severity="error"
+                               [text]="step2.controls ['manufacturingDate'].errors['required'] ? ' Manufacturing Date Is Required' : ''">
+                    </p-message>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Chasis Number
+                    <!--<span style="color:red">*</span>-->
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <input pInputText type="text" placeholder="Chasis Number"
+                           formControlName="chassisNumber">
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad"
+                     *ngIf="!step2.controls['chassisNumber'].valid
+                                                && (step2.controls['chassisNumber'].dirty
+                                                || step2.controls['chassisNumber'].touched || step2.controls['chassisNumber'].submitted)">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-message severity="error"
+                               [text]="step2.controls ['chassisNumber'].errors['required'] ? ' Chassis Number Is Required' : ''">
+                    </p-message>
+                  </div>
+                </div>
+
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Colour
+                    <!--<span style="color:red">*</span>-->
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-autoComplete [suggestions]="filteredColour"
+                                    (completeMethod)="filterColour($event)" [minLength]="1"
+                                    placeholder="Choose Colour" [dropdown]="true" formControlName="colour">
+                      <ng-template let-aplication pTemplate="item">
+                        <div class="ui-helper-clearfix">
+                          <div style="font-size:12px;float:left">{{aplication}}</div>
+                        </div>
+                      </ng-template>
+                    </p-autoComplete>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad"
+                     *ngIf="!step2.controls['colour'].valid
+                                                && (step2.controls['colour'].dirty
+                                                || step2.controls['colour'].touched || step2.controls['colour'].submitted)">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-message severity="error"
+                               [text]="step2.controls ['colour'].errors['required'] ? ' Colour Is Required' : ''">
+                    </p-message>
+                  </div>
+                </div>
+
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Engine Number
+                    <!--<span style="color:red">*</span>-->
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <input pInputText type="text" placeholder="Engine Number"
+                           formControlName="engineNumber">
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad"
+                       *ngIf="!step2.controls['engineNumber'].valid
+                                                && (step2.controls['engineNumber'].dirty
+                                                || step2.controls['engineNumber'].touched || step2.controls['engineNumber'].submitted)">
+                    <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                    <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                      <p-message severity="error"
+                                 [text]="step2.controls ['engineNumber'].errors['required'] ? 'EngineNumber Is Required' : ''">
+                      </p-message>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Owner Certifikat
+                    <!--<span style="color:red">*</span>-->
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <input pInputText type="text" placeholder="Owner Certifikat"
+                           formControlName="ownershipCeritifcateNumber">
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad"
+                     *ngIf="!step2.controls['ownershipCeritifcateNumber'].valid
+                                                && (step2.controls['ownershipCeritifcateNumber'].dirty
+                                                || step2.controls['ownershipCeritifcateNumber'].touched || step2.controls['ownershipCeritifcateNumber'].submitted)">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-message severity="error"
+                               [text]="step2.controls ['ownershipCeritifcateNumber'].errors['required'] ? ' Owner Ceritificate Number Is Required' : ''">
+                    </p-message>
+                  </div>
+                </div>
+
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Price
+                    <!--<span style="color:red">*</span>-->
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <input pInputText type="text" placeholder="Price"
+                           formControlName="price">
+                  </div>
+                </div>
+
+
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Insurance Type
+                    <!--<span style="color:red">*</span>-->
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-autoComplete [suggestions]="filteredInsurancee"
+                                    (completeMethod)="filterInsurance($event)" [minLength]="1"
+                                    placeholder="Insurance Type" [dropdown]="true" formControlName="insuranceType">
+                      <ng-template let-aplication pTemplate="item">
+                        <div class="ui-helper-clearfix">
+                          <div style="font-size:12px;float:left">{{aplication}}</div>
+                        </div>
+                      </ng-template>
+                    </p-autoComplete>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad"
+                     *ngIf="!step2.controls['insuranceType'].valid
+                                                && (step2.controls['insuranceType'].dirty
+                                                || step2.controls['insuranceType'].touched || step2.controls['insuranceType'].submitted)">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-message severity="error"
+                               [text]="step2.controls ['insuranceType'].errors['required'] ? ' Insurance Type Is Required' : ''">
+                    </p-message>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="ui-g-12 ui-lg-6 ui-md-6-form">
+                <div class="ui-g">
+                  <h2>.</h2>
+                </div>
+              </div>
+            </div>
+
+            <!--<div class="ui-g ui-g-12">-->
+            <!--<div class="ui-g-12 ui-lg-6 ui-md-6-form">-->
+            <!--<div class="ui-g">-->
+            <!--<h2>Property</h2>-->
+            <!--</div>-->
+            <!--<div class="ui-g-12 ui-g-nopad">-->
+            <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field">-->
+            <!--Address Type-->
+            <!--</div>-->
+            <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+            <!--<p-autoComplete formControlName="addressProperty" [suggestions]="filteredLocations"-->
+            <!--(completeMethod)="filterLocationsProperty($event)" field="location"-->
+            <!--placeholder="Search location" [minLength]="3"-->
+            <!--(onSelect)="onSelectLocationProperty()">-->
+            <!--</p-autoComplete>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="ui-g-12 ui-g-nopad">-->
+            <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>-->
+            <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field ui-g-nopad">-->
+            <!--<div class="ui-g-12 ui-lg-6 ui-md-6-form">-->
+            <!--<input type="text" placeholder="Village" formControlName="vilageProperty"-->
+            <!--pInputText>-->
+            <!--</div>-->
+            <!--<div class="ui-g-12 ui-lg-6 ui-md-6-form">-->
+            <!--<input type="text" placeholder="District" formControlName="districtProperty"-->
+            <!--pInputText>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="ui-g-12 ui-g-nopad">-->
+            <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>-->
+            <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field ui-g-nopad">-->
+            <!--<div class="ui-g-12 ui-lg-6 ui-md-6-form">-->
+            <!--<input type="text" placeholder="City"-->
+            <!--pInputText formControlName="cityProperty">-->
+            <!--</div>-->
+            <!--<div class="ui-g-12 ui-lg-6 ui-md-6-form">-->
+            <!--<input type="text" placeholder="Province"-->
+            <!--pInputText formControlName="provinceProperty">-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="ui-g-12 ui-g-nopad">-->
+            <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field">-->
+            <!--Zipcode-->
+            <!--</div>-->
+            <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+            <!--<input type="text" placeholder="Zipcode"-->
+            <!--pInputText formControlName="zipCodeProperty">-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="ui-g-12 ui-g-nopad">-->
+            <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field">-->
+            <!--Ceritifcate Number-->
+            <!--<span style="color:red">*</span>-->
+            <!--</div>-->
+            <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+            <!--<input pInputText type="text" placeholder="Ceritifcate Number"-->
+            <!--formControlName="CeritifcateNumber">-->
+            <!--</div>-->
+            <!--<div class="ui-g-12 ui-g-nopad"-->
+            <!--*ngIf="!step2.controls['CeritifcateNumber'].valid-->
+            <!--&& (step2.controls['CeritifcateNumber'].dirty-->
+            <!--|| step2.controls['CeritifcateNumber'].touched || step2.controls['CeritifcateNumber'].submitted)">-->
+            <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>-->
+            <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+            <!--<p-message severity="error"-->
+            <!--[text]="step2.controls ['CeritifcateNumber'].errors['required'] ? ' Certificate Number Is Required' : ''">-->
+            <!--</p-message>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="ui-g-12 ui-g-nopad">-->
+            <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field">-->
+            <!--Sertificate Owner Name-->
+            <!--<span style="color:red">*</span>-->
+            <!--</div>-->
+            <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+            <!--<input pInputText type="text" placeholder="Sertificate Owner Name"-->
+            <!--formControlName="ceritifcateOwnerName">-->
+            <!--</div>-->
+            <!--<div class="ui-g-12 ui-g-nopad"-->
+            <!--*ngIf="!step2.controls['ceritifcateOwnerName'].valid-->
+            <!--&& (step2.controls['ceritifcateOwnerName'].dirty-->
+            <!--|| step2.controls['ceritifcateOwnerName'].touched || step2.controls['ceritifcateOwnerName'].submitted)">-->
+            <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>-->
+            <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+            <!--<p-message severity="error"-->
+            <!--[text]="step2.controls ['ceritifcateOwnerName'].errors['required'] ? ' Sertificate Owner Name Is Required' : ''">-->
+            <!--</p-message>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="ui-g-12 ui-lg-6 ui-md-6-form">-->
+            <!--<div class="ui-g">-->
+            <!--<h2>.</h2>-->
+            <!--</div>-->
+            <!--<div class="ui-g-12 ui-g-nopad">-->
+            <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field">-->
+            <!--IMB Number-->
+            <!--<span style="color:red">*</span>-->
+            <!--</div>-->
+            <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+            <!--<input pInputText type="text" placeholder="IMB Number"-->
+            <!--formControlName="imbNumber">-->
+            <!--</div>-->
+            <!--<div class="ui-g-12 ui-g-nopad"-->
+            <!--*ngIf="!step2.controls['imbNumber'].valid-->
+            <!--&& (step2.controls['imbNumber'].dirty-->
+            <!--|| step2.controls['imbNumber'].touched || step2.controls['imbNumber'].submitted)">-->
+            <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>-->
+            <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+            <!--<p-message severity="error"-->
+            <!--[text]="step2.controls ['imbNumber'].errors['required'] ? ' IMB Number Is Required' : ''">-->
+            <!--</p-message>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="ui-g-12 ui-g-nopad">-->
+            <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field">-->
+            <!--Building Size-->
+            <!--<span style="color:red">*</span>-->
+            <!--</div>-->
+            <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+            <!--<input pInputText type="text" placeholder="Building Size"-->
+            <!--formControlName="buildingSize">-->
+            <!--</div>-->
+            <!--<div class="ui-g-12 ui-g-nopad"-->
+            <!--*ngIf="!step2.controls['buildingSize'].valid-->
+            <!--&& (step2.controls['buildingSize'].dirty-->
+            <!--|| step2.controls['buildingSize'].touched || step2.controls['buildingSize'].submitted)">-->
+            <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>-->
+            <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+            <!--<p-message severity="error"-->
+            <!--[text]="step2.controls ['buildingSize'].errors['required'] ? ' Building Size Is Required' : ''">-->
+            <!--</p-message>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="ui-g-12 ui-g-nopad">-->
+            <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field">-->
+            <!--Price-->
+            <!--<span style="color:red">*</span>-->
+            <!--</div>-->
+            <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+            <!--<input pInputText type="text" placeholder="Input  salutation"-->
+            <!--formControlName="price">-->
+            <!--</div>-->
+            <!--<div class="ui-g-12 ui-g-nopad"-->
+            <!--*ngIf="!step2.controls['price'].valid-->
+            <!--&& (step2.controls['price'].dirty-->
+            <!--|| step2.controls['price'].touched || step2.controls['price'].submitted)">-->
+            <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>-->
+            <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+            <!--<p-message severity="error"-->
+            <!--[text]="step2.controls ['price'].errors['required'] ? ' Price Is Required' : ''">-->
+            <!--</p-message>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="ui-g-12 ui-g-nopad">-->
+            <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field">-->
+            <!--Insurance Type-->
+            <!--<span style="color:red">*</span>-->
+            <!--</div>-->
+            <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+            <!--<p-autoComplete [suggestions]="filteredInsuranceP"-->
+            <!--(completeMethod)="filteredInsuranceTp($event)" [minLength]="1"-->
+            <!--placeholder="Object Category" [dropdown]="true"-->
+            <!--formControlName="insuranceTypeProperty">-->
+            <!--<ng-template let-aplication pTemplate="item">-->
+            <!--<div class="ui-helper-clearfix">-->
+            <!--<div style="font-size:12px;float:left">{{aplication}}</div>-->
+            <!--</div>-->
+            <!--</ng-template>-->
+            <!--</p-autoComplete>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="ui-g-12 ui-g-nopad"-->
+            <!--*ngIf="!step2.controls['insuranceTypeProperty'].valid-->
+            <!--&& (step2.controls['insuranceTypeProperty'].dirty-->
+            <!--|| step2.controls['insuranceTypeProperty'].touched || step2.controls['insuranceTypeProperty'].submitted)">-->
+            <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>-->
+            <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+            <!--<p-message severity="error"-->
+            <!--[text]="step2.controls ['insuranceTypeProperty'].errors['required'] ? ' insurance Property Is Required' : ''">-->
+            <!--</p-message>-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+          </form>
+
+          <div class="ui-g-12">
+            <td style="padding-left:5px; padding-top: 5px; float: right">
+              <button pButton label="Next" class="ui-button-primary" (click)="onNextStep2()"
+                      style="width: 8em" matStepperNext></button>
+            </td>
+            <td style="padding-top: 5px;">
+              <button pButton label="Back" class="ui-button-secondary" style="width: 8em"
+                      matStepperPrevious></button>
+            </td>
+          </div>
+
+        </mat-step>
+
+        step3
+        <mat-step>
+          <ng-template matStepLabel>Collateral Information</ng-template>
+          <div class="ui-g">
+            <h2>Collateral Information</h2>
+          </div>
+
+          <form [formGroup]="step3" (ngSubmit)="onNextStep3()">
+            <div class="ui-g-12 ui-lg-6 ui-md-6-form">
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Collateral Type
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <p-autoComplete [suggestions]="filteredCollateral"
+                                  (completeMethod)="filterCollateral($event)" [minLength]="1"
+                                  placeholder="Collateral Type" [dropdown]="true" formControlName="collateralType">
+                    <ng-template let-aplication pTemplate="item">
+                      <div class="ui-helper-clearfix">
+                        <div style="font-size:12px;float:left">{{aplication}}</div>
+                      </div>
+                    </ng-template>
+                  </p-autoComplete>
+                </div>
+              </div>
+            </div>
+            <div class="ui-g ui-g-12" *ngIf="step3.get('collateralType').value">
+              <div class="ui-g-12 ui-lg-6 ui-md-6-form">
+                <div class="ui-g">
+                  <h2>Automotive</h2>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Brand
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <p-autoComplete [suggestions]="filteredBrand"
+                                    (completeMethod)="filterBrand($event)" [minLength]="1"
+                                    placeholder="Choose Brand" [dropdown]="true" formControlName="brandCollateral">
+                      <ng-template let-aplication pTemplate="item">
+                        <div class="ui-helper-clearfix">
+                          <div style="font-size:12px;float:left">{{aplication}}</div>
+                        </div>
+                      </ng-template>
+                    </p-autoComplete>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Model
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <input pInputText type="text" placeholder="Model" formcontrolname="modelCollateral" />
+                    <!--<p-autoComplete [suggestions]=""-->
+                    <!--(completeMethod)="filterProductTypes($event)" [minLength]="1"-->
+                    <!--placeholder="Choose  type" [dropdown]="true" formControlName="modelCollateral"-->
+                    <!--field="label">-->
+                    <!--</p-autoComplete>-->
+                  </div>
+                </div>
+
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Type
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <input pInputText type="text" placeholder="Type"
+                           formControlName="typeCollateral">
+                  </div>
+                </div>
+
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Machine Number
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <input pInputText type="text" placeholder="Machine Number"
+                           formControlName="machineNumber">
+                  </div>
+                </div>
+
+
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Manufacturing Date
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <!--<p-calendar placeholder="Manufacturing Date" appendTo="body" [monthNavigator]="true"-->
+                                <!--formControlName="manufacturingDateCollateral" [yearNavigator]="true"-->
+                                <!--yearRange="1930:2030"-->
+                                <!--dateFormat="dd-M-yy">-->
+                    <!--</p-calendar>-->
+                    <input pInputText formcontrolname="manufacturingDateCollateral" type="text" placeholder="Manufacturing Date" />
+
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                      Chasis Number
+                    </div>
+                    <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                      <input pInputText type="text" placeholder="Chasis Number"
+                             formControlName="chassisNumberCollateral">
+                    </div>
+                  </div>
+
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                      Colour
+                      <!--<span style="color:red">*</span>-->
+                    </div>
+                    <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                      <p-autoComplete [suggestions]="filteredColour"
+                                      (completeMethod)="filterColour($event)" [minLength]="1"
+                                      placeholder="Choose Colour" [dropdown]="true" formControlName="colourCollateral">
+                        <ng-template let-aplication pTemplate="item">
+                          <div class="ui-helper-clearfix">
+                            <div style="font-size:12px;float:left">{{aplication}}</div>
+                          </div>
+                        </ng-template>
+                      </p-autoComplete>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-lg-6 ui-md-6-form">
+                <div class="ui-g">
+                  <h2>.</h2>
+                </div>
+              </div>
+
+              <!--<div class="ui-g ui-g-12">-->
+              <!--<div class="ui-g-12 ui-lg-6 ui-md-6-form">-->
+              <!--<div class="ui-g">-->
+              <!--<h2>Property</h2>-->
+              <!--</div>-->
+              <!--<form>-->
+              <!--<div class="ui-g-12 ui-g-nopad">-->
+              <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field">-->
+              <!--Property Type-->
+              <!--</div>-->
+              <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+              <!--<p-autoComplete formControlName="propertyType" [suggestions]=""-->
+              <!--(completeMethod)="filterLocations($event)" field="location"-->
+              <!--placeholder="Search location" [minLength]="3" (onSelect)="onSelectLocation()">-->
+              <!--</p-autoComplete>-->
+              <!--</div>-->
+              <!--</div>-->
+
+              <!--<div class="ui-g-12 ui-g-nopad">-->
+              <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field">-->
+              <!--Address Type-->
+              <!--</div>-->
+              <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+              <!--<p-autoComplete formControlName="addressCollateralType" [suggestions]="filteredLocations"-->
+              <!--(completeMethod)="filterLocations($event)" field="location"-->
+              <!--placeholder="Search location" [minLength]="3" (onSelect)="onSelectLocation()">-->
+              <!--</p-autoComplete>-->
+              <!--</div>-->
+              <!--</div>-->
+
+              <!--<div class="ui-g-12 ui-g-nopad">-->
+              <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field">-->
+              <!--Address-->
+              <!--</div>-->
+              <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+              <!--<textarea type="text" placeholder="Address" [rows]="2" autoResize="false"-->
+              <!--formControlName="addressCollateral" pInputTextarea></textarea>-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--<div class="ui-g-12 ui-g-nopad">-->
+              <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>-->
+              <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field ui-g-nopad">-->
+              <!--<div class="ui-g-12 ui-lg-6 ui-md-6-form">-->
+              <!--<input type="text" placeholder="Village" formControlName="vilageCollateral"-->
+              <!--pInputText>-->
+              <!--</div>-->
+              <!--<div class="ui-g-12 ui-lg-6 ui-md-6-form">-->
+              <!--<input type="text" placeholder="District" formControlName="districtCollateral"-->
+              <!--pInputText>-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--<div class="ui-g-12 ui-g-nopad">-->
+              <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>-->
+              <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field ui-g-nopad">-->
+              <!--<div class="ui-g-12 ui-lg-6 ui-md-6-form">-->
+              <!--<input type="text" placeholder="City"-->
+              <!--pInputText formControlName="cityCollateral">-->
+              <!--</div>-->
+              <!--<div class="ui-g-12 ui-lg-6 ui-md-6-form">-->
+              <!--<input type="text" placeholder="Province"-->
+              <!--pInputText formControlName="provinceCollateral">-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--<div class="ui-g-12 ui-g-nopad">-->
+              <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field">-->
+              <!--Zipcode-->
+              <!--</div>-->
+              <!--<div class="ui-g-8 ui-lg-4 ui-md-4 form-field">-->
+              <!--<input type="text" placeholder="Zipcode"-->
+              <!--pInputText formControlName="zipCodeCollateral">-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--</form>-->
+              <!--</div>-->
+              <!--<div class="ui-g-12 ui-lg-6 ui-md-6-form">-->
+              <!--<div class="ui-g">-->
+              <!--<h2>.</h2>-->
+              <!--</div>-->
+              <!--<form>-->
+              <!--<div class="ui-g-12 ui-g-nopad">-->
+              <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field">-->
+              <!--Certificate Nummber-->
+              <!--</div>-->
+              <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+              <!--<p-autoComplete formControlName="ceritifcateNumberCollateral" [suggestions]="filteredLocations"-->
+              <!--(completeMethod)="filterLocations($event)" field="location"-->
+              <!--placeholder="Search location" [minLength]="3" (onSelect)="onSelectLocation()">-->
+              <!--</p-autoComplete>-->
+              <!--</div>-->
+              <!--</div>-->
+
+              <!--<div class="ui-g-12 ui-g-nopad">-->
+              <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field">-->
+              <!--Certificate Name-->
+              <!--</div>-->
+              <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+              <!--<input placeholder="Certificate Name" pInputText type="text" formcontrolname="ceritifcateName" />-->
+              <!--</div>-->
+              <!--</div>-->
+
+              <!--<div class="ui-g-12 ui-g-nopad">-->
+              <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field">-->
+              <!--IMB Number-->
+              <!--</div>-->
+              <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+              <!--<input type="text" placeholder="IMB Number" formControlName="imbNumberCollateral" pInputText/>-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--<div class="ui-g-12 ui-g-nopad">-->
+              <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field">-->
+              <!--Building Zize-->
+              <!--</div>-->
+              <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+              <!--<input type="text" placeholder="Address"-->
+              <!--formControlName="buildingSizeCollateral" pInputText/>-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--<div class="ui-g-12 ui-g-nopad">-->
+              <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field">-->
+              <!--Price-->
+              <!--</div>-->
+              <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+              <!--<input type="text" placeholder="Address" formControlName="priceCollateral" pInputText/>-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--</form>-->
+              <!--</div>-->
+              <!--</div>-->
+            </div>
+          </form>
+
+          <div class="ui-g-12">
+            <td style="padding-left:5px; padding-top: 5px; float: right">
+              <button pButton label="Next" class="ui-button-primary" (click)="onNextStep3()"
+                      style="width: 8em" matStepperNext></button>
+            </td>
+            <td style="padding-top: 5px;">
+              <button pButton label="Back" class="ui-button-secondary" style="width: 8em"
+                      matStepperPrevious></button>
+            </td>
+          </div>
+
+        </mat-step>
+        step 4
+        <mat-step>
+          <ng-template matStepLabel>Document Information</ng-template>
+          <div class="ui-g">
+            <h2>Document Information</h2>
+          </div>
+
+          <form [formGroup]="step4" (ngSubmit)="onNextStep4()">
+            <div class="ui-g-12 ui-lg-6 ui-md-6-form">
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field ">
+                  Identity Document
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field ">
+                  <div class="ui-inputgroup">
+                    <input type="file" pInputText formcontrolname="identityDocument"  #identityDocument name="identityDocument">
+                    <button pButton type="button" icon="fas fa-times" class="ui-button-danger" (click)= "identityDocument.value = ''"></button>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad"
+                   *ngIf="!step4.controls['identityDocument'].valid
+        && (step4.controls['identityDocument'].dirty
+        || step4.controls['identityDocument'].touched || step4.controls['identityDocument'].submitted)">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                <div class="ui-g-5 ui-lg-5 ui-md-5">
+                  <p-message severity="error"
+                             [text]="step4.controls ['identityDocument'].errors['required'] ? 'Identity Document Is Required' : ''">
+                  </p-message>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Family Card Document
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <div class="ui-inputgroup">
+                    <input type="file" pInputText formcontrolname="familyCardDocument"  #familyCardDocument name="familyCardDocument">
+                    <button pButton type="button" icon="fas fa-times" class="ui-button-danger" (click)= "familyCardDocument.value = ''"></button>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad"
+                     *ngIf="!step4.controls['familyCardDocument'].valid
+        && (step4.controls['familyCardDocument'].dirty
+        || step4.controls['familyCardDocument'].touched || step4.controls['familyCardDocument'].submitted)">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>
+                  <div class="ui-g-5 ui-lg-5 ui-md-5">
+                    <p-message severity="error"
+                               [text]="step4.controls ['familyCardDocument'].errors['required'] ? 'Family Card Document Is Required' : ''">
+                    </p-message>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Back Statment Book
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <div class="ui-inputgroup">
+                    <input type="file" pInputText formcontrolname="backStateBook"  #backStateBook name="backStateBook">
+                    <button pButton type="button" icon="fas fa-times" class="ui-button-danger" (click)= "backStateBook.value = ''"></button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Credit Card Bill
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <div class="ui-inputgroup">
+                    <input type="file" pInputText formcontrolname="creditCardBill"  #creditCardBill name="creditCardBill">
+                    <button pButton type="button" icon="fas fa-times" class="ui-button-danger" (click)= "creditCardBill.value = ''"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <div class="ui-g-12">
+            <td style="padding-left:5px; padding-top: 5px; float: right">
+              <button pButton label="Next" class="ui-button-primary" (click)="onNextStep4()"
+                      style="width: 8em" matStepperNext></button>
+            </td>
+            <td style="padding-top: 5px;">
+              <button pButton label="Back" class="ui-button-secondary" style="width: 8em"
+                      matStepperPrevious></button>
+            </td>
+          </div>
+
+        </mat-step>
+        <!--step5-->
+        <mat-step>
+          <ng-template matStepLabel>Credit Structure</ng-template>
+          <div class="ui-g">
+            <h2>Credit Structure</h2>
+          </div>
+
+          <form [formGroup]="step4" (ngSubmit)="onNextStep4()">
+            <div class="ui-g-12 ui-lg-6 ui-md-6-form">
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Term Of Payment
+                  <!--<span style="color:red">*</span>-->
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <input placeholder="Term Of Payment" value="36 Months" type="text" formcontrolname="familyCardDocument" pInputText>
+                </div>
+                <!--<div class="ui-g-12 ui-g-nopad"-->
+                <!--*ngIf="!step4.controls['familyCardDocument'].valid-->
+                <!--&& (step4.controls['familyCardDocument'].dirty-->
+                <!--|| step4.controls['familyCardDocument'].touched || step4.controls['familyCardDocument'].submitted)">-->
+                <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field"></div>-->
+                <!--<div class="ui-g-5 ui-lg-5 ui-md-5">-->
+                <!--<p-message severity="error"-->
+                <!--[text]="step4.controls ['familyCardDocument'].errors['required'] ? 'Family Card Document Is Required' : ''">-->
+                <!--</p-message>-->
+                <!--</div>-->
+                <!--</div>-->
+              </div>
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Installment Type
+                  <!--<span style="color:red">*</span>-->
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <input placeholder="Installment Type" type="text" formcontrolname="backStateBook" pInputText>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Intalment Period
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <input placeholder="Installment Period" type="text" formcontrolname="creditCardBill" pInputText>
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Collection Payment
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <input placeholder="Collection Payment " type="text" formcontrolname="collectionPayment" pInputText>
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Total Product Price
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <input placeholder="Total Product Price" type="text" formcontrolname="totalProductPrice" pInputText>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                  Gross Down Payment
+                </div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                  <input placeholder="Gross Down Payment" type="text" formcontrolname="" pInputText>
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad">
+                <!--<div class="ui-g-4 ui-lg-4 ui-md-4 form-field">-->
+                  <!--Net Down Payment-->
+                <!--</div>-->
+                <!--<div class="ui-g-8 ui-lg-8 ui-md-8 form-field">-->
+                  <!--<input placeholder="Gross Down Payment" type="text" formcontrolname="grossDownPayment" pInputText>-->
+                <!--</div>-->
+                <div class="ui-g-3 ui-lg-3 ui-md-3">
+                  <button (click)="changeShowStatus()" pButton label="Detail"></button>
+                </div>
+              </div>
+            </div>
+            <!--detail-->
+            <div class="ui-g ui-g-12" *ngIf="!showHide">
+              <div class="ui-g-12 ui-lg-6 ui-md-6-form">
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Fee Administration
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <input placeholder="Gross Down Payment" value="1.000.000" type="text" pInputText disabled>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Fee Provision
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <input placeholder="Gross Down Payment" value="1.500.000" type="text" pInputText disabled>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-lg-6 ui-md-6-form">
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Fee Stamp
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <input placeholder="Gross Down Payment" value="25.000" type="text"  pInputText disabled>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                    Other Fee
+                  </div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                    <input placeholder="Gross Down Payment" type="text" value="475.000" pInputText disabled>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </form>
+
+          <div class="ui-g-12">
+            <!--<td style="padding-left:5px; padding-top: 5px; float: right">-->
+            <!--<button pButton label="Next" class="ui-button-primary" (click)="onNextStep4()"-->
+            <!--style="width: 8em" matStepperNext></button>-->
+            <!--</td>-->
+            <td style="padding-top: 5px;">
+              <button pButton label="Back" class="ui-button-secondary" style="width: 8em"
+                      matStepperPrevious></button>
+            </td>
+          </div>
+
+
+        </mat-step>
+
+
+      </mat-horizontal-stepper>
+    </div>
+  </div>
+</div>

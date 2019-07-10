@@ -1,0 +1,310 @@
+{
+    "data": [
+        {
+            "officeName": "PT Budi Jaya cab. Jakarta Selatan",
+            "officeCode": "BJ0007",
+            "surveyPic": "Kurnia Wijaya",
+            "surveyor": "Dadang Faturahman",
+            "surveyorNpk": "120007769887",
+            "phone": "089567789898",
+            "assignDate": "21-Mar-2019",
+            "endDate": "22-Mar-2019",
+            "surveyType": "Reguler",
+            "surveyStatus": "Approved",
+            "applicationId": "102-117-552",
+            "salutation": "Mrs",
+            "fullName": "Anita Auderlic",
+            "phoneNumber": "085647781818",
+            "identityNumber": "675509180919900015",
+            "birthPlace": "Bandung",
+            "birthDate": "18-Sep-1990",
+            "email": "anitaauderlic@gmail.com",
+            "gender": "Female",
+            "religion": "Catholic",
+            "maritalStatus": "Married",
+            "addressType": "Collection",
+            "address": "Jl Telaga Baru No. 68 ",
+            "vilage": "Cipedak",
+            "district": "Jagakarsa",
+            "city": "Jakarta Selatan",
+            "province": "DKI Jakarta",
+            "zipCode": "10998",
+            "termOfPayment": "36",
+            "installmentType": "Arrear",
+            "installmentPeriod": "1",
+            "collectiomPayment": "Cashier",
+            "totalProductPrice": "Rp. 157.000.000",
+            "grossDownPayment": "Rp. 47.100.000",
+            "productName": "Kredit Special Kartini",
+            "objectCategory": "C-Passanger",
+            "dealer": "PT Suzuki Indomobil Motor",
+            "brand": "Suzuki",
+            "type": "Ignis",
+            "model": "GL MT",
+            "manufacturingDate": "2018",
+            "chassisNumber": "",
+            "engineNumber": "",
+            "colour": "White",
+            "ownershipCertificateNumber": "Anita Auderlic",
+            "price": "Rp. 157.000.000",
+            "insuranceType": "All Risk",
+            "surveyDate": "22-Mar-2019",
+            "surveyDecisionBySurveyor": "Approve",
+            "NotesBySurveyor": "Berdasarkan hasil Survey yang telah dilakukan, data yang telah dimasukan oleh debitur adalah benar dan sesuai",
+            "surveyDecisionByPic": "Approve",
+            "NotesByPic": "Hasil survey yang didapatkan sesuai",
+            "templetQuestion": [
+                {
+                    "question": "Apa saja sumber pemasukkan nasabah ?",
+                    "result": "Gaji bulanan dan gaji pasangan"
+                },
+                {
+                    "question": "Berapa jumlah total pemasukan selama satu bulan ?",
+                    "result": "Rp. 34.000.000"
+                },
+                {
+                    "question": "Berapa jumlah pengeluaran rutin selama satu bulan ?",
+                    "result": "Rp. 4.000.000"
+                },
+                {
+                    "question": "Apaakah ada kredit lain yang belum lunas ?",
+                    "result": "Tidak"
+                }
+            ],
+            "flow": [
+                {
+                    "story": "Application Entry",
+                    "date": "16-Mar-2019"
+                },
+                {
+                    "story": "Scoring Aplication",
+                    "date": "20-Mar-2019"
+                },
+                {
+                    "story": "Application Survey",
+                    "date": "22-Mar-2019"
+                },
+                {
+                    "story": "Assign Survey",
+                    "date": "21-Mar-2019"
+                },
+                {
+                    "story": "Survey By Dadang Faturahman",
+                    "date": "22-Mar-2019"
+                },
+                {
+                    "story": "Survey Approve By Kurnia Wijaya",
+                    "date": "22-Mar-2019"
+                },
+                {
+                    "story": "Application Approved",
+                    "date": "24-Mar-2019"
+                }
+            ],
+            "scoringDecision": "Survey",
+            "loanScoring": "64",
+            "scoringDecisionDate": "20-Mar-2019"
+        },
+        {
+            "officeName": "PT Budi Jaya cab. Bekasi",
+            "officeCode": "BJ0025",
+            "surveyPic": "Kurnia Wijaya",
+            "surveyor": "Sukma Indriyanti",
+            "surveyorNpk": "1200034887382",
+            "phone": "089567789888",
+            "assignDate": "21-Jun-2019",
+            "endDate": "22-Jun-2019",
+            "surveyType": "Reguler",
+            "surveyStatus": "Approved",
+            "applicationId": "113-424-552",
+            "salutation": "Mr",
+            "fullName": "Robert Alagri",
+            "phoneNumber": "089536071223",
+            "identityNumber": "671123110819900004",
+            "birthPlace": "Sumedang",
+            "birthDate": "11-Aug-1990",
+            "email": "robert_alagri@gmail.com",
+            "gender": "Male",
+            "religion": "Catholic",
+            "maritalStatus": "Married",
+            "addressType": "Collection",
+            "address": "Jl Cipedak 3 No. 68",
+            "vilage": "Cipedak",
+            "district": "Jagakarsa",
+            "city": "Jakarta Selatan",
+            "province": "DKI Jakarta",
+            "zipCode": "10998",
+            "termOfPayment": "36",
+            "installmentType": "Arrear",
+            "installmentPeriod": "1",
+            "collectiomPayment": "Cashier",
+            "totalProductPrice": "Rp. 151.000.000",
+            "grossDownPayment": "Rp. 45.300.000",
+            "productName": "Kredit Sahabat Muda",
+            "objectCategory": "C-Passanger",
+            "dealer": "PT Suzuki Indomobil Motor",
+            "brand": "Suzuki",
+            "type": "Splash",
+            "model": "AT",
+            "manufacturingDate": "2018",
+            "chassisNumber": "",
+            "engineNumber": "",
+            "colour": "White",
+            "ownershipCertificateNumber": "Robert Alagri",
+            "price": "151000000",
+            "insuranceType": "All Risk",
+            "surveyDate": "22-Jun-2019",
+            "surveyDecisionBySurveyor": "Approve",
+            "NotesBySurveyor": "Berdasarkan hasil Survey yang telah dilakukan, data yang telah dimasukan oleh debitur adalah benar dan sesuai",
+            "surveyDecisionByPic": "Approve",
+            "NotesByPic": "Hasil survey yang didapatkan sesuai",
+            "templetQuestion": [
+                {
+                    "question": "Apa saja sumber pemasukkan nasabah ?",
+                    "result": "Gaji bulanan"
+                },
+                {
+                    "question": "Berapa jumlah total pemasukan selama satu bulan ?",
+                    "result": "Rp. 20.000.000"
+                },
+                {
+                    "question": "Berapa jumlah pengeluaran rutin selama satu bulan ?",
+                    "result": "Rp. 4.000.000"
+                },
+                {
+                    "question": "Apaakah ada kredit lain yang belum lunas ?",
+                    "result": "Tidak"
+                }
+            ],
+            "flow": [
+                {
+                    "story": "Application Entry",
+                    "date": "16-Jun-2019"
+                },
+                {
+                    "story": "Scoring Aplication",
+                    "date": "21-Jun-2019"
+                },
+                {
+                    "story": "Application Survey",
+                    "date": "22-Jun-2019"
+                },
+                {
+                    "story": "Assign Survey",
+                    "date": "21-Jun-2019"
+                },
+                {
+                    "story": "Survey By Sukma Indriyanti",
+                    "date": "22-Jun-2019"
+                },
+                {
+                    "story": "Survey Approve By Kurnia Wijaya",
+                    "date": "22-Jun-2019"
+                },
+                {
+                    "story": "Application Approved",
+                    "date": "24-Jun-2019"
+                }
+            ],
+            "scoringDecision": "Survey",
+            "loanScoring": "71",
+            "scoringDecisionDate": "21-Jun-2019"
+        },
+        {
+            "officeCode": "BJ0007",
+            "officeName": "PT Budi Jaya cab. Jakarta Selatan",
+            "surveyPic": "Kurnia Wijaya",
+            "surveyType": "Reguler",
+            "surveyor": "Sukma Indriyanti",
+            "surveyorNpk": "1200034887382",
+            "phone": "085774348262",
+            "assignDate": "02-Jul-2019",
+            "endDate": "02-Jul-2019",
+            "surveyStatus": "On Progress",
+            "applicationId": "112-200-005",
+            "applicationNumber": "112-200-005",
+            "applicationDate": "02-Jul-2019",
+            "fullName": "Faisal Arkan",
+            "phoneNumber": "085774348262",
+            "destinationaddress": "Jl. Setiabudi no. 24",
+            "vilage": "SETIABUDI",
+            "district": "SETIA BUDI",
+            "city": "JAKARTA SELATAN",
+            "province": "DKI JAKARTA",
+            "zipCode": "12910",
+            "salutation": "Mr",
+            "identityNumber": "12345678901",
+            "birthPlace": "Jakarta",
+            "birthDate": "04-Feb-1996",
+            "email": "faisal@gmail.com",
+            "gender": "Male",
+            "religion": "Muslim",
+            "maritalStatus": "Single",
+            "addressType": "Domicilie",
+            "address": "Jl. Setiabudi no. 24",
+            "termOfPayment": "36",
+            "installmentType": "Arrear",
+            "installmentPeriod": "1",
+            "collectionPayment": "Cashier",
+            "totalProductPrice": "Rp. 210.000.000",
+            "grossDownPayment": "Rp. 65.000.000",
+            "productName": "Kredit Maju bersama",
+            "objectCategory": "C-Passanger",
+            "dealer": "PT Suzuki Indomobil Motor",
+            "brand": "Suzuki",
+            "type": "Baleno",
+            "model": "MT",
+            "manufacturingDate": "2018",
+            "chassisNumber": "",
+            "engineNumber": "",
+            "colour": "Red",
+            "ownershipCertificateNumber": "Faisal Arkan",
+            "price": "Rp. 210.000.000",
+            "insuranceType": "All Risk",
+            "surveyDate": "",
+            "surveyDecisionBySurveyor": "",
+            "NotesBySurveyor": "",
+            "surveyDecisionByPic": "",
+            "NotesByPic": "",
+            "templetQuestion": [
+                {
+                    "question": "Apa saja sumber pemasukkan nasabah ?",
+                    "result": ""
+                },
+                {
+                    "question": "Berapa jumlah total pemasukan selama satu bulan ?",
+                    "result": ""
+                },
+                {
+                    "question": "Berapa jumlah pengeluaran rutin selama satu bulan ?",
+                    "result": ""
+                },
+                {
+                    "question": "Apaakah ada kredit lain yang belum lunas ?",
+                    "result": ""
+                }
+            ],
+            "flow": [
+                {
+                    "story": "Application Entry",
+                    "date": "02-Jul-2019"
+                },
+                {
+                    "story": "Scoring Aplication",
+                    "date": "02-Jul-2019"
+                },
+                {
+                    "story": "Application Survey",
+                    "date": "02-Jul-2019"
+                },
+                {
+                    "story": "Assign Survey",
+                    "date": "02-Jul-2019"
+                }
+            ],
+            "scoringDecision": "Survey",
+            "loanScoring": "61",
+            "scoringDecisionDate": "02-Jul-2019"
+        }
+    ]
+}

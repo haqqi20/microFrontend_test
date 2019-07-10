@@ -1,0 +1,19 @@
+.margin-button-left{
+  margin-right: 5%;
+}
+.margin-button-right{
+  margin-left: 5%;
+}
+.md-1-icon {
+  width: 10.3333%;
+}
+.ui-md-2-field {
+  width: 12.6667%;
+}
+.ui-g-no-table {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  margin-left: 15%;
+}

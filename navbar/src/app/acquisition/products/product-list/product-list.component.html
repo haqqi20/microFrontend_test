@@ -1,0 +1,211 @@
+<div class="ui-fluid">
+  <div class="ui-g">
+    <div class="ui-g-12 topbarsticky">
+      <div class="ui-g-12">
+        <td style="padding-left:5px; float: left; position: absolute; top: 0px">
+          <h1>Product Management</h1>
+        </td>
+        <td style="padding-right:5px; float: right; padding-top: 5px">
+          <button pButton type="button" label="Create" class="ui-button-primary" (click)="showAdd()"
+            style="width: 8em"></button>
+        </td>
+      </div>
+    </div>
+
+    <div class="ui-g-12 card">
+      <div class="ui-g-12 ui-g-nopad" style="text-align: left; font-weight: normal">
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <div class="ui-g-12 ui-g-nopad">What are you looking for?</div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <input pInputText type="search" [(ngModel)]="searchQuery" placeholder="Input product name"
+                (keyup.enter)="dta.filterGlobal(searchQuery, 'contains')">
+            </div>
+          </div>
+          <div class="ui-g-2">
+            <div class="ui-g-12 ui-g-nopad">
+              Type
+            </div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <p-multiSelect [options]="types" defaultLabel="All Product Type" maxSelectedLabels="1"
+                (onChange)="dta.filter($event.value, 'productType', 'in')" [(ngModel)]="selectedTypes"></p-multiSelect>
+            </div>
+          </div>
+          <div class="ui-g-2">
+            <div class="ui-g-12 ui-g-nopad">
+              Status
+            </div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <p-multiSelect [options]="statuss" defaultLabel="All Status" maxSelectedLabels="1"
+                (onChange)="dta.filter($event.value, 'isActive', 'in')" [(ngModel)]="selectedStatuss"></p-multiSelect>
+            </div>
+          </div>
+          <div class="ui-g-2">
+            <div class="ui-g-12 ui-g-nopad">
+              &nbsp;
+            </div>
+            <div class="ui-g-12 ui-g-nopad new-pad" style="text-align: right">
+              <button pButton class="ui-button-info" style="width: 8em" label="Search"
+                (click)="dta.filterGlobal(searchQuery, 'contains')"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-g-nopad" style="text-align: left">
+        <div class="ui-g">
+          <div class="ui-g-12">
+            <hr>
+          </div>
+          <div class="ui-g-6" style="cursor: pointer" (click)="showSearch=!showSearch">
+            <b>Advanced Search</b>
+          </div>
+          <div class="ui-g-6" style="text-align: right; cursor: pointer" (click)="showSearch=!showSearch">
+            <span class="pi pi-fw pi-chevron-left" *ngIf="!showSearch"></span>
+            <span class="pi pi-fw pi-chevron-down" *ngIf="showSearch"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-g-nopad" style="text-align: left" *ngIf="showSearch">
+        <div class="ui-g">
+          <div class="ui-g-2">
+            <div class="ui-g-12 ui-g-nopad">
+              Priority
+            </div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <input pInputText type="number" placeholder="Input priority" [(ngModel)]="priority"
+                (input)="dta.filter(priority, 'priority', 'equals')">
+            </div>
+          </div>
+          <div class="ui-g-4">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-8 ui-g-nopad">Active Periode</div>
+              <div class="ui-g-4 ui-g-nopad" style="text-align: right">
+                <p-checkbox binary="true" label="All" [(ngModel)]="checkAllDate"
+                  (onChange)="onChecked()">
+                </p-checkbox>
+              </div>
+            </div>
+            <div class="ui-g-6 ui-g-nopad new-pad" style="padding-right: 1em">
+              <p-calendar [(ngModel)]="selectedStartDate" dateFormat="dd-M-yy" [monthNavigator]="true"
+                [yearNavigator]="true" yearRange="1990:2020" placeholder="Input date" (onInput)="checkAllDate=false; onDateSelect();"
+                (onSelect)="checkAllDate=false; onDateSelect()">
+              </p-calendar>
+            </div>
+            <div class="ui-g-6 ui-g-nopad new-pad">
+              <p-calendar [(ngModel)]="selectedEndDate" dateFormat="dd-M-yy" [monthNavigator]="true"
+                [yearNavigator]="true" yearRange="1990:2020" placeholder="Input date" (onInput)="checkAllDate=false; onDateSelect()"
+                (onSelect)="checkAllDate=false; onDateSelect()">
+              </p-calendar>
+            </div>
+          </div>
+          <div class="ui-g-2">
+            <div class="ui-g-12 ui-g-nopad">
+              Fee Category
+            </div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <p-multiSelect [options]="fees" defaultLabel="All Fee Category" maxSelectedLabels="1"
+                (onChange)="dta.filter($event.value, 'feeCategoryName', 'in')" [(ngModel)]="selectedFees">
+              </p-multiSelect>
+            </div>
+          </div>
+          <div class="ui-g-2">
+            <div class="ui-g-12 ui-g-nopad">
+              Knockout Category
+            </div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <p-multiSelect [options]="knockouts" defaultLabel="All Knockout Category" maxSelectedLabels="1"
+                (onChange)="dta.filter($event.value, 'knockCategoryName', 'in')" [(ngModel)]="selectedKnockouts">
+              </p-multiSelect>
+            </div>
+          </div>
+          <div class="ui-g-2">
+            <div class="ui-g-12 ui-g-nopad">
+              Document Category
+            </div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <p-multiSelect [options]="documents" defaultLabel="All Document Category" maxSelectedLabels="1"
+                (onChange)="dta.filter($event.value, 'documentCategoryName', 'in')" [(ngModel)]="selectedDocuments">
+              </p-multiSelect>
+            </div>
+          </div>
+        </div>
+        <div class="ui-g">
+          <div class="ui-g-12">
+            <span style="color: blue; cursor: pointer" (click)="clearFilters()">Clear Filters</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g-12">
+        <hr>
+      </div>
+    </div>
+
+    <div class="ui-g-12 card">
+      <div class="ui-g-12">
+        <p-table #dta [columns]="cols" [value]="products" [paginator]="true" [rows]="10" [pageLinks]="3"
+          [rowsPerPageOptions]="[10,25,100]" [globalFilterFields]="['productName']">
+
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th style="width: 5%">
+                No
+              </th>
+              <th *ngFor="let col of columns" [ngStyle]="{'width': col.width}">
+                {{col.header}}
+              </th>
+              <th style="width: 8%">
+                Action
+              </th>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-product let-rowIndex="rowIndex">
+            <tr>
+              <td style="text-align: center">
+                {{rowIndex + 1}}
+              </td>
+              <td>
+                <div class="ui-g">
+                  <div class="ui-g-12">
+                    {{product.productName}}
+                  </div>
+                  <div class="ui-g-12">
+                    {{product.productType}}
+                  </div>
+                  <div class="ui-g-12">
+                    Priority: {{product.priority}}
+                  </div>
+                  <div class="ui-g-12">
+                    {{product.startDate}} to {{product.endDate}}
+                  </div>
+                </div>
+              </td>
+              <td>
+                {{product.feeCategoryName}}
+              </td>
+              <td>
+                {{product.knockCategoryName}}
+              </td>
+              <td>
+                {{product.documentCategoryName}}
+              </td>
+              <td style="text-align: center">
+                {{product['isActive'] ? 'Yes' : 'No'}}
+              </td>
+              <td style="text-align: center">
+                <span class="fa fa-pencil-square-o" style="font-size: 1.2em; cursor: pointer;"
+                  (click)="onItemClick(product['productCode'])"></span>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="summary">
+            <h4>This company has listed {{products?.length}} product(s)</h4>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="ui-g" *ngIf="outlet.isActivated == false">
+
+    <div class="ui-g-12">
+        <div class="card">
+            <h1>Global Setting</h1>
+            <p>Halaman ini untuk menampilkan global setting</p>
+        </div>
+    </div>
+</div>
+<router-outlet #outlet="outlet"></router-outlet>

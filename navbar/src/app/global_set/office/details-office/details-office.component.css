@@ -1,0 +1,36 @@
+.company.ui-organizationchart .ui-organizationchart-node-content.ui-office {
+    padding: 0;
+    border: 0 none;
+}
+
+.node-header,.node-header-selected,.node-content,.node-content-selected {
+    padding: .5em .7em;
+}
+
+.node-header {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.node-header-selected {
+    background-color: #495ebb;
+    color: #ffffff;
+}
+
+.node-content {
+    text-align: center;
+    border: 1px solid #333333;
+}
+
+.node-content-selected {
+    text-align: center;
+    border: 1px solid #495ebb;
+}
+
+.ui-office .ui-node-toggler {
+    color: #495ebb !important;
+}
+
+hr {
+    border-width: 0.5px;
+}

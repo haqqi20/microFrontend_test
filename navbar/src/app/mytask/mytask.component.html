@@ -1,0 +1,145 @@
+<router-outlet #outlet="outlet"></router-outlet>
+<div *ngIf="outlet.isActivated === false" class="ui-fluid">
+  <div class="ui-g">
+    <div class="ui-g-12 topbarsticky">
+      <div class="ui-g-12">
+        <h1 style="margin-top: 6px; margin-bottom: 6px">My Task</h1>
+      </div>
+    </div>
+
+    <div class="ui-g-12 card">
+      <div class="ui-g-12">
+        <div class="ui-g">
+          <div class="ui-g-12 ui-g-nopad" style="text-align: left">
+            <div class="ui-g">
+              <div class="ui-g-12">
+                <hr>
+              </div>
+              <div class="ui-g-11" style="cursor: pointer" (click)="showSur=!showSur">
+                <h3>
+                  <span class="pi pi-fw pi-chevron-right" *ngIf="!showSur"></span>
+                  <span class="pi pi-fw pi-chevron-down" *ngIf="showSur"></span>
+                  <b>Decision For Approval</b>
+                </h3>
+              </div>
+              <div class="ui-g-1 ui-rtl" dir="rtl" style="text-align: center">
+                <h3
+                  style="border-radius: 50%; background: red; width: 20px; margin-left: auto; margin-right: auto; color: whitesmoke">
+                  2</h3>
+              </div>
+            </div>
+          </div>
+          <div class="ui-g-12" *ngIf="showSur">
+            <p-table [columns]="cols" [value]="surveyData">
+              <!-- <ng-template pTemplate="header" let-columns>
+                  <tr>
+                      <th *ngFor="let col of columns">
+                          {{col.header}}
+                      </th>
+                  </tr>
+              </ng-template> -->
+
+              <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex">
+                <tr [pSelectableRow]="rowData">
+                  <td *ngIf="rowData['fullName'] !== 'Faisal Arkan'">
+                    <div class="ui-g">
+                      <div class="ui-g-12 ui-md-2">
+                        <div class="ui-g">
+                          <div class="ui-g-12"
+                            style="text-align: center; background-color:thistle; border-radius: 25px; width: 8em">
+                            <span>#{{rowIndex + 1}}</span>
+                          </div>
+                          <div class="ui-g-12">
+                            Application Date: <br>
+                            {{rowData['assignDate']}}
+                          </div>
+                          <div class="ui-g-12">
+                            Application Number: <br>
+                            {{rowData['applicationId']}}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ui-g-12 ui-md-2">
+                        <div class="ui-g">
+                          <div class="ui-g-12">
+                            Customer ID: {{rowData['identityNumber']}}
+                          </div>
+                          <div class="ui-g-12">
+                            Customer Name: {{rowData['fullName']}}
+                          </div>
+                          <div class="ui-g-12">
+                            Address: {{rowData['address']}}
+                          </div>
+                          <div class="ui-g-12">
+                            Zipcode: {{rowData['zipCode']}}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ui-g-12 ui-md-3">
+                        <div class="ui-g">
+                          <div class="ui-g-12">
+                            Financing Object: {{rowData['type']}}
+                          </div>
+                          <div class="ui-g-12">
+                            Loan Name: {{rowData['productName']}}
+                          </div>
+                          <div class="ui-g-12">
+                            Office ID: {{rowData['officeCode']}}
+                          </div>
+                          <div class="ui-g-12">
+                            Office Name: {{rowData['officeName']}}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ui-g-12 ui-md-3">
+                        <div class="ui-g">
+                          <div class="ui-g-12">
+                            Surveyor PIC: {{rowData['surveyPic']}}
+                          </div>
+                          <div class="ui-g-12">
+                            Surveyor: {{rowData['surveyor']}}
+                          </div>
+                          <div class="ui-g-12">
+                            Survey Type: {{rowData['surveyType']}}
+                          </div>
+                          <div class="ui-g-12">
+                            Assign Date: {{rowData['assignDate']}}
+                          </div>
+                          <div class="ui-g-12">
+                            Survey Date: {{rowData['surveyDate']}}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ui-g-12 ui-md-2" style="padding-left: 2%; padding-right: 2%">
+                        <div class="ui-g-12" style="text-align: center; background-color: #b1ddea"
+                          *ngIf="rowData['surveyStatus'] === 'Unassigned'">
+                          {{rowData['surveyStatus']}}
+                        </div>
+                        <div class="ui-g-12" style="text-align: center; background-color: 	#f7e819"
+                          *ngIf="rowData['surveyStatus'] === 'On Progress'">
+                          {{rowData['surveyStatus']}}
+                        </div>
+                        <div class="ui-g-12" style="text-align: center; background-color: 	#a6fda3"
+                          *ngIf="rowData['surveyStatus'] === 'Approved'">
+                          {{rowData['surveyStatus']}}
+                        </div>
+                        <div class="ui-g-12" style="text-align: center; background-color: 	#ff7b1a"
+                          *ngIf="rowData['surveyStatus'] === 'Rejected'">
+                          {{rowData['surveyStatus']}}
+                        </div>
+                        <div class="ui-g-12" style="text-align: center; margin-top: 15px;">
+                          <span class="fa fa-search" routerLink="/acquisition/survey/detail/{{rowData['identityNumber']}}"
+                            style="font-size: 2em; cursor: pointer;"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

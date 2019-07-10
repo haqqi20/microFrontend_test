@@ -1,0 +1,138 @@
+<router-outlet #outlet="outlet"></router-outlet>
+<div *ngIf="outlet.isActivated === false" class="ui-g">
+  <div class="ui-g-12 topbarsticky">
+    <div class="ui-g-12 ui-md-6 ui-lg-6">
+      <h1 style="margin-top: 6px; margin-bottom: 6px">Surveyor Management</h1>
+    </div>
+    <div class="ui-g-12 ui-md-6 ui-lg-6 ui-rtl" dir="rtl">
+      <button pButton class="topbarbutton" label="Create" routerLink="create"></button>
+    </div>
+  </div>
+
+  <div class="ui-g-12 ui-fluid card">
+    <div class="ui-g-12 ui-g-nopad" style="text-align: left; font-weight: normal">
+      <div class="ui-g">
+        <div class="ui-g-6">
+          <div class="ui-g-12 ui-g-nopad">What are you looking for?</div>
+          <div class="ui-g-12 ui-g-nopad new-pad">
+            <input pInputText type="search" [(ngModel)]="searchQuery" placeholder="Input customer name"
+              (keyup.enter)="dta.filterGlobal(searchQuery, 'contains')">
+          </div>
+        </div>
+        <div class="ui-g-2">
+          <div class="ui-g-12 ui-g-nopad">
+            <div class="ui-g-8 ui-g-nopad">Office</div>
+            <div class="ui-g-4 ui-g-nopad" style="text-align: right">
+              <p-checkbox binary="true" label="All" [(ngModel)]="checkAllOffice"
+                (onChange)="selectedOffice=null; dta.filter(selectedOffice, 'officeName', 'equals')">
+              </p-checkbox>
+            </div>
+          </div>
+          <div class="ui-g-12 ui-g-nopad new-pad">
+            <p-autoComplete [suggestions]="filteredOffice" (completeMethod)="filterOffice($event)"
+              placeholder="Choose office" [minLength]="1" [dropdown]="true" [(ngModel)]="selectedOffice"
+              (onSelect)="checkAllOffice=false; dta.filter($event, 'officeName', 'contains')">
+            </p-autoComplete>
+          </div>
+        </div>
+        <div class="ui-g-2">
+          <div class="ui-g-12 ui-g-nopad">Limit</div>
+          <div class="ui-g-12 ui-g-nopad new-pad">
+            <input pInputText type="search" [(ngModel)]="selectedLimit" placeholder="Input limit survey"
+              (input)="dta.filter(selectedLimit, 'limitSurveyPerDay', 'equals')">
+          </div>
+        </div>
+        <div class="ui-g-2">
+          <div class="ui-g-12 ui-g-nopad">
+            &nbsp;
+          </div>
+          <div class="ui-g-12 ui-g-nopad new-pad" style="text-align: right">
+            <button pButton class="ui-button-info" style="width: 8em" label="Search"
+              (click)="dta.filterGlobal(searchQuery, 'contains')"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui-g-12 card" (click)="updateVisibility()">
+    <div class="ui-g-12">
+      <p-table #dta [columns]="cols" [value]="surveyorData" [paginator]="true" [rows]="15"
+        [globalFilterFields]="['fullName']">
+        <!-- <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+            {{col.header}}
+            <p-sortIcon [field]="col.field"></p-sortIcon>
+          </th>
+        </tr>
+      </ng-template> -->
+        <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+          <tr [pSelectableRow]="rowData">
+            <td>
+              <div class="ui-g ui-fluid">
+                <div class="ui-g-12 ui-md-3">
+                  <div class="ui-g">
+                    <div class="ui-g-12"
+                      style="text-align: center; background-color:thistle; border-radius: 25px; width: 8em">
+                      #{{rowIndex + 1}}
+                    </div>
+                    <div class="ui-g-12">
+                      Office Code: {{rowData['officeCode']}}
+                    </div>
+                    <div class="ui-g-12">
+                      Office Name: {{rowData['officeName']}}
+                    </div>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-md-4">
+                  <div class="ui-g">
+                    <div class="ui-g-12">
+                      Surveyor NPK: {{rowData['npk']}}
+                    </div>
+                    <div class="ui-g-12">
+                      Surveyor Name: {{rowData['fullName']}}
+                    </div>
+                    <div class="ui-g-12">
+                      Email: {{rowData['emailAddress']}}
+                    </div>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-md-3">
+                  <div class="ui-g">
+                    <div class="ui-g-12">
+                      Position: {{rowData['jobPosition']}}
+                    </div>
+                    <div class="ui-g-12">
+                      Limit Survey per Day: {{rowData['limitSurveyPerDay']}}
+                    </div>
+                    <div class="ui-g-12">
+                      Zip Code:
+                      <span *ngFor="let zip of rowData['location']">{{zip['zipCode']}} </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-md-offset-1 ui-md-1">
+                  <div class="ui-g">
+                    <div class="ui-g-12" style="text-align: center; background-color: 	#a6fda3"
+                      *ngIf="rowData['isActive'] === true">
+                      {{rowData['isActive'] ? 'Active' : 'Inactive' }}
+                    </div>
+                    <div class="ui-g-12" style="text-align: center; background-color: #b1ddea"
+                      *ngIf="rowData['isActive'] === false">
+                      {{rowData['isActive'] ? 'Active' : 'Inactive' }}
+                    </div>
+                    <div class="ui-g-12" style="text-align: center; margin-top: 15px;">
+                      <span class="fa fa-search" routerLink="detail/{{rowData['npk']}}"
+                        style="font-size: 2em; cursor: pointer;"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

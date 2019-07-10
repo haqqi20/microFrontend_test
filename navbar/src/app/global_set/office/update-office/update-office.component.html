@@ -1,0 +1,245 @@
+<!--<router-outlet></router-outlet>-->
+<div class="ui-g ui-fluid">
+    <div class="card card-w-title">
+        <div>
+            <p-messages [(value)]="msgs"></p-messages>
+        </div>
+        <div class="ui-grid-row ui-g-12"
+            style="float: right; position: sticky; position: -webkit-sticky; top: 60px; background-color: white">
+            <div class="ui-g-12">
+                <td style=" padding-right: 5px; float: right">
+                    <button pButton type="submit" label="Save" (click)="updateOffice(); showSuccess()"></button>
+                </td>
+                <td style="padding-right: 5px; float: right">
+                    <button pButton class="secondary-btn" routerLink="/globalsetting/office" label="Cancel"></button>
+                </td>
+            </div>
+            <div class="ui-g-12 ui-md-12">
+                <hr>
+            </div>
+        </div>
+
+        <!-- <div class="ui-g-12 ui-lg-12 ui-sm-12">
+            <div class="ui-grid-row" style="float: right; position: sticky; position: -webkit-sticky; top: 70px;">
+              <div class="ui-g-12">
+                <td style="padding-right: 5px">
+                  <button pButton class="secondary-btn" routerLink="/office" label="Cancel"></button>
+                </td>
+                <td>
+                  <button pButton type="submit" label="Save" (click)="updateOffice()"></button>
+                </td>
+              </div>
+            </div>
+          </div> -->
+
+        <div class="ui-g-12 ui-g-nopad">
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g form-group">
+                        <div class="ui-g-12 ui-md-12">
+                            <h3>Office Information</h3>
+                        </div>
+
+                        <div class="ui-g-3">
+                            Office Name
+                            <span style="color:red">*</span>
+                        </div>
+                        <div class="ui-g-9 ui-md-9">
+                            <input class="ui-lg-8" type="text" placeholder="Enter your Office Name"
+                                [(ngModel)]="officeInformation.name" pInputText>
+                        </div>
+                        <div class="ui-g-3">
+                            Office Type
+                            <span style="color:red">*</span>
+                        </div>
+                        <div class="ui-g-9 ui-md-9">
+                            <p-dropdown [style]="{'width':'150px'}" [options]="officeTypes"
+                                [(ngModel)]="selectedOfficeType" [autoWidth]="false" optionLabel="label"></p-dropdown>
+                        </div>
+                        <div class="ui-g-3">
+                            Address
+                            <span style="color:red">*</span>
+                        </div>
+                        <div class="ui-g-9 ui-md-9">
+                            <textarea class="ui-lg-8" type="text" placeholder="Enter your address"
+                                [(ngModel)]="officeInformation.address" autoResize="autoResize"
+                                pInputTextarea></textarea>
+                        </div>
+                        <div class="ui-g-4 ui-md-3 ui-md-offset-3">
+                            <input class="ui-lg-12" type="text" placeholder="Village"
+                                [(ngModel)]="officeInformation.village" pInputText>
+                        </div>
+                        <div class="ui-g-4 ui-md-3">
+                            <input class="ui-lg-12" type="text" placeholder="District"
+                                [(ngModel)]="officeInformation.district" pInputText>
+                        </div>
+                        <div class="ui-g-4 ui-md-3 ui-md-offset-3">
+                            <input class="ui-lg-12" type="text" placeholder="City" [(ngModel)]="officeInformation.city"
+                                pInputText>
+                        </div>
+                        <div class="ui-g-5 ui-md-3">
+                            <input class="ui-lg-12" type="text" placeholder="Province"
+                                [(ngModel)]="officeInformation.state" pInputText>
+                        </div>
+                        <div class="ui-g-5 ui-md-3 ui-md-offset-3">
+                            <input class="ui-lg-12" type="text" placeholder="Zipcode"
+                                [(ngModel)]="officeInformation.zipcode" pInputText>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g form-group">
+                        <div class="ui-g-12 ui-md-12">
+                            <h3>Parent Office</h3>
+                        </div>
+                        <div class="ui-g-3">
+                            Parent Office
+                            <span style="color:red">*</span>
+                        </div>
+                        <div class="ui-g-9 ui-md-9">
+                            <!-- <p-autoComplete [(ngModel)]="selectedOfficeHead" [suggestions]="filteredBrands" (completeMethod)="filterBrands($event)" [size]="30"
+                                  [minLength]="1" placeholder="Hint: type 'v' or 'f'" [dropdown]="true">
+                                  <ng-template let-brand pTemplate="item">
+                                      <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">                                       
+                                          <div style="font-size:18px;float:right;margin:10px 10px 0 0">{{brand}}</div>
+                                      </div>
+                                  </ng-template>
+                              </p-autoComplete> -->
+                            <p-dropdown [style]="{'width':'150px'}" [options]="officeHeads"
+                                [(ngModel)]="selectedOfficeHead" optionLabel="label" [autoWidth]="false"
+                                placeholder="No Office Head" (onChange)="getOfficeById()"></p-dropdown>
+                            
+                        </div>
+                        <div class="ui-g-2">
+                            Office Type
+                        </div>
+                        <div class="ui-g-9 ui-md-9 ui-md-offset-1">
+                            <input class="ui-lg-8" type="text" placeholder="Office Type"
+                                [(ngModel)]="officeData.officeType" [disabled]="true" pInputText>
+                        </div>
+                        <div class="ui-g-2">
+                            Address
+                        </div>
+                        <div class="ui-g-9 ui-md-9 ui-md-offset-1">
+                            <textarea class="ui-lg-8" type="text" placeholder="Address" [(ngModel)]="officeData.address"
+                                [disabled]="true" autoResize="autoResize" pInputTextarea></textarea>
+                        </div>
+                        <div class="ui-g-4 ui-md-3 ui-md-offset-3">
+                            <input class="ui-lg-12" type="text" placeholder="Village" [(ngModel)]="officeData.village"
+                                [disabled]="true" pInputText>
+                        </div>
+                        <div class="ui-g-4 ui-md-3">
+                            <input class="ui-lg-12" type="text" placeholder="District" [(ngModel)]="officeData.district"
+                                [disabled]="true" pInputText>
+                        </div>
+                        <div class="ui-g-4 ui-md-3 ui-md-offset-3">
+                            <input class="ui-lg-12" type="text" placeholder="City" [(ngModel)]="officeData.city"
+                                [disabled]="true" pInputText>
+                        </div>
+                        <div class="ui-g-4 ui-md-3">
+                            <input class="ui-lg-12" type="text" placeholder="Province" [(ngModel)]="officeData.state"
+                                [disabled]="true" pInputText>
+                        </div>
+                        <div class="ui-g-4 ui-md-3 ui-md-offset-3">
+                            <input class="ui-lg-12" type="text" placeholder="Zipcode" [(ngModel)]="officeData.zipcode"
+                                [disabled]="true" pInputText>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <form [formGroup]="officeForm" (ngSubmit)="updateOffice()"> -->
+        <!-- <div class="ui-g-6 ui-lg-6 ui-sm-12">
+        <div class="ui-g form-group">
+          <div class="ui-g-4">
+             Name
+          </div>
+          <div class="ui-g-8 ui-md-8">
+						<input type="text" [(ngModel)]="officeInformation.name" pInputText> -->
+        <!-- <p-message severity="error" text="Name is required" *ngIf="!officeForm.controls['firstname'].valid&&officeForm.controls['firstname'].dirty"></p-message> -->
+        <!-- </div>
+          <div class="ui-g-4">
+              Office Type
+           </div>
+          <div class="ui-g-8 ui-md-8">
+            <p-dropdown [options]="officeTypes" [(ngModel)]="selectedOfficeType" [autoWidth]="false"
+            optionLabel="label"></p-dropdown>
+          </div>
+          <div class="ui-g-4">
+              State
+           </div>
+          <div class="ui-g-8 ui-md-8">
+            <input type="text" [(ngModel)]="officeInformation.state" pInputText>
+          </div>
+          <div class="ui-g-4">
+              City
+           </div>
+          <div class="ui-g-8 ui-md-8">
+            <input type="text" [(ngModel)]="officeInformation.city" pInputText>
+          </div>
+          <div class="ui-g-4">
+              District
+           </div>
+          <div class="ui-g-8 ui-md-8">
+            <input type="text" [(ngModel)]="officeInformation.district" pInputText>
+          </div>
+          <div class="ui-g-4">
+              Village
+           </div>
+          <div class="ui-g-8 ui-md-8">
+            <input type="text" [(ngModel)]="officeInformation.village" pInputText>
+          </div>
+          <div class="ui-g-4">
+              Address
+           </div>
+          <div class="ui-g-8 ui-md-8">
+            <input type="text" [(ngModel)]="officeInformation.address" pInputText>
+          </div>
+           <div class="ui-g-4 ui-lg-4 ui-md-6">
+              Neighbourhood Number
+           </div>
+          <div class="ui-g-8 ui-lg-8 ui-md-6">
+            <input type="number" [(ngModel)]="officeInformation.neighbourhoodNumber" pInputText min="1">
+          </div>
+          <div class="ui-g-4 ui-lg-4 ui-md-6">
+              Hamlet Number
+           </div>
+          <div class="ui-g-8 ui-lg-8 ui-md-6">
+            <input type="number" [(ngModel)]="officeInformation.hamletNumber" pInputText min="1">
+          </div>
+          <div class="ui-g-4">
+              Zip Code
+           </div>
+          <div class="ui-g-8 ui-md-8">
+            <input type="text" [(ngModel)]="officeInformation.zipcode" pInputText>
+          </div>
+        </div>
+      </div>
+      <div class="ui-g-6 ui-lg-6 ui-sm-12">
+          <div class="ui-g form-group">
+              <div class="ui-g-4">
+                Office Head Name
+               </div>
+              <div class="ui-g-8 ui-md-8">
+                <p-dropdown [options]="officeHeads" [(ngModel)]="selectedOfficeHead" optionLabel="label"
+                [autoWidth]="false" (onChange)="getOfficeById()"></p-dropdown>
+              </div>
+              <div *ngIf="showInformation">
+                  <p-table [columns]="cols">
+											<ng-template pTemplate="header" let-columns>
+													<tr *ngFor="let col of columns">
+															<th style="text-align:right">
+																	{{col.header}}
+															</th>
+															<th style="text-align: left; font-weight: normal">
+																	{{officeData[col.field]}}
+															</th>
+													</tr>
+											</ng-template>
+									</p-table>
+            </div>
+          </div>
+				</div> -->
+    </div>
+</div>

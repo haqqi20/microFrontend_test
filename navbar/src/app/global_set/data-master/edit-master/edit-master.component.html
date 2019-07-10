@@ -1,0 +1,137 @@
+<!--<router-outlet></router-outlet>-->
+<p-messages [(value)]="messages"></p-messages>
+<div class="ui-g">
+        <div class="ui-grid-row ui-g-12 topbarsticky" >
+            <div class="ui-g-12" style="float:right">
+                <td style="padding-left:5px; float: left; position: absolute; top: 0px">
+                    <h1>Group Data Master </h1>
+                </td>
+                <!--<td style="padding-right: 5px; float: right;">-->
+                    <!--<button pButton type="submit" icon="pi pi-save" class="ui-button-success" label="Save"-->
+                            <!--style="font-size:13px"  (click)="updateGroupMaster(); showSuccess()"></button>-->
+                <!--</td>-->
+                <!--<td style="padding-right: 5px; float: right;">-->
+                    <!--<button pButton type="submit" icon="pi pi-plus" label="Save & New" class="ui-button-warning"-->
+                            <!--style="font-size:13px" ></button>-->
+                <!--</td>-->
+                <!--<td style="padding-right: 5px; float: right;">-->
+                    <!--<button pButton icon="pi pi-times" class="secondary-btn" label="Cancel"-->
+                            <!--style="font-size:13px" routerLink="/globalsetting/lookup/add/group"></button>-->
+                <!--</td>-->
+            </div>
+        </div>
+
+        <div class="ui-md-12 card">
+             <p-messages severity="success" [(value)]="msgs"></p-messages>
+            <!--<div class="ui-g-12 ui-md-12" style="margin-left: 15px">-->
+                <!--<h1 style="text-align:left">Lookup Master Group</h1>-->
+            <!--</div>-->
+
+            <div class="ui-g-12 ui-g-nopad" style="margin-left: 15px; margin-top: 2%">
+                <div class="ui-grid-row" style="margin-bottom: 3%">
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-2 ui-lg-2">Group Name</div>
+                        <div class="ui-g-12 ui-md-4 ui-lg-4">
+                            <input disabled type="text" placeholder="Enter Group name" [(ngModel)]="lookupMasterList1.groupValue" pInputText>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui-g" style="margin-bottom: 25px">
+                    <div class="ui-md-11">
+                        <!--<div class="ui-g-12 ui-md-2">-->
+                        <!--</div>-->
+                        <div class="ui-g-12 ui-md-2 field-garis" style="margin-right: 50px">
+                            <h5>Created By</h5>
+                            <input disabled type="text" placeholder="Enter Group name" [(ngModel)]="lookupMasterList1.createdBy">
+                        </div>
+
+                        <div class="ui-g-12 ui-md-2 field-garis" style="margin-right: 50px">
+                            <h5>Creation Date</h5>
+                            <input disabled type="text" placeholder="Enter Group name" [(ngModel)]="lookupMasterList1.createdAt" >
+                        </div>
+
+                        <div class="ui-g-12 ui-md-2 field-garis" style="margin-right: 50px">
+                            <h5>Updated By</h5>
+                            <input disabled type="text" placeholder="Enter Group name" [(ngModel)]="lookupMasterList1.updateBy" >
+                        </div>
+                        <div class="ui-g-12 ui-md-2 field-garis">
+                            <h5> Updated date</h5>
+                            <input disabled type="text" placeholder="Enter Group name" [(ngModel)]="lookupMasterList1.updateBy" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--</div>-->
+
+    <div class="ui-g-12 ui-md-12 product-statistics card">
+        <div class="ui-g-12 ui-md-12 product-statistics card">
+            <p-table #dt [value]="lookupMasterList2" dataKey="lookupHeadId" editMode="row" [responsive]="true"
+                     [globalFilterFields]="['lookupName']">
+                <ng-template pTemplate="caption">
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-3">
+                            <input type="text" pInputText size="20" placeholder="Group Master"
+                                   (input)="dt.filterGlobal($event.target.value, 'contains')"
+                                   style="width:auto; float: left;">
+                            <i class="fa fa-search" style="margin:8px 4px 4px 4px; float: left"></i>
+                        </div>
+                        <!--<div class="ui-g-12 ui-md-2 ui-md-offset-7">-->
+                            <!--<button pButton style="float:right; width: 75px" type="button" label="Add"-->
+                                    <!--routerLink="/globalsetting/lookup/value/{{uuid}}/add"></button>-->
+                        <!--</div>-->
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Lookup Value</th>
+                        <th>Created Date</th>
+                        <th>Creation Date</th>
+                        <th style="width:8em">Is Active</th>
+                        <th style="width:8em">Action</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-editing="editing" let-ri="rowIndex">
+                    <tr [pEditableRow]="rowData">
+                        <!--<td>-->
+                        <!--{{rowData.lookupName}}-->
+                        <!--</td>-->
+                        <td>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="text" [(ngModel)]="rowData.lookupName" required>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{rowData.lookupName}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                            {{rowData.createdBy}}
+                        </td>
+                        <td>
+                            {{rowData.createdAt}}
+                        </td>
+                        <td style="text-align: center">
+                            <p-checkbox [(ngModel)]="checked" binary="true"></p-checkbox>
+                        </td>
+                        <td style="text-align:center">
+                            <!--<button pButton type="button"  icon="pi pi-pencil" (click)="onRowEditInit(rowData)"-->
+                            <!--routerLink="/editlookup/{{rowData['lookupHeadId']}}"></button>-->
+                            <button *ngIf="!editing" pButton type="button" pInitEditableRow icon="pi pi-pencil"
+                                    class="ui-button-info" (click)="onRowEditInit(rowData)"></button>
+                            <button *ngIf="editing" pButton type="button" pSaveEditableRow icon="pi pi-check"
+                                    class="ui-button-success" style="margin-right: .5em"
+                                    (click)="updatelookupdetail(rowData)"></button>
+                            <button *ngIf="editing" pButton type="button" pCancelEditableRow icon="pi pi-times"
+                                    class="ui-button-danger" (click)="onRowEditCancel(rowData, ri)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+            <br><br><br>
+        </div>
+    </div>
+
+</div>

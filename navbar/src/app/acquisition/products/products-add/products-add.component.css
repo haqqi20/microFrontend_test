@@ -1,0 +1,121 @@
+:host /deep/ .material-icons {
+    font-family: 'Material Icons' !important;
+}
+.uii-g-2 {
+    width: 9.6667%;
+    float: left;
+    box-sizing: border-box;
+    padding: .5em;
+}
+.dot-active {
+    height: 15px;
+    width: 15px;
+    background-color: #54f317;
+    border-radius: 50%;
+    display: inline-block;
+}
+.dot-inprogress {
+    height: 15px;
+    width: 15px;
+    background-color: #f3830d;
+    border-radius: 50%;
+    display: inline-block;
+}
+.font-status{
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+/*badge custom manual*/
+.badge {
+    padding: 1px 9px 2px;
+    font-size: 12.025px;
+    font-weight: bold;
+    white-space: nowrap;
+    color: #ffffff;
+    background-color: #999999;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+}
+.badge:hover {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+.badge-error {
+    background-color: #b94a48;
+}
+.badge-error:hover {
+    background-color: #953b39;
+}
+.badge-warning {
+    background-color: #f89406;
+}
+.badge-warning:hover {
+    background-color: #c67605;
+}
+.badge-success {
+    background-color: #468847;
+}
+.badge-success:hover {
+    background-color: #356635;
+}
+.badge-info {
+    background-color: #3a87ad;
+}
+.badge-info:hover {
+    background-color: #2d6987;
+}
+.badge-inverse {
+    background-color: #333333;
+}
+.badge-inverse:hover {
+    background-color: #1a1a1a;
+}
+
+
+/*button rouded*/
+.myButton {
+    -moz-box-shadow: 0px 0px 0px 0px #9fb4f2;
+    -webkit-box-shadow: 0px 0px 0px 0px #9fb4f2;
+    box-shadow: 0px 0px 0px 0px #9fb4f2;
+    /*background-color:#f5f5f5;*/
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+    border: 1px solid #5BC0DD;
+    display:inline-block;
+    cursor:pointer;
+    color: #46b8da;
+    padding:8px 8px;
+    text-decoration:none;
+    width: 80px;
+    background: transparent;
+
+}
+.myButton:hover {
+    background-color:transparent;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+}
+
+.ui-mybutton2 {
+    color: #ffffff;
+    background-color: transparent;
+    border: 2px solid #6f12d4;
+    font-size: 13px;
+    -moz-transition: background-color 0.3s;
+    -o-transition: background-color 0.3s;
+    -webkit-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+}
+
+hr {
+    color: grey;
+    border-width: 0.5px;
+}

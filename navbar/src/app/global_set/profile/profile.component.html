@@ -1,0 +1,485 @@
+<script src="../company-edit/company-edit.component.ts"></script>
+<div class="ui-fluid">
+    <p-messages [(value)]="messages"></p-messages>
+    <div class="ui-g">
+        <div class="ui-grid-row ui-g-12 clearfix shadow topbarsticky">     
+            <div class="ui-g-12">
+                <td style="padding-left:5px; float: left; position: absolute; top: 0px">
+                    <h1>My Profile</h1>
+                </td>
+                <td style="padding-left:5px; float: right; padding-top: 5px">
+                    <button pButton *ngIf="!show" type="button" class="ui-button-warning"
+                        label="Edit" (click)="toggleDisabled(); show=!show" style="font-size: 14px; width: 100px"
+                        [disabled]="!disabled"></button>
+                </td>
+                <td style="padding-left:5px; float: right; padding-top: 5px">
+                    <button pButton *ngIf="show" type="button" class="ui-button-success" [disabled]="phone.invalid"
+                        label="Save" (click)="updateProfile(); toggleDisabled(); show=!show" style="font-size: 14px">
+                    </button>
+                </td>
+                <td style="padding-left:5px; float: right; padding-top: 5px">
+                    <button pButton *ngIf="show" type="button" class="ui-button-secondary"
+                        label="Cancel" (click)="toggleDisabled(); show=!show" style="font-size: 14px">
+                    </button>
+                </td>
+            </div>
+        </div>
+        <div class="card ui-lg-12 ui-md-12">
+            <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-12 ui-lg-2 ui-md-3">
+                    <div class="ui-g">
+                        <div style="margin: auto;">
+                            <div class="avatar">
+                                <ngx-avatar [initialsSize]="2" [src]="imageUrl" name="{{employee.fullName}}" value="P"
+                                    size="125"></ngx-avatar>
+                            </div>
+                            <label class="btn-edit" for="avatar">
+                                <span pButton icon="pi pi-pencil" class="ui-button-raised ui-button-rounded ui-button-secondary" 
+                                    style="height: 25px; width: 25px; border-radius: 50%"></span>
+                            </label>
+                            <span pButton icon="pi pi-trash" class="ui-button-raised ui-button-rounded ui-button-secondary btn-delete" 
+                                style="height: 25px; width: 25px; border-radius: 50%" (click)="deleteAvatar()"></span>
+                            <input id="avatar" type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)" style="display:none">
+                            <div style="text-align: center; margin-top: 15px">
+                                <span pButton label="{{userStatus}}" style="width: 100px; border-radius: 15px" [ngClass]="{
+                                    'ui-button-success': userStatus==='Active',
+                                    'ui-button-danger': userStatus==='Inactive',
+                                    'ui-button-warning': userStatus==='Pending',
+                                    'ui-button-secondary': userStatus==='Disabled',
+                                    'ui-button-primary': userStatus==='Locked'
+                                }"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-lg-8 ui-md-6">
+                    <div class="ui-g">
+                        <tr>
+                            <h3>{{employee.fullName}}</h3>
+                        </tr>
+                        <tr >
+                            <span>{{rolesString}}</span>
+                        </tr>
+                        <tr>
+                            <span>{{employee.workPosition}}</span>
+                        </tr>
+                        <tr>
+                            <span>{{employee.email}}</span>
+                        </tr>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-lg-2 ui-md-3">
+                    <div class="ui-g" style="text-align: right">
+
+                    </div>
+                </div>
+                <br><br>
+            </div>
+
+            <div class="ui-g-12 ui-lg-12 ui-md-12">
+                <p-tabView>
+                    <p-tabPanel class="general" header="General Information" leftIcon="fa fa-info">
+                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                            <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+                                <div class="ui-g-12">
+                                    <h3>Personal Information</h3>
+                                </div>
+                                <!--  -->
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Username
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText [(ngModel)]="employee.employeeUserLogin"
+                                            placeholder="e.g. John Doe" type="text" [disabled]="true">
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Full Name
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText [(ngModel)]="employee.fullName" 
+                                            placeholder="e.g. Johndoe" type="text" [disabled]="true">
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Birth Date
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <p-calendar placeholder="e.g. 26-Nov-1900" [(ngModel)]="birthDate" [monthNavigator]="true"
+                                            [yearNavigator]="true" yearRange="1930:2018" [disabled]="disabled" dateFormat="dd-M-yy" dataType="date"></p-calendar>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Birth Place
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText [(ngModel)]="employee.birthPlace"
+                                            type="text" [disabled]="disabled" placeholder="e.g. Jakarta">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                            <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+                                <div class="ui-g-12">
+                                    <h3>Contact Information</h3>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Phone Number
+                                        <span *ngIf="show" style="color:red">*</span>
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input #phone="ngModel" pInputText [(ngModel)]="employee.phone" required
+                                            type="text" placeholder="e.g. 08121234xxxx" [disabled]="disabled">
+                                    </div>
+                                </div>
+                                <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <p-message severity="error" text="Phone is required"></p-message>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Email Address
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText [(ngModel)]="employee.email"
+                                            type="text"  placeholder="e.g. johndoe@company.com" [disabled]="true">
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Address
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <textarea type="text" placeholder="Address" [rows]="2" autoResize="false"
+                                            [(ngModel)]="employee.address" pInputTextarea [disabled]="disabled"></textarea>
+                                    </div>
+                                </div>
+                                <div *ngIf="show" class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Location
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <p-autoComplete [(ngModel)]="selectedLocation" [suggestions]="filteredLocations"
+                                                (completeMethod)="filterLocations($event)" field="location"
+                                                placeholder="Search location" [minLength]="3" (onSelect)="onSelectLocation()">
+                                            </p-autoComplete>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8 ui-g-nopad">
+                                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                            <input type="text" placeholder="Village"
+                                            [(ngModel)]="employee.village" pInputText [disabled]="disabled">
+                                        </div>
+                                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                            <input type="text" placeholder="District"
+                                            [(ngModel)]="employee.district" pInputText [disabled]="disabled">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8 ui-g-nopad">
+                                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                            <input type="text" placeholder="City" [(ngModel)]="employee.city"
+                                                pInputText [disabled]="disabled">
+                                        </div>
+                                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                            <input type="text" placeholder="Province" [(ngModel)]="employee.state"
+                                                pInputText [disabled]="disabled">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Zipcode
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-4 ui-md-4">
+                                        <input type="text" placeholder="Zipcode" [(ngModel)]="employee.zipcode"
+                                        pInputText [disabled]="disabled">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </p-tabPanel>
+                    <p-tabPanel class="work" header="Work Information" leftIcon="fa fa-briefcase">
+                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                            <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+                                <div class="ui-g-12">
+                                    <h3>Employee Information</h3>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Employee Number
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText placeholder="e.g. 1234" [(ngModel)]="employee.employeeNo"
+                                            type="text" [disabled]="true">
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Employee Type
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText placeholder="e.g. contract" [(ngModel)]="employee.employeeType"
+                                            type="text" [disabled]="true">
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Employee Status
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText [(ngModel)]="employee.employmentStatus"
+                                            type="text" placeholder="e.g. active" [disabled]="true">
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Department
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText [(ngModel)]="employee.department"
+                                            type="text" placeholder="e.g. 123" [disabled]="true">
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Division
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText [(ngModel)]="employee.division"
+                                            type="text" placeholder="e.g. developer" [disabled]="true">
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Work Group
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText [(ngModel)]="employee.workgroup"
+                                                type="text" placeholder="e.g. 123" [disabled]="true" >
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Job Entitlement
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText [(ngModel)]="employee.workPosition"
+                                            type="text" placeholder="e.g. developer" [disabled]="true" >
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Direct Supervisor
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText placeholder="e.g. 123" [(ngModel)]="employee.directSupervisor"
+                                            type="text" [disabled]="true" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-6">
+                            <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+                                <div class="ui-g-12 ui-md-12">
+                                    <h3>Company Information</h3>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Company Type
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText placeholder="Company Type" [(ngModel)]="company.companyType"
+                                            type="text" [disabled]="true">
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Company Name
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText placeholder="Company Name"
+                                        [(ngModel)]="company.companyName" type="text" [disabled]="true">
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Company Group
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText placeholder="Company Group"
+                                        [(ngModel)]="company.companyGroup" type="text" [disabled]="true" >
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Industry Type
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText placeholder="Industry Type"
+                                        [(ngModel)]="company.industryType" type="text" [disabled]="true" >
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Subindustry Type
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText placeholder="Sub Industry Type"
+                                        [(ngModel)]="company.subindustryType" type="text" [disabled]="true" >
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Established Year
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText [(ngModel)]="company.establishSince" placeholder="Established Date" 
+                                            type="number" [disabled]="true">                           
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Address
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <textarea type="text" placeholder="Address" [rows]="2" autoResize="false"
+                                            [(ngModel)]="company.address" pInputTextarea [disabled]="true"></textarea>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8 ui-g-nopad">
+                                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                            <input type="text" placeholder="Village" [(ngModel)]="company.village"
+                                            pInputText [disabled]="true">
+                                        </div>
+                                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                            <input type="text" placeholder="District"
+                                            [(ngModel)]="company.district" pInputText [disabled]="true">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8 ui-g-nopad">
+                                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                            <input type="text" placeholder="City" [(ngModel)]="company.city"
+                                            pInputText [disabled]="true">
+                                        </div>
+                                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                            <input type="text" placeholder="Province" [(ngModel)]="company.state"
+                                            pInputText [disabled]="true">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Zipcode
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-4 ui-md-4">
+                                        <input type="text" placeholder="Zipcode" [(ngModel)]="employee.zipcode"
+                                        pInputText [disabled]="true">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </p-tabPanel>
+                    <p-tabPanel class="office" header="Office" leftIcon="fa fa-sitemap">
+                        <div class="ui-g-12 ui-md-6">
+                            <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+                                <div class="ui-g-12">
+                                    <h3>Office Information</h3>
+                                </div>
+                                <div *ngIf="offices; else noOffice">
+                                    <div *ngFor="let office of offices">
+                                        <div class="ui-g-12 ui-g-nopad">
+                                            <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                                Office Name
+                                            </div>
+                                            <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                                <input type="text" placeholder="Enter your office name"
+                                                    [(ngModel)]="office.name" pInputText [disabled]="true">
+                                            </div>
+                                        </div>
+                                        <div class="ui-g-12 ui-g-nopad">
+                                            <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                                Office Type
+                                            </div>
+                                            <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                                <input type="text" placeholder="Enter your office name"
+                                                    [(ngModel)]="office.officeType" pInputText [disabled]="true">
+                                            </div>
+                                        </div>
+                                        <div class="ui-g-12 ui-g-nopad">
+                                            <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                                Address
+                                            </div>
+                                            <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                                <textarea type="text" placeholder="Address" [rows]="2" autoResize="false"
+                                                    [(ngModel)]="office.address" pInputTextarea [disabled]="true"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="ui-g-12 ui-g-nopad">
+                                            <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                            <div class="ui-g-8 ui-lg-8 ui-md-8 ui-g-nopad">
+                                                <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                    <input type="text" placeholder="Village" [(ngModel)]="office.village"
+                                                    pInputText [disabled]="true">
+                                                </div>
+                                                <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                    <input type="text" placeholder="District"
+                                                    [(ngModel)]="office.district" pInputText [disabled]="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ui-g-12 ui-g-nopad">
+                                            <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                            <div class="ui-g-8 ui-lg-8 ui-md-8 ui-g-nopad">
+                                                <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                    <input type="text" placeholder="City" [(ngModel)]="office.city"
+                                                        pInputText [disabled]="true">
+                                                </div>
+                                                <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                    <input type="text" placeholder="Province" [(ngModel)]="office.state"
+                                                        pInputText [disabled]="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ui-g-12 ui-g-nopad">
+                                            <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                                Zipcode
+                                            </div>
+                                            <div class="ui-g-8 ui-lg-4 ui-md-4">
+                                                <input type="text" placeholder="Zipcode" [(ngModel)]="office.zipcode"
+                                                pInputText [disabled]="true">
+                                            </div>
+                                        </div>
+                                        <div class="ui-g-12 ui-g-nopad" style="margin-top: 15px; margin-bottom: 15px;"><hr style="color: grey; border-width: 0.5px"></div>
+                                    </div>
+                                </div>
+                                <ng-template #noOffice>
+                                    <div class="ui-g-12">
+                                        <h5>No Office</h5>
+                                    </div>
+                                </ng-template>
+                            </div>
+                        </div>
+                    </p-tabPanel>
+                </p-tabView>
+            </div>
+        </div>
+    </div>
+</div>

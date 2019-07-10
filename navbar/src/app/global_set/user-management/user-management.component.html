@@ -1,0 +1,3 @@
+<app-user-message></app-user-message>
+<router-outlet #outlet="outlet"></router-outlet>
+<app-user-list *ngIf="outlet.isActivated == false"></app-user-list>

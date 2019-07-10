@@ -1,0 +1,10 @@
+hr {
+    border-width: 0.5px;
+}
+.card {
+    margin-bottom: 10px;
+   }
+
+.checkedLabel{
+    color : white;
+}

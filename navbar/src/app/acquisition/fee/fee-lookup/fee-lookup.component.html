@@ -1,0 +1,169 @@
+<router-outlet #outlet="outlet"></router-outlet>
+<div *ngIf="outlet.isActivated == false" class="ui-fluid">
+  <!-- <div style="margin-left: 40%; margin-top: 0%">
+    <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  </div> -->
+  <div class="ui-g" *ngIf="dataAvailable">
+    <div class="ui-grid-row ui-g-12 topbarsticky">
+      <div class="ui-g-12" style="float:right">
+        <td style="padding-left:5px; float: left; position: absolute; top: 0px">
+          <h1>{{title}}</h1>
+        </td>
+      </div>
+    </div>
+
+    <div class="card ui-g-12 ui-lg-12 ui-md-12">
+      <div class="ui-g-12 ui-lg-6 ui-md-6">
+        <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+          <div class="ui-g-12">
+            <h3>{{title}}</h3>
+          </div>
+          <div class="ui-g-12 ui-g-nopad">
+            <div class="ui-g-4 ui-lg-4 ui-md-4">
+              Name
+            </div>
+            <div class="ui-g-8 ui-lg-8 ui-md-8">
+              <input pInputText [(ngModel)]="lookup.lookupName" type="text" disabled="true">
+            </div>
+          </div>
+          <div class="ui-g-12 ui-g-nopad">
+            <div class="ui-g-4 ui-md-4">
+              Group
+            </div>
+            <div class="ui-g-8 ui-md-8">
+              <input pInputText [(ngModel)]="lookup.groupValue" type="text" disabled="true">
+            </div>
+          </div>
+          <div class="ui-g-12 ui-g-nopad" [formGroup]="lookupDetailForm">
+            <div class="ui-g-4 ui-md-4">
+              Parameter Key
+              <span style="color:red">*</span>
+            </div>
+            <div class="ui-g-8 ui-md-8">
+              <input pInputText formControlName="lookupKey" type="text">
+            </div>
+          </div>
+          <div class="ui-g-12 ui-g-nopad"
+            *ngIf="!lookupDetailForm.controls['lookupKey'].valid && (lookupDetailForm.controls['lookupKey'].dirty || lookupDetailForm.controls['lookupKey'].touched)">
+            <div class="ui-g-4 ui-md-4"></div>
+            <div class="ui-g-10 ui-md-8">
+              <p-message severity="error"
+                [text]="lookupDetailForm.controls['lookupKey'].errors['required'] ? 'Parameter Key is required' : ''">
+              </p-message>
+            </div>
+          </div>
+          <div class="ui-g-12 ui-g-nopad" [formGroup]="lookupDetailForm">
+            <div class="ui-g-4 ui-md-4">
+              Parameter Value
+              <span style="color:red">*</span>
+            </div>
+            <div class="ui-g-8 ui-md-8">
+              <input pInputText formControlName="lookupValue" type="text">
+            </div>
+          </div>
+          <div class="ui-g-12 ui-g-nopad"
+            *ngIf="!lookupDetailForm.controls['lookupValue'].valid && (lookupDetailForm.controls['lookupValue'].dirty || lookupDetailForm.controls['lookupValue'].touched)">
+            <div class="ui-g-4 ui-md-4"></div>
+            <div class="ui-g-10 ui-md-8">
+              <p-message severity="error"
+                [text]="lookupDetailForm.controls['lookupValue'].errors['required'] ? 'Parameter Value is required' : ''">
+              </p-message>
+            </div>
+          </div>
+          <div class="ui-g-12 ui-g-nopad" [formGroup]="lookupDetailForm">
+            <div class="ui-g-4 ui-md-4">
+              Is Active
+            </div>
+            <div class="ui-g-8 ui-md-8">
+              <ui-switch formControlName="isActive" checkedLabel="Yes" uncheckedLabel="No" size="small" color="#007bff"
+                [ngStyle]="{'color': lookupDetailForm.get('isActive').value ? 'white' : '#333' }"></ui-switch>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui-g-12" style="padding-left: 3%; padding-right: 3%">
+        <td style="float: right">
+          <button pButton class="ui-button-primary" label="Add" (click)="addLookupDetail()"
+            [disabled]="lookupDetailForm.invalid" style="width: 8em"></button>
+        </td>
+        <td style="padding-right: 5px; float: right">
+          <button pButton class="secondary-btn" label="Discard" (click)="discard()" style="width: 8em"></button>
+        </td>
+      </div>
+    </div>
+
+    <div class="card ui-g-12 ui-lg-12 ui-md-12">
+      <div class="ui-g-12" style="padding-left: 3%; padding-right: 3%">
+        <p-table #dt [value]="lookupDetails" dataKey="lookupDetailId" editMode="row" [paginator]="true" [rows]="rows"
+          [pageLinks]="3" [rowsPerPageOptions]="rowsOptions" [globalFilterFields]="['lookupKey','lookupValue']">
+          <ng-template pTemplate="caption">
+            <div class="ui-g">
+              <div class="ui-g-12" style="text-align: left; font-weight: normal">
+                What are you looking for?
+              </div>
+              <div class="ui-g-12 ui-lg-6 ui-md-6">
+                <div class="ui-inputgroup">
+                  <input type="search" pInputText placeholder="Type keyword search here..." [(ngModel)]="searchQuery">
+                  <button pButton class="ui-button-info" label="Search"
+                    (click)="dt.filterGlobal(searchQuery, 'contains')" style="width: 8em"></button>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template pTemplate="header">
+            <tr>
+              <th style="width: 6%;">No</th>
+              <th>Parameter Key</th>
+              <th>Parameter Value</th>
+              <th>Active</th>
+              <th style="width: 9%;">Action</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-editing="editing" let-ri="rowIndex">
+            <tr [pEditableRow]="rowData">
+              <td style="text-align: center">
+                {{ri + 1}}
+              </td>
+              <td>
+                {{rowData.lookupKey}}
+              </td>
+              <td>
+                <p-cellEditor>
+                  <ng-template pTemplate="input">
+                    <input pInputText type="text" [(ngModel)]="rowData.lookupValue" required>
+                  </ng-template>
+                  <ng-template pTemplate="output">
+                    {{rowData.lookupValue}}
+                  </ng-template>
+                </p-cellEditor>
+              </td>
+              <td style="text-align: center">
+                <p-cellEditor>
+                  <ng-template pTemplate="input">
+                    <ui-switch [(ngModel)]="rowData.isActive" checkedLabel="Yes" uncheckedLabel="No" size="small"
+                      color="#007bff" [ngStyle]="{'color': rowData.isActive ? 'white' : '#333' }"></ui-switch>
+                  </ng-template>
+                  <ng-template pTemplate="output">
+                    {{rowData.isActive ? 'Yes' : 'No'}}
+                  </ng-template>
+                </p-cellEditor>
+              </td>
+              <td style="text-align: center">
+                <span *ngIf="!editing" pInitEditableRow class="fa fa-pencil-square-o"
+                  style="font-size: 1.2em; cursor: pointer;" (click)="onRowEditInit(rowData)"></span>
+                <span *ngIf="editing" pSaveEditableRow class="pi pi-check"
+                  style="font-size: 1.2em; cursor: pointer; margin-right: .5em"
+                  (click)="onRowEditSave(rowData, ri)"></span>
+                <span *ngIf="editing" pCancelEditableRow class="pi pi-times" style="font-size: 1.2em; cursor: pointer;"
+                  (click)="onRowEditCancel(rowData, ri)"></span>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="summary">
+            <h4>This table has listed {{lookupDetails.length}} parameter(s)</h4>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</div>

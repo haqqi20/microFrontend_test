@@ -1,0 +1,895 @@
+{
+    "data": [
+        {
+            "applicationDate": "22-Jan-2019",
+            "applicationNumber": "105-033-255",
+            "customerId": "327504040419920017",
+            "customerType": "Personal",
+            "officeId": "BJ0025",
+            "officeName": "PT Budi Jaya cab. Bekasi",
+            "scoringStatus": "Approved",
+            "financingObject": "Honda Brio",
+            "termOfPayment": "36",
+            "installmentType": "Arrear",
+            "installmentPeriod": "1",
+            "collectionPayment": "Cashier",
+            "totalProductPrice": "Rp. 200.000.000",
+            "grossDownPayment": "Rp. 60.000.000",
+            "netDownPayment": "Rp. 57.000.000",
+            "tableParameter": [
+                {
+                    "parameter": "Loan Purpose",
+                    "requested": "Kredit Mobil",
+                    "approved": "Kredit Mobil"
+                },
+                {
+                    "parameter": "Loan Amount",
+                    "requested": "Rp. 245.835.000",
+                    "approved": "Rp. 245.835.000"
+                },
+                {
+                    "parameter": "Loan Term",
+                    "requested": "36 Months",
+                    "approved": "36 Months"
+                },
+                {
+                    "parameter": "Annual Interst",
+                    "requested": "10%",
+                    "approved": "10%"
+                },
+                {
+                    "parameter": "Number of Repayment",
+                    "requested": "36",
+                    "approved": "36"
+                },
+                {
+                    "parameter": "Principle Monthly Repayments",
+                    "requested": "Rp. 3.970.833",
+                    "approved": "Rp. 3.970.833"
+                },
+                {
+                    "parameter": "Interest Monthly Repayments",
+                    "requested": "Rp. 1.191.250",
+                    "approved": "Rp. 1.191.250"
+                },
+                {
+                    "parameter": "Total Monthly Repayments",
+                    "requested": "Rp. 5.162.083",
+                    "approved": "Rp. 5.162.083"
+                },
+                {
+                    "parameter": "Last Repayment Monthly",
+                    "requested": "Rp. 5.162.083",
+                    "approved": "Rp. 5.162.083"
+                }
+            ],
+            "adminFee": "Rp. 1.000.000",
+            "provisionFee": "Rp. 1.500.000",
+            "othersFee": "Rp. 475.000",
+            "stampFee": "Rp. 25.000",
+            "scoringDecision": "Approved",
+            "loanScoring": "98",
+            "scoringDecisionDate": "30-Jan-2019",
+            "objectCategory": "C-Passanger",
+            "productName": "Kredit Sahabat Muda",
+            "dealer": "PT Suzuki Indomobil Motor",
+            "brand": "Suzuki",
+            "type": "Ertiga",
+            "model": "GL MT",
+            "manufacturingDate": "2018",
+            "chassisNumber": "",
+            "engineNumber": "",
+            "colour": "Gray",
+            "ownershipCertificateNumber": "Arif Gunawan",
+            "price": "Rp. 200.000.000",
+            "insuranceType": "Total Lost Only",
+            "collateralType": "Automotive",
+            "brandCollateral": "Toyota",
+            "typeCollateral": "Kijang Inova",
+            "modelCollateral": "G MT",
+            "manufacturingDateCollateral": "2018",
+            "chassisNumberCollateral": "",
+            "machineNumber": "",
+            "colourCollateral": "Black",
+            "personalDetail": "next tab",
+            "salutation": "Mr",
+            "fullName": "Arif Gunawan",
+            "aliasName": "Arif",
+            "identityNumber": "327504040419920017",
+            "birthPlace": "Bogor",
+            "birthDate": "04-Apr-1992",
+            "motherName": "Anissa",
+            "phoneNumber": "089657701992",
+            "email": "arif_gunawan92@gmail.com",
+            "gender": "Male",
+            "religion": "Muslim",
+            "maritalStatus": "Single",
+            "occupation": "Manager",
+            "companyName": "PT. Jaya Global",
+            "lenghtOfWork": "22",
+            "employmentStatus": "Permanent",
+            "startDate": "01-Apr-2017",
+            "endDate": "",
+            "stillWork": true,
+            "addressType": "Domicilie",
+            "address": "Jl Jeruk 3 No. 112",
+            "vilage": "Kayuringin Jaya",
+            "district": "Bekasi Selatan",
+            "city": "Bekasi",
+            "province": "Jawa Barat",
+            "zipCode": "17144",
+            "salutationFamily": "Mr",
+            "fullNameFamily": "Antoni Gunawan",
+            "aliasNameFamily": "Antoni",
+            "identityNumberFamily": "277309071219500003",
+            "birthPlaceFamily": "Solo",
+            "birthDateFamily": "07-Dec-1950",
+            "phoneNumberFamily": "081776390606",
+            "emailFamily": "aGunawan1250@gmail.com",
+            "genderFamily": "Male",
+            "incomeType": "Individual Income",
+            "monthlyIncome": "Rp. 12.000.000",
+            "educationType": "Bechelor Degree",
+            "InstituteName": "Universitas Indonesia",
+            "major": "Business Management",
+            "startDateEducation": "01-Jul-2012",
+            "endDateEducation": "30-Jun-2016",
+            "documentNext": "next tab",
+            "document": [
+                {
+                    "documentType": "Identity Document",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "ID1200128.jpg"
+                },
+                {
+                    "documentType": "Back Statment Book",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "BS1200008.jpg"
+                },
+                {
+                    "documentType": "Credit Card Bill",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "CC1200068.jpg"
+                },
+                {
+                    "documentType": "Family Card Document",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "KK1200348.jpg"
+                }
+            ],
+            "scoringFlow": [
+                {
+                    "story": "Application Entry",
+                    
+                    "date": "22-Jan-2019"
+                },
+                {
+                    "story": "Scoring Aplication",
+
+                    "date": "30-Jan-2019"
+                },
+                {
+                    "story": "Application Approve",
+
+                    "date": "2-Feb-2019"
+                }
+            ]
+        },
+        {
+            "applicationDate": "16-Mar-2019",
+            "applicationNumber": "102-117-552",
+            "customerId": "675509180919900015",
+            "customerType": "Personal",
+            "officeCode": "BJ0007",
+            "officeName": "PT Budi Jaya cab. Jakarta Selatan",
+            "scoringStatus": "Survey",
+            "termOfPayment": "36",
+            "installmentType": "Arrear",
+            "installmentPeriod": "1",
+            "collectionPayment": "Cashier",
+            "totalProductPrice": "Rp. 157.000.000",
+            "grossDownPayment": "Rp. 47.100.000",
+            "netDownPayment": "Rp. 44.100.000",
+            "tableParameter": [
+                {
+                    "parameter": "Loan Purpose",
+                    "requested": "Kredit Mobil",
+                    "approved": "Kredit Mobil"
+                },
+                {
+                    "parameter": "Loan Amount",
+                    "requested": "Rp. 157.000.000",
+                    "approved": "Rp. 157.000.000"
+                },
+                {
+                    "parameter": "Loan Term",
+                    "requested": "36 Months",
+                    "approved": "36 Months"
+                },
+                {
+                    "parameter": "Annual Interst",
+                    "requested": "10%",
+                    "approved": "10%"
+                },
+                {
+                    "parameter": "Number of Repayment",
+                    "requested": "36",
+                    "approved": "36"
+                },
+                {
+                    "parameter": "Principle Monthly Repayments",
+                    "requested": "Rp. 3.134.722",
+                    "approved": "Rp. 3.134.722"
+                },
+                {
+                    "parameter": "Interest Monthly Repayments",
+                    "requested": "Rp. 940.416",
+                    "approved": "Rp. 940.416"
+                },
+                {
+                    "parameter": "Total Monthly Repayments",
+                    "requested": "Rp. 4.075.138",
+                    "approved": "Rp. 4.075.138"
+                },
+                {
+                    "parameter": "Last Repayment Monthly",
+                    "requested": "Rp. 4.075.138",
+                    "approved": "Rp. 4.075.138"
+                }
+            ],
+            "adminFee": "Rp. 1.000.000",
+            "provisionFee": "Rp. 1.500.000",
+            "othersFee": "Rp. 475.000",
+            "stampFee": "Rp. 25.000",
+            "scoringDecision": "Approved",
+            "loanScoring": "64",
+            "scoringDecisionDate": "20-Mar-2019",
+            "objectCategory": "C-Passanger",
+            "productName": "Special Kartini",
+            "dealer": "PT Suzuki Indomobil Motor",
+            "brand": "Suzuki",
+            "type": "Ignis",
+            "model": "GL MT",
+            "manufacturingDate": "Mar-2019",
+            "chassisNumber": "",
+            "engineNumber": "",
+            "colour": "White",
+            "ownershipCertificateNumber": "Anita Auderlic",
+            "price": "Rp. 157.000.000",
+            "insuranceType": "All Risk",
+            "collateralType": "Automotive",
+            "brandCollateral": "Yamaha",
+            "typeCollateral": "Mio",
+            "modelCollateral": "MT",
+            "manufacturingDateCollateral": "2018",
+            "chassisNumberCollateral": "",
+            "machineNumber": "",
+            "colourCollateral": "Red",
+            "personalDetail": "next tab",
+            "salutation": "Mrs",
+            "fullName": "Anita Auderlic",
+            "aliasName": "Anita",
+            "identityNumber": "675509180919900015",
+            "birthPlace": "Bandung",
+            "birthDate": "18-Sep-1990",
+            "motherName": "Suci Septriasah",
+            "phoneNumber": "085647781818",
+            "email": "anitaauderlic@gmail.com",
+            "gender": "Female",
+            "religion": "Catholic",
+            "maritalStatus": "Married",
+            "occupation": "Secretary",
+            "companyName": "PT Telaga Putuh Abadi",
+            "lenghtOfWork": "16",
+            "employmentStatus": "Permanent",
+            "startDate": "01-Dec-2017",
+            "endDate": "",
+            "stillWork": true,
+            "addressType": "Collection",
+            "address": "Jl Telaga Baru No. 68 ",
+            "vilage": "Cipedak",
+            "district": "Jagakarsa",
+            "city": "Jakarta Selatan",
+            "province": "DKI Jakarta",
+            "zipCode": "10998",
+            "salutationFamily": "Mr",
+            "fullNameFamily": "Andreas Auderlic",
+            "aliasNameFamily": "Andreas",
+            "identityNumberFamily": "366490181119850005",
+            "birthPlaceFamily": "Bandung",
+            "birthDateFamily": "18-Nov-1985",
+            "phoneNumberFamily": "085634438012",
+            "emailFamily": "andreasauderlic@gmail.com",
+            "genderFamily": "Male",
+            "incomeType": "Spouse Income",
+            "monthlyIncome": "Rp. 34.000.000",
+            "educationType": "Diploma",
+            "InstituteName": "Akademi Sekretari dan Manajemen Don Bosco",
+            "major": "Jurusan Administrasi Perkantoran",
+            "startDateEducation": "01-Jul-2010",
+            "endDateEducation": "30-Jun-2013",
+            "documentNext": "next tab",
+            "document": [
+                {
+                    "documentType": "Identity Document",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "ID1200088.jpg"
+                },
+                {
+                    "documentType": "Back Statment Book",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "BS1200028.jpg"
+                },
+                {
+                    "documentType": "Credit Card Bill",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "CC1200098.jpg"
+                },
+                {
+                    "documentType": "Family Card Document",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "KK1200168.jpg"
+                }
+            ],
+            "scoringFlow": [
+                {
+                    "story": "Application Entry",
+                    
+                    "date": "16-Mar-2019"
+                },
+                {
+                    "story": "Scoring Aplication",
+
+                    "date": "20-Mar-2019"
+                },
+                {
+                    "story": "Application Survey",
+
+                    "date": "22-Mar-2019"
+                }
+            ]
+        },
+        {
+            "applicationDate": "16-Jun-2019",
+            "applicationNumber": "113-424-552",
+            "customerId": "671123110819900004",
+            "customerType": "Personal",
+            "officeId": "BJ0025",
+            "officeName": "PT Budi Jaya cab. Bekasi",
+            "scoringStatus": "Survey",
+            "termOfPayment": "36",
+            "installmentType": "Arrear",
+            "installmentPeriod": "1",
+            "collectionPayment": "Cashier",
+            "totalProductPrice": "Rp. 151.000.000",
+            "grossDownPayment": "Rp. 45.300.000",
+            "netDownPayment": "Rp. 42.300.000",
+            "tableParameter": [
+                {
+                    "parameter": "Loan Purpose",
+                    "requested": "Kredit Mobil",
+                    "approved": "Kredit Mobil"
+                },
+                {
+                    "parameter": "Loan Amount",
+                    "requested": "Rp. 151.000.000",
+                    "approved": "Rp. 151.000.000"
+                },
+                {
+                    "parameter": "Loan Term",
+                    "requested": "36 Months",
+                    "approved": "36 Months"
+                },
+                {
+                    "parameter": "Annual Interst",
+                    "requested": "10%",
+                    "approved": "10%"
+                },
+                {
+                    "parameter": "Number of Repayment",
+                    "requested": "36",
+                    "approved": "36"
+                },
+                {
+                    "parameter": "Principle Monthly Repayments",
+                    "requested": "Rp. 3.018.055",
+                    "approved": "Rp. 3.018.055"
+                },
+                {
+                    "parameter": "Interest Monthly Repayments",
+                    "requested": "Rp. 905.416",
+                    "approved": "Rp. 905.416"
+                },
+                {
+                    "parameter": "Total Monthly Repayments",
+                    "requested": "Rp. 3.923.472",
+                    "approved": "Rp. 3.923.472"
+                },
+                {
+                    "parameter": "Last Repayment Monthly",
+                    "requested": "Rp. 3.923.472",
+                    "approved": "Rp. 3.923.472"
+                }
+            ],
+            "adminFee": "Rp. 1.000.000",
+            "provisionFee": "Rp. 1.500.000",
+            "othersFee": "Rp. 475.000",
+            "stampFee": "Rp. 25.000",
+            "scoringDecision": "Approved",
+            "loanScoring": "71",
+            "scoringDecisionDate": "21-Jun-2019",
+            "objectCategory": "C-Passanger",
+            "productName": "Kredit Sahabat Muda",
+            "dealer": "PT Suzuki Indomobil Motor",
+            "brand": "Suzuki",
+            "type": "Splash",
+            "model": "AT",
+            "manufacturingDate": "Jun-2019",
+            "chassisNumber": "",
+            "engineNumber": "",
+            "colour": "White",
+            "ownershipCertificateNumber": "Robert Alagri",
+            "price": "Rp. 151.000.000",
+            "insuranceType": "All Risk",
+            "collateralType": "Automotive",
+            "brandCollateral": "Yamaha",
+            "typeCollateral": "Mio",
+            "modelCollateral": "MT",
+            "manufacturingDateCollateral": "",
+            "chassisNumberCollateral": "",
+            "machineNumber": "",
+            "colourCollateral": "Red",
+            "personalDetail": "next tab",
+            "salutation": "Mr",
+            "fullName": "Robert Alagri",
+            "aliasName": "Robert",
+            "identityNumber": "671123110819900004",
+            "birthPlace": "Sumedang",
+            "birthDate": "11-Aug-1990",
+            "motherName": "Riri Astriyani",
+            "phoneNumber": "089536071223",
+            "email": "robert_alagri@gmail.com",
+            "gender": "Male",
+            "religion": "Catholic",
+            "maritalStatus": "Married",
+            "occupation": "Auditor",
+            "companyName": "PT Riset Indonesia",
+            "lenghtOfWork": "21",
+            "employmentStatus": "Permanent",
+            "startDate": "01-Oct-2017",
+            "endDate": "",
+            "stillWork": true,
+            "addressType": "Collection",
+            "address": "Jl Cipedak 3 No. 68",
+            "vilage": "Cipedak",
+            "district": "Jagakarsa",
+            "city": "Jakarta Selatan",
+            "province": "DKI Jakarta",
+            "zipCode": "10998",
+            "salutationFamily": "Mr",
+            "fullNameFamily": "Andreas Alagri",
+            "aliasNameFamily": "Andreas",
+            "identityNumberFamily": "36611221119900005",
+            "birthPlaceFamily": "Bandung",
+            "birthDateFamily": "22-Nov-1987",
+            "phoneNumberFamily": "085611229880",
+            "emailFamily": "andreasalagri@gmail.com",
+            "genderFamily": "Male",
+            "incomeType": "Individual Income",
+            "monthlyIncome": "Rp. 20.000.000",
+            "educationType": "Beachelor",
+            "InstituteName": "Ekonomi",
+            "major": "Universitas Negri Jakarta",
+            "startDateEducation": "01-Jul-2013",
+            "endDateEducation": "30-Jun-2017",
+            "documentNext": "next tab",
+            "document": [
+                {
+                    "documentType": "Identity Document",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "ID1200081.jpg"
+                },
+                {
+                    "documentType": "Back Statment Book",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "BS1200234.jpg"
+                },
+                {
+                    "documentType": "Credit Card Bill",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "CC1200099.jpg"
+                },
+                {
+                    "documentType": "Family Card Document",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "KK1200163.jpg"
+                }
+            ],
+            "scoringFlow": [
+                {
+                    "story": "Application Entry",
+                    
+                    "date": "16-Jun-2019"
+                },
+                {
+                    "story": "Scoring Aplication",
+
+                    "date": "21-Jun-2019"
+                },
+                {
+                    "story": "Application Survey",
+
+                    "date": "22-Jun-2019"
+                }
+            ]
+        },
+        {
+            "applicationDate": "18-Feb-2017",
+            "applicationNumber": "101-223-498",
+            "customerId": "265109010119890006",
+            "customerType": "Personal",
+            "officeId": "KS0011",
+            "officeName": "CV Kurnia Sejahtera",
+            "scoringStatus": "Rejected",
+            "termOfPayment": "36",
+            "installmentType": "Arrear",
+            "installmentPeriod": "1",
+            "collectionPayment": "Cashier",
+            "totalProductPrice": "Rp. 180.000.000",
+            "grossDownPayment": "Rp. 30.000.000",
+            "netDownPayment": "Rp. 24.600.000",
+            "tableParameter": [
+                {
+                    "parameter": "Loan Purpose",
+                    "requested": "Kredit Mobil",
+                    "approved": "Kredit Mobil"
+                },
+                {
+                    "parameter": "Loan Amount",
+                    "requested": "Rp. 180.000.000",
+                    "approved": "Rp. 180.000.000"
+                },
+                {
+                    "parameter": "Loan Term",
+                    "requested": "36 Months",
+                    "approved": "36 Months"
+                },
+                {
+                    "parameter": "Annual Interst",
+                    "requested": "10%",
+                    "approved": "10%"
+                },
+                {
+                    "parameter": "Number of Repayment",
+                    "requested": "36",
+                    "approved": "36"
+                },
+                {
+                    "parameter": "Principle Monthly Repayments",
+                    "requested": "Rp. 4.048.611",
+                    "approved": "Rp. 4.048.611"
+                },
+                {
+                    "parameter": "Interest Monthly Repayments",
+                    "requested": "Rp. 1.214.583",
+                    "approved": "Rp. 1.214.583"
+                },
+                {
+                    "parameter": "Total Monthly Repayments",
+                    "requested": "Rp. 5.263.194",
+                    "approved": "Rp. 5.263.194"
+                },
+                {
+                    "parameter": "Last Repayment Monthly",
+                    "requested": "Rp. 5.263.194",
+                    "approved": "Rp. 5.263.194"
+                }
+            ],
+            "adminFee": "Rp. 3.500.000",
+            "provisionFee": "Rp. 2.000.000",
+            "othersFee": "Rp. 250.000",
+            "stampFee": "Rp. 0",
+            "scoringDecision": "Rejected",
+            "loanScoring": "43",
+            "scoringDecisionDate": "20-Feb-2017",
+            "objectCategory": "C-Passanger",
+            "productName": "Special Kartini",
+            "dealer": "PT Astra Honda Sunter",
+            "brand": "Honda",
+            "type": "Jazz",
+            "model": "RS MT",
+            "manufacturingDate": "Feb-2017",
+            "chassisNumber": "",
+            "engineNumber": "",
+            "colour": "Black",
+            "ownershipCertificateNumber": "Aulia Rahma",
+            "price": "Rp. 180.000.000",
+            "insuranceType": "All Risk",
+            "collateralType": "Automotive",
+            "brandCollateral": "Yamaha",
+            "typeCollateral": "Vario",
+            "modelCollateral": "MT",
+            "manufacturingDateCollateral": "2018",
+            "chassisNumberCollateral": "",
+            "machineNumber": "",
+            "colourCollateral": "White",
+            "salutation": "Ms",
+            "fullName": "Aulia Rahma",
+            "aliasName": "Rahma",
+            "identityNumber": "265109010119890006",
+            "birthPlace": "Bekasi",
+            "birthDate": "01-Jan-1989",
+            "motherName": "Rosita",
+            "phoneNumber": "081266497277",
+            "email": "aulia.rahma@ymail.com",
+            "gender": "Female",
+            "religion": "Muslim",
+            "maritalStatus": "Single",
+            "occupation": "IT Support",
+            "companyName": "PT Jaya Informa",
+            "lenghtOfWork": "30",
+            "employmentStatus": "Permanent",
+            "startDate": "01-Jan-2015",
+            "endDate": "30-Jun-2018",
+            "stillWork": false,
+            "addressType": "Indentity",
+            "address": "Jl Kelinci Raya No. 220",
+            "vilage": "Lebak Bulus",
+            "district": "Cilandak",
+            "city": "Jakarta Selatan",
+            "province": "DKI Jakarta",
+            "zipCode": "10633",
+            "salutationFamily": "Mr",
+            "fullNameFamily": "Bagus Santoso",
+            "aliasNameFamily": "Bagus",
+            "identityNumberFamily": "265109030919900016",
+            "birthPlaceFamily": "Bekasi",
+            "birthDateFamily": "03-Sep-1990",
+            "phoneNumberFamily": "08953442987",
+            "emailFamily": "bagussantoso@ymail.com",
+            "genderFamily": "Male",
+            "incomeType": "Other",
+            "monthlyIncome": "Rp. 23.000.000",
+            "educationType": "Beachelor Degree",
+            "InstituteName": "Gunadarma Universitas",
+            "major": "Teknik Informatika",
+            "startDateEducation": "01-Jul-2010",
+            "endDateEducation": "30-Jun-2014",
+            "documentNext": "next tab",
+            "document": [
+                {
+                    "documentType": "Identity Document",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "ID1200000.jpg"
+                },
+                {
+                    "documentType": "Back Statment Book",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "BS1200230.jpg"
+                },
+                {
+                    "documentType": "Credit Card Bill",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "CC1200777.jpg"
+                },
+                {
+                    "documentType": "Family Card Document",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "KK1201163.jpg"
+                }
+            ],
+            "scoringFlow": [
+                {
+                    "story": "Application Entry",
+                    
+                    "date": "18-Feb-2017"
+                },
+                {
+                    "story": "Scoring Aplication",
+
+                    "date": "20-Feb-2017"
+                },
+                {
+                    "story": "Application Rejected",
+
+                    "date": "22-Feb-2017"
+                }
+            ]
+        },
+        {
+            "customerName": "Faisal Arkan",
+            "customerType": "Personal",
+            "customerId": "12345678901",
+            "productName": "Kredit Maju bersama",
+            "objectCategory": "C-Passanger",
+            "object": "Suzuki Baleno",
+            "officeId": "BJ0007",
+            "officeName": "PT Budi Jaya cab. Jakarta Selatan",
+            "applicationNumber": "112-200-005",
+            "applicationDate": "02-Jul-2019",
+            "scoringStatus": "Survey",
+            "termOfPayment": "36",
+            "installmentType": "Arrear",
+            "installmentPeriod": "1",
+            "collectionPayment": "Cashier",
+            "totalProductPrice": "Rp. 210.000.000",
+            "grossDownPayment": "Rp. 65.000.000",
+            "netDownPayment": "Rp. 62.000.000",
+            "tableParameter": [
+                {
+                    "parameter": "Loan Purpose",
+                    "requested": "Kredit Mobil",
+                    "approved": "Kredit Mobil"
+                },
+                {
+                    "parameter": "Loan Amount",
+                    "requested": "Rp. 257.400.000",
+                    "approved": "Rp. 257.400.000"
+                },
+                {
+                    "parameter": "Loan Term",
+                    "requested": "36 Months",
+                    "approved": "36 Months"
+                },
+                {
+                    "parameter": "Annual Interst",
+                    "requested": "18%",
+                    "approved": "18%"
+                },
+                {
+                    "parameter": "Number of Repayment",
+                    "requested": "36",
+                    "approved": "36"
+                },
+                {
+                    "parameter": "Principle Monthly Repayments",
+                    "requested": "Rp. 4.111.111",
+                    "approved": "Rp. 4.111.111"
+                },
+                {
+                    "parameter": "Interest Monthly Repayments",
+                    "requested": "Rp. 1.233.333",
+                    "approved": "Rp. 1.233.333"
+                },
+                {
+                    "parameter": "Total Monthly Repayments",
+                    "requested": "Rp. 5.344.444",
+                    "approved": "Rp. 5.344.444"
+                },
+                {
+                    "parameter": "Last Repayment Monthly",
+                    "requested": "Rp. 5.344.444",
+                    "approved": "Rp. 5.344.444"
+                }
+            ],
+            "adminFee": "Rp. 1.000.000",
+            "provisionFee": "Rp. 1.500.000",
+            "othersFee": "Rp. 475.000",
+            "stampFee": "Rp. 25.000",
+            "scoringDecision": "Survey",
+            "loanScoring": "61",
+            "scoringDecisionDate": "02-Jul-2019",
+            "businessUnit": "",
+            "dealer": "PT Suzuki Indomobil Motor",
+            "brand": "Suzuki",
+            "type": "Baleno",
+            "model": "MT",
+            "manufacturingDate": "2018",
+            "chassisNumber": "",
+            "engineNumber": "",
+            "colour": "Red",
+            "ownershipCertificateNumber": "Faisal Arkan",
+            "price": "Rp. 210.000.000,00",
+            "insuranceType": "All Risk",
+            "collateralType": "Automotive",
+            "brandCollateral": "Suzuki",
+            "typeCollateral": "Baleno",
+            "modelCollateral": "MT",
+            "manufacturingDateCollateral": "2018",
+            "chassisNumberCollateral": "",
+            "machineNumber": "",
+            "colourCollateral": "Red",
+            "salutation": "Mr",
+            "fullName": "Faisal Arkan",
+            "aliasName": "Faisal",
+            "identityNumber": "12345678901",
+            "birthPlace": "Jakarta",
+            "birthDate": "24-Feb-1996",
+            "motherName": "Susi",
+            "phoneNumber": "085774348262",
+            "email": "faisal@gmail.com",
+            "gender": "Male",
+            "religion": "Muslim",
+            "maritalStatus": "Single",
+            "occupation": "Karyawan",
+            "companyName": "PT Maju Sentosa",
+            "lenghtOfWork": "24",
+            "employmentStatus": "Permanent",
+            "startDate": "02-Jul-2017",
+            "endDate": "",
+            "stillWork": true,
+            "addressType": "Domicilie",
+            "address": "Jl. Setiabudi no. 24",
+            "vilage": "SETIABUDI",
+            "district": "SETIA BUDI",
+            "city": "JAKARTA SELATAN",
+            "province": "DKI JAKARTA",
+            "zipCode": "12910",
+            "salutationFamily": "Mr",
+            "fullNameFamily": "Amir Munajad",
+            "aliasNameFamily": "Amir",
+            "identityNumberFamily": "10987654321",
+            "birthPlaceFamily": "Jakarta",
+            "birthDateFamily": "07-Mar-1950",
+            "phoneNumberFamily": "085774348261",
+            "emailFamily": "amir@gmail.com",
+            "genderFamily": "Male",
+            "incomeType": "Individual Income",
+            "monthlyIncome": "Rp. 10.000.000",
+            "educationType": "Master Degree",
+            "InstituteName": "Universitas Indonesia",
+            "major": "Hubungan Internasional",
+            "startDateEducation": "17-Aug-2013",
+            "endDateEducation": "17-Aug-2017",
+            "document": [
+                {
+                    "documentType": "Identity Document",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "ID1133.jpg"
+                },
+                {
+                    "documentType": "Family Card Document",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "KK1133.jpg"
+                },
+                {
+                    "documentType": "Back Statment Book",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "BS1233.jpg"
+                },
+                {
+                    "documentType": "Credit Card Bill",
+                    "description": "",
+                    "status": "Complete",
+                    "detail": "CCB3211.jpg"
+                }
+            ],
+            "scoringFlow": [
+                {
+                    "story": "Application Entry",
+                    
+                    "date": "02-Jul-2019"
+                },
+                {
+                    "story": "Scoring Aplication",
+
+                    "date": "02-Jul-2019"
+                },
+                {
+                    "story": "Application Survey",
+
+                    "date": "02-Jul-2019"
+                }
+            ]
+        }
+    ]
+}

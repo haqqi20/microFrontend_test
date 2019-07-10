@@ -1,0 +1,49 @@
+<!--<router-outlet></router-outlet>-->
+<div class="ui-g">
+    <div class="ui-g-12" style="padding: 2px">
+        <div class="card card-w-title" style="overflow: auto; background-color: #ffffff">
+            <h1>Office Structure</h1>
+            <div style="width:100%; overflow:auto">
+                <p-organizationChart [value]="data" selectionMode="single" [(selection)]="selectedNode" (onNodeSelect)="onNodeSelect($event)"
+                                     styleClass="company">
+
+                    <ng-template let-node pTemplate="office">
+                        <div class="node-header ui-corner-top">{{node.label}}</div>
+                        <div class="node-content">
+                            <div>Type: {{node.officeType}}</div>
+                            <div>Zip Code: {{node.zipcode}}</div>
+                        </div>
+                    </ng-template>
+                    <ng-template let-node pTemplate="department">
+                        {{node.label}}
+                    </ng-template>
+                </p-organizationChart>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="ui-g">-->
+    <!--<div class="ui-g-12">-->
+        <!--<div class="card">-->
+            <!--<h1>Office Structure</h1>-->
+            <!--<p></p>-->
+
+        <!--<p-organizationChart [value]="data" selectionMode="single" [(selection)]="selectedNode" (onNodeSelect)="onNodeSelect($event)"-->
+    <!--styleClass="company">-->
+
+             <!--<ng-template let-node pTemplate="office">-->
+                <!--<div class="node-header ui-corner-top">{{node.label}}</div>-->
+                <!--<div class="node-content">-->
+                    <!--<div>Type: {{node.officeType}}</div>-->
+                    <!--<div>Zip Code: {{node.zipcode}}</div>-->
+                <!--</div>-->
+            <!--</ng-template>-->
+            <!--<ng-template let-node pTemplate="department">-->
+                <!--{{node.label}}-->
+            <!--</ng-template>-->
+        <!--</p-organizationChart>-->
+            <!--&lt;!&ndash; </p-organizationChart> &ndash;&gt;-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->

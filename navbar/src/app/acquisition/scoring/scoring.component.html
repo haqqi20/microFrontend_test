@@ -1,0 +1,249 @@
+<router-outlet #outlet="outlet"></router-outlet>
+<div *ngIf="outlet.isActivated === false" class="ui-fluid">
+  <div class="ui-g">
+    <div class="ui-g-12 topbarsticky">
+      <div class="ui-g-12">
+        <h1 style="margin-top: 6px; margin-bottom: 6px">Scoring List</h1>
+      </div>
+    </div>
+
+    <div class="ui-g-12 card">
+      <div class="ui-g-12 ui-g-nopad" style="text-align: left; font-weight: normal">
+        <div class="ui-g">
+          <div class="ui-g-6">
+            <div class="ui-g-12 ui-g-nopad">What are you looking for?</div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <input pInputText type="search" [(ngModel)]="searchQuery" placeholder="Input customer name"
+                (keyup.enter)="dta.filterGlobal(searchQuery, 'contains')">
+            </div>
+          </div>
+          <div class="ui-g-2">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-8 ui-g-nopad">Office</div>
+              <div class="ui-g-4 ui-g-nopad" style="text-align: right">
+                <p-checkbox binary="true" label="All" [(ngModel)]="checkAllOffice"
+                  (onChange)="selectedOffice=null; dta.filter(selectedOffice, 'officeName', 'equals')">
+                </p-checkbox>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <p-autoComplete [suggestions]="filteredOffice" (completeMethod)="filterOffice($event)"
+                placeholder="Choose office" [minLength]="1" [dropdown]="true" [(ngModel)]="selectedOffice"
+                (onSelect)="checkAllOffice=false; dta.filter($event, 'officeName', 'contains')">
+              </p-autoComplete>
+            </div>
+          </div>
+          <div class="ui-g-2">
+            <div class="ui-g-8 ui-g-nopad">Scoring Status</div>
+            <div class="ui-g-4 ui-g-nopad" style="text-align: right">
+              <p-checkbox binary="true" label="All" [(ngModel)]="checkAllStatus"
+                (onChange)="selectedStatus=null; dta.filter('', 'scoringStatus', 'contains')">
+              </p-checkbox>
+            </div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <p-multiSelect [options]="Status" defaultLabel="All Status" maxSelectedLabels="1"
+                (onChange)="checkAllStatus=false;onStatusSelected($event.value)" [(ngModel)]="selectedStatus">
+              </p-multiSelect>
+            </div>
+          </div>
+          <div class="ui-g-2">
+            <div class="ui-g-12 ui-g-nopad">
+              &nbsp;
+            </div>
+            <div class="ui-g-12 ui-g-nopad new-pad" style="text-align: right">
+              <button pButton class="ui-button-info" style="width: 8em" label="Search"
+                (click)="dta.filterGlobal(searchQuery, 'contains')"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-g-nopad" style="text-align: left">
+        <div class="ui-g">
+          <div class="ui-g-12">
+            <hr>
+          </div>
+          <div class="ui-g-6" style="cursor: pointer" (click)="showSearch=!showSearch">
+            <b>Advanced Search</b>
+          </div>
+          <div class="ui-g-6" style="text-align: right; cursor: pointer" (click)="showSearch=!showSearch">
+            <span class="pi pi-fw pi-chevron-left" *ngIf="!showSearch"></span>
+            <span class="pi pi-fw pi-chevron-down" *ngIf="showSearch"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-g-nopad" style="text-align: left" *ngIf="showSearch">
+        <div class="ui-g">
+          <div class="ui-g-2">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-8 ui-g-nopad">Product Name</div>
+              <div class="ui-g-4 ui-g-nopad" style="text-align: right">
+                <p-checkbox binary="true" label="All" [(ngModel)]="checkAllProduct"
+                  (onChange)="selectedProductName=null;dta.filter(selectedProductName, 'productName', 'equals')">
+                </p-checkbox>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <p-autoComplete [suggestions]="filteredProductNames" (completeMethod)="filterProductNames($event)"
+                placeholder="Choose product name" [minLength]="1" [dropdown]="true" [(ngModel)]="selectedProductName"
+                (onSelect)="checkAllProduct=false; dta.filter($event, 'productName', 'equals')">
+              </p-autoComplete>
+            </div>
+          </div>
+          <div class="ui-g-4">
+            <div class="ui-g-12 ui-g-nopad">Date Type</div>
+            <div class="ui-g-6 ui-g-nopad new-pad" style="padding-right: 1em">
+              <p-calendar [(ngModel)]="startDate" dateFormat="dd-M-yy" dataType="string" placeholder="Start Date"
+                (onInput)="checkAllDate=false;dta.filter(startDate, selectedDateType.value, 'equals')"
+                (onSelect)="checkAllDate=false;dta.filter(startDate, selectedDateType.value, 'equals')"></p-calendar>
+            </div>
+            <div class="ui-g-6 ui-g-nopad new-pad">
+              <p-calendar [(ngModel)]="endDate" dateFormat="dd-M-yy" dataType="string" placeholder="End Date"
+                (onInput)="checkAllDate=false;dta.filter(endDate, selectedDateType.value, 'equals')"
+                (onSelect)="checkAllDate=false;dta.filter(endDate, selectedDateType.value, 'equals')"></p-calendar>
+            </div>
+          </div>
+          <div class="ui-g-2">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-8 ui-g-nopad">Zipcode</div>
+              <div class="ui-g-4 ui-g-nopad" style="text-align: right">
+                <p-checkbox binary="true" label="All" [(ngModel)]="checkAllZipcode"
+                  (onChange)="selectedZipcode=null;dta.filter(selectedZipcode, 'zipCode', 'equals')">
+                </p-checkbox>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <input pInputText type="search" [(ngModel)]="searchZipcode" placeholder="Input Zipcode"
+                (input)="dta.filter(searchZipcode, 'zipCode', 'equals')">
+            </div>
+          </div>
+          <div class="ui-g-2">
+            <div class="ui-g-12 ui-g-nopad">Object</div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <input pInputText type="search" [(ngModel)]="searchObject" placeholder="Input Financing Object"
+                (input)="dta.filter(searchObject, 'type', 'equals')">
+            </div>
+          </div>
+          <div class="ui-g-2">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-8 ui-g-nopad">Amount</div>
+              <div class="ui-g-4 ui-g-nopad" style="text-align: right">
+                <p-checkbox binary="true" label="All" [(ngModel)]="checkAllAmount"
+                  (onChange)="searchAmount=null;dta.filter(searchAmount, 'price', 'equals')">
+                </p-checkbox>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad new-pad">
+              <input pInputText type="search" [(ngModel)]="searchAmount" placeholder="Input amount"
+                (input)="checkAllAmount=false;dta.filter(searchAmount, 'price', 'equals')">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g-12">
+        <hr>
+      </div>
+    </div>
+
+    <div class="ui-g-12 card">
+      <div class="ui-g-12">
+        <p-table #dta [columns]="cols" [value]="scoringData" [paginator]="true" [rows]="15"
+          [globalFilterFields]="['fullName']">
+          <!-- <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th *ngFor="let col of columns">
+                {{col.header}}
+              </th>
+            </tr>
+          </ng-template> -->
+
+          <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex">
+            <tr [pSelectableRow]="rowData">
+              <td>
+                <div class="ui-g ui-fluid">
+                  <div class="ui-g-12 ui-md-3">
+                    <div class="ui-g">
+                      <div class="ui-g-12"
+                        style="text-align: center; background-color:thistle; border-radius: 25px; width: 8em">
+                        <span>#{{rowIndex + 1}}</span>
+                      </div>
+                      <div class="ui-g-12">
+                        Application Date: <br>
+                        {{rowData['applicationDate']}}
+                      </div>
+                      <div class="ui-g-12">
+                        Application Number: <br>
+                        {{rowData['applicationNumber']}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-md-3">
+                    <div class="ui-g">
+                      <div class="ui-g-12">
+                        Customer ID: {{rowData['customerId']}}
+                      </div>
+                      <div class="ui-g-12">
+                        Customer Name: {{rowData['fullName']}}
+                      </div>
+                      <div class="ui-g-12">
+                        Address: {{rowData['address']}}
+                      </div>
+                      <div class="ui-g-12">
+                        Zipcode: {{rowData['zipCode']}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-md-3">
+                    <div class="ui-g">
+                      <div class="ui-g-12">
+                        Object Category: {{rowData['objectCategory']}}
+                      </div>
+                      <div class="ui-g-12">
+                        Financing Object: {{rowData['type']}}
+                      </div>
+                      <div class="ui-g-12">
+                        Product Name: {{rowData['productName']}}
+                      </div>
+                      <div class="ui-g-12">
+                        Product Price: {{rowData['price']}}
+                      </div>
+                      <div class="ui-g-12">
+                        Office Id: {{rowData['officeId']}}
+                      </div>
+                      <div class="ui-g-12">
+                        Office Name: {{rowData['officeName']}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-md-offset-1 ui-md-2">
+                    <div class="ui-g" style="text-align: center" style="padding-left: 2%; padding-right: 2%">
+                      <div class="ui-g-12" style="text-align: center; background-color: 	#f7e819"
+                        *ngIf="rowData['scoringStatus'] === 'Survey'">
+                        {{rowData['scoringStatus']}}
+                      </div>
+                      <div class="ui-g-12" style="text-align: center; background-color: 	#a6fda3"
+                        *ngIf="rowData['scoringStatus'] === 'Approved'">
+                        {{rowData['scoringStatus']}}
+                      </div>
+                      <div class="ui-g-12" style="text-align: center; background-color: 	#ff7b1a"
+                        *ngIf="rowData['scoringStatus'] === 'Rejected'">
+                        {{rowData['scoringStatus']}}
+                      </div>
+                      <div class="ui-g-12" style="text-align: center; margin-top: 15px;">
+                        <span class="fa fa-search" routerLink="detail/{{rowData['customerId']}}"
+                          style="font-size: 2em; cursor: pointer;"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+
+      </div>
+    </div>
+  </div>
+</div>

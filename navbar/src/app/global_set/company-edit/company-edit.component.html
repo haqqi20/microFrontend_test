@@ -1,0 +1,267 @@
+<div class="ui-fluid">
+    <p-messages [(value)]="messages"></p-messages>
+    <div class="ui-g">
+        <div class="ui-grid-row ui-g-12 topbarsticky">
+            <div class="ui-g-12" style="float:right">
+                <td style="padding-left:5px; float: left; position: absolute; top: 0px">
+                    <h1>Company Profile</h1>
+                </td>
+                <td style=" padding-left:5px; float: right; padding-top: 5px">
+                    <button pButton *ngIf="!show" type="button" label="Edit"
+                        class="ui-button-warning" (click)="toggleDisabled(); show=!show" style="font-size:14px; width: 100px"
+                        [disabled]="!disabled"></button>
+                </td>
+                <td style=" padding-left:5px; float: right; padding-top: 5px">
+                    <button pButton *ngIf="show" type="button" class="ui-button-success"
+                        style="font-size:14px" label="Save" (click)="updateCompany(); toggleDisabled(); show=!show"
+                        [disabled]="!companyForm.valid">
+                    </button>
+                </td>
+                <td style=" padding-left:5px; float: right; padding-top: 5px">
+                    <button pButton *ngIf="show" type="button" class="ui-button-secondary"
+                        style="font-size:14px" label="Cancel" (click)="toggleDisabled(); show=!show">
+                    </button>
+                </td>
+            </div>
+        </div>
+        <div class="card ui-lg-12 ui-md-12">
+            <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-12 ui-lg-2 ui-md-3">
+                    <div class="ui-g form-group">
+                        <div style="margin: auto">
+                            <div class="logo">
+                                <ngx-avatar [initialsSize]="2" [src]="imageUrl" name="{{company.companyName}}" value="C"
+                                    size="125"></ngx-avatar>
+                            </div>
+                            <label class="btn-edit" for="logo">
+                                <span pButton icon="pi pi-pencil" class="ui-button-raised ui-button-rounded ui-button-secondary" 
+                                style="height: 25px; width: 25px; border-radius: 50%"></span>
+                            </label>
+                            <input id="logo" type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)" style="display:none">
+                            <span pButton icon="pi pi-trash" class="ui-button-raised ui-button-rounded ui-button-secondary btn-delete" 
+                                style="height: 25px; width: 25px; border-radius: 50%" (click)="deleteLogo()"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-lg-10 ui-md-9">
+                    <div class="ui-g form-group">
+                        <tr>
+                            <h3>{{company.companyName}}</h3>
+                        </tr>
+                        <tr >
+                            <span>{{company.companyType}}</span>
+                        </tr>
+                        <tr>
+                            <span>{{company.address}}</span>
+                        </tr>
+                        <tr>
+                            <span>{{company.zipcode}}</span>
+                        </tr>
+                    </div>
+                </div>
+                <br><br>
+            </div>
+            <div class="ui-g-12">
+                <p-tabView>
+                    <p-tabPanel class="general" header="General Information" leftIcon="pi pi-user">
+                        <form [formGroup]="companyForm">
+                            <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+                                    <div class="ui-g-12">
+                                        <h3>Company Information</h3>
+                                    </div>
+                                    <!--  -->
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                            Company Name
+                                            <span *ngIf="show" style="color:red">*</span>
+                                        </div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <input pInputText formControlName="companyName"
+                                                placeholder="e.g. PT. Difinite" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad" *ngIf="!companyForm.controls['companyName'].valid && (companyForm.controls['companyName'].dirty || companyForm.controls['companyName'].touched)">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <p-message severity="error" text="Company name is required"></p-message>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                            Company Type
+                                            <span *ngIf="show" style="color:red">*</span>
+                                        </div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <input pInputText formControlName="companyType" 
+                                                placeholder="e.g. Personal" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad" *ngIf="!companyForm.controls['companyType'].valid && (companyForm.controls['companyType'].dirty || companyForm.controls['companyType'].touched)">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <p-message severity="error" text="Company type is required"></p-message>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                            Company Group
+                                            <span *ngIf="show" style="color:red">*</span>
+                                        </div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <input pInputText formControlName="companyGroup" 
+                                                placeholder="e.g. Personal" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad" *ngIf="!companyForm.controls['companyGroup'].valid && (companyForm.controls['companyGroup'].dirty || companyForm.controls['companyGroup'].touched)">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <p-message severity="error" text="Company group is required"></p-message>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                            Industry Type
+                                            <span *ngIf="show" style="color:red">*</span>
+                                        </div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <input pInputText formControlName="industryType"
+                                                type="text" placeholder="e.g. Technology">
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad" *ngIf="!companyForm.controls['industryType'].valid && (companyForm.controls['industryType'].dirty || companyForm.controls['industryType'].touched)">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <p-message severity="error" text="Industry type is required"></p-message>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                            Subindustry Type
+                                            <span *ngIf="show" style="color:red">*</span>
+                                        </div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <input pInputText formControlName="subindustryType"
+                                                type="text" placeholder="e.g. IT Securuty">
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad" *ngIf="!companyForm.controls['subindustryType'].valid && (companyForm.controls['subindustryType'].dirty || companyForm.controls['subindustryType'].touched)">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <p-message severity="error" text="Subindustry type is required"></p-message>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                            Established Year
+                                            <span *ngIf="show" style="color:red">*</span>
+                                        </div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <input pInputText formControlName="establishSince"
+                                                type="text" placeholder="e.g. 1800" pKeyFilter="pnum">
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad" *ngIf="!companyForm.controls['establishSince'].valid && (companyForm.controls['establishSince'].dirty || companyForm.controls['establishSince'].touched)">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <p-message severity="error" text="Established year is required"></p-message>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+                                    <div class="ui-g-12">
+                                        <h3>Company Address</h3>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                            Address
+                                            <span *ngIf="show" style="color:red">*</span>
+                                        </div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <textarea type="text" placeholder="e.g. Jl. Kencana No. 7" [rows]="2" autoResize="false"
+                                                formControlName="address" pInputTextarea></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad" *ngIf="!companyForm.controls['address'].valid && (companyForm.controls['address'].dirty || companyForm.controls['address'].touched)">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <p-message severity="error" text="Address is required"></p-message>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8 ui-g-nopad">
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                <input type="text" placeholder="e.g. Pasar Manggis"
+                                                formControlName="village" pInputText>
+                                            </div>
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                <input type="text" placeholder="e.g. Setiabudi"
+                                                formControlName="district" pInputText>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad" *ngIf="(!companyForm.controls['village'].valid && (companyForm.controls['village'].dirty || companyForm.controls['village'].touched)) || (!companyForm.controls['district'].valid && (companyForm.controls['district'].dirty || companyForm.controls['district'].touched))">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                        <div class="ui-g-8 ui-g-nopad">
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6" *ngIf="!companyForm.controls['village'].valid && (companyForm.controls['village'].dirty || companyForm.controls['village'].touched)">
+                                                <p-message severity="error" text="Village is required"></p-message>
+                                            </div>
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6" *ngIf="!companyForm.controls['district'].valid && (companyForm.controls['district'].dirty || companyForm.controls['district'].touched)">
+                                                <p-message severity="error" text="District is required"></p-message>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8 ui-g-nopad">
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                <input type="text" placeholder="e.g. Jakarta Selatan" formControlName="city"
+                                                    pInputText>
+                                            </div>
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                <input type="text" placeholder="e.g. DKI Jakarta" formControlName="state"
+                                                    pInputText>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad" *ngIf="(!companyForm.controls['city'].valid && (companyForm.controls['city'].dirty || companyForm.controls['city'].touched)) || (!companyForm.controls['state'].valid && (companyForm.controls['state'].dirty || companyForm.controls['state'].touched))">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                        <div class="ui-g-8 ui-g-nopad">
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6" *ngIf="!companyForm.controls['city'].valid && (companyForm.controls['city'].dirty || companyForm.controls['city'].touched)">
+                                                <p-message severity="error" text="City is required"></p-message>
+                                            </div>
+                                            <div class="ui-g-12 ui-lg-6 ui-md-6" *ngIf="!companyForm.controls['state'].valid && (companyForm.controls['state'].dirty || companyForm.controls['state'].touched)">
+                                                <p-message severity="error" text="Province is required"></p-message>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                            Zipcode
+                                            <span *ngIf="show" style="color:red">*</span>
+                                        </div>
+                                        <div class="ui-g-8 ui-lg-4 ui-md-4">
+                                            <input type="text" placeholder="e.g. 12970" formControlName="zipcode"
+                                            pInputText pKeyFilter="pnum">
+                                        </div>
+                                    </div>
+                                    <div class="ui-g-12 ui-g-nopad" *ngIf="!companyForm.controls['zipcode'].valid && (companyForm.controls['zipcode'].dirty || companyForm.controls['zipcode'].touched)">
+                                        <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                        <div class="ui-g-8 ui-lg-4 ui-md-4">
+                                            <p-message severity="error" 
+                                            [text]="companyForm.controls['zipcode'].errors['required'] ? 'Zipcode is required' : companyForm.controls['zipcode'].errors['minlength'] ? 'Must be 5 characters' : companyForm.controls['zipcode'].errors['maxlength'] ? 'Must be 5 characters' : ''"></p-message>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </p-tabPanel>
+                </p-tabView>
+            </div>
+        </div>
+    </div>
+</div>
+

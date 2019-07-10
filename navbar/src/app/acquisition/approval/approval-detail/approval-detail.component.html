@@ -1,0 +1,1273 @@
+<div class="ui-fluid">
+  <div class="ui-g">
+    <div class="ui-g-12 topbarsticky">
+      <div class="ui-g-12">
+        <h1 style="margin-top: 6px; margin-bottom: 6px">Approval Detail</h1>
+      </div>
+    </div>
+    <div class="ui-g-12 card">
+      <div class="ui-g-12">
+        <div class="ui-g">
+          <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+            <div class="ui-g-12" style="padding-bottom: 16px">
+              {{app['fullName']}} / {{app['customerType']}} / {{app['customerId']}}
+            </div>
+            <div class="ui-g-12" style="padding-bottom: 16px">
+              {{app['productName']}} / {{app['objectCategory']}} / {{app['financingObject']}}
+            </div>
+            <div class="ui-g-12" style="padding-bottom: 16px">
+              {{app['officeId']}} - {{app['officeName']}}
+            </div>
+          </div>
+          <div class="ui-g-12 ui-md-6">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-12 ui-md-4 form-field">
+                Application ID
+              </div>
+              <div class="ui-g-12 ui-md-8 form-field">
+                <input [disabled]="true" pInputText placeholder="Application ID" type="text"
+                  [(ngModel)]="app.applicationNumber">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-12 ui-md-4 form-field">
+                Application Date
+              </div>
+              <div class="ui-g-12 ui-md-8 form-field">
+                <input [disabled]="true" pInputText placeholder="Application date" type="text"
+                  [(ngModel)]="app.applicationDate">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-12 ui-md-4 form-field">
+                Scoring Status
+              </div>
+              <div class="ui-g-12 ui-md-8 form-field">
+                <input [disabled]="true" pInputText placeholder="Scoring status" type="text"
+                  [(ngModel)]="app.surveyStatus">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g-12">
+        <p-tabView>
+          <p-tabPanel header="Loan Assesment">
+            <div class="ui-g">
+
+              <div class="ui-g-12">
+                <div class="ui-g-12">
+                  <div class="ui-g-12">
+                    <h3>Loan Detail</h3>
+                  </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">Term of Payment</div>
+                    <div class="ui-g-8 form-field">
+                      <input pInputText placeholder="Term of Payment" type="text" [(ngModel)]="app.termOfPayment"
+                        disabled>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">Installment Type</div>
+                    <div class="ui-g-8 form-field">
+                      <input pInputText placeholder="Installment Type" type="text" [(ngModel)]="app.installmentType"
+                        disabled>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">Installment Period</div>
+                    <div class="ui-g-8 form-field">
+                      <input pInputText placeholder="Installment Period" type="text" [(ngModel)]="app.installmentPeriod"
+                        disabled>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">Collection Payment</div>
+                    <div class="ui-g-8 form-field">
+                      <input pInputText placeholder="Collection Payment" type="text" [(ngModel)]="app.collectionPayment"
+                        disabled>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">Total Product Price</div>
+                    <div class="ui-g-8 form-field">
+                      <input pInputText placeholder="Total Product Price" type="text"
+                        [(ngModel)]="app.totalProductPrice" disabled>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">Gross Down Payment</div>
+                    <div class="ui-g-8 form-field">
+                      <input pInputText placeholder="Gross Down Payment" type="text" [(ngModel)]="app.grossDownPayment"
+                        disabled>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">Net Down Payment</div>
+                    <div class="ui-g-8 form-field">
+                      <input pInputText placeholder="Net Down Payment" type="text" [(ngModel)]="app.netDownPayment"
+                        disabled>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12" style="padding-right: 5%; padding-top: 5%; padding-bottom: 5%">
+                <!-- <p-progressBar [value]="45.23"></p-progressBar> -->
+                <link rel="stylesheet" href="../../../../assets/layout/bootstrap/bootstrap.min.css">
+
+                <div class="progress" style="margin-bottom: 0px">
+                  <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar"
+                    aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                    Reject
+                  </div>
+                  <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
+                    aria-valuemin="0" aria-valuemax="100" style="width:30%">
+                    Survey
+                  </div>
+                  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                    aria-valuemax="100" aria-valuemin="0" style="width:20%">
+                    Approve
+                  </div>
+                </div>
+                <div style="position: absolute; font-size: 18px;" [ngStyle]="{'left.%':app.loanScoring}">
+                  <span class="fas fa-caret-up"></span> {{app.loanScoring + '%'}}
+                </div>
+              </div>
+
+              <div class="ui-g-12" style="padding-right: 5%">
+                <p-table #dt [columns]="cols" [value]="app.tableParameter" [paginator]="true" [rows]="10"
+                  [pageLinks]="3" [rowsPerPageOptions]="[10,20,25]">
+
+                  <ng-template pTemplate="header" let-columns>
+                    <tr>
+                      <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                        {{col.header}}
+                      </th>
+                    </tr>
+                  </ng-template>
+
+                  <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+                    <tr>
+                      <td>
+                        {{rowData['parameter']}}
+                      </td>
+                      <td>
+                        {{rowData['requested']}}
+                      </td>
+                      <td>
+                        {{rowData['approved']}}
+                      </td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad" style="text-align: left">
+                <div class="ui-g">
+                  <div class="ui-g-12">
+                    <hr>
+                  </div>
+                  <div class="ui-g-12" style="cursor: pointer" (click)="showFee=!showFee">
+                    <h3>
+                      <span class="pi pi-fw pi-chevron-right" *ngIf="!showFee"></span>
+                      <span class="pi pi-fw pi-chevron-down" *ngIf="showFee"></span>
+                      <b>Loan Fee</b>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12" style="text-align: left" *ngIf="showFee">
+                <div class="ui-g">
+                  <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Admin Fee</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Admin Fee" type="text" [(ngModel)]="app.adminFee"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Provision Fee</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Provision Fee" type="text" [(ngModel)]="app.provisionFee"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Others Fee</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Others Fee" type="text" [(ngModel)]="app.othersFee"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Stamp Fee</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Stamp Fee" type="text" [(ngModel)]="app.stampFee"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad" style="text-align: left">
+                <div class="ui-g">
+                  <div class="ui-g-12">
+                    <hr>
+                  </div>
+                  <div class="ui-g-12" style="cursor: pointer" (click)="showScor=!showScor">
+                    <h3>
+                      <span class="pi pi-fw pi-chevron-right" *ngIf="!showScor"></span>
+                      <span class="pi pi-fw pi-chevron-down" *ngIf="showScor"></span>
+                      <b>Scoring Decision</b>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12" style="text-align: left" *ngIf="showScor">
+                <div class="ui-g">
+                  <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Scoring Decision</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText type="text" placeholder="Scoring Decision" [(ngModel)]="app.scoringDecision"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Loan Score</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText type="text" placeholder="Loan Score" [(ngModel)]="app.loanScoring"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Scoring Decision Date</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Scoring Decision Date" type="text"
+                          [(ngModel)]="app.scoringDecisionDate" [disabled]="true">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad" style="text-align: left">
+                <div class="ui-g">
+                  <div class="ui-g-12">
+                    <hr>
+                  </div>
+                  <div class="ui-g-12" style="cursor: pointer" (click)="showDec=!showDec">
+                    <h3>
+                      <span class="pi pi-fw pi-chevron-right" *ngIf="!showDec"></span>
+                      <span class="pi pi-fw pi-chevron-down" *ngIf="showDec"></span>
+                      <b>Loan Decision</b>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12" style="text-align: left" *ngIf="showDec">
+                <div class="ui-g">
+                  <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4">Final Decision</div>
+                      <div class="ui-g-4">
+                        <p-radioButton name="finalDecision" value="Approved" label="Approve"
+                          [(ngModel)]="app.approvalStatus" [disabled]="disabled"></p-radioButton>
+                      </div>
+                      <div class="ui-g-4">
+                        <p-radioButton name="finalDecision" value="Rejected" label="Reject"
+                          [(ngModel)]="app.approvalStatus" [disabled]="disabled">
+                        </p-radioButton>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Decision Maker</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText type="text" placeholder="Decision Maker" [(ngModel)]="app.secisionMarker"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Loan Officer Notes</div>
+                      <div class="ui-g-8 form-field">
+                        <textarea pInputTextarea type="text" placeholder="Loan Officer Notes" style="resize:none"
+                          [(ngModel)]="app.loanOfficerNotes" [disabled]="disabled"></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Final Decision Date</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Final Decision Date" type="text" [(ngModel)]="app.decisionDate"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Approval Date</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Approval Date" type="text" [(ngModel)]="app.approvalDate"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-g-12" style="padding-right: 6%" *ngIf="showDec">
+                <td *ngIf="!show" style="padding-left:5px; float: right;">
+                  <button pButton type="button" label="Edit" class="ui-button-warning"
+                    (click)="disabled=false; show=true" style="width: 8em"></button>
+                </td>
+                <td *ngIf="show" style="padding-left:5px; float: right;">
+                  <button pButton type="button" class="ui-button-success" style="width: 8em" label="Save"
+                    (click)="onSubmitLoanDecision(); disabled=true; show=false">
+                  </button>
+                </td>
+                <td *ngIf="show" style="float: right;">
+                  <button pButton type="button" class="ui-button-secondary" style="width: 8em" label="Cancel"
+                    (click)="disabled=true; show=false">
+                  </button>
+                </td>
+              </div>
+
+            </div>
+          </p-tabPanel>
+
+          <p-tabPanel header="Object Detail">
+            <div class="ui-g">
+
+              <div class="ui-g-12">
+                <div class="ui-g">
+                  <div class="ui-g-12">
+                    <div class="ui-g-12">
+                      <h3>Object Information</h3>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Business Unit</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Business Unit" type="text" [(ngModel)]="app.businessUnit"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Object Category</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Object Category" type="text" [(ngModel)]="app.objectCategory"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Product Name</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Product Name" type="text" [(ngModel)]="app.productName"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12">
+                <div class="ui-g">
+                  <div class="ui-g-12">
+                    <div class="ui-g-12">
+                      <h3>Automotive</h3>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Dealer</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Dealer" type="text" [(ngModel)]="app.dealer" [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Brand</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Brand" type="text" [(ngModel)]="app.brand" [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Model</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Model" type="text" [(ngModel)]="app.model" [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Manufacturing Date</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Manufacturing Date" type="text"
+                          [(ngModel)]="app.manufacturingDate" [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Chassis Number</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Chassis Number" type="text" [(ngModel)]="app.chassisNumber"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Colour</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Colour" type="text" [(ngModel)]="app.colour" [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Ownership Certificate</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Ownership Certificate" type="text"
+                          [(ngModel)]="app.ownershipCeritifcateNumber" [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Price</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Price" type="text" [(ngModel)]="app.price" [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Insurance Type</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Insurance Type" type="text" [(ngModel)]="app.insuranceType"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Type</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Type" type="text" [(ngModel)]="app.type" [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Engine Number</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Engine Number" type="text" [(ngModel)]="app.engineNumber"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad" style="text-align: left">
+                <div class="ui-g">
+                  <div class="ui-g-12">
+                    <hr>
+                  </div>
+                  <div class="ui-g-12" style="cursor: pointer" (click)="showCol=!showCol">
+                    <h3>
+                      <span class="pi pi-fw pi-chevron-right" *ngIf="!showCol"></span>
+                      <span class="pi pi-fw pi-chevron-down" *ngIf="showCol"></span>
+                      <b>Collateral</b>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12" style="text-align: left" *ngIf="showCol">
+                <div class="ui-g">
+                  <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Collateral Type</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Collateral Type" type="text" [(ngModel)]="app.collateralType"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Brand</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Brand" type="text" [(ngModel)]="app.brandCollateral"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Model</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Model" type="text" [(ngModel)]="app.modelCollateral"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Manufacturing Date</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Manufacturing Date" type="text"
+                          [(ngModel)]="app.manufacturingDateCollateral" [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Chassis Number</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Chassis Number" type="text"
+                          [(ngModel)]="app.chassisNumberCollateral" [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Colour</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Colour" type="text" [(ngModel)]="app.colourCollateral"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Type</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Type" type="text" [(ngModel)]="app.typeCollateral"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Machine Number</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Machine Number" type="text" [(ngModel)]="app.machineNumber"
+                          disabled>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </p-tabPanel>
+
+          <p-tabPanel header="Personal Detail">
+            <div class="ui-g">
+
+              <div class="ui-g-12">
+                <div class="ui-g">
+                  <div class="ui-g-12">
+                    <div class="ui-g-12">
+                      <h3>Personal Information</h3>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Salutation</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Salutation" type="text" [(ngModel)]="app.salutation"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Full Name</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Full Name" type="text" [(ngModel)]="app.fullName"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Alias Name</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Alias Name" type="text" [(ngModel)]="app.aliasName"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Identity Number</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Identity Number" type="text" [(ngModel)]="app.identityNumber"
+                          disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Birth Place</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Identity Number" type="text" [(ngModel)]="app.birthPlace"
+                          disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Birth Date</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Identity Number" type="text" [(ngModel)]="app.birthDate"
+                          disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Mother Name</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Identity Number" type="text" [(ngModel)]="app.motherName"
+                          disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Phone Number</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Identity Number" type="text" [(ngModel)]="app.phoneNumber"
+                          disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Email</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Identity Number" type="text" [(ngModel)]="app.email" disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Gender</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Gender" type="text" [(ngModel)]="app.gender" [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Religion</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Religion" type="text" [(ngModel)]="app.religion"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Marital Status</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Marital Status" type="text" [(ngModel)]="app.maritialStatus"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad" style="text-align: left">
+                <div class="ui-g">
+                  <div class="ui-g-12">
+                    <hr>
+                  </div>
+                  <div class="ui-g-6" style="cursor: pointer" (click)="showWork=!showWork">
+                    <h3>
+                      <span class="pi pi-fw pi-chevron-right" *ngIf="!showWork"></span>
+                      <span class="pi pi-fw pi-chevron-down" *ngIf="showWork"></span>
+                      <b>Working Information</b>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12" style="text-align: left" *ngIf="showWork">
+                <div class="ui-g">
+                  <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Occupation</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Occupation" type="text" [(ngModel)]="app.occupation"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Company Name</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Manufacturing Date" type="text" [(ngModel)]="app.companyName"
+                          disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Length of Work</div>
+                      <div class="ui-g-8 form-field">
+                        <div class="ui-inputgroup">
+                          <input type="text" pInputText placeholder="Length of Work" [(ngModel)]="app.lenghtOfWork"
+                            disabled>
+                          <span class="ui-inputgroup-addon">Month</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Employment Status</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Manufacturing Date" type="text"
+                          [(ngModel)]="app.employmentStatus" [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Start Date</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Chassis Number" type="text" [(ngModel)]="app.startDate"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">End Date</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Colour" type="text" [(ngModel)]="app.endDate" [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">I Am Still Working Here</div>
+                      <div class="ui-g-8 form-field">
+                        <p-checkbox [(ngModel)]="app.stillWork" binary="true" disabled></p-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad" style="text-align: left">
+                <div class="ui-g">
+                  <div class="ui-g-12">
+                    <hr>
+                  </div>
+                  <div class="ui-g-12" style="cursor: pointer" (click)="showAdd=!showAdd">
+                    <h3>
+                      <span class="pi pi-fw pi-chevron-right" *ngIf="!showAdd"></span>
+                      <span class="pi pi-fw pi-chevron-down" *ngIf="showAdd"></span>
+                      <b>Address Information</b>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12" style="text-align: left" *ngIf="showAdd">
+                <div class="ui-g">
+                  <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Address Type</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Address Type" type="text" [(ngModel)]="app.addressType"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Address</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Address" type="text" [(ngModel)]="app.address" disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field"></div>
+                      <div class="ui-g-4 form-field">
+                        <input pInputText placeholder="Village" type="text" [(ngModel)]="app.vilage" disabled>
+                      </div>
+                      <div class="ui-g-4 form-field">
+                        <input pInputText placeholder="District" type="text" [(ngModel)]="app.district" disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field"></div>
+                      <div class="ui-g-4 form-field">
+                        <input pInputText placeholder="City" type="text" [(ngModel)]="app.city" disabled>
+                      </div>
+                      <div class="ui-g-4 form-field">
+                        <input pInputText placeholder="Province" type="text" [(ngModel)]="app.province" disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Zipcode</div>
+                      <div class="ui-g-4 form-field">
+                        <input pInputText placeholder="Zipcode" type="text" [(ngModel)]="app.zipCode" [disabled]="true">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad" style="text-align: left">
+                <div class="ui-g">
+                  <div class="ui-g-12">
+                    <hr>
+                  </div>
+                  <div class="ui-g-12" style="cursor: pointer" (click)="showFam=!showFam">
+                    <h3>
+                      <span class="pi pi-fw pi-chevron-right" *ngIf="!showFam"></span>
+                      <span class="pi pi-fw pi-chevron-down" *ngIf="showFam"></span>
+                      <b>Family Information</b>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12" style="text-align: left" *ngIf="showFam">
+                <div class="ui-g">
+                  <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Salutation</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Salutation" type="text" [(ngModel)]="app.salutationFamily"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Full Name</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="FullName" type="text" [(ngModel)]="app.fullNameFamily"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Alias Name</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Alias Name" type="text" [(ngModel)]="app.aliasNameFamily"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Identity Number</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Identity Number" type="text"
+                          [(ngModel)]="app.identityNumberFamily" disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Birth Place</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Identity Number" type="text" [(ngModel)]="app.birthPlaceFamily"
+                          disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Birth Date</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Identity Number" type="text" [(ngModel)]="app.birthDateFamily"
+                          disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Phone Number</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Identity Number" type="text" [(ngModel)]="app.phoneNumberFamily"
+                          disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Email</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Identity Number" type="text" [(ngModel)]="app.emailFamily"
+                          disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Gender</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Gender" type="text" [(ngModel)]="app.genderFamily"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad" style="text-align: left">
+                <div class="ui-g">
+                  <div class="ui-g-12">
+                    <hr>
+                  </div>
+                  <div class="ui-g-12" style="cursor: pointer" (click)="showInc=!showInc">
+                    <h3>
+                      <span class="pi pi-fw pi-chevron-right" *ngIf="!showInc"></span>
+                      <span class="pi pi-fw pi-chevron-down" *ngIf="showInc"></span>
+                      <b>Income Information</b>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12" style="text-align: left" *ngIf="showInc">
+                <div class="ui-g">
+                  <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Income Type</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Income Type" type="text" [(ngModel)]="app.incomeType"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Monthly Income</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Manufacturing Date" type="text" [(ngModel)]="app.monthlyIncome"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad" style="text-align: left">
+                <div class="ui-g">
+                  <div class="ui-g-12">
+                    <hr>
+                  </div>
+                  <div class="ui-g-12" style="cursor: pointer" (click)="showEdu=!showEdu">
+                    <h3>
+                      <span class="pi pi-fw pi-chevron-right" *ngIf="!showEdu"></span>
+                      <span class="pi pi-fw pi-chevron-down" *ngIf="showEdu"></span>
+                      <b>Education Information</b>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12" style="text-align: left" *ngIf="showEdu">
+                <div class="ui-g">
+                  <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Education Type</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Education Type" type="text" [(ngModel)]="app.educationType"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Institute Name</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Institute Name" type="text" [(ngModel)]="app.InstituteName"
+                          disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Major</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Major" type="text" [(ngModel)]="app.major" disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Start Date</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Start Date" type="text" [(ngModel)]="app.startDateEducation"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">End Date</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="End Date" type="text" [(ngModel)]="app.endDateEducation"
+                          [disabled]="true">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </p-tabPanel>
+
+          <p-tabPanel header="Document">
+            <div class="ui-g">
+              <div class="ui-g-12">
+                <div class="ui-g-12">
+                  <h3>Mandatory Document</h3>
+                </div>
+                <div class="ui-g-12">
+                  <p-table #dtD [columns]="colDocs" [value]="app.document" [paginator]="true" [rows]="10"
+                    [pageLinks]="3" [rowsPerPageOptions]="[10,20,25]">
+
+                    <ng-template pTemplate="caption">
+                      <div class="ui-g">
+                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                          <div class="ui-inputgroup">
+                            <input type="search" pInputText placeholder="Type keyword search here..."
+                              [(ngModel)]="searchQuery" (keyup.enter)="dtD.filterGlobal(searchQuery, 'contains')">
+                            <button pButton class="ui-button-info" label="Search"
+                              (click)="dtD.filterGlobal(searchQuery, 'contains')" style="width: 8em"></button>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+
+                    <ng-template pTemplate="header" let-columns>
+                      <tr>
+                        <th style="width: 7%">
+                          No
+                        </th>
+                        <th *ngFor="let col of columns" [ngSwitch]="col.field" [pSortableColumn]="col.field">
+                          {{col.header}}
+                          <p-sortIcon [field]="col.field"></p-sortIcon>
+                        </th>
+                      </tr>
+                    </ng-template>
+
+                    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+                      <tr [pSelectableRow]="rowData">
+                        <td style="text-align: center">
+                          {{rowIndex + 1}}
+                        </td>
+                        <td>
+                          {{rowData['documentType']}}
+                        </td>
+                        <td>
+                          {{rowData['description']}}
+                        </td>
+                        <td style="text-align: center">
+                          {{rowData['status']}}
+                        </td>
+                        <td style="text-align: center">
+                          {{rowData['detail']}}
+                        </td>
+                      </tr>
+                    </ng-template>
+
+                    <ng-template pTemplate="summary">
+                      <h4>This document has listed {{app.document?.length}} type(s)</h4>
+                    </ng-template>
+                  </p-table>
+                </div>
+              </div>
+            </div>
+          </p-tabPanel>
+
+          <p-tabPanel header="Survey Result">
+            <div class="ui-g">
+
+              <div class="ui-g-12">
+                <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                  <div class="ui-g-12">
+                    <h3>Survey Assignment</h3>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">Surveyor PIC</div>
+                    <div class="ui-g-8 form-field">
+                      <input pInputText placeholder="Supervisor code" type="text" [(ngModel)]="app.surveyPic" disabled>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">Surveyor ID</div>
+                    <div class="ui-g-8 form-field">
+                      <input pInputText placeholder="Supervisor code" type="text" [(ngModel)]="app.npk" disabled>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">Surveyor Name</div>
+                    <div class="ui-g-8 form-field">
+                      <input pInputText placeholder="Supervisor code" type="text" [(ngModel)]="app.surveyor" disabled>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">Phone Number</div>
+                    <div class="ui-g-8 form-field">
+                      <input pInputText placeholder="Supervisor code" type="text" [(ngModel)]="app.phone" disabled>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">Assign Date</div>
+                    <div class="ui-g-8 form-field">
+                      <input pInputText placeholder="Supervisor code" type="text" [(ngModel)]="app.assinDate" disabled>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">End Date</div>
+                    <div class="ui-g-8 form-field">
+                      <input pInputText placeholder="Supervisor code" type="text" [(ngModel)]="app.endDate" disabled>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">Survey Type</div>
+                    <div class="ui-g-8 form-field">
+                      <input pInputText placeholder="Supervisor code" type="text" [(ngModel)]="app.surveyType" disabled>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">Survey Status</div>
+                    <div class="ui-g-8 form-field">
+                      <input pInputText placeholder="Supervisor code" type="text" [(ngModel)]="app.surveyStatus"
+                        disabled>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                  <div class="ui-g-12">
+                    <h3>Destination Information</h3>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">Application ID</div>
+                    <div class="ui-g-8 form-field">
+                      <input pInputText placeholder="Supervisor code" type="text" [(ngModel)]="app.applicationNumber"
+                        disabled>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">Full Name</div>
+                    <div class="ui-g-8 form-field">
+                      <input pInputText placeholder="Supervisor code" type="text" [(ngModel)]="app.fullName" disabled>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">Phone Number</div>
+                    <div class="ui-g-8 form-field">
+                      <input pInputText placeholder="Supervisor code" type="text" [(ngModel)]="app.phoneNumber"
+                        disabled>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">Destination Address</div>
+                    <div class="ui-g-8 form-field">
+                      <textarea pInputTextarea type="text" placeholder="Remark" style="resize:none"
+                        [(ngModel)]="app.destinationaddress" disabled></textarea>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field"></div>
+                    <div class="ui-g-4 form-field">
+                      <input pInputText placeholder="Supervisor code" type="text" [(ngModel)]="app.vilage" disabled>
+                    </div>
+                    <div class="ui-g-4 form-field">
+                      <input pInputText placeholder="Supervisor code" type="text" [(ngModel)]="app.district" disabled>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field"></div>
+                    <div class="ui-g-4 form-field">
+                      <input pInputText placeholder="Supervisor code" type="text" [(ngModel)]="app.city" disabled>
+                    </div>
+                    <div class="ui-g-4 form-field">
+                      <input pInputText placeholder="Supervisor code" type="text" [(ngModel)]="app.province" disabled>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-g-nopad">
+                    <div class="ui-g-4 form-field">Zipcode</div>
+                    <div class="ui-g-4 form-field">
+                      <input pInputText placeholder="Supervisor code" type="text" [(ngModel)]="app.zipCode" disabled>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad" style="text-align: left">
+                <div class="ui-g">
+                  <div class="ui-g-12">
+                    <hr>
+                  </div>
+                  <div class="ui-g-12" style="cursor: pointer" (click)="showReport=!showReport">
+                    <h3>
+                      <span class="pi pi-fw pi-chevron-right" *ngIf="!showReport"></span>
+                      <span class="pi pi-fw pi-chevron-down" *ngIf="showReport"></span>
+                      <b>Survey Report</b>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12" style="text-align: left" *ngIf="showReport">
+                <div class="ui-g">
+                  <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Survey Date</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Supervisor code" type="text" [(ngModel)]="app.surveyDate"
+                          disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Survey Status</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Supervisor code" type="text" [(ngModel)]="app.surveyStatus"
+                          disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Surveyor Decision</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Supervisor code" type="text"
+                          [(ngModel)]="app.surveyDecisionBySurveyor" disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">Notes by Surveyor</div>
+                      <div class="ui-g-8 form-field">
+                        <textarea pInputTextarea type="text" style="resize:none" [(ngModel)]="app.surveyorNotes"
+                          disabled></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">PIC Supervisor Decision</div>
+                      <div class="ui-g-8 form-field">
+                        <input pInputText placeholder="Supervisor code" type="text"
+                          [(ngModel)]="app.surveyDecisionByPic" disabled>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-4 form-field">PIC Supervisor Notes</div>
+                      <div class="ui-g-8 form-field">
+                        <textarea pInputTextarea type="text" style="resize:none" [(ngModel)]="app.picSurveyorNotes"
+                          disabled></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12 ui-g-nopad" style="text-align: left">
+                <div class="ui-g">
+                  <div class="ui-g-12">
+                    <hr>
+                  </div>
+                  <div class="ui-g-12" style="cursor: pointer" (click)="showReportTable=!showReportTable">
+                    <h3>
+                      <span class="pi pi-fw pi-chevron-right" *ngIf="!showReportTable"></span>
+                      <span class="pi pi-fw pi-chevron-down" *ngIf="showReportTable"></span>
+                      <b>Survey Result Detail</b>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui-g-12" style="padding-right: 5%" *ngIf="showReportTable">
+                <p-table #dtQ [columns]="colQuestions" [value]="app.templetQuestion" [paginator]="true" [rows]="10"
+                  [pageLinks]="3" [rowsPerPageOptions]="[10,20,25]">
+
+                  <ng-template pTemplate="header" let-columns>
+                    <tr>
+                      <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                        {{col.header}}
+                      </th>
+                    </tr>
+                  </ng-template>
+
+                  <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+                    <tr [pSelectableRow]="rowData">
+                      <td>
+                        {{rowData['question']}}
+                      </td>
+                      <td>
+                        {{rowData['result']}}
+                      </td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </div>
+            </div>
+          </p-tabPanel>
+
+          <p-tabPanel header="Loan Flow">
+            <div class="timeline">
+              <div *ngFor="let time of app.approvalFlow">
+                <h2 class="timeline__item timeline__item--year">{{time['date']}}</h2>
+                <div class="timeline__item">
+                  <label class="timeline__title_title">{{time['story']}}</label>
+                  <p class="timeline__blurb">{{time['place']}}</p>
+                </div>
+              </div>
+            </div>
+          </p-tabPanel>
+
+        </p-tabView>
+      </div>
+    </div>
+  </div>
+</div>

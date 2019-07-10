@@ -1,0 +1,39 @@
+{
+    "data": [
+        {
+            "officeName": "PT Budi Jaya cab. Jakarta Selatan",
+            "officeCode": "BJ0007",
+            "fullName": "Dadang Faturahman",
+            "npk": "120007769887",
+            "emailAddress": "dadangfaturahman@gmail.com",
+            "phoneNumber": "089567789888",
+            "startDate": "01-Jan-2010",
+            "endDate": "Still Work",
+            "jobPosition": "employee",
+            "directSupervisor": "Kurnia Wijaya",
+            "limitSurveyPerDay": "3",
+            "limitSurveyPerMonth": "60",
+            "productType": "Special Kartini",
+            "remark": "",
+            "location": [
+                {
+                    "zipCode": "10998",
+                    "village": "Cipedak",
+                    "district": "Jagakarsa",
+                    "city": "Jakarta Selatan",
+                    "province": "DKI Jakarta"
+                },
+                {
+                    "zipCode": "10988",
+                    "village": "Ciganjur",
+                    "district": "Jagakarsa",
+                    "city": "Jakarta Selatan",
+                    "province": "DKI Jakarta"
+                }
+            ],
+            "isActive": true,
+            "isUnlock": false,
+            "ResetPassword": false
+        }
+    ]
+}

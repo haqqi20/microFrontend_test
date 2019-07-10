@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(to bottom, #efe4f3, #444);
+  color: #bbb;
+  padding: 1rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.timeline {
+  position: relative;
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 500px;
+}
+.timeline:before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  border: 1px solid #2c10ff;
+  right: 40px;
+  top: 0;
+}
+.timeline:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (min-width: 700px) {
+  .timeline {
+    padding: 2rem;
+  }
+  .timeline:before {
+    left: calc(50% - 1px);
+    right: auto;
+  }
+}
+
+.timeline__item {
+  padding: 0.60rem;
+  border: 2px solid #2c10ff;
+  border-image: linear-gradient(to right, skyblue 0%, #2c10ff 100%);
+  border-image-slice: 1;
+  position: relative;
+  margin: 1rem 3rem 1rem 1rem;
+  clear: both;
+}
+.timeline__item:after, .timeline__item:before {
+  content: '';
+  position: absolute;
+}
+.timeline__item:before {
+  right: -10px;
+  top: calc(50% - 5px);
+  border-style: solid;
+  border-color: #2c10ff #2c10ff transparent transparent;
+  border-width: 10px;
+  transform: rotate(45deg);
+}
+@media screen and (min-width: 700px) {
+  .timeline__item {
+    width: 44%;
+    margin: 1rem;
+  }
+  .timeline__item:nth-of-type(2n) {
+    float: right;
+    margin: 1rem;
+    border-image: linear-gradient(to right, #2c10ff 0%, skyblue 100%);
+    border-image-slice: 1;
+  }
+  .timeline__item:nth-of-type(2n):before {
+    right: auto;
+    left: -10px;
+    border-color: transparent transparent #2c10ff #2c10ff;
+  }
+}
+
+.timeline__item--year {
+  text-align: center;
+  max-width: 140px;
+  margin: 0 48px 0 auto;
+  font-size: 0.80rem;
+  font-weight: bold;
+  background-color: #ffffff;
+  line-height: 1;
+  border-image: none;
+  padding: .5rem 1rem 1rem;
+}
+.timeline__item--year:before {
+  display: none;
+}
+@media screen and (min-width: 700px) {
+  .timeline__item--year {
+    text-align: center;
+    margin: 0 auto;
+  }
+  .timeline__item--year:nth-of-type(2n) {
+    float: none;
+    margin: 0 auto;
+    border-image: none;
+  }
+  .timeline__item--year:nth-of-type(2n):before {
+    display: none;
+  }
+}
+
+.timeline__title {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.80em;
+}
+.timeline__title_title {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+
+.timeline__blurb {
+  line-height: 1.5;
+  font-size: 0.80rem;
+  margin: .2rem 0 0;
+}

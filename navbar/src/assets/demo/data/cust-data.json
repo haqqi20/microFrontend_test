@@ -1,0 +1,14 @@
+{
+    "data": [
+        {"idCustomer": "CS-P-001", "aliasname": "anton653", "phone": "082225949596", "email": "anton653@gmail.com"},
+        {"idCustomer": "CS-P-002", "aliasname": "Jhoni", "phone": "082123009090", "email": "Jhoni@gmail.com"},
+        {"idCustomer": "CS-P-003", "aliasname": "Shila_a", "phone": "089225948393", "email": "Shila_a@hotmail.com"},
+        {"idCustomer": "CS-P-004", "aliasname": "Silvawidi" , "phone": "081325596123", "email": "Silvawidi@yahoo.com"},
+        {"idCustomer": "CS-P-005", "aliasname": "Dinda154", "phone": "082123457689", "email": "Dinda154@gmail.com"},
+        {"idCustomer": "CS-P-006", "aliasname": "Riafa'i", "phone": "085225797465", "email": "Riafa'i@gmail.com"},
+        {"idCustomer": "CS-P-007", "aliasname": "Citra Prasetyo", "phone": "081325326788", "email": "Prasetyo@gmail.com"},
+        {"idCustomer": "CS-P-008", "aliasname": "Adio Saputro", "phone": "085225978254", "email": "Saputro234@yahoo.com"},
+        {"idCustomer": "CS-P-009", "aliasname": "Andy law", "phone": "081225123900", "email": "andy_law@gmail.com"},
+        {"idCustomer": "CS-P-0010", "aliasname": "Jhohanes22", "phone": "085325889667", "email": "Jhohanes22@gmail.com"}
+    ]
+}

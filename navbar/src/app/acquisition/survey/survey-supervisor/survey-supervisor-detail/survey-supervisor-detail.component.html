@@ -1,0 +1,237 @@
+<div class="ui-fluid">
+  <div class="ui-g">
+    <div class="ui-g-12 topbarsticky">
+      <div class="ui-g-12 ui-g-nopad">
+        <div class="ui-g-6">
+          <h1 style="margin-top: 6px; margin-bottom: 6px">Supervisor Detail</h1>
+        </div>
+        <div class="ui-g-6 ui-rtl" dir="rtl">
+          <button pButton *ngIf="!show" type="button" label="Edit" class="ui-button-warning topbarbutton"
+            (click)="toggleDisabled(); show=!show" style="width: 8em"></button>
+          <button pButton *ngIf="!show" type="button" class="ui-button-secondary topbarbutton" style="width: 8em"
+            label="Back" (click)="back()">
+          </button>
+          <button pButton *ngIf="show" type="button" class="ui-button-success topbarbutton" style="width: 8em"
+            label="Save" (click)="toggleDisabled(); show=!show">
+          </button>
+          <button pButton *ngIf="show" type="button" class="ui-button-secondary topbarbutton" style="width: 8em"
+            label="Cancel" (click)="toggleDisabled(); show=!show">
+          </button>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-g-nopad">
+        <p-messages [(value)]="msgs"></p-messages>
+      </div>
+    </div>
+    <div class="ui-g-12 card">
+      <p-tabView>
+        <p-tabPanel header="General Information">
+          <div class="ui-g">
+            <div class="ui-g-12">
+              <h3>General Information</h3>
+            </div>
+            <div class="ui-g-12 ui-md-6 ui-lg-6 ui-g-nopad" style="padding-right: 5%">
+              <div class="ui-g">
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 form-field">
+                    Full Name
+                  </div>
+                  <div class="ui-g-8 form-field ">
+                    <p-autoComplete [size]="20" placeholder="Choose supervisor" [dropdown]="true"
+                      [(ngModel)]="Model.fullName" [suggestions]="results" (completeMethod)="filterParents($event)"
+                      [disabled]="disabled">
+                    </p-autoComplete>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 form-field">
+                    Npk
+                  </div>
+                  <div class="ui-g-8 form-field ">
+                    <input pInputText placeholder="Npk" type="text" [(ngModel)]="Model.npk" [disabled]="true">
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 form-field">
+                    Office Name
+                  </div>
+                  <div class="ui-g-8 form-field ">
+                    <p-autoComplete [size]="20" placeholder="Choose office name" [dropdown]="true" [disabled]="disabled"
+                      [(ngModel)]="Model.officeName" [suggestions]="results" (completeMethod)="filterParents($event)">
+                    </p-autoComplete>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 form-field">
+                    Office Code
+                  </div>
+                  <div class="ui-g-8 form-field ">
+                    <input pInputText placeholder="Office code" type="text" [(ngModel)]="Model.officeCode"
+                      [disabled]="true">
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 form-field">
+                    Email Address
+                  </div>
+                  <div class="ui-g-8 form-field ">
+                    <input pInputText placeholder="Email address" type="text" [(ngModel)]="Model.emailAddress"
+                      [disabled]="true">
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 form-field">
+                    Phone Number
+                  </div>
+                  <div class="ui-g-8 form-field ">
+                    <input pInputText placeholder="Phone number" type="text" [(ngModel)]="Model.phoneNumber"
+                      [disabled]="true">
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 form-field">
+                    Start Date
+                  </div>
+                  <div class="ui-g-8 form-field ">
+                    <input pInputText placeholder="Start date" type="text" [(ngModel)]="Model.startDate"
+                      [disabled]="true">
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 form-field">
+                    End Date
+                  </div>
+                  <div class="ui-g-8 form-field ">
+                    <input pInputText placeholder="End Date" type="text" [(ngModel)]="Model.endDate" [disabled]="true">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-6 ui-lg-6 ui-g-nopad" style="padding-right: 5%">
+              <div class="ui-g">
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 form-field">
+                    Job Position
+                  </div>
+                  <div class="ui-g-8 form-field ">
+                    <input pInputText placeholder="Job position" type="text" [(ngModel)]="Model.jobPosition"
+                      [disabled]="true">
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 form-field">
+                    Direct Supervisor
+                  </div>
+                  <div class="ui-g-8 form-field ">
+                    <input pInputText placeholder="Direct supervisor" type="text" [(ngModel)]="Model.directSupervisor"
+                      [disabled]="true">
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 form-field">
+                    Product Type
+                  </div>
+                  <div class="ui-g-8 form-field ">
+                    <p-autoComplete [size]="20" placeholder="Choose Product Type" [dropdown]="true"
+                      [(ngModel)]="Model.productType" [suggestions]="results" (completeMethod)="filterParents($event)"
+                      [disabled]="disabled">
+                    </p-autoComplete>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 form-field">
+                    Remark
+                  </div>
+                  <div class="ui-g-8 form-field ">
+                    <textarea pInputTextarea type="text" placeholder="Remark" style="resize:none" pInputTextarea
+                      [(ngModel)]="Model.remark" [disabled]="disabled"></textarea>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 form-field">
+                    Is Active
+                  </div>
+                  <div class="ui-g-8 form-field ">
+                    <ui-switch checkedLabel="Yes" uncheckedLabel="No" size="small" color="#007bff"
+                      [(ngModel)]="Model.isActive" [ngStyle]="{'color': Model.isActive ? 'white' : '#333' }"
+                      [disabled]="disabled">
+                    </ui-switch>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel header="Surveyor Assign">
+          <div class="ui-g">
+            <div class="ui-g-12 ui-g-nopad">
+              <h3>Assign Surveyor</h3>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <p-pickList [source]="surveyorData" [target]="Model.assignedSurveyor" sourceHeader="Surveyor Name"
+                targetHeader="Surveyor Selected" [responsive]="true" filterBy="fullName" dragdrop="true"
+                sourceFilterPlaceholder="Search by name" targetFilterPlaceholder="Search by name"
+                [sourceStyle]="{'height':'300px'}" [targetStyle]="{'height':'300px'}" [showSourceControls]="false"
+                [showTargetControls]="false" [disabled]="disabled">
+                <ng-template let-rowData pTemplate="item">
+                  <div class="ui-g ui-helper-clearfix">
+                    <div class="ui-g-4">
+                      <span *ngFor="let zip of rowData['location']">{{zip['zipCode']}} </span>
+                    </div>
+                    <div class="ui-g-8" style="font-size:14px">
+                      | {{rowData.fullName}}
+                    </div>
+                  </div>
+                </ng-template>
+              </p-pickList>
+            </div>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel header="Settings">
+          <div class="ui-g">
+            <div class="ui-g-12">
+              <h3>Settings</h3>
+            </div>
+            <div class="ui-g-12 ui-md-6" style="padding-right: 5%">
+              <div class="ui-g">
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4">
+                    Is Active
+                  </div>
+                  <div class="ui-g-8 form-field">
+                    <ui-switch checkedLabel="Yes" uncheckedLabel="No" size="small" color="#007bff"
+                      [(ngModel)]="Model.isActive" [ngStyle]="{'color': Model.isActive ? 'white' : '#333' }"
+                      [disabled]="disabled">
+                    </ui-switch>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4">
+                    Is Unlock
+                  </div>
+                  <div class="ui-g-8 form-field">
+                    <ui-switch checkedLabel="Yes" uncheckedLabel="No" size="small" color="#007bff"
+                      [(ngModel)]="Model.isUnlock" [ngStyle]="{'color': Model.isUnlock ? 'white' : '#333' }"
+                      [disabled]="disabled">
+                    </ui-switch>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4">
+                    Reset Password
+                  </div>
+                  <div class="ui-g-8 form-field">
+                    <ui-switch checkedLabel="Yes" uncheckedLabel="No" size="small" color="#007bff"
+                      [(ngModel)]="Model.ResetPassword" [ngStyle]="{'color': Model.ResetPassword ? 'white' : '#333' }"
+                      [disabled]="disabled">
+                    </ui-switch>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+      </p-tabView>
+    </div>
+  </div>
+</div>

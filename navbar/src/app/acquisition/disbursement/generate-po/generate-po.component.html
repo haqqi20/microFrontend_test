@@ -1,0 +1,128 @@
+<div class="ui-fluid">
+  <div class="ui-g">
+    <div class="ui-grid-row ui-g-12 topbarsticky">
+      <div class="ui-g-12">
+        <td style="padding-left:5px; float: left; position: absolute; top: 0px">
+          <h1>Generate PO</h1>
+        </td>
+        <td style="padding-left:5px; float: right; padding-top: 5px">
+          <button pButton type="submit" class="ui-button-warning" label="Generate" (click)="generatePO()"
+            style="width: 8em" [disabled]="!selectedApps.length>0"></button>
+        </td>
+        <td style=" padding-left:5px; float: right; padding-top: 5px">
+          <button pButton class="secondary-btn" label="Cancel" (click)="cancel()" style="width: 8em"></button>
+        </td>
+      </div>
+    </div>
+
+    <div *ngIf="dataAvailable">
+      <div class="card ui-g-12 ui-lg-12 ui-md-12">
+        <div class="ui-g-12 ui-lg-6 ui-md-6">
+          <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+            <div class="ui-g-12 ui-md-12">
+              <h3>Dealer Information</h3>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                Dealer ID
+              </div>
+              <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                <input pInputText [(ngModel)]="dealer.dealerId" type="text" disabled>
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-md-4 form-field">
+                Dealer Name
+              </div>
+              <div class="ui-g-8 ui-md-8 form-field">
+                <input pInputText [(ngModel)]="dealer.dealerName" type="text" disabled>
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-md-4 form-field">
+                Dealer Address
+              </div>
+              <div class="ui-g-8 ui-md-8 form-field">
+                <textarea type="text" autoResize="false" pInputTextarea [(ngModel)]="dealer.dealerAddress"
+                  disabled></textarea>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="card ui-g-12 ui-lg-12 ui-md-12">
+        <div class="ui-g-12" style="padding-left: 3%; padding-right: 3%">
+          <p-table #dt [columns]="cols" [value]="dealer.applicationList" [paginator]="true" [rows]="10" [pageLinks]="3"
+            [rowsPerPageOptions]="[10,25,50]">
+            <ng-template pTemplate="caption">
+              <div class="ui-g">
+                <div class="ui-g-12 ui-lg-6 ui-md-6">
+                  <div class="ui-inputgroup">
+                    <input type="search" pInputText placeholder="Type keyword search here..." [(ngModel)]="searchQuery">
+                    <button pButton class="ui-button-info" label="Search"
+                      (click)="dt.filterGlobal(searchQuery, 'contains')" style="width: 8em"></button>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-lg-6 ui-md-6">
+
+                </div>
+              </div>
+            </ng-template>
+
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th style="width: 6%">
+                  No
+                </th>
+                <th *ngFor="let col of columns" [ngSwitch]="col.field" [pSortableColumn]="col.field">
+                  <!-- [ngStyle]="{'width': col.width}"> -->
+                  {{col.header}}
+                  <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+                    ariaLabelDesc="Activate to sort in descending order"
+                    ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                </th>
+                <th style="width: 9%">
+                  Action
+                </th>
+              </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-app let-rowIndex="rowIndex">
+              <tr>
+                <td style="text-align: center">
+                  {{rowIndex + 1}}
+                </td>
+                <td>
+                  {{app['applicationNumber']}}
+                </td>
+                <td>
+                  {{app['approvalDate']}}
+                </td>
+                <td>
+                  {{app['product']}}
+                </td>
+                <td>
+                  {{app['unit']}}
+                </td>
+                <td>
+                  {{app['price'] | currency:'IDR':'symbol-narrow':'1.2-2':'id-ID'}}
+                </td>
+                <td style="text-align: center">
+                  <p-checkbox [value]="app.applicationNumber" [(ngModel)]="selectedApps"></p-checkbox>
+                </td>
+              </tr>
+            </ng-template>
+
+            <ng-template pTemplate="summary">
+              <h4>This company has listed {{dealer.applicationList.length}} application(s)</h4>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

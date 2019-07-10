@@ -4,9 +4,8 @@
   "newProjectRoot": "projects",
   "projects": {
     "navbar": {
-      "projectType": "application",
-      "schematics": {},
       "root": "",
+      "projectType": "application",
       "sourceRoot": "src",
       "prefix": "navbar",
       "architect": {
@@ -24,9 +23,20 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/fullcalendar/dist/fullcalendar.min.css",
+              "node_modules/quill/dist/quill.snow.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/primeicons/primeicons.css",
+              "./node_modules/ngx-ui-switch/ui-switch.component.css",
+              "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/chart.js/dist/Chart.js",
+              "node_modules/fullcalendar/dist/fullcalendar.js",
+              "node_modules/quill/dist/quill.js"
+            ],
             "customWebpackConfig": {
               "path": "./extra-webpack.config.js"
             }
@@ -51,7 +61,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
+                  "maximumWarning": "4mb",
                   "maximumError": "5mb"
                 }
               ]
@@ -87,9 +97,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/chart.js/dist/Chart.js",
+              "node_modules/fullcalendar/dist/fullcalendar.js",
+              "node_modules/quill/dist/quill.js"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/fullcalendar/dist/fullcalendar.min.css",
+              "node_modules/quill/dist/quill.snow.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "./node_modules/ngx-ui-switch/ui-switch.component.css",
+              "src/styles.scss"
+            ]
           }
         },
         "lint": {
@@ -120,5 +139,14 @@
       }
     }
   },
-  "defaultProject": "navbar"
+  "defaultProject": "navbar",
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "app",
+      "styleext": "css"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "app"
+    }
+  }
 }

@@ -1,0 +1,14 @@
+{
+    "data": [
+        {"businessType": "Invesment", "custType": "Individual", "orderType": "New Order", "dataEntry": "Dt-Id-001"},
+        {"businessType": "Invesment", "custType": "Individual", "orderType": "Additional Order", "dataEntry": "Dt-Id-002"},
+        {"businessType": "Invesment", "custType": "Individual", "orderType": "Additional Order", "dataEntry": "Dt-Id-003"},
+        {"businessType": "Invesment", "custType": "Group Customer" , "orderType": "New Order", "dataEntry": "Dt-Id-004"},
+        {"businessType": "Invesment", "custType": "Corporate", "orderType": "Repeat Orde", "dataEntry": "Dt-Id-005"},
+        {"businessType": "Grup Customer", "custType": "Corporate", "orderType": "New Order", "dataEntry": "Dt-Id-006"},
+        {"businessType": "Grup Customer", "custType": "Corporate", "orderType": "Repeat Orde", "dataEntry": "Dt-Id-007"},
+        {"businessType": "Multiguna", "custType": "Corporate", "orderType": "New Order", "dataEntry": "Dt-Id-008"},
+        {"businessType": "Multiguna", "custType": "Group Customer", "orderType": "Repeat Order", "dataEntry": "Dt-Id-009"},
+        {"businessType": "Multiguna", "custType": "Corporate", "orderType": "New Order", "dataEntry": "Dt-Id-0010"}
+    ]
+}

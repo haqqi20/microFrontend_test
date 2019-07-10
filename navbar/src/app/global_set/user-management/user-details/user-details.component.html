@@ -1,0 +1,510 @@
+<div class="ui-fluid">
+    <div class="ui-g">
+        <div class="ui-grid-row ui-g-12 clearfix shadow topbarsticky">
+            <div class="ui-g-12" style="float:right">
+                <td style="padding-left:5px; float: left; position: absolute; top: 0px">
+                    <h1>User Details</h1>
+                </td>
+                <td style="padding-left:5px; float: right; padding-top: 5px">
+                    <button pButton *ngIf="!show" type="button" label="Edit"
+                        class="ui-button-warning" (click)="toggleDisabled(); show=!show" style="font-size:14px; width: 100px"
+                        [disabled]="!disabled"></button>
+                </td>
+                <td style="padding-left:5px; float: right; padding-top: 5px">
+                    <button pButton *ngIf="show" type="button" class="ui-button-success"
+                        style="font-size:14px" label="Save" (click)="updateIsEnabled(); assignEmployeeOffice(); assignEmployeeRole(); updateEmployee(); toggleDisabled(); show=!show"
+                        [disabled]="!emplForm.valid">
+                    </button>
+                </td>
+                <td style="padding-left:5px; float: right; padding-top: 5px">
+                    <button pButton *ngIf="show" type="button" class="ui-button-secondary"
+                        style="font-size:14px" label="Cancel" (click)="toggleDisabled(); show=!show">
+                    </button>
+                </td>
+            </div>
+            <!--<hr style="color:grey; width: 100%; ">-->
+        </div>
+        <div class="card ui-lg-12 ui-md-12">
+            <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-12 ui-lg-2 ui-md-3">
+                    <div class="ui-g">
+                        <div style="margin: auto;">
+                            <div class="avatar">
+                                <ngx-avatar [initialsSize]="2" [src]="imageUrl" name="{{employee.fullName}}" value="P"
+                                    size="125"></ngx-avatar>
+                            </div>
+                            <div style="text-align: center; margin-top: 15px; margin-bottom: 5px;">
+                                <span pButton label="{{userStatus}}" style="width: 100px; border-radius: 15px;" [ngClass]="{
+                                    'ui-button-success': userStatus==='Active',
+                                    'ui-button-danger': userStatus==='Inactive',
+                                    'ui-button-warning': userStatus==='Pending',
+                                    'ui-button-secondary': userStatus==='Disabled',
+                                    'ui-button-primary': userStatus==='Locked'
+                                }"></span>
+                            </div>
+                            <div style="text-align: center;">
+                                <a *ngIf="userStatus==='Inactive'" style="font-size: 12px; cursor: pointer;" (click)="onSend()">Send Invitation Email</a>
+                                <a *ngIf="userStatus==='Pending'" style="font-size: 12px; cursor: pointer;" (click)="onResend()">Resend Invitation Email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-lg-10 ui-md-9">
+                    <div class="ui-g">
+                        <tr>
+                            <h3>{{employee.fullName}}</h3>
+                        </tr>
+                        <tr >
+                            <span>{{rolesString}}</span>
+                        </tr>
+                        <tr>
+                            <span>{{employee.workPosition}}</span>
+                        </tr>
+                        <tr>
+                            <span>{{employee.email}}</span>
+                        </tr>
+                        <button *ngIf="userStatus === 'Active'" style="font-size: 12px; margin-top: 10px; width: 110px"  routerLink="/reset-pass/{{uuid}}"
+                            pButton label="Reset Password"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-lg-12 ui-md-12">
+                <p-tabView>
+                    <p-tabPanel class="general" header="General Information" leftIcon="fa fa-info">
+                        <div [formGroup]="emplForm">
+                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                            <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+                                <div class="ui-g-12">
+                                    <h3>Personal Information</h3>
+                                </div>
+                                <!--  -->
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Username
+                                        <span *ngIf="show" style="color:red">*</span>
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText formControlName="employeeUserLogin"
+                                            placeholder="e.g. john_doe" type="text" [pKeyFilter]="blockSpace">
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad" *ngIf="!emplForm.controls['employeeUserLogin'].valid && (emplForm.controls['employeeUserLogin'].dirty || emplForm.controls['employeeUserLogin'].touched)">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <p-message severity="error" [text]="emplForm.controls['employeeUserLogin'].errors['required'] ? 'Username is required' : ''"></p-message>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Full Name
+                                        <span *ngIf="show" style="color:red">*</span>
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText formControlName="fullName"
+                                            placeholder="e.g. Johndoe" type="text">
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad" *ngIf="!emplForm.controls['fullName'].valid && (emplForm.controls['fullName'].dirty || emplForm.controls['fullName'].touched)">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <p-message severity="error" [text]="emplForm.controls['fullName'].errors['required'] ? 'Full name is required' : ''"></p-message>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Birth Date
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <p-calendar placeholder="e.g. 26-Nov-1900" [monthNavigator]="true" formControlName="birthDate"
+                                            [yearNavigator]="true" yearRange="1930:2018" dateFormat="dd-M-yy" dataType="date"></p-calendar>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Birth Place
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText formControlName="birthPlace"
+                                            type="text" placeholder="e.g. Jakarta">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                            <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+                                <div class="ui-g-12">
+                                    <h3>Contact Information</h3>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Phone Number
+                                        <span *ngIf="show" style="color:red">*</span>
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText formControlName="phone"
+                                            type="text" placeholder="e.g. 08121234xxxx">
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad" *ngIf="!emplForm.controls['phone'].valid && (emplForm.controls['phone'].dirty || emplForm.controls['phone'].touched)">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <p-message severity="error" [text]="emplForm.controls['phone'].errors['required'] ? 'Phone is required' : ''"></p-message>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Email Address
+                                        <span *ngIf="show" style="color:red">*</span>
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText formControlName="email" [pKeyFilter]="email"
+                                            type="text"  placeholder="e.g. johndoe@company.com">
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad" *ngIf="!emplForm.controls['email'].valid && (emplForm.controls['email'].dirty || emplForm.controls['email'].touched)">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <p-message severity="error" [text]="emplForm.controls['email'].errors['required'] ? 'Email is required' : emplForm.controls['email'].errors['email'] ? 'Email is wrong' : ''"></p-message>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Address
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <textarea type="text" placeholder="Address" [rows]="2" autoResize="false" 
+                                            formControlName="address" pInputTextarea></textarea>
+                                    </div>
+                                </div>
+                                <div *ngIf="show" class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Location
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <p-autoComplete formControlName="location" [suggestions]="filteredLocations"
+                                                (completeMethod)="filterLocations($event)" field="location"
+                                                placeholder="Search location" [minLength]="3" (onSelect)="onSelectLocation()">
+                                            </p-autoComplete>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8 ui-g-nopad">
+                                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                            <input type="text" placeholder="Village" formControlName="village"
+                                            pInputText>
+                                        </div>
+                                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                            <input type="text" placeholder="District" formControlName="district"
+                                            pInputText>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                        <div class="ui-g-8 ui-lg-8 ui-md-8 ui-g-nopad">
+                                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                            <input type="text" placeholder="City"
+                                                pInputText formControlName="city">
+                                        </div>
+                                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                            <input type="text" placeholder="Province"
+                                                pInputText formControlName="state">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Zipcode
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-4 ui-md-4">
+                                        <input type="text" placeholder="Zipcode"
+                                        pInputText formControlName="zipcode">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </p-tabPanel>
+                    <p-tabPanel class="work" header="Work Information" leftIcon="fa fa-briefcase">
+                        <div [formGroup]="emplForm">
+                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                            <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+                                <div class="ui-g-12">
+                                    <h3>Employee Information</h3>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Employee Number
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText placeholder="e.g. 1234"
+                                            type="text" formControlName="employeeNo">
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Employee Type
+                                        <span *ngIf="show" style="color:red">*</span>
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <p-autoComplete [suggestions]="filteredTypes" (completeMethod)="filterTypes($event)"
+                                            [minLength]="1" [dropdown]="true" field="label" formControlName="employeeType">
+                                            <ng-template let-type pTemplate="item">
+                                                {{type.label}}
+                                            </ng-template>
+                                        </p-autoComplete>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad" *ngIf="!emplForm.controls['employeeType'].valid && (emplForm.controls['employeeType'].dirty || emplForm.controls['employeeType'].touched)">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <p-message severity="error" [text]="emplForm.controls['employeeType'].errors['required'] ? 'Employee type is required' : ''"></p-message>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Employee Status
+                                        <span *ngIf="show" style="color:red">*</span>
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <p-autoComplete [suggestions]="filteredStatuss" (completeMethod)="filterStatuss($event)"
+                                            [minLength]="1" [dropdown]="true" field="label" formControlName="employmentStatus">
+                                            <ng-template let-status pTemplate="item">
+                                                {{status.label}}
+                                            </ng-template>
+                                        </p-autoComplete>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad" *ngIf="!emplForm.controls['employmentStatus'].valid && (emplForm.controls['employmentStatus'].dirty || emplForm.controls['employmentStatus'].touched)">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <p-message severity="error" [text]="emplForm.controls['employmentStatus'].errors['required'] ? 'Employee status is required' : ''"></p-message>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Department
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText formControlName="department"
+                                            type="text" placeholder="e.g. 123">
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Division
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText formControlName="division"
+                                            type="text" placeholder="e.g. developer">
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Work Group
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText formControlName="workgroup"
+                                            type="text" placeholder="e.g. 123" >
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Job Entitlement
+                                        <span *ngIf="show" style="color:red">*</span>
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <input pInputText formControlName="workPosition"
+                                            type="text" placeholder="e.g. developer" >
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad" *ngIf="!emplForm.controls['workPosition'].valid && (emplForm.controls['workPosition'].dirty || emplForm.controls['workPosition'].touched)">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <p-message severity="error" [text]="emplForm.controls['workPosition'].errors['required'] ? 'Work position is required' : ''"></p-message>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Direct Supervisor
+                                        <span *ngIf="show" style="color:red">*</span>
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <p-autoComplete [suggestions]="filteredSupervisors" (completeMethod)="filterSupervisors($event)"
+                                            [minLength]="1" [dropdown]="true" field="label" formControlName="directSupervisor">
+                                            <ng-template let-supervisor pTemplate="item">
+                                                {{supervisor.label}}
+                                            </ng-template>
+                                        </p-autoComplete>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad" *ngIf="!emplForm.controls['directSupervisor'].valid && (emplForm.controls['directSupervisor'].dirty || emplForm.controls['directSupervisor'].touched)">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <p-message severity="error" [text]="emplForm.controls['directSupervisor'].errors['required'] ? 'Direct supervisor is required' : ''"></p-message>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-6">
+                            <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+                                <div class="ui-g-12">
+                                    <h3>Office Information</h3>
+                                </div>
+                                <div *ngIf="offices; else noOffice">
+                                    <div *ngFor="let office of offices">
+                                        <div class="ui-g-12 ui-g-nopad">
+                                            <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                                Office Name
+                                            </div>
+                                            <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                                <input type="text" placeholder="Enter your office name"
+                                                    [(ngModel)]="office.name" pInputText [disabled]="true">
+                                            </div>
+                                        </div>
+                                        <div class="ui-g-12 ui-g-nopad">
+                                            <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                                Office Type
+                                            </div>
+                                            <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                                <input type="text" placeholder="Enter your office name"
+                                                    [(ngModel)]="office.officeType" pInputText [disabled]="true">
+                                            </div>
+                                        </div>
+                                        <div class="ui-g-12 ui-g-nopad">
+                                            <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                                Address
+                                            </div>
+                                            <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                                <textarea type="text" placeholder="Address" [rows]="2" autoResize="false"
+                                                    [(ngModel)]="office.address" pInputTextarea [disabled]="true"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="ui-g-12 ui-g-nopad">
+                                            <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                            <div class="ui-g-8 ui-lg-8 ui-md-8 ui-g-nopad">
+                                                <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                    <input type="text" placeholder="Village" [(ngModel)]="office.village"
+                                                    pInputText [disabled]="true">
+                                                </div>
+                                                <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                    <input type="text" placeholder="District"
+                                                    [(ngModel)]="office.district" pInputText [disabled]="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ui-g-12 ui-g-nopad">
+                                            <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                                            <div class="ui-g-8 ui-lg-8 ui-md-8 ui-g-nopad">
+                                                <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                    <input type="text" placeholder="City" [(ngModel)]="office.city"
+                                                        pInputText [disabled]="true">
+                                                </div>
+                                                <div class="ui-g-12 ui-lg-6 ui-md-6">
+                                                    <input type="text" placeholder="Province" [(ngModel)]="office.state"
+                                                        pInputText [disabled]="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ui-g-12 ui-g-nopad" style="margin-bottom: 35px">
+                                            <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                                Zipcode
+                                            </div>
+                                            <div class="ui-g-8 ui-lg-4 ui-md-4">
+                                                <input type="text" placeholder="Zipcode" [(ngModel)]="office.zipcode"
+                                                pInputText [disabled]="true">
+                                            </div>
+                                        </div>
+                                        <div style="margin-bottom: 15px"><hr style="color: grey; border-width: 0.5px"></div>
+                                    </div>
+                                </div>
+                                <ng-template #noOffice>
+                                    <div class="ui-g-12 ui-g-nopad">
+                                        <div class="ui-g-12">
+                                            <h4>No office</h4>
+                                        </div>
+                                    </div>
+                                </ng-template>
+                            </div>
+                        </div>
+                    </p-tabPanel>
+                    <p-tabPanel header="Role(s)" leftIcon="fa fa-user">
+                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                            <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+                                <div class="ui-g-12">
+                                    <h3>Assign Role(s)</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-12 ui-lg-3 ui-md-2"></div>
+                            <div class="ui-g-12 ui-lg-6 ui-md-8">
+                                <p-pickList [disabled]="disabled" [source]="sourceRoles" [target]="roles" sourceHeader="Roles" targetHeader="Roles Selected" [responsive]="true" filterBy="roleName"
+                                            [showSourceControls]="false" [showTargetControls]="false" sourceFilterPlaceholder="Search Roles" targetFilterPlaceholder="Search Role Selected"
+                                            [sourceStyle]="{'height':'200px'}" [targetStyle]="{'height':'200px'}" onLabel="On" offLabel="OFF" >
+                                    <ng-template let-role pTemplate="item">
+                                        <div class="ui-helper-clearfix">
+                                            <div style="font-size:12px;margin:1px 5px 0 0">{{role.roleName}}</div>
+                                        </div>
+                                    </ng-template>
+                                </p-pickList>
+                            </div>
+                        </div>
+                    </p-tabPanel>
+                    <p-tabPanel header="Office(s)" leftIcon="fa fa-building">
+                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                            <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+                                <div class="ui-g-12">
+                                    <h3>Assign Office(s)</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-12 ui-lg-3 ui-md-2"></div>
+                            <div class="ui-g-12 ui-lg-6 ui-md-8">
+                                <p-pickList [disabled]="disabled" [source]="sourceOffices" [target]="offices" sourceHeader="Offices" targetHeader="Offices Selected" [responsive]="true" filterBy="name"
+                                            [showSourceControls]="false" [showTargetControls]="false" sourceFilterPlaceholder="Search Office" targetFilterPlaceholder="Search Office Selected"
+                                            [sourceStyle]="{'height':'200px'}" [targetStyle]="{'height':'200px'}">
+                                    <ng-template let-office pTemplate="item">
+                                        <div class="ui-helper-clearfix">
+                                            <div style="font-size:12px;margin:1px 5px 0 0">{{office.name}}</div>
+                                        </div>
+                                    </ng-template>
+                                </p-pickList>
+                            </div>
+                        </div>
+                    </p-tabPanel>
+                    <p-tabPanel header="Setting" leftIcon="fa fa-cog">
+                        <div class="ui-g-12 ui-lg-6 ui-md-6">
+                            <div [formGroup]="emplForm">
+                            <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+                                <div class="ui-g-12">
+                                    <h3>User Setting</h3>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Is Enable
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                        <p-inputSwitch formControlName="isEnabled"></p-inputSwitch>
+                                    </div>
+                                </div>
+                                <div class="ui-g-12 ui-g-nopad">
+                                    <div class="ui-g-4 ui-lg-4 ui-md-4">
+                                        Is Lock
+                                    </div>
+                                    <div class="ui-g-8 ui-lg-8 ui-md-8">
+                                            <p-inputSwitch></p-inputSwitch>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </p-tabPanel>
+                </p-tabView>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,365 @@
+<router-outlet #outlet="outlet"></router-outlet>
+<div *ngIf="outlet.isActivated === false" class="ui-fluid">
+  <div style="margin-left: 40%; margin-top: 0%">
+    <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  </div>
+  <div class="ui-g">
+    <div class="ui-grid-row ui-g-12 topbarsticky">
+      <div class="ui-g-12">
+        <td style="padding-left:5px; float: left; position: absolute; top: 0px">
+          <h1>Fee Detail</h1>
+        </td>
+        <td *ngIf="!show" style="padding-left:5px; float: right; padding-top: 5px">
+          <button pButton type="button" label="Edit" class="ui-button-warning" (click)="toggleDisabled(); show=!show"
+            style="width: 8em" [disabled]="!disabled"></button>
+        </td>
+        <td *ngIf="!show" style="padding-left:5px; float: right; padding-top: 5px">
+          <button pButton type="button" class="ui-button-secondary" style="width: 8em" label="Back" (click)="back()">
+          </button>
+        </td>
+        <td *ngIf="show" style="padding-left:5px; float: right; padding-top: 5px">
+          <button pButton type="button" class="ui-button-success" style="width: 8em" label="Save" (click)="updateFee()"
+            [disabled]="feeForm.invalid">
+          </button>
+        </td>
+        <td *ngIf="show" style="padding-left:5px; float: right; padding-top: 5px">
+          <button pButton type="button" class="ui-button-secondary" style="width: 8em" label="Cancel"
+            (click)="cancel()">
+          </button>
+        </td>
+      </div>
+    </div>
+
+    <div class="card ui-g-12 ui-lg-12 ui-md-12">
+      <div class="ui-g-12 ui-lg-6 ui-md-6">
+        <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+          <div class="ui-g-12 ui-md-12">
+            <h3>Fee Information</h3>
+          </div>
+          <!--  -->
+          <div [formGroup]="feeForm">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-lg-4 ui-md-4">
+                Category Name
+                <span *ngIf="show" style="color:red">*</span>
+              </div>
+              <div class="ui-g-8 ui-lg-8 ui-md-8">
+                <input pInputText formControlName="feeName" type="text" placeholder="Fee category name">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad"
+              *ngIf="!feeForm.controls['feeName'].valid && (feeForm.controls['feeName'].dirty || feeForm.controls['feeName'].touched)">
+              <div class="ui-g-4 ui-md-4"></div>
+              <div class="form-group ui-g-8 ui-md-8">
+                <p-message severity="error"
+                  [text]="feeForm.controls['feeName'].errors['required'] ? 'Category Name is required' : ''">
+                </p-message>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-md-4">
+                Description
+                <span *ngIf="show" style="color:red">*</span>
+              </div>
+              <div class="ui-g-8 ui-md-8">
+                <textarea type="text" autoResize="false" pInputTextarea formControlName="description"
+                  placeholder="Description of fee category"></textarea>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad"
+              *ngIf="!feeForm.controls['description'].valid && (feeForm.controls['description'].dirty || feeForm.controls['description'].touched)">
+              <div class="ui-g-4 ui-md-4"></div>
+              <div class="form-group ui-g-8 ui-md-8">
+                <p-message severity="error"
+                  [text]="feeForm.controls['description'].errors['required'] ? 'Description is required' : ''">
+                </p-message>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-md-4">
+                Is Active
+              </div>
+              <div class="ui-g-8 ui-md-8">
+                <ui-switch formControlName="status" checkedLabel="Yes" uncheckedLabel="No" size="small" color="#007bff"
+                  [ngStyle]="{'color': feeForm.get('status').value ? 'white' : '#333' }"></ui-switch>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="show" class="card ui-g-12 ui-lg-12 ui-md-12">
+      <div class="ui-g-12 ui-lg-6 ui-md-6">
+        <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+          <div class="ui-g-12">
+            <h3>Fee Criteria</h3>
+          </div>
+          <div class="ui-g-12 ui-g-nopad" [formGroup]="propForm">
+            <div class="ui-g-4 ui-md-4">
+              Type Name
+              <span style="color:red">*</span>
+            </div>
+            <div class="ui-g-8 ui-md-8">
+              <p-autoComplete [suggestions]="filteredFeeTypes" (completeMethod)="filterFeeTypes($event)"
+                placeholder="Choose type name" [minLength]="1" [dropdown]="true" field="lookupValue"
+                formControlName="feeType">
+                <ng-template let-type pTemplate="item">
+                  {{type.lookupValue}}
+                </ng-template>
+              </p-autoComplete>
+            </div>
+          </div>
+          <div class="ui-g-12 ui-g-nopad"
+            *ngIf="!propForm.controls['feeType'].valid && (propForm.controls['feeType'].dirty || propForm.controls['feeType'].touched)">
+            <div class="ui-g-4 ui-md-4"></div>
+            <div class="ui-g-4 ui-md-8">
+              <p-message severity="error"
+                [text]="propForm.controls['feeType'].errors['required'] ? 'Type Name is required' : ''">
+              </p-message>
+            </div>
+          </div>
+
+          <div class="ui-g-12 ui-g-nopad" [formGroup]="propForm">
+            <div class="ui-g-4 ui-md-4">
+              Charging Basis
+              <span style="color:red">*</span>
+            </div>
+            <div class="ui-g-8 ui-md-8">
+              <p-autoComplete [suggestions]="filteredPaymentTerms" (completeMethod)="filterPaymentTermTypes($event)"
+                placeholder="Choose charging basis" [minLength]="1" [dropdown]="true" field="lookupValue"
+                formControlName="paymentTermType" (onKeyUp)="onPaymentTermSelect()" (onSelect)="onPaymentTermSelect()">
+                <ng-template let-term pTemplate="item">
+                  {{term.lookupValue}}
+                </ng-template>
+              </p-autoComplete>
+            </div>
+          </div>
+          <div class="ui-g-12 ui-g-nopad"
+            *ngIf="!propForm.controls['paymentTermType'].valid && (propForm.controls['paymentTermType'].dirty || propForm.controls['paymentTermType'].touched)">
+            <div class="ui-g-4 ui-md-4"></div>
+            <div class="ui-g-8 ui-md-8">
+              <p-message severity="error"
+                [text]="propForm.controls['paymentTermType'].errors['required'] ? 'Charging Basis is required' : ''">
+              </p-message>
+            </div>
+          </div>
+          <div
+            *ngIf="propForm.get('paymentTermType').value !== '' && propForm.get('paymentTermType').value['lookupKey'] === 'AF'">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-8 ui-lg-4 ui-md-4">
+                Amount of Years
+                <span style="color:red">*</span>
+              </div>
+              <div class="ui-g-4 ui-md-4">
+                <p-autoComplete [suggestions]="filteredAmountOfYears" #amountOfYear="ngModel"
+                  (completeMethod)="filterAmountOfYears($event)" placeholder="Choose amount of years" [minLength]="1"
+                  [dropdown]="true" [(ngModel)]="selectedAmountOfYear" (onKeyUp)="onAmountOfYearSelect()"
+                  (onSelect)="onAmountOfYearSelect()" required>
+                  <ng-template let-year pTemplate="item">
+                    {{year}}
+                  </ng-template>
+                </p-autoComplete>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad"
+              *ngIf="amountOfYear.invalid && (amountOfYear.dirty || amountOfYear.touched)">
+              <div class="ui-g-4 ui-md-4"></div>
+              <div class="ui-g-4 ui-md-4">
+                <p-message severity="error" [text]="amountOfYear.errors?.required ? 'Amount of Years is required' : ''">
+                </p-message>
+              </div>
+            </div>
+          </div>
+
+          <div
+            *ngIf="propForm.get('paymentTermType').value !== '' && propForm.get('paymentTermType').value['lookupKey'] === 'AF' && selectedAmountOfYear > 0; else noYear">
+            <div *ngFor="let year of arrayYear;">
+              <div class="ui-g-12">
+                <h4>#{{year + 1}} Year</h4>
+              </div>
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-md-4">
+                  Parameter Type
+                  <span style="color:red">*</span>
+                </div>
+                <div class="form-group ui-g-8 ui-md-8">
+                  <p-autoComplete [suggestions]="filteredFeeParameters" #feeParameter="ngModel"
+                    (completeMethod)="filterFeeParameters($event)" required placeholder="Choose parameter type"
+                    [minLength]="1" [dropdown]="true" field="lookupValue" [(ngModel)]="arrayParameter[year]"
+                    (onKeyUp)="onParameterSelect(year)" (onSelect)="onParameterSelect(year)">
+                    <ng-template let-param pTemplate="item">
+                      {{param.lookupValue}}
+                    </ng-template>
+                  </p-autoComplete>
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad"
+                *ngIf="feeParameter.invalid && (feeParameter.dirty || feeParameter.touched)">
+                <div class="ui-g-4 ui-md-4"></div>
+                <div class="ui-g-8 ui-md-8">
+                  <p-message severity="error"
+                    [text]="feeParameter.errors?.required ? 'Parameter Type is required' : ''">
+                  </p-message>
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad"
+                *ngIf="arrayParameter[year] !== null && arrayParameter[year]['lookupKey'] === 'Fixed'; else notFixed">
+                <div class="ui-g-4 ui-md-4"></div>
+                <div class="ui-g-8 ui-md-8">
+                  <input pInputText type="text" placeholder="Amount" [(ngModel)]="arrayAmount[year]" currencyMask
+                    [options]="amountOpt">
+                </div>
+              </div>
+              <ng-template #notFixed>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                  <div class="ui-g-8 ui-lg-8 ui-md-8  ui-g-nopad">
+                    <div class="ui-g-12 ui-lg-6 ui-md-6">
+                      <input pInputText placeholder="%" type="text" [(ngModel)]="arrayAmount[year]" currencyMask
+                        [options]="amountPercent">
+                    </div>
+                    <div class="ui-g-12 ui-lg-6 ui-md-6">
+                      <input pInputText placeholder="Minimum Amount" type="text" [(ngModel)]="arrayMinimum[year]"
+                        currencyMask [options]="amountOpt">
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </div>
+          </div>
+          <ng-template #noYear>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-md-4">
+                Parameter Type
+                <span style="color:red">*</span>
+              </div>
+              <div class="form-group ui-g-8 ui-md-8">
+                <p-autoComplete [suggestions]="filteredFeeParameters" (completeMethod)="filterFeeParameters($event)"
+                  placeholder="Choose Parameter Type" [minLength]="1" [dropdown]="true" field="lookupValue"
+                  [(ngModel)]="selectedFeeParameter"(onKeyUp)="onParameterSelect()"
+                  (onSelect)="onParameterSelect()">
+                  <ng-template let-param pTemplate="item">
+                    {{param.lookupValue}}
+                  </ng-template>
+                </p-autoComplete>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad" *ngIf="selectedFeeParameter['lookupKey'] === 'Fixed'; else notFix">
+              <div class="ui-g-4 ui-md-4"></div>
+              <div class="ui-g-8 ui-md-8">
+                <input pInputText type="text" placeholder="Amount" [(ngModel)]="amountFixed" currencyMask
+                  [options]="amountOpt">
+              </div>
+            </div>
+            <ng-template #notFix>
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+                <div class="ui-g-8 ui-lg-8 ui-md-8  ui-g-nopad">
+                  <div class="ui-g-12 ui-lg-6 ui-md-6">
+                    <input pInputText placeholder="%" type="text" [(ngModel)]="amountFixed" currencyMask
+                      [options]="amountPercent">
+                  </div>
+                  <div class="ui-g-12 ui-lg-6 ui-md-6">
+                    <input pInputText placeholder="Minimum" type="text" [(ngModel)]="amountMinimum" currencyMask
+                      [options]="amountOpt">
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ng-template>
+          <div class="ui-g-12 ui-g-nopad" [formGroup]="propForm">
+            <div class="ui-g-4 ui-md-4">
+              Is Active
+            </div>
+            <div class="ui-g-8 ui-md-8">
+              <ui-switch checkedLabel="Yes" uncheckedLabel="No" size="small" formControlName="status" color="#007bff"
+                [ngStyle]="{'color': propForm.get('status').value ? 'white' : '#333'}">
+              </ui-switch>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui-g-12" style="padding-left: 3%; padding-right: 3%">
+        <td style="float: right">
+          <button pButton class="ui-button-primary" label="Add" (click)="addProperty()" [disabled]="!isPropertyValid()"
+            style="width: 8em"></button>
+        </td>
+        <td style="padding-right: 5px; float: right">
+          <button pButton class="secondary-btn" label="Discard" (click)="discard()" style="width: 8em"></button>
+        </td>
+      </div>
+    </div>
+
+    <div class="card ui-g-12 ui-lg-12 ui-md-12">
+      <div class="ui-g-12" style="padding-left: 3%; padding-right: 3%">
+        <div class="ui-g-12" *ngIf="!show">
+          <h3>Fee Criteria</h3>
+        </div>
+        <div class="ui-g-12">
+          <p-dataView #dv [value]="tableProperties" [paginator]="true" [rows]="rows"
+            filterBy="feeType,paymentTermType,parameter" [rowsPerPageOptions]="rowsOptions" [sortField]="sortField"
+            [sortOrder]="sortOrder">
+            <p-header>
+              <div class="ui-helper-clearfix">
+                <div class="ui-g">
+                  <div class="ui-g-12" style="font-weight: normal">
+                    What are you looking for?
+                  </div>
+                  <div class="ui-g-12 ui-md-6">
+                    <div class="ui-inputgroup">
+                      <input type="search" pInputText placeholder="Type keyword search here..."
+                        [(ngModel)]="searchQuery">
+                      <button pButton class="ui-button-info" label="Search" (click)="dv.filter(searchQuery)"
+                        style="width: 8em"></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </p-header>
+            <ng-template let-property pTemplate="listItem">
+              <div class="ui-g" style="padding-top: 1em; padding-bottom: 1em; border-bottom: 1px solid #d9d9d9">
+                <div class="ui-g-12 ui-lg-2 ui-md-2" style="text-align: center">
+                  <div class="ui-g">
+                    <div class="ui-g-12"><b>{{property.feeType}}</b></div>
+                    <div class="ui-g-12"><b>{{property.paymentTermType}}</b></div>
+                    <div class="ui-g-12">
+                      <b>{{property.amountOfYear ? property.amountOfYear + ' Year(s)' : ''}}</b></div>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-lg-8 ui-md-8">
+                  <table style="width: 100%">
+                    <tr *ngFor="let param of property.parameter">
+                      <td style="width: 20%">{{param.yearNo ? 'Year #' + param.yearNo : ''}}
+                      </td>
+                      <td style="width: 25%">{{param.feeParameter}}</td>
+                      <td style="width: 25%">Amount:
+                        {{param.amount}}{{param.feeParameter !== 'Fixed Amount' ? '%' : ''}}
+                      </td>
+                      <td style="width: 30%">
+                        {{param.minimum ? 'Minimum Amount: ' + param.minimum : ''}}</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="ui-g-12 ui-md-2">
+                  <div class="ui-g" style="text-align: center">
+                    <div class="ui-g-12">
+                      <b>{{property.status ? 'Active' : 'Inactive'}}</b>
+                    </div>
+                    <div class="ui-g-12">
+                      <span class="fa fa-search" style="font-size: 1.2em; cursor: pointer"
+                        (click)="onItemClick(property.feePropertyId)"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+            <p-footer>
+              <h4 style="text-align: center">This fee has listed {{tableProperties?.length}} property</h4>
+            </p-footer>
+          </p-dataView>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

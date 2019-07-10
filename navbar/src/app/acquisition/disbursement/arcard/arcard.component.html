@@ -1,0 +1,208 @@
+<div class="ui-fluid">
+  <div class="ui-g">
+    <div class="ui-grid-row ui-g-12 topbarsticky">
+      <div class="ui-g-12">
+        <td style="padding-left:5px; float: left; position: absolute; top: 0px">
+          <h1>Disbursement</h1>
+        </td>
+        <td style=" padding-left:5px; float: right; padding-top: 5px">
+          <button pButton class="ui-button-secondary" label="Previous" (click)="previous()" style="width: 8em"></button>
+        </td>
+      </div>
+    </div>
+
+    <div *ngIf="dataAvailable">
+      <div class="card ui-g-12 ui-lg-12 ui-md-12">
+        <div class="ui-g-12" style="padding-right: 3%">
+          <div class="ui-g-12 ui-md-12" style="text-align: center">
+            <h3>AR Card</h3>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-lg-4 ui-md-4">
+          <div class="ui-g-12" style="padding-right: 5%">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                Office Name
+              </div>
+              <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                <input pInputText value="PT Budi Jaya cab. Jakarta Selatan" type="text" disabled>
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-md-4 form-field">
+                Application Number
+              </div>
+              <div class="ui-g-8 ui-md-8 form-field">
+                <input pInputText [(ngModel)]="app.noKontrak" type="text" disabled>
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-md-4 form-field">
+                Application Date
+              </div>
+              <div class="ui-g-8 ui-md-8 form-field">
+                <input pInputText [(ngModel)]="app.arDate" type="text" disabled>
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-md-4 form-field">
+                Principal Debt
+              </div>
+              <div class="ui-g-8 ui-md-8 form-field">
+                <input pInputText [(ngModel)]="app.totalPkk" type="text" currencyMask
+                [options]="amountOpt" disabled>
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-md-4 form-field">
+                Total Interest
+              </div>
+              <div class="ui-g-8 ui-md-8 form-field">
+                <input pInputText [(ngModel)]="app.totalBunga" type="text" currencyMask
+                [options]="amountOpt" disabled>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-g-12 ui-lg-4 ui-md-4">
+          <div class="ui-g-12" style="padding-right: 5%">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-12" style="padding-top: 14px; padding-bottom: 14px">
+                &nbsp;
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-md-4 form-field">
+                Customer Name
+              </div>
+              <div class="ui-g-8 ui-md-8 form-field">
+                <input pInputText [(ngModel)]="app.namaCustomer" type="text" disabled>
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-md-4 form-field">
+                Outs Principal
+              </div>
+              <div class="ui-g-8 ui-md-8 form-field">
+                <input pInputText [(ngModel)]="app.outsPokok" type="text" disabled>
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-md-4 form-field">
+                Outs Interest
+              </div>
+              <div class="ui-g-8 ui-md-8 form-field">
+                <input pInputText [(ngModel)]="app.outsBunga" type="text" disabled>
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-md-4 form-field">
+                Installment/month
+              </div>
+              <div class="ui-g-8 ui-md-8 form-field">
+                <input pInputText [(ngModel)]="app.anguranPerBulan" type="text" currencyMask
+                [options]="amountOpt" disabled>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-g-12 ui-lg-4 ui-md-4">
+          <div class="ui-g-12" style="padding-right: 5%">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-12" style="padding-top: 14px; padding-bottom: 14px">
+                MULTIFINANCE NAME
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-lg-4 ui-md-4 form-field">
+                AR Date
+              </div>
+              <div class="ui-g-8 ui-lg-8 ui-md-8 form-field">
+                <input pInputText [(ngModel)]="app.arDate" type="text" disabled>
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-md-4 form-field">
+                Tenor
+              </div>
+              <div class="ui-g-8 ui-md-8 form-field">
+                <input pInputText [(ngModel)]="app.lamaTop" type="text" disabled>
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-md-4 form-field">
+                Adv/Arrear
+              </div>
+              <div class="ui-g-8 ui-md-8 form-field">
+                <input pInputText [(ngModel)]="app.adv" type="text" disabled>
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 ui-md-4 form-field">
+                Due Date 1
+              </div>
+              <div class="ui-g-8 ui-md-8 form-field">
+                <input pInputText [(ngModel)]="app.tanggalJatuhTempo" type="text" disabled>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card ui-g-12 ui-lg-12 ui-md-12">
+        <div class="ui-g-12" style="padding-left: 16px; padding-right: 2.5%">
+          <p-table #dta [columns]="cols" [value]="app.angsuran">
+
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th *ngFor="let col of columns">
+                  {{col.header}}
+                </th>
+                <th>Pay Principal</th>
+                <th>Pay Interest</th>
+                <th>Date of Payment</th>
+                <th>PDC</th>
+                <th>Fines</th>
+                <th>Date of Payments of Fines</th>
+                <th>Collection Charge</th>
+              </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-ang let-columns="columns">
+              <tr>
+                <td *ngFor="let col of columns" [style.text-align]="col.field === 'angsuranKe' ? 'center' : 'left'">
+                  <div *ngIf="col.field === 'saldoPKK' || col.field === 'saldoBunga'; else noMoney">
+                    {{ang[col.field] | currency:'IDR':'symbol-narrow':'1.2-2':'id-ID'}}
+                  </div>
+                  <ng-template #noMoney>
+                    {{ang[col.field]}}
+                  </ng-template>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+            </ng-template>
+
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

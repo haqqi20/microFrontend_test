@@ -1,0 +1,116 @@
+{
+    "data": [
+        {
+            "officeName": "PT Budi Jaya cab. Bekasi",
+            "officeCode": "BJ0025",
+            "fullName": "Sukma Indriyanti",
+            "npk": "1200034887382",
+            "emailAddress": "sukmaindriyanti@gmail.com",
+            "phoneNumber": "089567789888",
+            "startDate": "01-Nov-2015",
+            "endDate": "Still Work",
+            "jobPosition": "Surveyor",
+            "directSupervisor": "Kurnia Wijaya",
+            "limitSurveyPerDay": "2",
+            "limitSurveyPerMonth": "40",
+            "productType": "Kredit Sahabat Muda",
+            "remark": "",
+            "location": [
+                {
+                    "zipCode": "17144",
+                    "vilage": "Kayuringin Jaya",
+                    "district": "Bekasi Selatan",
+                    "city": "Bekasi",
+                    "province": "Jawa Barat"
+                },
+                {
+                    "zipCode": "17242",
+                    "vilage": "Pekayon Jaya",
+                    "district": "Bekasi Selatan",
+                    "city": "Bekasi",
+                    "province": "Jawa Barat"
+                },
+                {
+                    "zipCode": "17112",
+                    "vilage": "Marga Jaya",
+                    "district": "Bekasi Selatan",
+                    "city": "Bekasi",
+                    "province": "Jawa Barat"
+                },
+                {
+                    "zipCode": "12910",
+                    "vilage": "Setiabudi",
+                    "district": "Setia Budi",
+                    "city": "Jakarta Selatan",
+                    "province": "DKI Jakarta"
+                }
+            ],
+            "isActive": true,
+            "isUnlock": true,
+            "ResetPassword": false
+        },
+        {
+            "officeName": "PT Budi Jaya cab. Jakarta Selatan",
+            "officeCode": "BJ0007",
+            "fullName": "Dadang Faturahman",
+            "npk": "120007769887",
+            "emailAddress": "dadangfaturahman@gmail.com",
+            "phoneNumber": "089567789888",
+            "startDate": "01-Jan-2010",
+            "endDate": "Still Work",
+            "jobPosition": "Surveyor",
+            "direct Supervisor": "Kurnia Wijaya",
+            "limitSurveyPerDay": "3",
+            "limitSurveyPerMonth": "60",
+            "productType": "Kredit Special Kartini",
+            "remark": "",
+            "location": [
+                {
+                    "zipCode": "10998",
+                    "vilage": "Cipedak",
+                    "district": "Jagakarsa",
+                    "city": "Jakarta Selatan",
+                    "province": "DKI Jakarta"
+                },
+                {
+                    "zipCode": "10988",
+                    "vilage": "Ciganjur",
+                    "district": "Jagakarsa",
+                    "city": "Jakarta Selatan",
+                    "province": "DKI Jakarta"
+                }
+            ],
+            "isActive": true,
+            "isUnlock": false,
+            "ResetPassword": false
+        },
+        {
+            "officeName": "CV Kurnia Sejahtera",
+            "officeCode": "KS0011",
+            "fullName": "Rudi Pratomo",
+            "npk": "140001414107",
+            "emailAddress": "rudipratomo@ymail.com",
+            "phoneNumber": "089764531121",
+            "startDate": "01-Nov-2017",
+            "endDate": "Still Work",
+            "jobPosition": "Surveyor",
+            "direct Supervisor": "Fahmi Abdurohman",
+            "limitSurveyPerDay": "1",
+            "limitSurveyPerMonth": "20",
+            "productType": "Kredit Special Kartini",
+            "remark": "",
+            "location": [
+                {
+                    "zipCode": "17144",
+                    "vilage": "Kayuringin Jaya",
+                    "district": "Bekasi Selatan",
+                    "city": "Bekasi",
+                    "province": "Jawa Barat"
+                }
+            ],
+            "isActive": true,
+            "isUnlock": true,
+            "ResetPassword": false
+        }
+    ]
+}

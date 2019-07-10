@@ -1,6 +1,8 @@
 {
   "name": "navbar",
-  "version": "0.0.0",
+  "version": "7.0.0",
+  "license": "COMMERCIAL",
+  "angular-cli": {},
   "scripts": {
     "ng": "ng",
     "start": "npm run serve:single-spa",
@@ -25,7 +27,29 @@
     "rxjs": "~6.4.0",
     "single-spa-angular": "^3.0.0-rc.0",
     "tslib": "^1.9.0",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.9.1",
+    "@angular/cdk": "^7.3.7",
+    "@angular/http": "7.1.2",
+    "@angular/material": "^7.3.7",
+    "@auth0/angular-jwt": "^2.1.0",
+    "@fortawesome/angular-fontawesome": "^0.4.0",
+    "angular-crumbs": "^3.0.1",
+    "chart.js": "2.7.3",
+    "core-js": "2.5.7",
+    "font-awesome": "4.7.0",
+    "fullcalendar": "4.0.0-alpha.2",
+    "intl": "1.2.5",
+    "ngx-avatar": "^3.3.5",
+    "ngx-cookie-service": "^2.1.0",
+    "ngx-currency": "^1.5.2",
+    "ngx-spinner": "^7.0.0",
+    "ngx-ui-switch": "^8.0.1",
+    "ngx-webstorage-service": "^4.0.1",
+    "primeicons": "1.0.0",
+    "primeng": "7.1.0",
+    "primeng-extensions-wizard": "^2.2.0",
+    "quill": "1.1.8",
+    "web-animations-js": "2.3.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.801.0",
@@ -46,6 +70,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.4.3"
+    "typescript": "~3.4.3",
+    "@fortawesome/fontawesome-free": "^5.9.0"
   }
 }

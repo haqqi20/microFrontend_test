@@ -1,0 +1,197 @@
+<div class="ui-fluid">
+  <div class="ui-g">
+    <div style="margin-left: 40%; margin-top: 0%">
+      <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+    </div>
+
+    <div class="ui-g-12 topbarsticky">
+      <div class="ui-g-12 ui-g-nopad">
+        <div class="ui-g-12 ui-md-6 ui-lg-6">
+          <h1 style="margin-top: 6px; margin-bottom: 6px">Create Template</h1>
+        </div>
+        <div class="ui-g-12 ui-md-6 ui-lg-6 ui-rtl" dir="rtl">
+          <button pButton type="submit" class="ui-button-success topbarbutton" label="Save" (click)="addTemplate(Model, true)"
+            [disabled]="false" style="width: 8em"></button>
+          <button pButton type="submit" class="ui-button-warning topbarbutton" label="Save & New"
+            (click)="addTemplate(Model)" [disabled]="false" style="width: 8em"></button>
+          <button pButton class="secondary-btn topbarbutton" label="Cancel" (click)="confirm()"
+            style="width: 8em"></button>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-g-nopad">
+        <p-messages [(value)]="msgs"></p-messages>
+      </div>
+    </div>
+
+    <div class="ui-g-12 card">
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <h3>Template Information</h3>
+        </div>
+        <div class="ui-g-12 ui-md-6 ui-lg-6 ui-g-nopad" style="padding-right: 5%">
+          <div class="ui-g">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Template Name
+              </div>
+              <div class="ui-g-8 form-field">
+                <input pInputText placeholder="Template Name" type="text" [(ngModel)]="Model.templeteName">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Description
+              </div>
+              <div class="ui-g-8 form-field">
+                <textarea pInputTextarea type="text" placeholder="Description" style="resize:none" pInputTextarea
+                  [(ngModel)]="Model.description"></textarea>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Product Criteria
+              </div>
+              <div class="ui-g-8 form-field">
+                <p-autoComplete [size]="20" placeholder="Choose Product Criteria" [dropdown]="true"
+                  [(ngModel)]="Model.productType" [suggestions]="filteredProduct"
+                  (completeMethod)="filterProductType($event)"></p-autoComplete>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Survey Type
+              </div>
+              <div class="ui-g-8 form-field">
+                <p-autoComplete [size]="20" placeholder="Choose Survey Type" [dropdown]="true"
+                  [(ngModel)]="Model.surveyType" [suggestions]="filteredSurvey"
+                  (completeMethod)="filterSurveyType($event)"></p-autoComplete>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Is Active
+              </div>
+              <div class="ui-g-8 form-field">
+                <ui-switch checkedLabel="Yes" uncheckedLabel="No" size="small" color="#007bff"
+                  [(ngModel)]="Model.isActive" [ngStyle]="{'color': Model.isActive ? 'white' : '#333' }"></ui-switch>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui-g-12 card">
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <h3>Survey Question</h3>
+        </div>
+        <div class="ui-g-12 ui-md-6 ui-lg-6 ui-g-nopad" style="padding-right: 5%">
+          <div class="ui-g">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Question
+              </div>
+              <div class="ui-g-8 form-field">
+                <textarea pInputTextarea type="text" placeholder="Question" style="resize:none" pInputTextarea
+                  [(ngModel)]="question.question"></textarea>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Data Type
+              </div>
+              <div class="ui-g-8 form-field">
+                <p-autoComplete [size]="20" placeholder="Choose Data Type" [dropdown]="true" 
+                  [(ngModel)]="question.dataType" [suggestions]="filteredData" (completeMethod)="filterDataType($event)">
+                </p-autoComplete>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Is Mandatory
+              </div>
+              <div class="ui-g-8 form-field">
+                <ui-switch checkedLabel="Yes" uncheckedLabel="No" size="small" color="#007bff"
+                  [(ngModel)]="question.isMandatory" [ngStyle]="{'color': Model.isMandatory ? 'white' : '#333' }">
+                </ui-switch>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Priority
+              </div>
+              <div class="ui-g-8 form-field">
+                <input pInputText placeholder="Priority" type="text" [(ngModel)]="question.priority">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-rtl" dir="rtl">
+          <button pButton label="Add" (click)="addQuestion()" style="width: 8em; margin: 3px"
+            [disabled]="false"></button>
+          <button pButton class="ui-button-secondary" label="Cancel" (click)="reset()"
+            style="width: 8em; margin: 3px" [disabled]="false"></button>
+        </div>
+      </div>
+    </div>
+    <div class="ui-g-12 card">
+      <p-table #dt [columns]="cols" [value]="Model.surveyQuestion" [paginator]="true" [rows]="10" [pageLinks]="3"
+        [rowsPerPageOptions]="[10,20,25]">
+
+        <!-- <ng-template pTemplate="caption">
+          <div style="text-align: right">
+            <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+            <input type="text" pInputText size="50" placeholder="Global Filter"
+              (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+          </div>
+        </ng-template> -->
+
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th style="width: 7%">
+              No
+            </th>
+            <th *ngFor="let col of columns" [ngSwitch]="col.field" [pSortableColumn]="col.field"
+              [ngStyle]="{'width': col.width}">
+              {{col.header}}
+              <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+                ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order">
+              </p-sortIcon>
+            </th>
+            <th style="width: 7%">
+              Action
+            </th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+          <tr [pSelectableRow]="rowData">
+            <td style="text-align: center">
+              {{rowIndex + 1}}
+            </td>
+            <td>
+              {{rowData['question']}}
+            </td>
+            <td>
+              {{rowData['dataType']}}
+            </td>
+            <td style="text-align: center">
+              {{rowData['isMandatory']}}
+            </td>
+            <td style="text-align: center">
+              {{rowData['priority']}}
+            </td>
+            <td style="text-align: center">
+              <i class="fa fa-trash-o" aria-hidden="true" (click)="delete(rowIndex)"
+                style="font-size: 1.2em; cursor: pointer; color: red"></i>
+            </td>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="summary">
+          <h4>This Document has listed {{attribute?.length}} type(s)</h4>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

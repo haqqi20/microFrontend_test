@@ -2,15 +2,710 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c72cea95-0b18-4a82-a907-e1ed9c677e8c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/root-html-file.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app1/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../app1/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app2/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../app2/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../navbar/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../navbar/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/_components/alert.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/_components/alert.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/_components/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/_guards/auth.guard.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/_guards/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/_helpers/error.interceptor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/_helpers/fake-backend.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/_helpers/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/_helpers/jwt.interceptor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/_models/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/_models/user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/_services/alert.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/_services/authentication.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/_services/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/_services/user.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/account-management/account-management.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/account-management/account-management.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/account-management/account-management.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition-module/acquisition-module-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition-module/acquisition-module.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition-module/create-document/create-document.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition-module/create-document/create-document.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition-module/document-details/document-details.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition-module/document-details/document-details.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition-module/document-edit/document-edit.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition-module/document-edit/document-edit.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition-module/document-edit/document-edit.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition-module/document-type/document-type.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition-module/document-type/document-type.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition-module/document/document.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition-module/document/document.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/acquisition.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/acquisition.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/acquisition.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/acquisition.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/aplication/aplication-add/aplication-add.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/aplication/aplication-add/aplication-add.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/aplication/aplication-add/aplication-add.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/aplication/aplication-add/aplication-add.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/aplication/aplication.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/aplication/aplication.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/aplication/aplication.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/aplication/detail/detail.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/aplication/detail/detail.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/aplication/detail/detail.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/aplication/detail/detail.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/approval/approval-detail/approval-detail.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/approval/approval-detail/approval-detail.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/approval/approval-detail/approval-detail.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/approval/approval-detail/approval-detail.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/approval/approval-list/approval-list.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/approval/approval-list/approval-list.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/approval/approval-list/approval-list.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/approval/approval-list/approval-list.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/customer/customer.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/customer/customer.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/customer/customer.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/customer/customer.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/dealer/dealer.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/dealer/dealer.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/dealer/dealer.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/dealer/dealer.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/arcard/arcard.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/arcard/arcard.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/arcard/arcard.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/arcard/arcard.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/disbursement-detail/disbursement-detail.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/disbursement-detail/disbursement-detail.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/disbursement-detail/disbursement-detail.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/disbursement-detail/disbursement-detail.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/disbursement.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/disbursement.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/disbursement.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/disbursement.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/generate-po/generate-po.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/generate-po/generate-po.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/generate-po/generate-po.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/generate-po/generate-po.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/invoice-detail/invoice-detail.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/invoice-detail/invoice-detail.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/invoice-detail/invoice-detail.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/invoice-detail/invoice-detail.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/po-detail/po-detail.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/po-detail/po-detail.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/po-detail/po-detail.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/disbursement/po-detail/po-detail.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/charging-basis-lookup/charging-basis-lookup.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/charging-basis-lookup/charging-basis-lookup.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/charging-basis-lookup/charging-basis-lookup.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/charging-basis-lookup/charging-basis-lookup.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-add/fee-add.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-add/fee-add.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-add/fee-add.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-add/fee-add.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-details/fee-details.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-details/fee-details.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-details/fee-details.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-details/fee-details.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-details/property-detail/property-detail.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-details/property-detail/property-detail.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-details/property-detail/property-detail.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-details/property-detail/property-detail.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-list/fee-list.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-list/fee-list.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-list/fee-list.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-list/fee-list.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-lookup/fee-lookup.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-lookup/fee-lookup.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-lookup/fee-lookup.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-lookup/fee-lookup.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-message/fee-message.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-message/fee-message.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-message/fee-message.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-message/fee-message.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-name-lookup/fee-name-lookup.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-name-lookup/fee-name-lookup.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-name-lookup/fee-name-lookup.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-name-lookup/fee-name-lookup.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-type-lookup/fee-type-lookup.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-type-lookup/fee-type-lookup.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-type-lookup/fee-type-lookup.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee-type-lookup/fee-type-lookup.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/fee/fee.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/insurance/insurance.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/insurance/insurance.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/insurance/insurance.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/insurance/insurance.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/add-knockout/add-knockout.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/add-knockout/add-knockout.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/add-knockout/add-knockout.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/add-knockout/add-knockout.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout-criteria/knockout-criteria.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout-criteria/knockout-criteria.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout-criteria/knockout-criteria.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout-criteria/knockout-criteria.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout-details/knockout-details.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout-details/knockout-details.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout-details/knockout-details.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout-details/knockout-details.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout-message/knockout-message.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout-message/knockout-message.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout-message/knockout-message.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout-message/knockout-message.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout-parameter/knockout-parameter.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout-parameter/knockout-parameter.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout-parameter/knockout-parameter.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout-parameter/knockout-parameter.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/knockout/knockout.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/po/po.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/po/po.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/po/po.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/po/po.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/product-list/product-list.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/product-list/product-list.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/product-list/product-list.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/product-list/product-list.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/products-add/products-add.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/products-add/products-add.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/products-add/products-add.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/products-add/products-add.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/products-message/products-message.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/products-message/products-message.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/products-message/products-message.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/products-message/products-message.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/products-view/products-view.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/products-view/products-view.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/products-view/products-view.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/products-view/products-view.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/products.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/products.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/products.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/products/products.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/scoring/scoring-detail/scoring-detail.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/scoring/scoring-detail/scoring-detail.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/scoring/scoring-detail/scoring-detail.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/scoring/scoring-detail/scoring-detail.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/scoring/scoring.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/scoring/scoring.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/scoring/scoring.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/scoring/scoring.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-detail/survey-detail.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-detail/survey-detail.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-detail/survey-detail.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-detail/survey-detail.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-setting/survey-setting.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-setting/survey-setting.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-setting/survey-setting.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-setting/survey-setting.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-supervisor/survey-supervisor-create/survey-supervisor-create.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-supervisor/survey-supervisor-create/survey-supervisor-create.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-supervisor/survey-supervisor-create/survey-supervisor-create.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-supervisor/survey-supervisor-create/survey-supervisor-create.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-supervisor/survey-supervisor-detail/survey-supervisor-detail.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-supervisor/survey-supervisor-detail/survey-supervisor-detail.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-supervisor/survey-supervisor-detail/survey-supervisor-detail.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-supervisor/survey-supervisor-detail/survey-supervisor-detail.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-supervisor/survey-supervisor.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-supervisor/survey-supervisor.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-supervisor/survey-supervisor.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-supervisor/survey-supervisor.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-surveyor/survey-surveyor-create/survey-surveyor-create.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-surveyor/survey-surveyor-create/survey-surveyor-create.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-surveyor/survey-surveyor-create/survey-surveyor-create.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-surveyor/survey-surveyor-create/survey-surveyor-create.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-surveyor/survey-surveyor-detail/survey-surveyor-detail.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-surveyor/survey-surveyor-detail/survey-surveyor-detail.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-surveyor/survey-surveyor-detail/survey-surveyor-detail.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-surveyor/survey-surveyor-detail/survey-surveyor-detail.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-surveyor/survey-surveyor.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-surveyor/survey-surveyor.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-surveyor/survey-surveyor.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-surveyor/survey-surveyor.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-template/survey-template-create/survey-template-create.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-template/survey-template-create/survey-template-create.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-template/survey-template-create/survey-template-create.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-template/survey-template-create/survey-template-create.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-template/survey-template-detail/survey-template-detail.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-template/survey-template-detail/survey-template-detail.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-template/survey-template-detail/survey-template-detail.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-template/survey-template-detail/survey-template-detail.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-template/survey-template.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-template/survey-template.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-template/survey-template.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey-template/survey-template.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/survey/survey.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/app.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/app.constants.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/app.footer.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/app.menu.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/app.profile.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/app.routes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/app.topbar.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/app.topbar.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/auth/login/login.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/auth/login/login.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/auth/login/login.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/auth/login/login.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/auth/password/password.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/auth/password/password.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/auth/password/password.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/auth/password/password.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/collection/collection.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/collection/collection.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/collection/collection.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/collection/collection.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/dashboard/dashboard.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/dashboard/dashboarddemo.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/dashboard/domain/car.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/dashboard/service/carservice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/dashboard/service/countryservice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/dashboard/service/eventservice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/dashboard/service/nodeservice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit-add/business-unit-add.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit-add/business-unit-add.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit-add/business-unit-add.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit-add/business-unit-add.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit-details/business-unit-details.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit-details/business-unit-details.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit-details/business-unit-details.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit-details/business-unit-details.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit-update/business-unit-update.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit-update/business-unit-update.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit-update/business-unit-update.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit-update/business-unit-update.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit/business-unit.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit/business-unit.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit/business-unit.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/business-unit/business-unit/business-unit.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/company-edit/company-edit.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/company-edit/company-edit.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/company-edit/company-edit.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/company-edit/company-edit.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/add-lookup-detail/add-lookup-detail.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/add-lookup-detail/add-lookup-detail.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/add-lookup-detail/add-lookup-detail.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/add-lookup-detail/add-lookup-detail.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/add-lookup/add-lookup.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/add-lookup/add-lookup.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/add-lookup/add-lookup.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/add-lookup/add-lookup.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/add-master/add-master.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/add-master/add-master.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/add-master/add-master.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/add-master/add-master.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/data-master.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/data-master.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/data-master.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/data-master.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/edit-lookup-detail/edit-lookup-detail.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/edit-lookup-detail/edit-lookup-detail.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/edit-lookup-detail/edit-lookup-detail.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/edit-lookup-detail/edit-lookup-detail.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/edit-master/edit-master.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/edit-master/edit-master.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/edit-master/edit-master.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/data-master/edit-master/edit-master.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/dynamic-form/dynamic-form.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/dynamic-form/dynamic-form.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/dynamic-form/dynamic-form.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/global-set.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/global-set.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/global-set.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/global-set.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/add-office/add-office.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/add-office/add-office.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/add-office/add-office.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/add-office/add-office.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/details-office/details-office.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/details-office/details-office.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/details-office/details-office.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/details-office/details-office.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/office-message/office-message.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/office-message/office-message.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/office-message/office-message.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/office-message/office-message.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/office.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/office.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/office.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/office.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/org-office/org-office.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/org-office/org-office.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/org-office/org-office.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/org-office/org-office.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/update-office/update-office.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/update-office/update-office.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/update-office/update-office.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/office/update-office/update-office.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/profile/profile.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/profile/profile.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/profile/profile.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/profile/profile.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/roles/add-roles/add-roles.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/roles/add-roles/add-roles.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/roles/add-roles/add-roles.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/roles/add-roles/add-roles.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/roles/details-role/details-role.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/roles/details-role/details-role.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/roles/details-role/details-role.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/roles/details-role/details-role.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/roles/roles.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/roles/roles.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/roles/roles.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/roles/roles.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/add-user/add-user.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/add-user/add-user.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/add-user/add-user.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/add-user/add-user.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/reset-password/reset-password.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/reset-password/reset-password.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/reset-password/reset-password.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/reset-password/reset-password.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-details/user-details.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-details/user-details.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-details/user-details.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-details/user-details.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-invitation/user-invitation.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-invitation/user-invitation.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-invitation/user-invitation.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-invitation/user-invitation.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-list/user-list.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-list/user-list.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-list/user-list.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-list/user-list.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-management.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-management.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-management.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-management.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-message/user-message.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-message/user-message.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-message/user-message.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/global_set/user-management/user-message/user-message.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/home/home.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/home/home.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/home/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/login/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/login/login.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/login/login.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/account-management/user/user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/account-management/user/userlist.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/aplication/model-aplication.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/fee/fee-parameter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/fee/fee-property.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/fee/fee.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/knock-out/knockout-lookup.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/knock-out/knockout-response.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/knock-out/knockout.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/knock-out/knockoutList.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/knock-out/properties.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/param/param.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/product/product-document.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/product/product-fee.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/product/product-knockout.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/product/product-parameter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/product/product.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/scoring/Scoring-Document.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/scoring/Scoring-TableParameters.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/scoring/Scoring.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/survey/flow.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/survey/setting.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/survey/supervisor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/survey/survey-template.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/survey/survey.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/survey/surveyor-place.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/survey/surveyor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/survey/template-question.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/acquisition/survey/template.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/auth/password.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/document/attribute.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/document/document-lookup.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/document/document.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/business-unit/business-unit-lookup.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/business-unit/business-unit-request.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/business-unit/business-unit-response.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/business-unit/business-unit.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/company/company.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/company/upload-response.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/employee/employee-lookup.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/employee/employee-office-request.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/employee/employee-request.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/employee/employee-response.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/employee/employee-role-request.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/employee/employee.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/input-base.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/input-dropdown.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/input-textbox.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/lookup.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/lookupMaster/lookup-detail.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/lookupMaster/lookup-master.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/lookupMaster/lookup-response.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/lookupMaster/lookupMasterList.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/office/office-lookup.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/office/office-request.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/office/office-response.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/office/office.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/office/officeList.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/role/menu.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/role/role-list.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/role/role-menu.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/role/role-request.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/role/role-response.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/models/global_set/role/role.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/mytask/mytask.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/mytask/mytask.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/mytask/mytask.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/mytask/mytask.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/register/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/register/register.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/register/register.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/account-management/user/user.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/acquisition/aplication/aplication.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/acquisition/approval/approval.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/acquisition/disbursement/disbursement.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/acquisition/document/document.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/acquisition/fee/fee.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/acquisition/knockout/add-knockout.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/acquisition/knockout/lookup-properties.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/acquisition/knockout/message-knockout.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/acquisition/param/param.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/acquisition/product/product.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/acquisition/scoring/scoring.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/acquisition/scoring/scoring.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/acquisition/survey/survey.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/acquisition/survey/survey.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/appService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/auth/basic-authentication.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/auth/change-passsword/change-password.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/auth/route-guard.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/auth/route-guard.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/cstService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/domain/cstData.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/domain/domData.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/domain/surveyData.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/global_set/business-unit/business-unit.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/global_set/business-unit/business-unit.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/global_set/edit-company/edit-company.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/global_set/employee/employee.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/global_set/global-setting.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/global_set/lookupMaster/lookupMaster.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/global_set/menu/menu.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/global_set/office/office.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/global_set/profile/profile.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/global_set/role/role.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/global_set/user/user.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/global_set/zipcode/zip-code.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/input-control.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/services/surveyService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/shared/validation/validation.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/shared/validation/validation.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/shared/validation/validation.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/shared/validation/validation.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/app/user-info.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/Backup_survey.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/app-data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/applications.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/approval-data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/cars-large.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/cars-medium.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/cars-small.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/countries.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/cust-data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/disbursement-data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/employee-data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/files.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/filesystem.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/product-data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/scheduleevents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/scoring-data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/survey-data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/survey-setting-data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/survey-supervisor-data-00188967772.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/survey-supervisor-data-0018896812.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/survey-supervisor-data-10055967122.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/survey-supervisor-data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/survey-surveyor-data-1200034887382.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/survey-surveyor-data-120007769887.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/survey-surveyor-data-140001414107.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/survey-surveyor-data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/data/survey-template-data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/car/Audi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/car/BMW.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/car/Fiat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/car/Ford.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/car/Honda.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/car/Jaguar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/car/Mercedes.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/car/Renault.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/car/VW.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/car/Volkswagen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/car/Volvo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/logo/Capture.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/logo/logo_d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/nature/nature1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/nature/nature10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/nature/nature11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/nature/nature12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/nature/nature2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/nature/nature3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/nature/nature4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/nature/nature5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/nature/nature6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/nature/nature7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/nature/nature8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/nature/nature9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/sopranos/sopranos1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/sopranos/sopranos1_small.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/sopranos/sopranos2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/sopranos/sopranos2_small.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/sopranos/sopranos3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/sopranos/sopranos3_small.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/sopranos/sopranos4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/demo/images/sopranos/sopranos4_small.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/images/login.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/bootstrap/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/bootstrap/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/css/layout-blue-v4.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/css/layout-blue-v4.css.fake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/css/layout-blue-v4.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/css/layout-brown-v4.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/fonts/MaterialIcons-Regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/fonts/MaterialIcons-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/fonts/MaterialIcons-Regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/fonts/MaterialIcons-Regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/fonts/roboto-v15-latin-300.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/fonts/roboto-v15-latin-300.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/fonts/roboto-v15-latin-300.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/fonts/roboto-v15-latin-300.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/fonts/roboto-v15-latin-300.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/fonts/roboto-v15-latin-700.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/fonts/roboto-v15-latin-700.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/fonts/roboto-v15-latin-700.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/fonts/roboto-v15-latin-700.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/fonts/roboto-v15-latin-700.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/fonts/roboto-v15-latin-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/fonts/roboto-v15-latin-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/fonts/roboto-v15-latin-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/fonts/roboto-v15-latin-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/fonts/roboto-v15-latin-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/avatar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/avatar1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/avatar2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/avatar3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/avatar4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/avatar5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/dashboard/bridge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/dashboard/flag-belgium.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/dashboard/flag-brazil.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/dashboard/flag-china.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/dashboard/flag-france.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/dashboard/flag-uk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/dashboard/graph-1.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/dashboard/graph-2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/dashboard/graph-3.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/dashboard/map.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/exception/bg-404.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/exception/bg-404@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/exception/bg-access.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/exception/bg-error.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/exception/icon-error.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/favicon2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/landing/avalon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/landing/avalon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/landing/icon-cleancode.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/landing/icon-coffee.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/landing/icon-hours.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/landing/icon-introducing.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/landing/icon-moderndesign.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/landing/icon-responsivelayout.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/landing/icon-ui.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/landing/icon-video.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/landing/icon-welldocumented.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/landing/image-discover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/landing/landing-main.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/landing/logo-landing.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/login/bg-login.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/login/icon-login.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/login/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/login/login2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/logo-dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/logo-dark1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/logo1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/logo3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/organization/jesse.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/organization/mike.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/organization/saul.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/organization/walter.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/preloader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/images/tth-connector.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/layout/jquery/v1.11.3/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/pages/access.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/pages/notfound.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/pages/primeng.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/_fonts.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/layout-v4/_dashboard.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/layout-v4/_exception.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/layout-v4/_landing.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/layout-v4/_layout.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/layout-v4/_login.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/layout-v4/_main.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/layout-v4/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/layout-v4/_splash.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/layout-v4/_utils.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/layout-v4/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/overrides/_layout_styles.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/overrides/_layout_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/overrides/_theme_styles.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/overrides/_theme_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/theme-v4/_common.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/theme-v4/_data.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/theme-v4/_forms.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/theme-v4/_menus.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/theme-v4/_messages.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/theme-v4/_misc.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/theme-v4/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/theme-v4/_overlays.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/theme-v4/_panels.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/theme-v4/_theme.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/theme-v4/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/variables/_common-v4.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/sass/variables/_common.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/theme/theme-blue-v4.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/theme/theme-blue-v4.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/theme/theme-lightblue-v4.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/theme/theme-lightblue-v4.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/theme/theme-orange-v4.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/assets/theme/theme-orange-v4.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../navbar/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../navbar/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../navbar/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../navbar/extra-webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../navbar/extra-webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../navbar/package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../navbar/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../navbar/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../navbar/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../navbar/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../navbar/src/app/account-management/account-management.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../navbar/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../navbar/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../navbar/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../navbar/src/app/app.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../navbar/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../navbar/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../navbar/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../navbar/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../navbar/src/app/primary-nav/primary-nav.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition-module/document-edit/document-edit.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../navbar/src/app/primary-nav/primary-nav.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../navbar/src/app/primary-nav/primary-nav.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../navbar/src/app/acquisition/aplication/aplication.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../navbar/src/app/primary-nav/primary-nav.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../navbar/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../navbar/src/environments/environment.prod.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../navbar/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../navbar/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../navbar/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../navbar/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../navbar/src/main.single-spa.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../navbar/src/main.single-spa.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../navbar/src/polyfills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../navbar/src/polyfills.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../navbar/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../navbar/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,11 +727,23 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="1" />
+          <entry key="json" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="1" />
+          <entry key="JSON" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="44" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="44" />
         </counts>
       </usages-collector>
     </session>
@@ -46,16 +753,28 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+            <state relative-caret-position="280">
+              <caret line="39" column="10" lean-forward="true" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>navbar</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/index.html" />
+      </list>
+    </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
@@ -74,10 +793,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="200" />
-    <option name="y" value="204" />
-    <option name="width" value="1007" />
-    <option name="height" value="570" />
+    <option name="width" value="1366" />
+    <option name="height" value="768" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -101,7 +818,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../demo/mf-demo1" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -129,24 +846,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1562580134164</updated>
-      <workItem from="1562580135809" duration="3495000" />
+      <workItem from="1562580135809" duration="25468000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3495000" />
+    <option name="totallyTimeSpent" value="25468000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="npm" side_tool="true" />
-      <window_info id="Favorites" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18005952" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32879046" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32879046" />
@@ -154,6 +867,10 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.24361159" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -166,10 +883,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        <state relative-caret-position="280">
+          <caret line="39" column="10" lean-forward="true" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
         </state>
       </provider>
     </entry>

@@ -1,0 +1,32 @@
+{
+    "data": [
+        {
+            "officeName": "CV Kurnia Sejahtera",
+            "officeCode": "KS0011",
+            "fullName": "Rudi Pratomo",
+            "npk": "140001414107",
+            "emailAddress": "rudipratomo@ymail.com",
+            "phoneNumber": "089764531121",
+            "startDate": "01-Nov-2017",
+            "endDate": "Still Work",
+            "jobPosition": "employee",
+            "direct Supervisor": "Fahmi Abdurohman",
+            "limitSurveyPerDay": "1",
+            "limitSurveyPerMonth": "20",
+            "productType": "Rumah Sejahtera",
+            "remark": "",
+            "location": [
+                {
+                    "zipCode": "17144",
+                    "village": "Kayuringin Jaya",
+                    "district": "Bekasi Selatan",
+                    "city": "Bekasi",
+                    "province": "Jawa Barat"
+                }
+            ],
+            "isActive": true,
+            "isUnlock": true,
+            "ResetPassword": false
+        }
+    ]
+}

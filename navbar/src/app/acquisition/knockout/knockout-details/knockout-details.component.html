@@ -1,0 +1,443 @@
+<p-messages [(value)]="msgs"></p-messages>
+<div class="ui-fluid">
+  <div class="ui-g">
+
+    <div class="ui-grid-row ui-g-12 topbarsticky">
+      <div class="ui-g-12 ui-lg-6 ui-md-6" style="padding-left: 12px">
+        <h1 style="margin-top: 6px; margin-bottom: 6px">Knockout Detail</h1>
+      </div>
+
+      <div class="ui-g-12 ui-lg-6 ui-md-6 ui-rtl" dir="rtl" style="padding: 9px">
+        <button pButton *ngIf="!show" type="button" label="Edit" class="ui-button-warning"
+          (click)="toggleDisabled(); show=!show" style="width: 8em; margin: 3px" [disabled]="!disabled"></button>
+        <button pButton *ngIf="!show" type="button" class="ui-button-secondary" style="width: 8em; margin: 3px"
+          label="Back" routerLink="/acquisition/knockout">
+        </button>
+        <button pButton *ngIf="show" type="button" class="ui-button-success" style="width: 8em; margin: 3px"
+          label="Save" (click)="updateOffice(); toggleDisabled(); show=!show;" [disabled]="disabled">
+        </button>
+        <button pButton *ngIf="show" type="button" class="ui-button-secondary" style="width: 8em; margin: 3px"
+          label="Cancel" (click)="toggleDisabled(); show=!show">
+        </button>
+      </div>
+    </div>
+
+    <div class="card ui-g-12 ui-lg-12 ui-md-12">
+      <div class="ui-g-12" style="padding-left: 3.4%; padding-right: 3.4%">
+        <div class="ui-g-12 ui-md-12">
+          <h2>Knockout Information</h2>
+        </div>
+        <div class="ui-g-12 ui-g-nopad">
+          <div class="ui-g-2 ui-md-2">
+            Knockout Name
+            <span style="color:red">*</span>
+          </div>
+          <div class="form-group ui-g-10 ui-md-4" [formGroup]="knockForm1">
+            <input pInputText class="ui-lg-10 ui-md-10" placeholder="Knockout category name" type="text"
+              formControlName="knockoutName">
+          </div>
+        </div>
+        <div class="ui-g-12 ui-g-nopad"
+          *ngIf="!knockForm1.controls['knockoutName'].valid && knockForm1.controls['knockoutName'].dirty">
+          <div class="ui-g-2 ui-md-2">
+          </div>
+          <div class="form-group ui-g-10 ui-md-4">
+            <p-message severity="error"
+              [text]="knockForm1.controls['knockoutName'].errors['required'] ? 'Knockout Name is required' : ''">
+            </p-message>
+          </div>
+        </div>
+
+        <div class="ui-g-12 ui-g-nopad">
+          <div class="ui-g-2 ui-md-2" style="padding-top: 15px">
+            Description
+            <span style="color:red">*</span>
+          </div>
+          <div class="form-group ui-g-10 ui-md-4" [formGroup]="knockForm1">
+            <textarea class="ui-md-10 ui-lg-10" type="text" placeholder=" Description of knockout category"
+              style="resize:none" pInputTextarea formControlName="description"></textarea>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-g-nopad"
+          *ngIf="!knockForm1.controls['description'].valid && knockForm1.controls['description'].dirty">
+          <div class="ui-g-2 ui-md-2"></div>
+          <div class="form-group ui-g-10 ui-md-4">
+            <p-message severity="error"
+              [text]="knockForm1.controls['description'].errors['required'] ? 'Description is required' : ''">
+            </p-message>
+          </div>
+        </div>
+
+        <div class="ui-g-12 ui-g-nopad">
+          <div class="ui-g-2 ui-md-2">
+            Is Active
+          </div>
+          <div class="form-group ui-g-10 ui-md-8" [formGroup]="knockForm1">
+            <ui-switch checkedLabel="Yes" uncheckedLabel="No" size="small" color="#007bff" formControlName="status"
+              [(ngModel)]="checked1" [ngStyle]="{'color': knockForm1.get('status').value ? 'white' : '#333' }">
+            </ui-switch>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui-g-12 ui-lg-12 ui-md-12 card">
+      <div class="ui-g-12 ui-md-12">
+        <div class="ui-g-12 ui-g-nopad">
+          <div class="ui-g-12 ui-md-6">
+            <div class="ui-g-12" style="padding-left: 5%; padding-right: 5%">
+              <h2>Knockout Criteria</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-g-12 ui-g-nopad" style="padding-left: 3%; padding-right: 3%" *ngIf="show">
+          <div class="ui-g-12 ui-g-nopad">
+            <div class="ui-g-12 ui-md-6 ui-lg-6 ui-g-nopad">
+              <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-2 ui-md-4">
+                  Atribute Criteria
+                  <span style="color:red">*</span>
+                </div>
+                <div class="form-group ui-g-10 ui-md-8" [formGroup]="knockForm">
+                  <p-autoComplete [size]="20" placeholder="Choose Criteria" [dropdown]="true" field="lookupValue"
+                    formControlName="atributeCriteria" [(ngModel)]="selectedLookup" [suggestions]="filteredLookup"
+                    (completeMethod)="filterParents($event)">
+                    <ng-template let-selectedLookup pTemplate="item">
+                      {{selectedLookup.lookupValue}}
+                    </ng-template>
+                  </p-autoComplete>
+                </div>
+              </div>
+              <div class="ui-g-12 ui-g-nopad"
+                *ngIf="!knockForm.controls['atributeCriteria'].valid && knockForm.controls['atributeCriteria'].dirty">
+                <div class="ui-g-2 ui-md-4"></div>
+                <div class="ui-g-8 ui-md-8">
+                  <p-message severity="error"
+                    [text]="knockForm.controls['atributeCriteria'].errors['required'] ? 'atributeCriteria is required' : ''">
+                  </p-message>
+                </div>
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-12 ui-md-6 ui-lg-6 ui-g-nopad">
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-2 ui-md-4">
+                    Operator
+                    <span style="color:red">*</span>
+                  </div>
+                  <div class="form-group ui-g-10 ui-md-8" [formGroup]="knockForm">
+                    <p-autoComplete [size]="20" placeholder="Choose Operator" [dropdown]="true" field="lookupKey"
+                      formControlName="operator" [suggestions]="filteredLookupOperator"
+                      (completeMethod)="filterOperators($event)">
+                      <ng-template let-operator pTemplate="item">
+                        {{operator.lookupKey}}
+                      </ng-template>
+                    </p-autoComplete>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad"
+                  *ngIf="!knockForm.controls['operator'].valid && knockForm.controls['operator'].dirty">
+                  <div class="ui-g-2 ui-md-4"></div>
+                  <div class="ui-g-8 ui-md-8">
+                    <p-message severity="error"
+                      [text]="knockForm.controls['operator'].errors['required'] ? 'Operator required' : ''">
+                    </p-message>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-12 ui-lg-6 ui-md-6 ui-g-nopad">
+                <div class="ui-g-2 ui-lg-4 ui-md-4">
+                  Value Type
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-12 ui-md-8"
+                  style="padding-left: 0px; padding-right: 0px; padding-top: 1px; padding-bottom: 0px">
+                  <div class="ui-g-12 ui-md-6 ui-g-nopad">
+                    <div class="form-group ui-g-12" [formGroup]="knockForm">
+                      <p-dropdown [options]="cars" [(ngModel)]="selectedCar1" formControlName="typeCriteria"
+                        placeholder="Select a Value Type"></p-dropdown>
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad"
+                      *ngIf="!knockForm.controls['typeCriteria'].valid && knockForm.controls['typeCriteria'].dirty">
+                      <p-message severity="error"
+                        [text]="knockForm.controls['typeCriteria'].errors['required'] ? 'Value Type is required' : ''">
+                      </p-message>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-md-6 ui-g-nopad">
+                    <div class="ui-g-12 ui-g-nopad" *ngIf="selectedCar1 == 'dynamic'">
+                      <div class="ui-g-12 ui-g-nopad">
+                        <div class="form-group ui-g-12" [formGroup]="knockForm">
+                          <p-autoComplete [size]="20" placeholder="Choose Value" [dropdown]="true" field="label"
+                            formControlName="valueCriteria">
+                            <ng-template let-selectedOfficeHead pTemplate="item">
+                            </ng-template>
+                          </p-autoComplete>
+                        </div>
+                      </div>
+                      <div class="ui-g-12 ui-g-nopad"
+                        *ngIf="!knockForm.controls['valueCriteria'].valid && knockForm.controls['valueCriteria'].dirty">
+                        <div class="ui-g-12">
+                          <p-message severity="error"
+                            [text]="knockForm.controls['valueCriteria'].errors['required'] ? 'value is required' : ''">
+                          </p-message>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="ui-g-12 ui-g-nopad" *ngIf="selectedCar1 == 'static'">
+                      <div class="ui-g-12 ui-g-nopad">
+                        <div class="form-group ui-g-12" [formGroup]="knockForm">
+                          <textarea placeholder="Value Type" type="text" formControlName="valueCriteria" pInputTextarea
+                            autoResize="autoResize" rows="1" cols="30">
+                            </textarea>
+                        </div>
+                      </div>
+                      <div class="ui-g-12 ui-g-nopad"
+                        *ngIf="!knockForm.controls['valueCriteria'].valid && knockForm.controls['valueCriteria'].dirty">
+                        <div class="ui-g-12">
+                          <p-message severity="error"
+                            [text]="knockForm.controls['valueCriteria'].errors['required'] ? 'value is required' : ''">
+                          </p-message>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-12 ui-lg-6 ui-md-6 ui-g-nopad">
+                <div class="ui-g-2 ui-lg-4 ui-md-4">
+                  Next Step
+                  <span style="color:red">*</span>
+                </div>
+                <div class="ui-g-12 ui-md-8 ui-g-nopad">
+                  <div class="ui-g-12 ui-md-6 ui-g-nopad">
+                    <div class="form-group ui-g-12" [formGroup]="knockForm">
+                      <input pInputText placeholder="Next True" type="text" formControlName="nextTrue" pKeyFilter="int">
+                    </div>
+                    <div class="ui-g-12 ui-g-nopad"
+                      *ngIf="!knockForm.controls['nextTrue'].valid && knockForm.controls['nextTrue'].dirty">
+                      <p-message severity="error"
+                        [text]="knockForm.controls['nextTrue'].errors['required'] ? 'Next True is required' : ''">
+                      </p-message>
+                    </div>
+                  </div>
+                  <div class="ui-g-12 ui-md-6 ui-g-nopad">
+                    <div class="ui-g-12 ui-g-nopad">
+                      <div class="ui-g-12 ui-g-nopad">
+                        <div class="form-group ui-g-12" [formGroup]="knockForm">
+                          <input pInputText placeholder="Next False" type="text" formControlName="nextFalse"
+                            pKeyFilter="int">
+                        </div>
+                      </div>
+                      <div class="ui-g-12 ui-g-nopad"
+                        *ngIf="!knockForm.controls['nextFalse'].valid && knockForm.controls['nextFalse'].dirty">
+                        <div class="ui-g-12">
+                          <p-message severity="error"
+                            [text]="knockForm.controls['nextFalse'].errors['required'] ? 'Next False is required' : ''">
+                          </p-message>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-12 ui-md-6 ui-lg-6 ui-g-nopad">
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-2 ui-md-4">
+                    Priority
+                    <span style="color:red">*</span>
+                  </div>
+                  <div class="form-group ui-g-10 ui-md-4" [formGroup]="knockForm">
+                    <input pInputText class="ui-lg-10 ui-md-10" placeholder="Number of priority" type="text"
+                      formControlName="priority">
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad"
+                  *ngIf="!knockForm.controls['priority'].valid && knockForm.controls['priority'].dirty">
+                  <div class="ui-g-2 ui-md-4"></div>
+                  <div class="ui-g-8 ui-md-8">
+                    <p-message severity="error"
+                      [text]="knockForm.controls['priority'].errors['required'] ? 'Priority is required' : ''">
+                    </p-message>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-g-nopad">
+                  <div class="ui-g-2 ui-md-4">
+                    Is Active
+                  </div>
+                  <div class="form-group ui-g-10 ui-md-8" [formGroup]="knockForm">
+                    <ui-switch checkedLabel="Yes" uncheckedLabel="No" size="small" color="#007bff"
+                      formControlName="status" [(ngModel)]="checked2"
+                      [ngStyle]="{'color': knockForm.get('status').value ? 'white' : '#333' }"></ui-switch>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-12" style="float:right; padding-top: 15px">
+                <div class="ui-g-12">
+                  <td style=" padding-left:5px; float: right; padding-top: 5px">
+                    <button pButton type="submit" class="ui-button-primary" label="Add" (click)="addCriteria()"
+                      [disabled]="!knockForm.valid" style="width: 8em"></button>
+                  </td>
+                  <td style=" padding-left:5px; float: right; padding-top: 5px">
+                    <button pButton class="secondary-btn" label="Discard" (click)=discard() style="width: 8em"></button>
+                  </td>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card ui-g-12">
+          <div class="ui-g-12" style="padding-left: 3.4%; padding-right: 3.4%">
+            <p-table #dt [columns]="cols" [value]="props" [paginator]="true" [rows]="10" [pageLinks]="3"
+              [rowsPerPageOptions]="[10,20,25]" dataKey="knockoutPropertyId" editMode="row">
+              <ng-template pTemplate="caption">
+                <div class="ui-g">
+                  <div class="ui-g-12 ui-lg-6 ui-md-6">
+                    <input type="text" pInputText placeholder="Search" style="width:auto; float: left;"
+                      (input)="dt.filterGlobal($event.target.value, 'contains')">
+                  </div>
+                </div>
+              </ng-template>
+
+              <ng-template pTemplate="header" let-columns>
+                <tr>
+                  <th style="width: 5%">
+                    No
+                  </th>
+                  <th *ngFor="let col of columns" [ngSwitch]="col.field" [pSortableColumn]="col.field"
+                    [ngStyle]="{'width': col.width}">
+                    {{col.header}}
+                    <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+                      ariaLabelDesc="Activate to sort in descending order"
+                      ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                  </th>
+                  <th style="width: 10%" *ngIf="show">
+                    Action
+                  </th>
+                </tr>
+              </ng-template>
+
+              <ng-template pTemplate="body" let-properties let-rowIndex="rowIndex" let-ri="rowIndex" let-rowData
+                let-editing="editing">
+                <tr [pEditableRow]="rowData">
+                  <td style="text-align: center">
+                    {{rowIndex + 1}}
+                  </td>
+                  <td style="text-align: center">
+                    <p-cellEditor>
+                      <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="rowData.priority" pKeyFilter="int" required>
+                      </ng-template>
+                      <ng-template pTemplate="output">
+                        {{rowData.priority}}
+                      </ng-template>
+                    </p-cellEditor>
+                  </td>
+                  <td>
+                    <p-cellEditor>
+                      <ng-template pTemplate="input">
+                        <p-autoComplete [size]="20" placeholder="Choose Criteria" [dropdown]="true" field="lookupKey"
+                          [(ngModel)]="selectedLookup" [suggestions]="filteredLookup"
+                          (completeMethod)="filterParents($event)">
+                          <ng-template let-selectedLookup pTemplate="item">
+                            {{selectedLookup.lookupValue}}
+                          </ng-template>
+                        </p-autoComplete>
+                      </ng-template>
+                      <ng-template pTemplate="output">
+                        {{rowData.atributeCriteria}}
+                      </ng-template>
+                    </p-cellEditor>
+                  </td>
+                  <td>
+                    <p-cellEditor>
+                      <ng-template pTemplate="input">
+                        <p-autoComplete [size]="20" placeholder="Choose Operator" [dropdown]="true" field="lookupValue"
+                          [suggestions]="filteredLookupOperator" (completeMethod)="filterOperators($event)"
+                          [(ngModel)]="selectedLookupOperator">
+                          <ng-template let-selectedLookupOperator pTemplate="item">
+                            {{selectedLookupOperator.lookupValue}}
+                          </ng-template>
+                        </p-autoComplete>
+                      </ng-template>
+                      <ng-template pTemplate="output">
+                        {{rowData.operator}}
+                      </ng-template>
+                    </p-cellEditor>
+                  </td>
+                  <td>
+                    <p-cellEditor>
+                      <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="rowData.valueCriteria" pKeyFilter="int" required>
+                      </ng-template>
+                      <ng-template pTemplate="output">
+                        {{rowData.valueCriteria}}
+                      </ng-template>
+                    </p-cellEditor>
+                  </td>
+                  <td style="text-align: center">
+                    <p-cellEditor>
+                      <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="rowData.nextTrue" pKeyFilter="int" required>
+                      </ng-template>
+                      <ng-template pTemplate="output">
+                        {{rowData.nextTrue}}
+                      </ng-template>
+                    </p-cellEditor>
+                  </td>
+                  <td style="text-align: center">
+                    <p-cellEditor>
+                      <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="rowData.nextFalse" required>
+                      </ng-template>
+                      <ng-template pTemplate="output">
+                        {{rowData.nextFalse}}
+                      </ng-template>
+                    </p-cellEditor>
+                  </td>
+                  <td style="text-align: center">
+                    <p-cellEditor>
+                      <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="rowData.status" required>
+                      </ng-template>
+                      <ng-template pTemplate="output">
+                        {{rowData.status}}
+                      </ng-template>
+                    </p-cellEditor>
+                  </td>
+                  <td style="text-align: center" *ngIf="show">
+                    <button *ngIf="!editing" pButton type="button" pInitEditableRow icon="pi pi-pencil"
+                      class="ui-button-info" (click)="onRowEditInit(rowData)"></button>
+                    <button *ngIf="editing" pButton type="button" pSaveEditableRow icon="pi pi-check"
+                      class="ui-button-success" style="margin-right: .5em" (click)="updateCriteria(rowData)"></button>
+                    <button *ngIf="editing" pButton type="button" pCancelEditableRow icon="pi pi-times"
+                      class="ui-button-danger" (click)="onRowEditCancel(rowData, ri)"></button>
+                  </td>
+                </tr>
+              </ng-template>
+
+              <ng-template pTemplate="summary">
+                <h4>This Knockout has listed {{props?.length}} criteria(s)</h4>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+{
+    "data": [
+        {
+            "officeName": "PT Budi Jaya",
+            "officeCode": "BJ0001",
+            "fullName": "Kurnia Wijaya",
+            "npk": "00188967772",
+            "emailAddress": "kurniawijaya@gmail.com",
+            "phoneNumber": "085612097766",
+            "startDate": "01-Nov-2013",
+            "endDate": "Still Work",
+            "jobPosition": "Supervisor",
+            "directSupervisor": "Jauar Arda",
+            "limitSurveyPerDay": "2",
+            "productType": "Sahabat Muda",
+            "remark": "",
+            "isActive": true,
+            "isUnlock": true,
+            "ResetPassword": false
+        }
+    ]
+}

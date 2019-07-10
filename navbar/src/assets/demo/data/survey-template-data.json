@@ -1,0 +1,72 @@
+{
+    "data": [
+        {
+            "templateId": "1923749183",
+            "templeteName": "Template Kredit Sahabat Muda",
+            "description": "Template untuk Kredit sahabat muda",
+            "productType": "Kredit Sahabat Muda",
+            "surveyType": "Reguler",
+            "isActive": true,
+            "surveyQuestion": [
+                {
+                    "question": "Apa saja sumber pemasukkan nasabah ?",
+                    "dataType": "character",
+                    "isMandatory": true,
+                    "priority": "1"
+                },
+                {
+                    "question": "Berapa jumlah total pemasukan selama satu bulan ?",
+                    "dataType": "number",
+                    "isMandatory": true,
+                    "priority": "2"
+                },
+                {
+                    "question": "Berapa jumlah pengeluaran rutin selama satu bulan ?",
+                    "dataType": "number",
+                    "isMandatory": true,
+                    "priority": "3"
+                },
+                {
+                    "question": "Apaakah ada kredit lain yang belum lunas ?",
+                    "dataType": "boolean",
+                    "isMandatory": true,
+                    "priority": "4"
+                }
+            ]
+        },
+        {
+            "templateId": "1479387491",
+            "templeteName": "Template Kredit Special Kartini",
+            "description": "Template untuk kredit special kartini",
+            "productType": "Kredit Special Kartini",
+            "surveyType": "Reguler",
+            "isActive": true,
+            "surveyQuestion": [
+                {
+                    "question": "Apa saja sumber pemasukkan nasabah ?",
+                    "dataType": "character",
+                    "isMandatory": true,
+                    "priority": "1"
+                },
+                {
+                    "question": "Berapa jumlah total pemasukan selama satu bulan ?",
+                    "dataType": "number",
+                    "isMandatory": true,
+                    "priority": "2"
+                },
+                {
+                    "question": "Berapa jumlah pengeluaran rutin selama satu bulan ?",
+                    "dataType": "number",
+                    "isMandatory": true,
+                    "priority": "3"
+                },
+                {
+                    "question": "Apaakah ada kredit lain yang belum lunas ?",
+                    "dataType": "boolean",
+                    "isMandatory": true,
+                    "priority": "4"
+                }
+            ]
+        }
+    ]
+}

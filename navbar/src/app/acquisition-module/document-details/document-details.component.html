@@ -1,0 +1,235 @@
+<router-outlet #outlet="outlet"></router-outlet>
+<div class="ui-fluid" *ngIf="outlet.isActivated == false">
+  <div class="ui-g">
+    <div class="ui-grid-row ui-g-12 topbarsticky">
+      <div class="ui-g-12 ui-g-nopad">
+        <div class="ui-g-12 ui-md-6 ui-lg-6" style="padding-left: 12px">
+          <h1 style="margin-top: 6px; margin-bottom: 6px">Document Detail</h1>
+        </div>
+        <div class=" ui-g-12 ui-md-6 ui-lg-6 ui-rtl" dir="rtl" style="padding: 9px">
+          <button pButton *ngIf="!show" type="button" label="Edit" class="ui-button-warning"
+            (click)="toggleDisabled(); show=!show" style="width: 8em; margin: 3px"></button>
+          <button pButton *ngIf="!show" type="button" class="ui-button-secondary" style="width: 8em; margin: 3px"
+            label="Back" routerLink="/acquisition-doc/document">
+          </button>
+          <button pButton *ngIf="show" type="button" class="ui-button-success" style="width: 8em; margin: 3px"
+            label="Save" (click)="updateOffice(); toggleDisabled(); show=!show" [disabled]="!docForm1.valid">
+          </button>
+          <button pButton *ngIf="show" type="button" class="ui-button-secondary" style="width: 8em; margin: 3px"
+            label="Cancel" (click)="toggleDisabled(); show=!show">
+          </button>
+        </div>
+      </div>
+      <div class="ui-g-12">
+        <p-messages [(value)]="msgs"></p-messages>
+      </div>
+    </div>
+
+    <div class="card ui-g-12 ui-lg-12 ui-md-12">
+      <div class="ui-g-12" style="padding-left: 3.4%; padding-right: 3.4%">
+        <div class="ui-g-12 ui-g-nopad">
+          <div class="ui-g-2 ui-md-6">
+            <h3>Document Information</h3>
+          </div>
+        </div>
+
+        <div class="ui-g-12 ui-g-nopad">
+          <div class="ui-g-2 ui-md-2">
+            Category Name
+            <span style="color:red">*</span>
+          </div>
+          <div class="form-group ui-g-10 ui-md-4" [formGroup]="docForm1">
+            <input pInputText class="ui-lg-10 ui-md-10" placeholder="Knockout Name" type="text"
+              formControlName="docuCateName">
+          </div>
+          <div class="ui-g-12 ui-g-nopad"
+            *ngIf="!docForm1.controls['docuCateName'].valid && docForm1.controls['docuCateName'].dirty">
+            <div class="ui-g-2 ui-md-2">
+            </div>
+            <div class="form-group ui-g-10 ui-md-4">
+              <p-message severity="error"
+                [text]="docForm1.controls['docuCateName'].errors['required'] ? 'Document Category Name is required' : ''">
+              </p-message>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-g-12 ui-g-nopad">
+          <div class="ui-g-2 ui-md-2" style="padding-top: 15px">
+            Description
+            <span style="color:red">*</span>
+          </div>
+          <div class="form-group ui-g-10 ui-md-4" [formGroup]="docForm1">
+            <textarea class="ui-md-10 ui-lg-10" type="text" placeholder="Description" style="resize:none" pInputTextarea
+              formControlName="description"></textarea>
+          </div>
+          <div class="ui-g-12 ui-g-nopad"
+            *ngIf="!docForm1.controls['description'].valid && docForm1.controls['description'].dirty">
+            <div class="ui-g-2 ui-md-2">
+            </div>
+            <div class="form-group ui-g-10 ui-md-4">
+              <p-message severity="error"
+                [text]="docForm1.controls['description'].errors['required'] ? 'Description is required' : ''">
+              </p-message>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-g-12 ui-g-nopad">
+          <div class="ui-g-2 ui-md-2">
+            Is Active
+          </div>
+          <div class="form-group ui-g-10 ui-md-4" [formGroup]="docForm1">
+            <ui-switch checkedLabel="Yes" uncheckedLabel="No" size="small" color="#007bff" formControlName="isActive"
+              [ngStyle]="{'color': docForm1.get('isActive').value ? 'white' : '#333' }"></ui-switch>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card ui-g-12 ui-lg-12 ui-md-12" *ngIf="show">
+      <div class="ui-g-12 ui-g-nopad" style="padding-left: 3.4%; padding-right: 3.4%">
+        <h3>Document Criteria</h3>
+      </div>
+
+      <div class="ui-g-12" style="padding-left: 3.4%; padding-right: 3.4%">
+        <div class="ui-g-12 ui-g-nopad">
+          <div class="ui-g-2 ui-md-2">
+            Type
+            <span style="color:red">*</span>
+          </div>
+          <div class="form-group ui-g-10 ui-md-4" [formGroup]="docForm">
+            <p-autoComplete [size]="20" placeholder="Choose Criteria" [dropdown]="true" field="value"
+              formControlName="docAttrName" [suggestions]="filteredLookup" (completeMethod)="filterParents($event)">
+              <ng-template let-AttrName pTemplate="item">
+                {{AttrName.value}}
+              </ng-template>
+            </p-autoComplete>
+          </div>
+          <div class="ui-g-12 ui-g-nopad"
+            *ngIf="!docForm.controls['docAttrName'].valid && docForm.controls['docAttrName'].dirty">
+            <div class="ui-g-2 ui-md-2">
+            </div>
+            <div class="form-group ui-g-10 ui-md-4">
+              <p-message severity="error"
+                [text]="docForm.controls['docAttrName'].errors['required'] ? 'Attribute is required' : ''">
+              </p-message>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-g-12 ui-g-nopad">
+          <div class="ui-g-2 ui-md-2" style="padding-top: 15px">
+            Description
+          </div>
+          <div class="form-group ui-g-10 ui-md-4" [formGroup]="docForm">
+            <textarea class="ui-md-10 ui-lg-10" type="text" placeholder="Description" style="resize:none" pInputTextarea
+              formControlName="description"></textarea>
+          </div>
+          <div class="ui-g-12 ui-g-nopad"
+            *ngIf="!docForm.controls['description'].valid && docForm.controls['description'].dirty">
+            <div class="ui-g-2 ui-md-2">
+            </div>
+            <div class="form-group ui-g-10 ui-md-4">
+              <p-message severity="error"
+                [text]="docForm.controls['description'].errors['required'] ? 'Description is required' : ''">
+              </p-message>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-g-12 ui-g-nopad">
+          <div class="ui-g-2 ui-md-2">
+            Is Mandatory
+          </div>
+          <div class="form-group ui-g-10 ui-md-4" [formGroup]="docForm">
+            <ui-switch checkedLabel="Yes" uncheckedLabel="No" size="small" color="#007bff"
+              formControlName="isMandatory" [ngStyle]="{'color': docForm.get('isMandatory').value ? 'white' : '#333' }">
+            </ui-switch>
+          </div>
+        </div>
+
+        <div class="ui-g-12 ui-g-nopad">
+          <div class="ui-g-2 ui-md-2">
+            Is Active
+          </div>
+          <div class="form-group ui-g-10 ui-md-4" [formGroup]="docForm">
+            <ui-switch checkedLabel="Yes" uncheckedLabel="No" size="small" color="#007bff"
+              formControlName="isActive" [ngStyle]="{'color': docForm.get('isActive').value ? 'white' : '#333' }">
+            </ui-switch>
+          </div>
+        </div>
+
+        <div class="ui-g-12" style="float:right; padding-top: 15px;">
+          <td style=" padding-left:5px; float: right; padding-top: 5px">
+            <button pButton type="submit" class="ui-button-primary" label="Add" (click)="addCriteria()"
+              [disabled]="!docForm.valid" style="width: 8em"></button>
+          </td>
+          <td style=" padding-left:5px; float: right; padding-top: 5px">
+            <button pButton class="secondary-btn" label="Discard" (click)="cancelAdd()" style="width: 8em"></button>
+          </td>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui-g-12 card">
+
+      <div class="ui-g-12 ui-g-nopad" style="padding-left: 3.4%; padding-right: 3.4%" *ngIf="!show">
+        <h3>Document Criteria</h3>
+      </div>
+
+      <div class="ui-g-12" style="padding-left: 3.4%; padding-right: 3.4%">
+        <p-table #dt [columns]="cols" [value]="atts" [paginator]="true" [rows]="10" [pageLinks]="3"
+          [rowsPerPageOptions]="[10,20,25]" dataKey="docAttrId" editMode="row">
+
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th style="width: 5%">
+                No
+              </th>
+              <th *ngFor="let col of columns" [ngSwitch]="col.field" [pSortableColumn]="col.field"
+                [ngStyle]="{'width': col.width}">
+                {{col.header}}
+                <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+                  ariaLabelDesc="Activate to sort in descending order"
+                  ariaLabelAsc="Activate to sort in ascending order">
+                </p-sortIcon>
+              </th>
+              <th style="width: 10%">
+                Action
+              </th>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-rowIndex="rowIndex" let-rowData>
+            <tr [pEditableRow]="rowData">
+              <td style="text-align: center">
+                {{rowIndex + 1}}
+              </td>
+              <td>
+                {{rowData.docAttrName}}
+              </td>
+              <td>
+                {{rowData.description}}
+              </td>
+              <td style="text-align: center">
+                {{rowData.isActive ? 'Yes' : 'No'}}
+              </td>
+              <td style="text-align: center">
+                {{rowData.isMandatory ? 'Yes' : 'No'}}
+              </td>
+              <td style="text-align: center">
+                <span class="fa fa-pencil-square-o" (click)="onRowEditInit(rowData.docAttrId)"
+                  style="font-size: 1.2em; cursor: pointer;"></span>
+              </td>
+            </tr>
+          </ng-template>
+
+        </p-table>
+
+      </div>
+    </div>
+
+  </div>
+</div>

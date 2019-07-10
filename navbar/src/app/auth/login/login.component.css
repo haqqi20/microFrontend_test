@@ -1,0 +1,64 @@
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+/* Bottom left text */
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+
+/* Top left text */
+.top-left {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+/* Top right text */
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
+
+/* Bottom right text */
+.bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+}
+
+/* Centered text */
+.centered {
+    font-family:Roboto;
+    position: absolute;
+    top: 17%;
+    left: 10%;
+}
+.centered1 {
+    position: absolute;
+    width: 270px;
+    top: 38%;
+    left: 10%;
+}
+
+.square {
+    height: 350px;
+    width: 350px;
+    background-color:white;
+    position: absolute;
+    top: 20%;
+    left: 35%;
+}
+
+img {
+    position: absolute;
+    top: 10%;
+    left: 9%;
+    height: 30px;
+    width: 100px
+}

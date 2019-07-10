@@ -1,0 +1,22 @@
+{
+    "data": [
+        {
+            "officeName": "CV Kurnia Sejahtera",
+            "officeCode": "KS0011",
+            "fullName": "Fahmi Abdurohman",
+            "npk": "10055967122",
+            "emailAddress": "fahmiabdurohman@gmail.com",
+            "phoneNumber": "085619926600",
+            "startDate": "01-Dec-2015",
+            "endDate": "Still Work",
+            "jobPosition": "Supervisor",
+            "directSupervisor": "Wisnu Kalitama",
+            "limitSurveyPerDay": "1",
+            "productType": "Rumah Sejahtera",
+            "remark": "",
+            "isActive": true,
+            "isUnlock": true,
+            "ResetPassword": false
+        }
+    ]
+}

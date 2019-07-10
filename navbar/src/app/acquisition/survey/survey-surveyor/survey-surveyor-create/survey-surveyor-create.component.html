@@ -1,0 +1,257 @@
+<div class="ui-fluid">
+  <div class="ui-g">
+    <div style="margin-left: 40%; margin-top: 0%">
+      <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+    </div>
+
+    <div class="ui-g-12 topbarsticky">
+      <div class="ui-g-12 ui-g-nopad">
+        <div class="ui-g-12 ui-md-6 ui-lg-6">
+          <h1 style="margin-top: 6px; margin-bottom: 6px">Create Surveyor</h1>
+        </div>
+        <div class="ui-g-12 ui-md-6 ui-lg-6 ui-rtl" dir="rtl">
+          <button pButton type="submit" class="ui-button-success topbarbutton" label="Save" (click)="addSurveyor(Model, true)"
+            [disabled]="false" style="width: 8em"></button>
+          <button pButton type="submit" class="ui-button-warning topbarbutton" label="Save & New"
+            (click)="addSurveyor(Model)" [disabled]="false" style="width: 8em"></button>
+          <button pButton class="secondary-btn" label="Cancel" style="font-size:13px" (click)="confirm()"
+            style="width: 8em"></button>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-g-nopad">
+        <p-messages [(value)]="msgs"></p-messages>
+      </div>
+    </div>
+
+    <div class="ui-g-12 card">
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <h3>General Information</h3>
+        </div>
+        <div class="ui-g-12 ui-md-6 ui-lg-6" style="padding-right: 5%">
+          <div class="ui-g">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Full Name
+              </div>
+              <div class="ui-g-8 form-field">
+                <p-autoComplete [size]="20" placeholder="Choose surveyor" [dropdown]="true" [(ngModel)]="Model.fullName"
+                  [suggestions]="filteredEmployee" (completeMethod)="filterEmployee($event)"
+                  (onSelect)="getData(Model.fullName)">
+                  <ng-template let-value pTemplate="item">
+                    {{value.fullName}}
+                  </ng-template>
+                </p-autoComplete>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Npk
+              </div>
+              <div class="ui-g-8 form-field">
+                <input pInputText placeholder="Npk" type="text" [(ngModel)]="Model.npk" [disabled]="true">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Office Name
+              </div>
+              <div class="ui-g-8 form-field">
+                <input pInputText placeholder="Office Name" type="text" [(ngModel)]="Model.officeName" [disabled]="true">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Office Code
+              </div>
+              <div class="ui-g-8 form-field">
+                <input pInputText placeholder="Office code" type="text" [(ngModel)]="Model.officeCode"
+                  [disabled]="true">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Email Address
+              </div>
+              <div class="ui-g-8 form-field">
+                <input pInputText placeholder="Email address" type="text" [(ngModel)]="Model.emailAddress"
+                  [disabled]="true">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Phone Number
+              </div>
+              <div class="ui-g-8 form-field">
+                <input pInputText placeholder="Phone number" type="text" [(ngModel)]="Model.phoneNumber"
+                  [disabled]="true">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Start Date
+              </div>
+              <div class="ui-g-8 form-field">
+                <input pInputText placeholder="Start date" type="text" [(ngModel)]="Model.startDate" [disabled]="true">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                End Date
+              </div>
+              <div class="ui-g-8 form-field">
+                <input pInputText placeholder="End Date" type="text" [(ngModel)]="Model.endDate" [disabled]="true">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-md-6 ui-lg-6" style="padding-right: 5%">
+          <div class="ui-g">
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Job Position
+              </div>
+              <div class="ui-g-8 form-field">
+                <input pInputText placeholder="Job position" type="text" [(ngModel)]="Model.jobPosition"
+                  [disabled]="true">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Direct Supervisor
+              </div>
+              <div class="ui-g-8 form-field">
+                <input pInputText placeholder="Direct supervisor" type="text" [(ngModel)]="Model.directSupervisor"
+                  [disabled]="true">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Limit Survey per Day
+              </div>
+              <div class="ui-g-8 form-field">
+                <input pInputText placeholder="Limit survey per day" type="text" [(ngModel)]="Model.limitSurveyPerDay">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Limit Survey per Month
+              </div>
+              <div class="ui-g-8 form-field">
+                <input pInputText placeholder="Limit survey per month" type="text"
+                  [(ngModel)]="Model.limitSurveyPerMonth">
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Product Type
+              </div>
+              <div class="ui-g-8 form-field">
+                <p-autoComplete [size]="20" placeholder="Choose Product Type" [dropdown]="true"
+                  [(ngModel)]="Model.productType" [suggestions]="filteredProduct" (completeMethod)="filterProductType($event)">
+                </p-autoComplete>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Remark
+              </div>
+              <div class="ui-g-8 form-field">
+                <textarea pInputTextarea type="text" placeholder="Remark" style="resize:none" pInputTextarea
+                  [(ngModel)]="Model.remark"></textarea>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-g-nopad">
+              <div class="ui-g-4 form-field">
+                Is Active
+              </div>
+              <div class="ui-g-8 form-field">
+                <ui-switch checkedLabel="Yes" uncheckedLabel="No" size="small" color="#007bff"
+                  [(ngModel)]="Model.isActive" [ngStyle]="{'color': Model.isActive ? 'white' : '#333' }"></ui-switch>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui-g-12 card">
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <h3>Survey Area</h3>
+        </div>
+        <div class="ui-g-12">
+          <div class="ui-g">
+            <div class="ui-g-12 ui-md-6 ui-g-nopad">
+              <div class="ui-g">
+                <div class="ui-g-2">
+                  Location
+                </div>
+                <div class="ui-g-8">
+                  <p-autoComplete [(ngModel)]="selectedZipcode" [suggestions]="filteredLocations"
+                    (completeMethod)="filterLocations($event)" field="location" placeholder="Search location"
+                    [minLength]="3" (onSelect)="onSelectLocation()">
+                  </p-autoComplete>
+                </div>
+                <div class="ui-g-2">
+                  <button pButton label="Add" (click)="addLocation()" style="width: 8em"></button>
+                </div>
+              </div>
+            </div>
+            <div class="ui-g-12 ui-md-6"></div>
+          </div>
+        </div>
+        <div class="ui-g-12">
+          <p-table #dt [columns]="cols" [value]="Model.location" [paginator]="true" [rows]="10" [pageLinks]="3"
+            [rowsPerPageOptions]="[10,20,25]">
+
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th style="width: 7%">
+                  No
+                </th>
+                <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                  {{col.header}}
+                  <p-sortIcon [field]="col.field"></p-sortIcon>
+                </th>
+                <th style="width: 7%">
+                  Action
+                </th>
+              </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+              <tr [pSelectableRow]="rowData">
+                <td style="text-align: center">
+                  {{rowIndex + 1}}
+                </td>
+                <td>
+                  {{rowData['zipCode']}}
+                </td>
+                <td>
+                  {{rowData['vilage']}}
+                </td>
+                <td>
+                  {{rowData['district']}}
+                </td>
+                <td>
+                  {{rowData['city']}}
+                </td>
+                <td>
+                  {{rowData['province']}}
+                </td>
+                <td style="text-align: center">
+                  <i class="fa fa-trash-o" aria-hidden="true" (click)="delete(rowIndex)"
+                    style="font-size: 1.2em; cursor: pointer; color: red"></i>
+                </td>
+              </tr>
+            </ng-template>
+
+            <ng-template pTemplate="summary">
+              <h4>This Document has listed {{attribute?.length}} type(s)</h4>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

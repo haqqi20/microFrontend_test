@@ -1,0 +1,3 @@
+<app-products-message></app-products-message>
+<router-outlet #outlet="outlet"></router-outlet>
+<app-product-list *ngIf="outlet.isActivated == false"></app-product-list>

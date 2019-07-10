@@ -1,0 +1,97 @@
+<form [formGroup]="form">
+  <div *ngFor="let input of inputs; let i = index">
+    <div [formGroup]="form" *ngIf="i === 0 || (i !== 0 && inputs[i].id !== inputs[i-1].id)">
+      <div class="ui-g-12 ui-g-nopad">
+        <div class="ui-g-4 ui-lg-4 ui-md-4">
+          <label>{{input.label}}</label>
+        </div>
+        <div class="ui-g-8 ui-lg-8 ui-md-8">
+          <div *ngIf="input.valueType === 'static'; else range;">
+            <div [ngSwitch]="input.controlType">
+
+              <div *ngSwitchCase="'textbox'">
+                <div *ngIf="input.type === 'Currency'; else noCurrency;">
+                  <input pInputText [id]="input.key" [formControlName]="input.key" currencyMask
+                    [options]="input.currencyOptions">
+                </div>
+                <ng-template #noCurrency>
+                  <input pInputText [id]="input.key" [formControlName]="input.key" [type]="input.type">
+                </ng-template>
+              </div>
+
+              <p-autoComplete *ngSwitchCase="'dropdown'" [suggestions]="input.filteredOptions"
+                (completeMethod)="input.filterOptions($event)" [placeholder]="'Choose ' + input.label" [minLength]="1"
+                [dropdown]="true" field="lookupValue" [formControlName]="input.key">
+                <ng-template let-option pTemplate="item">
+                  {{option.lookupValue}}
+                </ng-template>
+              </p-autoComplete>
+
+            </div>
+          </div>
+          <ng-template #range>
+            <div [ngSwitch]="input.controlType">
+
+              <div *ngSwitchCase="'textbox'">
+                <div *ngIf="input.type === 'Currency'; else rangeNoCurrency;">
+                  <div class="ui-g-5 ui-g-nopad">
+                    <input pInputText [formControlName]="input.key" currencyMask [options]="input.currencyOptions">
+                  </div>
+                  <div class="ui-g-2 ui-g-nopad" style="text-align: center; font-size: large">-</div>
+                  <div class="ui-g-5 ui-g-nopad">
+                    <input pInputText [formControlName]="'max' + input.key" currencyMask
+                      [options]="input.currencyOptions">
+                  </div>
+                </div>
+                <ng-template #rangeNoCurrency>
+                  <div class="ui-g-5 ui-g-nopad">
+                    <input pInputText [formControlName]="input.key" [type]="input.type">
+                  </div>
+                  <div class="ui-g-2 ui-g-nopad" style="text-align: center; font-size: large">-</div>
+                  <div class="ui-g-5 ui-g-nopad">
+                    <input pInputText [formControlName]="'max' + input.key" [type]="input.type">
+                  </div>
+                </ng-template>
+
+              </div>
+
+              <div *ngSwitchCase="'dropdown'">
+                <div class="ui-g-5 ui-g-nopad">
+                  <p-autoComplete [suggestions]="input.filteredOptions" (completeMethod)="input.filterOptions($event)"
+                    [placeholder]="'Choose ' + input.label" [minLength]="1" [dropdown]="true" field="lookupValue"
+                    [formControlName]="input.key">
+                    <ng-template let-option pTemplate="item">
+                      {{option.lookupValue}}
+                    </ng-template>
+                  </p-autoComplete>
+                </div>
+                <div class="ui-g-2 ui-g-nopad" style="text-align: center; font-size: large">-</div>
+                <div class="ui-g-5 ui-g-nopad">
+                  <p-autoComplete [suggestions]="input.filteredOptions" (completeMethod)="input.filterOptions($event)"
+                    [placeholder]="'Choose ' + input.label" [minLength]="1" [dropdown]="true" field="lookupValue"
+                    [formControlName]="'max' + input.key">
+                    <ng-template let-option pTemplate="item">
+                      {{option.lookupValue}}
+                    </ng-template>
+                  </p-autoComplete>
+                </div>
+              </div>
+
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-g-nopad"
+        *ngIf="!form.controls[input.key].valid && (form.controls[input.key].dirty
+                                                || form.controls[input.key].touched || form.controls[input.key].submitted)">
+        <div class="ui-g-4 ui-lg-4 ui-md-4"></div>
+        <div class="ui-g-8 ui-lg-8 ui-md-8">
+          <p-message severity="error"
+            [text]="form.controls[input.key].errors['required'] ? input.label + ' is required' : ''">
+          </p-message>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+{{form.value | json}}

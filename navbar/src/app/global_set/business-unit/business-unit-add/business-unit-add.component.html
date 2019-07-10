@@ -1,0 +1,60 @@
+<router-outlet></router-outlet>
+<div class="ui-g">
+  <div class="ui-g-12 topbarsticky">
+    <div class="ui-g-12" style="float:right">
+      <td style="padding-left:5px; float: left; position: absolute; top: 0px">
+        <h1>Add Business Unit</h1>
+      </td>
+      <td style="padding-right: 5px; float: right;">
+        <button pButton type="submit" icon="pi pi-save" class="ui-button-success" label="Save" (click)="addBusu()"
+          routerLink="/globalsetting/business-unit" style="font-size:13px"></button>
+      </td>
+      <td style="padding-right: 5px; float: right;">
+        <button pButton type="submit" icon="pi pi-plus" label="Save & New" class="ui-button-warning"
+          (click)="addBusu(); showSuccess();" 
+          routerLink="/globalsetting/business-unit/add" style="font-size:13px"></button>
+      </td>
+      <td style="padding-right: 5px; float: right;">
+        <button pButton icon="pi pi-times" class="secondary-btn" routerLink="/globalsetting/business-unit"
+          label="Cancel" style="font-size:13px"></button>
+      </td>
+    </div>
+  </div>
+  <div class="ui-grid-row ui-g-12"
+    style="float: right; position: sticky; position: -webkit-sticky; top: 60px; background-color: white">
+    <div class="card ui-g-12">
+      <h2>Business Unit</h2>
+    </div>
+    <!-- </div> -->
+    <div class="ui-g-2">
+      Name
+    </div>
+    <div class="ui-g-9 ui-md-9">
+      <input class="ui-lg-4" type="text" maxlength="50  " placeholder="B.U. Name" [(ngModel)]="businessUnit.name"
+        pInputText>
+    </div>
+    <br>
+    <div class="ui-g-2">
+      Type
+    </div>
+    <div class="ui-g-9 ui-md-9">
+      <input class="ui-lg-2" type="text" maxlength="1" placeholder="B.U. Type" [(ngModel)]="businessUnit.businessunitType"
+        pInputText>
+    </div>
+    <br>
+    <div class="ui-g-2">
+      Status
+    </div>
+    <div class="ui-g-9 ui-md-9">
+      <input class="ui-lg-2" type="text" maxlength="20" placeholder="B.U. Status" [(ngModel)]="businessUnit.status"
+        pInputText>
+    </div>
+    <div class="ui-g-2">
+      Is Active
+    </div>
+    <div class="ui-g-10 ui-md-10">
+      <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+      <br><br>
+    </div>
+  </div>
+</div>
