@@ -37,7 +37,7 @@
     "chart.js": "2.7.3",
     "core-js": "2.5.7",
     "font-awesome": "4.7.0",
-    "fullcalendar": "4.0.0-alpha.2",
+    "fullcalendar": "6.0.2",
     "intl": "1.2.5",
     "ngx-avatar": "^3.3.5",
     "ngx-cookie-service": "^2.1.0",
